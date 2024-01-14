@@ -21,7 +21,7 @@ struct Welcome: View {
             areas: [
                 OnboardingInformationView.Content(
                     icon: {
-                        Image(systemName: "apps.iphone")
+                        Image(systemName: "fork.knife")
                             .accessibilityHidden(true)
                     },
                     title: "WELCOME_AREA1_TITLE",
@@ -29,7 +29,7 @@ struct Welcome: View {
                 ),
                 OnboardingInformationView.Content(
                     icon: {
-                        Image(systemName: "shippingbox.fill")
+                        Image(systemName: "figure.strengthtraining.functional")
                             .accessibilityHidden(true)
                     },
                     title: "WELCOME_AREA2_TITLE",
