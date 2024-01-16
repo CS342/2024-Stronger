@@ -53,7 +53,7 @@
     {
       "linkId": "dcea2683-9815-4505-b240-e75b502b29ef",
       "type": "choice",
-      "text": "How often do you need someone to help you if you were confined to bed?",
+      "text": "How much experience do you have with resistance training? (1: No experience, 5: Very experienced)",
       "required": false,
       "answerOption": [
         {
@@ -61,7 +61,7 @@
             "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
             "code": "1",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "None of the time"
+            "display": "1"
           }
         },
         {
@@ -69,7 +69,7 @@
             "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
             "code": "2",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "A little of the time"
+            "display": "2"
           }
         },
         {
@@ -77,7 +77,7 @@
             "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
             "code": "3",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Some of the time"
+            "display": "3"
           }
         },
         {
@@ -85,7 +85,7 @@
             "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
             "code": "4",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Most of the time"
+            "display": "4"
           }
         },
         {
@@ -93,7 +93,7 @@
             "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
             "code": "5",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "All of the time"
+            "display": "5"
           }
         }
       ]
@@ -101,7 +101,7 @@
     {
       "linkId": "ce09d701-7b93-4150-defb-51825e05ade9",
       "type": "choice",
-      "text": "How often do you need someone to take you to the doctor if you needed it?",
+      "text": "How familiar are you with the recommended protein intake for postmenopausal women? (1: Not familiar, 5: Very familiar)",
       "required": false,
       "answerOption": [
         {
@@ -109,7 +109,7 @@
             "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
             "code": "1",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "None of the time"
+            "display": "1"
           }
         },
         {
@@ -117,7 +117,7 @@
             "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
             "code": "2",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "A little of the time"
+            "display": "2"
           }
         },
         {
@@ -125,7 +125,7 @@
             "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
             "code": "3",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Some of the time"
+            "display": "3"
           }
         },
         {
@@ -133,7 +133,7 @@
             "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
             "code": "4",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Most of the time"
+            "display": "4"
           }
         },
         {
@@ -141,7 +141,7 @@
             "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
             "code": "5",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "All of the time"
+            "display": "5"
           }
         }
       ]
@@ -149,7 +149,7 @@
     {
       "linkId": "58e97564-5f4d-4d4b-86d5-6429cbbc7a8e",
       "type": "choice",
-      "text": "How often do you need someone to prepare your meals if you were unable to do it yourself?",
+      "text": "How frequently do you engage in exercises specifically aimed at muscle strengthening? (1: Never, 5: Daily)",
       "required": false,
       "answerOption": [
         {
@@ -157,7 +157,7 @@
             "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
             "code": "1",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "None of the time"
+            "display": "1"
           }
         },
         {
@@ -165,7 +165,7 @@
             "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
             "code": "2",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "A little of the time"
+            "display": "2"
           }
         },
         {
@@ -173,7 +173,7 @@
             "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
             "code": "3",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Some of the time"
+            "display": "3"
           }
         },
         {
@@ -181,7 +181,7 @@
             "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
             "code": "4",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Most of the time"
+            "display": "4"
           }
         },
         {
@@ -189,7 +189,7 @@
             "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
             "code": "5",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "All of the time"
+            "display": "5"
           }
         }
       ]
@@ -197,7 +197,7 @@
     {
       "linkId": "ad161c49-e8a6-4d31-90e8-02b2887a765f",
       "type": "choice",
-      "text": "How often do you need someone to help with daily chores if you were sick",
+      "text": "When was the last time you followed a structured exercise program? (1: It's been over a year, 5: I am currently following one)",
       "required": false,
       "answerOption": [
         {
@@ -205,7 +205,7 @@
             "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
             "code": "1",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "None of the time"
+            "display": "1"
           }
         },
         {
@@ -213,7 +213,7 @@
             "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
             "code": "2",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "A little of the time"
+            "display": "2"
           }
         },
         {
@@ -221,7 +221,7 @@
             "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
             "code": "3",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Some of the time"
+            "display": "3"
           }
         },
         {
@@ -229,7 +229,7 @@
             "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
             "code": "4",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "Most of the time"
+            "display": "4"
           }
         },
         {
@@ -237,13 +237,205 @@
             "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
             "code": "5",
             "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
-            "display": "All of the time"
+            "display": "5"
           }
         }
       ]
     },
     {
-      "linkId": "ba518851-2843-4bbd-c0f7-5b5692d542e0",
+      "linkId": "245ea0cb-9867-41d3-80d7-4b5092b073fa",
+      "type": "choice",
+      "text": "How often do you review or seek out information on maintaining health during postmenopause? (1: Never, 5: Very often)",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
+            "code": "1",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
+            "code": "2",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
+            "code": "3",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
+            "code": "4",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
+            "code": "5",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "5"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "58e75184-adc6-475e-8ee8-f7efce9ae081",
+      "type": "choice",
+      "text": "How regularly do you track your dietary intake, including protein? (1: Never, 5: Every day)",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
+            "code": "1",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
+            "code": "2",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
+            "code": "3",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
+            "code": "4",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
+            "code": "5",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "5"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "505a1ec2-5579-4222-87b7-90bffad0e4c3",
+      "type": "choice",
+      "text": "How often have you participated in health or wellness studies? (1: Never, 5: Frequently)",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
+            "code": "1",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
+            "code": "2",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
+            "code": "3",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
+            "code": "4",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
+            "code": "5",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "5"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "9798f4f4-d54f-45c1-8157-0f9a887c77ce",
+      "type": "choice",
+      "text": "How would you rate your current level of physical activity compared to your activity level before menopause? (1: Much less active, 5: Much more active)",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "3d6fe1b8-c64b-497c-8583-db7ddda9e94e",
+            "code": "1",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b4081e9d-d0f1-4aea-9a15-eac4a15d1d10",
+            "code": "2",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e32f7952-e280-48d7-9746-c13dbb26638f",
+            "code": "3",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d2f6172d-9402-4cb3-870a-584a7be3a5d7",
+            "code": "4",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ec48001e-f03e-4a14-8a7a-9fcf34fa81d2",
+            "code": "5",
+            "system": "urn:uuid:e9ecdd47-2e8b-49b3-8780-9d0769a246aa",
+            "display": "5"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ccd66042-621e-4bc5-d129-79c38f74261a",
       "type": "integer",
       "text": "What is your age?",
       "extension": [
