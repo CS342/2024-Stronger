@@ -16,12 +16,12 @@ struct Contacts: View {
     let contacts = [
         Contact(
             name: PersonNameComponents(
-                givenName: "Leland",
-                familyName: "Stanford"
+                givenName: "Mike",
+                familyName: "Baiocchi, PhD"
             ),
             image: Image(systemName: "figure.wave.circle"), // swiftlint:disable:this accessibility_label_for_image
-            title: "University Founder",
-            description: String(localized: "LELAND_STANFORD_BIO"),
+            title: "Principal Investigator",
+            description: "Mentor for this project",
             organization: "Stanford University",
             address: {
                 let address = CNMutablePostalAddress()
@@ -29,13 +29,46 @@ struct Contacts: View {
                 address.state = "CA"
                 address.postalCode = "94305"
                 address.city = "Stanford"
-                address.street = "450 Serra Mall"
+                address.street = "1265 Welch Road"
                 return address
             }(),
             contactOptions: [
                 .call("+1 (650) 723-2300"),
                 .text("+1 (650) 723-2300"),
-                .email(addresses: ["contact@stanford.edu"]),
+                .email(addresses: ["baiocchi@stanford.edu"]),
+                ContactOption(
+                    image: Image(systemName: "safari.fill"), // swiftlint:disable:this accessibility_label_for_image
+                    title: "Website",
+                    action: {
+                        if let url = URL(string: "https://stanford.edu") {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                )
+            ]
+        ),
+        Contact(
+            name: PersonNameComponents(
+                givenName: "Marily",
+                familyName: "Opprezzo, PhD, MS, RDN, DipACLM"
+            ),
+            image: Image(systemName: "figure.wave.circle"), // swiftlint:disable:this accessibility_label_for_image
+            title: "Principal Investigator",
+            description: "Instructor, Medicine",
+            organization: "Stanford University",
+            address: {
+                let address = CNMutablePostalAddress()
+                address.country = "USA"
+                address.state = "CA"
+                address.postalCode = "94305"
+                address.city = "Stanford"
+                address.street = "Mail Code: 5411"
+                return address
+            }(),
+            contactOptions: [
+                .call("+1 (650) 723-2300"),
+                .text("+1 (650) 723-2300"),
+                .email(addresses: ["moppezzo@stanford.edu"]),
                 ContactOption(
                     image: Image(systemName: "safari.fill"), // swiftlint:disable:this accessibility_label_for_image
                     title: "Website",
