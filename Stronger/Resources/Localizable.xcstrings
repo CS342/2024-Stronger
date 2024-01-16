@@ -307,6 +307,28 @@
         }
       }
     },
+    "MARILY_OPPEZZO_BIO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marily Oppezzo is a behavioral and learning scientist. She completed her doctorate in Educational Psychology at Stanford in 2013. She also is a registered dietitian and has her master's of nutritional science. She completed her dietetic internship at the Palo Alto Veterans Hospital, and currently consults as a sports dietitian for Stanford's Runsafe program. Her research interests leverage her interdisciplinary training, with a focus on how to get people to change to improve their health and well-being. Specifically, these areas include: using social media to motivate physical activity changes in those with or at risk for heart disease; culturally tailoring nutrition and physical activity recommendations and education materials for an Alaskan native population; how walking can be used to improve people's cognitive and creative thinking; and applying learning theories to medical education topics."
+          }
+        }
+      }
+    },
+    "MICHAEL_BAIOCCHI_BIO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Professor Baiocchi is a PhD statistician in Stanford University's Epidemiology and Population Health Department. He thinks a lot about behavioral interventions and how to rigorously evaluate if and how they work. Methodologically, his work focuses on creating statistically rigorous methods for causal inference that are transparent and easy to critique. He designed -- and was the principle investigator for -- two large randomized studies of interventions to prevent sexual assault in the settlements of Nairobi, Kenya."
+          }
+        }
+      }
+    },
     "MOCK_WEB_SERVICE_TAB_TITLE" : {
       "comment" : "MARK: - Mock Upload Data Storage Provider",
       "localizations" : {

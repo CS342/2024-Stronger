@@ -21,7 +21,7 @@ struct Contacts: View {
             ),
             image: Image(systemName: "figure.wave.circle"), // swiftlint:disable:this accessibility_label_for_image
             title: "Principal Investigator",
-            description: "Mentor for this project",
+            description: String(localized: "MICHAEL_BAIOCCHI_BIO"),
             organization: "Stanford University",
             address: {
                 let address = CNMutablePostalAddress()
@@ -40,7 +40,7 @@ struct Contacts: View {
                     image: Image(systemName: "safari.fill"), // swiftlint:disable:this accessibility_label_for_image
                     title: "Website",
                     action: {
-                        if let url = URL(string: "https://stanford.edu") {
+                        if let url = URL(string: "https://profiles.stanford.edu/michael-baiocchi") {
                             UIApplication.shared.open(url)
                         }
                     }
@@ -50,11 +50,11 @@ struct Contacts: View {
         Contact(
             name: PersonNameComponents(
                 givenName: "Marily",
-                familyName: "Opprezzo, PhD, MS, RDN, DipACLM"
+                familyName: "Oppezzo, PhD, MS, RDN, DipACLM"
             ),
             image: Image(systemName: "figure.wave.circle"), // swiftlint:disable:this accessibility_label_for_image
             title: "Principal Investigator",
-            description: "Instructor, Medicine",
+            description: String(localized: "MARILY_OPPEZZO_BIO"),
             organization: "Stanford University",
             address: {
                 let address = CNMutablePostalAddress()
@@ -73,7 +73,7 @@ struct Contacts: View {
                     image: Image(systemName: "safari.fill"), // swiftlint:disable:this accessibility_label_for_image
                     title: "Website",
                     action: {
-                        if let url = URL(string: "https://stanford.edu") {
+                        if let url = URL(string: "https://profiles.stanford.edu/marily-oppezzo") {
                             UIApplication.shared.open(url)
                         }
                     }
