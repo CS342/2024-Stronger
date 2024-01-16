@@ -37,11 +37,19 @@ struct Welcome: View {
                 ),
                 OnboardingInformationView.Content(
                     icon: {
-                        Image(systemName: "list.bullet.clipboard.fill")
+                        Image(systemName: "figure.run")
                             .accessibilityHidden(true)
                     },
                     title: "WELCOME_AREA3_TITLE",
                     description: "WELCOME_AREA3_DESCRIPTION"
+                ),
+                OnboardingInformationView.Content(
+                    icon: {
+                        Image(systemName: "list.bullet.clipboard.fill")
+                            .accessibilityHidden(true)
+                    },
+                    title: "WELCOME_AREA4_TITLE",
+                    description: "WELCOME_AREA4_DESCRIPTION"
                 )
             ],
             actionText: "WELCOME_BUTTON",
