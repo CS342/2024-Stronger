@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "new_app_icon.jpeg",
+      "filename" : "new_app_icon.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
