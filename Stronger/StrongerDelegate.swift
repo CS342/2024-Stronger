@@ -31,7 +31,7 @@ class StrongerDelegate: SpeziAppDelegate {
                 
 
                     // additional values stored using the `FirestoreAccountStorage` within our Standard implementation
-                    .collects(\.genderIdentity),
+                    .collects(\.genderIdentity)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {
