@@ -27,10 +27,7 @@ class StrongerDelegate: SpeziAppDelegate {
                     .requires(\.name),
                     .requires(\.password),
                     .requires(\.email),
-                    .requires(\.dateOfBirth)
-                
-
-                    // additional values stored using the `FirestoreAccountStorage` within our Standard implementation
+                    .requires(\.dateOfBirth),
                     .collects(\.genderIdentity)
                 ])
 
