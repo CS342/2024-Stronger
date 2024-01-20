@@ -180,7 +180,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chat with Pro-ChatBot to keep track of your daily protein intake."
+            "value" : "To help track your daily protein intake."
           }
         }
       }
@@ -200,7 +200,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Meet your resistance training goals with the resistance tracker."
+            "value" : "To help you meet your resistance training goals."
           }
         }
       }
@@ -220,7 +220,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Meet your aerobic exercise goals with the aerobics tracker."
+            "value" : "To help you meet your aerobic exercise goals."
           }
         }
       }
@@ -240,7 +240,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Watch resistance training exercise videos, get tailored diet plans via online consultation services and more."
+            "value" : "Watch exercise videos, get tailored diet plans, sign-up for online consultation or share your experiences with the community."
           }
         }
       }
@@ -270,7 +270,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The app has the following features to help you keep track of your protein intake and physical fitness journey."
+            "value" : "Elevate your strength game with Stronger, where seamless protein tracking meets powerful resistance training, sculpting a stronger you every day."
           }
         }
       }
@@ -457,7 +457,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Track your daily protein intake using the Pro-ChatBot tracker."
+            "value" : "Track your daily protein intake here."
           }
         }
       }
@@ -513,18 +513,16 @@
       }
     },
     "WELCOME_AREA4_DESCRIPTION" : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Find tailored diet plans, resistance training exercise videos and more."
+            "value" : "Find tailored diet plans, exercise videos and more."
           }
         }
       }
     },
     "WELCOME_AREA4_TITLE" : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -549,7 +547,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This application helps maintain muscle mass and health in women after menopause."
+            "value" : "Welcome to Stronger, your new companion to post-menopausal fitness."
           }
         }
       }
@@ -560,7 +558,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi\nStronger"
+            "value" : "Stronger"
           }
         }
       }
