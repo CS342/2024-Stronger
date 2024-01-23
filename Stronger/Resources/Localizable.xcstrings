@@ -180,7 +180,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The onboarding module allows you to build an onboarding flow like this one."
+            "value" : "To help track your daily protein intake."
           }
         }
       }
@@ -190,7 +190,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Onboarding"
+            "value" : "Pro-ChatBot"
           }
         }
       }
@@ -200,7 +200,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The application uses HL7 FHIR to provide a common standard to encode data gathered by the application."
+            "value" : "To help you meet your resistance training goals."
           }
         }
       }
@@ -210,7 +210,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "HL7 FHIR"
+            "value" : "Resistance Training tracker"
           }
         }
       }
@@ -220,7 +220,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The contact module allows you to display contact information in your application."
+            "value" : "To help you meet your aerobic exercise goals."
           }
         }
       }
@@ -230,7 +230,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Contact"
+            "value" : "Aerobics tracker"
           }
         }
       }
@@ -240,7 +240,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The HealthKit data source module allows you to fetch data from HealthKit and e.g. transform it to FHIR resources."
+            "value" : "Watch exercise videos, get tailored diet plans, sign-up for online consultation or share your experiences with the community."
           }
         }
       }
@@ -250,7 +250,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "HealthKit Data Source"
+            "value" : "Resources"
           }
         }
       }
@@ -270,7 +270,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Here are a few Spezi modules that are interesting to know about ..."
+            "value" : "Elevate your strength game with Stronger, where seamless protein tracking meets powerful resistance training, sculpting a stronger you every day."
           }
         }
       }
@@ -281,10 +281,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Interesting Modules"
+            "value" : "Features"
           }
         }
       }
+    },
+    "Key" : {
+
     },
     "LELAND_STANFORD_BIO" : {
       "localizations" : {
@@ -454,7 +457,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Spezi Framework builds the foundation of this application."
+            "value" : "Track your daily protein intake here."
           }
         }
       }
@@ -464,7 +467,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Spezi Framework"
+            "value" : "Pro-ChatBot"
           }
         }
       }
@@ -474,7 +477,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi uses the Swift Package Manager to import it as a dependency."
+            "value" : "Track your resistance training journey here."
           }
         }
       }
@@ -484,7 +487,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Swift Package Manager"
+            "value" : "Resistance training tracker"
           }
         }
       }
@@ -494,7 +497,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi offers several modules including HealthKit integration, questionnaires, and more ..."
+            "value" : "Track your aerobic exercise journey here."
           }
         }
       }
@@ -504,7 +507,27 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi Modules"
+            "value" : "Aerobics tracker"
+          }
+        }
+      }
+    },
+    "WELCOME_AREA4_DESCRIPTION" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find tailored diet plans, exercise videos and more."
+          }
+        }
+      }
+    },
+    "WELCOME_AREA4_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resources"
           }
         }
       }
@@ -524,7 +547,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This application demonstrates several Spezi features & modules."
+            "value" : "Welcome to Stronger, your new companion to post-menopausal fitness."
           }
         }
       }
@@ -535,7 +558,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi\nStronger"
+            "value" : "Stronger"
           }
         }
       }
