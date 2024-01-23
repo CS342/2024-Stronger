@@ -149,7 +149,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This onboarding step allows you to customize the onboarding flow to explain how the application uses the HealhtKit data and allows a user to cusomize the selection."
+            "value" : "Stronger needs access to your protein intake and resistance training exercise time in order to make sure you're on the right track!"
           }
         }
       }
@@ -159,7 +159,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi can access data from HealthKit using the HealthKitDataSource module."
+            "value" : "Choose which HealthKit data to give Stronger access to"
           }
         }
       }
@@ -347,7 +347,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Allow Notifications"
           }
         }
@@ -357,7 +357,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "The Spezi Scheduler module enables to send out local notifications when a new event of a task is scheduled."
           }
         }
@@ -367,7 +367,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Spezi Scheduler Notifications."
           }
         }
@@ -378,7 +378,7 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Notifications"
           }
         }
