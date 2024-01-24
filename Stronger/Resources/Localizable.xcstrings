@@ -429,22 +429,22 @@
         }
       }
     },
-    "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION" : {
+    "TASK_NEW_QUESTIONNAIRE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please fill out the Social Support Questionnaire every day."
+            "value" : "Please fill out the Postmenopausal Health and Fitness Questionnaire every day."
           }
         }
       }
     },
-    "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE" : {
+    "TASK_NEW_QUESTIONNAIRE_TITLE" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Social Support Questionnaire"
+            "value" : "Postmenopausal Health and Fitness Questionnaire"
           }
         }
       }

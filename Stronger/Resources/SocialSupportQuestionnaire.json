@@ -3,7 +3,7 @@
   "language": "en-US",
   "id": "socialsupport",
   "name": "SocialSupport",
-  "title": "Social Support",
+  "title": "Postmenopausal Health and Fitness App Engagement",
   "description": "This survey measures tangible social support plus a couple of demographic questions.",
   "version": "1",
   "status": "draft",
@@ -31,7 +31,7 @@
         "coding": [
           {
             "system": "urn:oid:2.16.578.1.12.4.1.1.8655",
-            "display": "Social Support"
+            "display": "Postmenopausal Health and Fitness App Engagement"
           }
         ]
       }
