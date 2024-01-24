@@ -25,7 +25,6 @@ class StrongerDelegate: SpeziAppDelegate {
                 AccountConfiguration(configuration: [
                     .requires(\.userId),
                     .requires(\.name),
-                    .requires(\.password),
                     .requires(\.email),
                     .requires(\.dateOfBirth),
                     .collects(\.genderIdentity)
