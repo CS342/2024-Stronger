@@ -76,7 +76,15 @@ class StrongerDelegate: SpeziAppDelegate {
     private var healthKit: HealthKit {
         HealthKit {
             CollectSample(
-                HKQuantityType(.stepCount),
+                HKQuantityType(.appleExerciseTime),
+                deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
+            )
+            CollectSample(
+                HKQuantityType(.dietaryProtein),
+                deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
+            )
+            CollectSample(
+                HKWorkoutType.workoutType(),
                 deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
             )
         }

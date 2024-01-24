@@ -149,7 +149,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This onboarding step allows you to customize the onboarding flow to explain how the application uses the HealhtKit data and allows a user to cusomize the selection."
+            "value" : "Stronger needs access to your protein intake and resistance training exercise time in order to make sure you're on the right track!"
           }
         }
       }
@@ -159,7 +159,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi can access data from HealthKit using the HealthKitDataSource module."
+            "value" : "Choose which HealthKit data to give Stronger access to"
           }
         }
       }
@@ -286,9 +286,6 @@
         }
       }
     },
-    "Key" : {
-
-    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -339,47 +336,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mock Web Service"
-          }
-        }
-      }
-    },
-    "NOTIFICATION_PERMISSIONS_BUTTON" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Allow Notifications"
-          }
-        }
-      }
-    },
-    "NOTIFICATION_PERMISSIONS_DESCRIPTION" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The Spezi Scheduler module enables to send out local notifications when a new event of a task is scheduled."
-          }
-        }
-      }
-    },
-    "NOTIFICATION_PERMISSIONS_SUBTITLE" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spezi Scheduler Notifications."
-          }
-        }
-      }
-    },
-    "NOTIFICATION_PERMISSIONS_TITLE" : {
-      "comment" : "MARK: Notifications",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notifications"
           }
         }
       }
