@@ -31,16 +31,6 @@
         }
       }
     },
-    "ACCOUNT_SUBTITLE" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The Stronger demonstrates the usage of the Firebase Account Module."
-          }
-        }
-      }
-    },
     "ACCOUNT_TITLE" : {
       "comment" : "MARK: Account",
       "localizations" : {
