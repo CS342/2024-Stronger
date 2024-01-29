@@ -22,8 +22,8 @@ struct AccountSetupHeader: View {
                 .bold()
                 .padding(.bottom)
                 .padding(.top, 30)
-            Text("ACCOUNT_SUBTITLE")
-                .padding(.bottom, 8)
+            Text("Please sign-in to continue your Stronger journey")
+                .padding([.leading, .bottom, .trailing], 8)
             if account.signedIn, case .generic = setupState {
                 Text("ACCOUNT_SIGNED_IN_DESCRIPTION")
             } else {
