@@ -10,7 +10,9 @@ import SwiftUI
 struct InputForm: View {
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1" // Default selection
-    let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
+        let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
+    @State private var selectedDifficulty: String = "Easy" // Default selection
+        let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
 
     var body: some View {
         NavigationStack {
@@ -23,6 +25,14 @@ struct InputForm: View {
                         Text(option).tag(option)
                     }
                 }
+                
+                // Dropdown Picker
+                Picker("Select Difficulty", selection: $selectedDifficulty) {
+                    ForEach(difficulties, id: \.self) { option in
+                        Text(option).tag(option)
+                    }
+                }
+
             }
             .navigationBarTitle("Input Results")
         }
