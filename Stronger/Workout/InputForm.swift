@@ -17,22 +17,33 @@ struct InputForm: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Number of Reps", text: $numReps)
-
-                // Dropdown Picker
-                Picker("Select Band", selection: $selectedBand) {
-                    ForEach(bands, id: \.self) { option in
-                        Text(option).tag(option)
+                Section(header: Text("Workout Details")) {
+                    TextField("Number of Reps", text: $numReps)
+                    
+                    // Dropdown Picker
+                    Picker("Select Band", selection: $selectedBand) {
+                        ForEach(bands, id: \.self) { option in
+                            Text(option).tag(option)
+                        }
+                    }
+                    
+                    // Dropdown Picker
+                    Picker("Select Difficulty", selection: $selectedDifficulty) {
+                        ForEach(difficulties, id: \.self) { option in
+                            Text(option).tag(option)
+                        }
+                    }
+                    
+                }
+                Section {
+                    HStack {
+                        Spacer()
+                        Button("Submit") {
+                            print("Form submitted")
+                        }
+                        Spacer()
                     }
                 }
-                
-                // Dropdown Picker
-                Picker("Select Difficulty", selection: $selectedDifficulty) {
-                    ForEach(difficulties, id: \.self) { option in
-                        Text(option).tag(option)
-                    }
-                }
-
             }
             .navigationBarTitle("Input Results")
         }
