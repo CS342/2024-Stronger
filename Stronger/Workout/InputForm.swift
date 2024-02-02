@@ -13,11 +13,12 @@ struct InputForm: View {
         let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
     @State private var selectedDifficulty: String = "Easy" // Default selection
         let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
+    @State private var currentSet: Int = 1 //
 
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("Workout Details")) {
+                Section(header: Text("Squats: Set \(String(currentSet))")) {
                     TextField("Number of Reps", text: $numReps)
                     
                     // Dropdown Picker
