@@ -4,6 +4,10 @@
 //
 //  Created by Theodore Kanell on 1/31/24.
 //
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 
 import SwiftUI
 import SpeziAccount
