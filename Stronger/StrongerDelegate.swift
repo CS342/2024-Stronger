@@ -25,10 +25,8 @@ class StrongerDelegate: SpeziAppDelegate {
                 AccountConfiguration(configuration: [
                     .requires(\.userId),
                     .requires(\.name),
-
-                    // additional values stored using the `FirestoreAccountStorage` within our Standard implementation
-                    .collects(\.genderIdentity),
-                    .collects(\.dateOfBirth)
+                    .requires(\.dateOfBirth),
+                    .collects(\.genderIdentity)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {
@@ -76,7 +74,15 @@ class StrongerDelegate: SpeziAppDelegate {
     private var healthKit: HealthKit {
         HealthKit {
             CollectSample(
-                HKQuantityType(.stepCount),
+                HKQuantityType(.appleExerciseTime),
+                deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
+            )
+            CollectSample(
+                HKQuantityType(.dietaryProtein),
+                deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
+            )
+            CollectSample(
+                HKWorkoutType.workoutType(),
                 deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
             )
         }
