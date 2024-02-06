@@ -35,7 +35,6 @@ struct InputForm: View {
                             Text(option).tag(option)
                         }
                     }
-                    
                 }
                 Section {
                     HStack {
