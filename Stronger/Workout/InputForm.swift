@@ -1,4 +1,3 @@
-
 // This source file is part of the Stronger project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
@@ -38,7 +37,6 @@ struct InputForm: View {
                             Text(option).tag(option)
                         }
                     }
-                    
                 }
                 Section {
                     HStack {
