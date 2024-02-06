@@ -1,8 +1,9 @@
 //
-//  InputForm.swift
-//  Stronger
+// This source file is part of the Stronger project
 //
-//  Created by Mena Hassan on 1/30/24.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import SwiftUI
