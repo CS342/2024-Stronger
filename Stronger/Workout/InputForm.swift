@@ -14,6 +14,9 @@ struct InputForm: View {
     @State private var selectedDifficulty: String = "Easy" // Default selection
         let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
     @State private var currentSet: Int = 1 //
+    @State private var showAlert = false // State to control the alert visibility
+    @State private var navigateToHome = false
+
 
     var body: some View {
         NavigationStack {
@@ -40,6 +43,7 @@ struct InputForm: View {
                     HStack {
                         Spacer()
                         Button("Submit") {
+                            showAlert = true
                             print("Form submitted")
                         }
                         Spacer()
@@ -47,6 +51,20 @@ struct InputForm: View {
                 }
             }
             .navigationBarTitle("Input Results")
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Great Job!"),
+                    message: Text("Is this your last set for this exercise?"),
+                    primaryButton: .destructive(Text("Yes")) {
+                        navigateToHome = true
+                        print("Yes, it's the last set")
+                    },
+                    secondaryButton: .cancel(Text("No")) {
+                        currentSet += 1
+                        print("No, it's not the last set")
+                    }
+                )
+            }
         }
     }
 }
