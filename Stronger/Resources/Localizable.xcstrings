@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "[%lld] grams of protein" : {
+
+    },
+    "%lld. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. %2$@"
+          }
+        }
+      }
+    },
+    "%lld. Meal" : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -41,6 +57,12 @@
           }
         }
       }
+    },
+    "Are you logging a new or saved meal?" : {
+
+    },
+    "Click an item to edit or next to continue" : {
+
     },
     "CLOSE" : {
       "comment" : "MARK: General",
@@ -124,6 +146,12 @@
         }
       }
     },
+    "Edit Saved Meal" : {
+
+    },
+    "Food Image" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -164,6 +192,9 @@
           }
         }
       }
+    },
+    "Hello, World!" : {
+
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
       "localizations" : {
@@ -276,6 +307,9 @@
         }
       }
     },
+    "Key" : {
+      "extractionState" : "manual"
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -308,6 +342,9 @@
         }
       }
     },
+    "Meal 1" : {
+
+    },
     "MICHAEL_BAIOCCHI_BIO" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -330,6 +367,18 @@
         }
       }
     },
+    "New Meal" : {
+
+    },
+    "Next" : {
+
+    },
+    "Please select which saved meal to log" : {
+
+    },
+    "Please sign-in to continue your Stronger journey" : {
+
+    },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
@@ -349,6 +398,9 @@
           }
         }
       }
+    },
+    "Saved Meal" : {
+
     },
     "SCHEDULE_LIST_TITLE" : {
       "localizations" : {
@@ -370,6 +422,9 @@
           }
         }
       }
+    },
+    "Select Saved Meal" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
@@ -531,6 +586,9 @@
           }
         }
       }
+    },
+    "You indicated: %@ meal" : {
+
     }
   },
   "version" : "1.0"
