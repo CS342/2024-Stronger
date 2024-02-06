@@ -1,4 +1,4 @@
-/
+
 // This source file is part of the Stronger project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
@@ -65,6 +65,9 @@ struct InputForm: View {
                         print("No, it's not the last set")
                     }
                 )
+            }
+            .navigationDestination(isPresented: $navigateToHome) {
+                EmptyView() // Placeholder destination view
             }
         }
     }
