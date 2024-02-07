@@ -9,7 +9,6 @@
 
 import SwiftUI
 
-// Supporting View for changing food options
 struct ChangeFoodOptions: View {
     @ObservedObject var mealData: MealData
     var mealIndex: Int
@@ -19,16 +18,12 @@ struct ChangeFoodOptions: View {
     }
 }
 
-// Main type: EditSavedMealContents view
 struct EditSavedMealContents: View {
     @ObservedObject var mealData: MealData
     var mealIndex: Int
     
     @State private var selectedSize: String
     @State private var newProteinContent: String = ""
-    
-    // SwiftUI views initialize their state differently, so we'll adhere to SwiftUI's pattern.
-    // However, we ensure that all other methods and computed properties follow after the property declarations.
     
     var body: some View {
         VStack {
@@ -46,7 +41,7 @@ struct EditSavedMealContents: View {
     private var placeholderImage: some View {
         Rectangle()
             .fill(Color.gray)
-            .aspectRatio(16/9, contentMode: .fit)
+            .aspectRatio(16 / 9, contentMode: .fit)
             .overlay(Text("Food Image Placeholder"))
             .foregroundColor(.black)
     }

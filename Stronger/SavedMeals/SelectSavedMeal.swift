@@ -16,9 +16,23 @@ struct SelectSavedMeal: View {
         MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
     ])
 
+    private var mealTitles: [String] {
+        [
+            "1. Lunch 02/05/2024",
+            "2. Dinner 02/04/2024",
+            "3. Lunch 02/03/2024",
+            "4. Breakfast 02/03/2024",
+            "5. Dinner 02/02/2024"
+        ]
+    }
+
     var body: some View {
         VStack {
-            headerSection
+            Text("Please select which saved meal to log")
+                .font(.title2)
+                .bold()
+                .padding()
+                .multilineTextAlignment(.center)
             Divider()
             mealOptionsSection
         }
@@ -26,13 +40,6 @@ struct SelectSavedMeal: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private var headerSection: some View {
-        Text("Please select which saved meal to log")
-            .font(.title2)
-            .bold()
-            .padding()
-            .multilineTextAlignment(.center)
-    }
 
     private var mealOptionsSection: some View {
         ForEach(Array(mealTitles.enumerated()), id: \.offset) { index, title in
@@ -50,16 +57,6 @@ struct SelectSavedMeal: View {
         }
         .padding(.horizontal)
         .padding(.bottom, 5)
-    }
-
-    private var mealTitles: [String] {
-        [
-            "1. Lunch 02/05/2024",
-            "2. Dinner 02/04/2024",
-            "3. Lunch 02/03/2024",
-            "4. Breakfast 02/03/2024",
-            "5. Dinner 02/02/2024"
-        ]
     }
 }
 

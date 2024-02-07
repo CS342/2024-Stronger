@@ -12,7 +12,6 @@ struct CommonlySavedItems: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedItem: MealItem
     
-    // Sample array of common items
     let commonItems: [MealItem] = [
         MealItem(name: "Salmon", size: "large", protein: 23),
         MealItem(name: "Rice", size: "small", protein: 4),
