@@ -37,7 +37,8 @@
 
     },
     "5. Dinner 02/02/2024" : {
-
+    },
+    "%@." : {
     },
     "ACCOUNT_NEXT" : {
       "localizations" : {
@@ -219,6 +220,9 @@
         }
       }
     },
+    "Great Job!" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -267,6 +271,12 @@
     "Hello, World!" : {
     },
     "Home" : {
+    },
+    "How to Squat!" : {
+
+    },
+    "Input Results" : {
+
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
       "localizations" : {
@@ -383,7 +393,8 @@
       "extractionState" : "manual"
     },
     "Large Meal" : {
-
+    },
+    "Is this your last set for this exercise?" : {
     },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
@@ -455,7 +466,11 @@
 
     },
     "Please select which saved meal to log" : {
+    },
+    "No" : {
 
+    },
+    "Number of Reps" : {
     },
     "Please sign-in to continue your Stronger journey" : {
 
@@ -520,6 +535,20 @@
     },
     "Stronger" : {
     },
+    "Select Band" : {
+
+    },
+    "Select Difficulty" : {
+
+    },
+    "Squats: Set %@" : {
+
+    },
+    "Stronger" : {
+
+    },
+    "Submit" : {
+    },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
         "en" : {
@@ -569,6 +598,9 @@
           }
         }
       }
+    },
+    "Video Placeholder" : {
+
     },
     "Welcome Mary" : {
 
@@ -685,6 +717,11 @@
       }
     },
     "You indicated: %@" : {
+    },
+    "Workout" : {
+
+    },
+    "Yes" : {
     },
     "You've finished your exercises for the day! Way to go!" : {
 
