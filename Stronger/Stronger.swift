@@ -20,7 +20,7 @@ struct Stronger: App {
         WindowGroup {
             ZStack {
                 if completedOnboardingFlow {
-                    HomeView()
+                    HomeReal()
                 } else {
                     EmptyView()
                 }
