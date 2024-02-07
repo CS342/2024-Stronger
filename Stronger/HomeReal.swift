@@ -14,7 +14,7 @@ import SpeziMockWebService
 import SwiftUI
 
 
-struct HomeRealView: View {
+struct HomeReal: View {
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
@@ -34,13 +34,13 @@ struct HomeRealView: View {
                 HStack(spacing: 10) {
                     NavigationLink(destination: Nutrition()) {
                         Text("Food")
-                            .modifier(ButtonHelp())
+                            //.modifier(ButtonHelp())
                     }
                     
                     
                     NavigationLink(destination: ExerciseView()) {
                         Text("Exercise")
-                            .modifier(ButtonHelp())
+                            //.modifier(ButtonHelp())
                     }
                 }
                 .padding()
@@ -60,16 +60,16 @@ struct HomeRealView: View {
 }
 
 
-struct ButtonHelp: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.green)
-            .cornerRadius(8)
-            .frame(maxWidth: .infinity)
-    }
-}
+// struct ButtonHelp: ViewModifier {
+//     func body(content: Content) -> some View {
+//         content
+//             .padding()
+//             .foregroundColor(.white)
+//             .background(Color.green)
+//             .cornerRadius(8)
+//             .frame(maxWidth: .infinity)
+//     }
+// }
 
 #if DEBUG
 #Preview {
