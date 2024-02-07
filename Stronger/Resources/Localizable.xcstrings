@@ -7,6 +7,9 @@
     "[%lld] grams of protein" : {
 
     },
+    "%@" : {
+
+    },
     "%@, [%lld] g of protein" : {
       "localizations" : {
         "en" : {
@@ -29,16 +32,6 @@
     },
     "%@." : {
 
-    },
-    "%lld. %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld. %2$@"
-          }
-        }
-      }
     },
     "1. Lunch 02/05/2024" : {
 

@@ -11,16 +11,10 @@ import SwiftUI
 struct EditSavedMealContents: View {
     @ObservedObject var mealData: MealData
     var mealIndex: Int
-    
+
     @State private var selectedSize: String
     @State private var newProteinContent: String = ""
-    
-    init(mealData: MealData, mealIndex: Int) {
-        self.mealData = mealData
-        self.mealIndex = mealIndex
-        _selectedSize = State(initialValue: mealData.mealItems[mealIndex].size)
-    }
-    
+
     var body: some View {
         VStack {
             // Placeholder image for food
@@ -55,7 +49,7 @@ struct EditSavedMealContents: View {
                 // Perform input validation and updating of the meal data
                 if let index = mealData.mealItems.firstIndex(where: { $0.id == mealData.mealItems[mealIndex].id }),
                    !newProteinContent.isEmpty,
-                   let newProtein = Int(newProteinContent), !newProteinContent.isEmpty {
+                   let newProtein = Int(newProteinContent) {
                        mealData.mealItems[mealIndex].size = selectedSize
                        mealData.mealItems[mealIndex].protein = newProtein
                 }
@@ -65,6 +59,13 @@ struct EditSavedMealContents: View {
         }
         .navigationTitle("Edit Meal Content")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    init(mealData: MealData, mealIndex: Int) {
+        self.mealData = mealData
+        self.mealIndex = mealIndex
+        _selectedSize = State(initialValue: mealData.mealItems[mealIndex].size)
+        _newProteinContent = State(initialValue: "")
     }
 }
 

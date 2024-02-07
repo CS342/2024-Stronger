@@ -18,15 +18,15 @@ struct SelectSavedMeal: View {
 
     var body: some View {
         VStack {
-            headerText
+            headerSection
             Divider()
-            mealOptionLinks
+            mealOptionsSection
         }
         .navigationTitle("Select Saved Meal")
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private var headerText: some View {
+    private var headerSection: some View {
         Text("Please select which saved meal to log")
             .font(.title2)
             .bold()
@@ -34,15 +34,15 @@ struct SelectSavedMeal: View {
             .multilineTextAlignment(.center)
     }
 
-    private var mealOptionLinks: some View {
-        ForEach(mealData.mealItems.indices, id: \.self) { index in
-            mealOptionButton(for: mealData.mealItems[index], index: index)
+    private var mealOptionsSection: some View {
+        ForEach(Array(mealTitles.enumerated()), id: \.offset) { index, title in
+            mealOptionLink(title: title, index: index)
         }
     }
 
-    private func mealOptionButton(for meal: MealItem, index: Int) -> some View {
+    private func mealOptionLink(title: String, index: Int) -> some View {
         NavigationLink(destination: EditSavedMeal(mealData: mealData)) {
-            Text("\(index + 1). \(meal.name)")
+            Text(title)
                 .foregroundColor(.black)
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -51,9 +51,21 @@ struct SelectSavedMeal: View {
         .padding(.horizontal)
         .padding(.bottom, 5)
     }
+
+    private var mealTitles: [String] {
+        [
+            "1. Lunch 02/05/2024",
+            "2. Dinner 02/04/2024",
+            "3. Lunch 02/03/2024",
+            "4. Breakfast 02/03/2024",
+            "5. Dinner 02/02/2024"
+        ]
+    }
 }
 
-// preview
+// Assuming MealData and MealItem are defined elsewhere in your project
+
+// Preview
 struct SelectSavedMeal_Previews: PreviewProvider {
     static var previews: some View {
         SelectSavedMeal()
