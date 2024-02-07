@@ -34,21 +34,13 @@ struct HomeReal: View {
                 HStack(spacing: 10) {
                     NavigationLink(destination: Nutrition()) {
                         Text("Food")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.green)
-                            .cornerRadius(8)
-                            .frame(maxWidth: .infinity)
+                            .modifier(ButtonHelp())
                     }
                     
                     
                     NavigationLink(destination: ExerciseView()) {
                         Text("Exercise")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.green)
-                            .cornerRadius(8)
-                            .frame(maxWidth: .infinity)
+                            .modifier(ButtonHelp())
                     }
                 }
                 .padding()
@@ -67,6 +59,17 @@ struct HomeReal: View {
     }
 }
 
+
+struct ButtonHelp: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.green)
+            .cornerRadius(8)
+            .frame(maxWidth: .infinity)
+    }
+}
 
 #if DEBUG
 #Preview {
