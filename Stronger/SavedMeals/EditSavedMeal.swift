@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 import SwiftUI
 
 class MealData: ObservableObject {
@@ -70,7 +70,6 @@ struct EditSavedMeal: View {
                     }
                 }
             }
-            
             Spacer()
             
             HStack {

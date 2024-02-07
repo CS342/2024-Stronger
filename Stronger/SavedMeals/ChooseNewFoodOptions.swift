@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 
 import SwiftUI
 
@@ -55,6 +55,6 @@ struct ChooseNewFoodOptions: View {
 }
 
 
-//#Preview {
-//    ChooseNewFoodOptions()
-//}
+// #Preview {
+//     ChooseNewFoodOptions()
+// }

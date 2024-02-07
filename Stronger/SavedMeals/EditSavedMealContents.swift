@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 
 import SwiftUI
 
@@ -85,7 +85,6 @@ struct EditSavedMealContents_Previews: PreviewProvider {
             MealItem(name: "Garlic Breadsticks", size: "medium", protein: 12),
             MealItem(name: "Cheese Stick", size: "small", protein: 7),
             MealItem(name: "Glass of Milk", size: "medium", protein: 8),
-            MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
-            ])
+            MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)])
         }
 }

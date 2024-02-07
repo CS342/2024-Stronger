@@ -1,10 +1,6 @@
-//
-// This source file is part of the Stronger based on the Stanford Spezi Template Application project
-//
-// SPDX-FileCopyrightText: 2023 Stanford University
-//
-// SPDX-License-Identifier: MIT
-//
+//  This source file is part of the Stronger based on the Stanford Spezi Template Application project
+//  SPDX-FileCopyrightText: 2023 Stanford University
+//  SPDX-License-Identifier: MIT
 
 import SpeziAccount
 import SpeziOnboarding
@@ -15,12 +11,10 @@ struct AccountOnboarding: View {
     @Environment(Account.self) private var account
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     
-    
     var body: some View {
         AccountSetup { _ in
             Task {
-                // Placing the nextStep() call inside this task will ensure that the sheet dismiss animation is
-                // played till the end before we navigate to the next step.
+                //  Placing the nextStep() call inside this task will ensure that the sheet dismiss animation is played till the end before we navigate to the next step.
                 onboardingNavigationPath.nextStep()
             }
         } header: {

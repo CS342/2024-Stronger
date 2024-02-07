@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 
 import SwiftUI
 
@@ -19,8 +19,7 @@ struct CommonlySavedItems: View {
         MealItem(name: "Turkey", size: "medium", protein: 15),
         MealItem(name: "Toast", size: "small", protein: 7),
         MealItem(name: "Banana", size: "small", protein: 5),
-        MealItem(name: "Pear", size: "small", protein: 3),
-    
+        MealItem(name: "Pear", size: "small", protein: 3)
     ]
     
     var body: some View {
@@ -35,7 +34,6 @@ struct CommonlySavedItems: View {
             ScrollView {
                 ForEach(commonItems, id: \.id) { item in
                     Button(action: {
-                    
                         selectedItem = item
                         presentationMode.wrappedValue.dismiss()
                     }) {
@@ -51,6 +49,7 @@ struct CommonlySavedItems: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
+                                .accessibilityLabel("food name placeholder")
                         }
                         .padding()
                         Divider()
@@ -61,6 +60,6 @@ struct CommonlySavedItems: View {
     }
 }
 
-//#Preview {
-//    CommonlySavedItems()
-//}
+// #Preview {
+//     CommonlySavedItems()
+// }

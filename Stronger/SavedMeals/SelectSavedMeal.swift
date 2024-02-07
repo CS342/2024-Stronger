@@ -4,7 +4,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 import SwiftUI
 
 struct SelectSavedMeal: View {
@@ -87,4 +87,3 @@ struct SelectSavedMeal: View {
     #Preview {
         SelectSavedMeal()
     }
-

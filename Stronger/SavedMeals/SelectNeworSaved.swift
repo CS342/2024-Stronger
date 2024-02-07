@@ -1,10 +1,9 @@
-//
 // This source file is part of the Stronger based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//Created by Kevin Zhu
+// Created by Kevin Zhu
 import SwiftUI
 
 struct SelectNeworSaved: View {
@@ -16,15 +15,12 @@ struct SelectNeworSaved: View {
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-
                 // Custom Divider
                 Rectangle()
                     .frame(height: 2)
                     .foregroundColor(.gray)
                     .padding(.vertical)
-
                 Spacer()
-
                 Button(action: {
                     // placeholder action
                     print("New Meal")
@@ -37,7 +33,6 @@ struct SelectNeworSaved: View {
                         .overlay(RoundedRectangle(cornerRadius: 12)
                                     .stroke(Color.orange, lineWidth: 2))
                 }.padding(.bottom, 70)
-                
                 NavigationLink(destination: SelectSavedMeal()) {
                     Text("Saved Meal")
                         .foregroundColor(.black)
@@ -47,13 +42,11 @@ struct SelectNeworSaved: View {
                         .overlay(RoundedRectangle(cornerRadius: 12)
                                     .stroke(Color.orange, lineWidth: 2))
                 }
-
                 Spacer()
             }
         }
     }
 }
-
 
 #Preview {
     SelectNeworSaved()
