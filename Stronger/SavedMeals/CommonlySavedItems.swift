@@ -1,9 +1,10 @@
 //
-//  CommonlySavedItems.swift
-//  Stronger
+// This source file is part of the Stronger based on the Stanford Spezi Template Application project
 //
-//  Created by Kevin Zhu on 2/7/24.
+// SPDX-FileCopyrightText: 2023 Stanford University
 //
+// SPDX-License-Identifier: MIT
+//Created by Kevin Zhu
 
 import SwiftUI
 
@@ -34,7 +35,7 @@ struct CommonlySavedItems: View {
             ScrollView {
                 ForEach(commonItems, id: \.id) { item in
                     Button(action: {
-                        // Action to replace the selected item and dismiss the view
+                    
                         selectedItem = item
                         presentationMode.wrappedValue.dismiss()
                     }) {

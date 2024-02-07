@@ -1,35 +1,36 @@
 //
-//  NewTestAccessFirebase.swift
-//  Stronger
+// This source file is part of the Stronger based on the Stanford Spezi Template Application project
 //
-//  Created by Kevin Zhu on 2/6/24.
+// SPDX-FileCopyrightText: 2023 Stanford University
 //
+// SPDX-License-Identifier: MIT
+//Created by Kevin Zhu
 
 //import SwiftUI
-////import FirebaseCore
-////import FirebaseFirestore
-////
-////func configureFirebase() -> String {
-////    FirebaseApp.configure()
-////        return "done"
-////    }
-////
-////let db = Firestore.firestore()
-////let food = "chicken"
-////
-////func logData(_ food: String) async -> String {
-////    let foodData = [
-////        "proteinContent": "31" // Adjusted for demonstration
-////        // Add any other data you want to merge here
-////    ]
-////    do {
-////        try await db.collection("protein_content").document(food).setData(foodData, merge: true)
-////        print("Document successfully written!")
-////    } catch {
-////        print("Error writing document: \(error)")
-////    }
-////    return "done"
-////}
+//import FirebaseCore
+//import FirebaseFirestore
+//
+//func configureFirebase() -> String {
+//    FirebaseApp.configure()
+//        return "done"
+//    }
+//
+//let db = Firestore.firestore()
+//let food = "chicken"
+//
+//func logData(_ food: String) async -> String {
+//    let foodData = [
+//        "proteinContent": "31" // Adjusted for demonstration
+//        // Add any other data you want to merge here
+//    ]
+//    do {
+//        try await db.collection("protein_content").document(food).setData(foodData, merge: true)
+//        print("Document successfully written!")
+//    } catch {
+//        print("Error writing document: \(error)")
+//    }
+//    return "done"
+//}
 //
 //import SwiftUI
 //import FirebaseCore
