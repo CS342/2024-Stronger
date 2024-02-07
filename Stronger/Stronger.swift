@@ -10,7 +10,6 @@ import Spezi
 import SpeziFirebaseAccount
 import SwiftUI
 
-
 @main
 struct Stronger: App {
     @UIApplicationDelegateAdaptor(StrongerDelegate.self) var appDelegate
