@@ -21,53 +21,52 @@ struct InputForm: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("Squats: Set \(String(currentSet))")) {
-                    TextField("Number of Reps", text: $numReps)
-                    
-                    // Dropdown Picker
-                    Picker("Select Band", selection: $selectedBand) {
-                        ForEach(bands, id: \.self) { option in
-                            Text(option).tag(option)
-                        }
-                    }
-                    
-                    // Dropdown Picker
-                    Picker("Select Difficulty", selection: $selectedDifficulty) {
-                        ForEach(difficulties, id: \.self) { option in
-                            Text(option).tag(option)
-                        }
-                    }
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        Button("Submit") {
-                            showAlert = true
-                            print("Form submitted")
-                        }
-                        Spacer()
-                    }
-                }
+                squatSection
+                submitSection
             }
             .navigationBarTitle("Input Results")
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Great Job!"),
-                    message: Text("Is this your last set for this exercise?"),
-                    primaryButton: .destructive(Text("Yes")) {
-                        navigateToHome = true
-                        print("Yes, it's the last set")
-                    },
-                    secondaryButton: .cancel(Text("No")) {
-                        currentSet += 1
-                        print("No, it's not the last set")
-                    }
-                )
+            .alert(isPresented: $showAlert) { submissionAlert }
+            .navigationDestination(isPresented: $navigateToHome) { EmptyView() }
+        }
+    }
+
+    private var squatSection: some View {
+        Section(header: Text("Squats: Set \(String(currentSet))")) {
+            TextField("Number of Reps", text: $numReps)
+            Picker("Select Band", selection: $selectedBand) {
+                ForEach(bands, id: \.self) { Text($0).tag($0) }
             }
-            .navigationDestination(isPresented: $navigateToHome) {
-                EmptyView() // Placeholder destination view
+            Picker("Select Difficulty", selection: $selectedDifficulty) {
+                ForEach(difficulties, id: \.self) { Text($0).tag($0) }
             }
         }
+    }
+
+    private var submitSection: some View {
+        Section {
+            HStack {
+                Spacer()
+                Button("Submit", action: submitForm)
+                Spacer()
+            }
+        }
+    }
+
+    private var submissionAlert: Alert {
+        Alert(
+            title: Text("Great Job!"),
+            message: Text("Is this your last set for this exercise?"),
+            primaryButton: .destructive(Text("Yes")) {
+                navigateToHome = true
+            },
+            secondaryButton: .cancel(Text("No")) {
+                currentSet += 1
+            }
+        )
+    }
+
+    private func submitForm() {
+        showAlert = true
     }
 }
 
