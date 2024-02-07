@@ -22,6 +22,34 @@ struct MealItem: Identifiable {
     var protein: Int
 }
 
+struct MealItemView: View {
+    @Binding var mealItem: MealItem
+    
+    var body: some View {
+        NavigationLink(destination: ChooseNewFoodOptions(selectedMealItem: $mealItem)) {
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("\(mealItem.name)")
+                        .bold()
+                        .foregroundColor(.black)
+                    Text("You indicated: \(mealItem.size)")
+                        .foregroundColor(.black)
+                    Text("[\(mealItem.protein)] grams of protein")
+                        .foregroundColor(.black)
+                }
+                Spacer()
+                Circle()
+                    .stroke(lineWidth: 2)
+                    .frame(width: 80, height: 80)
+                    .overlay(Text("Food Image"))
+                    .foregroundColor(.black)
+            }
+            .padding()
+            Divider()
+        }
+    }
+}
+
 struct EditSavedMeal: View {
     @ObservedObject var mealData: MealData
     
@@ -78,35 +106,6 @@ struct EditSavedMeal: View {
     }
 }
 
-// Meal Items subview
-struct MealItemView: View {
-    @Binding var mealItem: MealItem
-    
-    var body: some View {
-        NavigationLink(destination: ChooseNewFoodOptions(selectedMealItem: $mealItem)) {
-            HStack {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("\(mealItem.name)")
-                        .bold()
-                        .foregroundColor(.black)
-                    Text("You indicated: \(mealItem.size)")
-                        .foregroundColor(.black)
-                    Text("[\(mealItem.protein)] grams of protein")
-                        .foregroundColor(.black)
-                }
-                Spacer()
-                Circle()
-                    .stroke(lineWidth: 2)
-                    .frame(width: 80, height: 80)
-                    .overlay(Text("Food Image"))
-                    .foregroundColor(.black)
-            }
-            .padding()
-            Divider()
-        }
-    }
-}
-
 // preview
 struct EditSavedMeal_Previews: PreviewProvider {
     static var previews: some View {
@@ -123,4 +122,3 @@ struct EditSavedMeal_Previews: PreviewProvider {
         }
     }
 }
-

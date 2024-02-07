@@ -8,6 +8,17 @@
 
 import SwiftUI
 
+// Supporting View for changing food options
+struct ChangeFoodOptions: View {
+    @ObservedObject var mealData: MealData
+    var mealIndex: Int
+    
+    var body: some View {
+        Text("Food Change Options")
+    }
+}
+
+// Main type: EditSavedMealContents view
 struct EditSavedMealContents: View {
     @ObservedObject var mealData: MealData
     var mealIndex: Int
@@ -46,7 +57,6 @@ struct EditSavedMealContents: View {
             
             // Save Button
             Button("Save Changes") {
-                // Perform input validation and updating of the meal data
                 if let index = mealData.mealItems.firstIndex(where: { $0.id == mealData.mealItems[mealIndex].id }),
                    !newProteinContent.isEmpty,
                    let newProtein = Int(newProteinContent) {
@@ -66,15 +76,6 @@ struct EditSavedMealContents: View {
         self.mealIndex = mealIndex
         _selectedSize = State(initialValue: mealData.mealItems[mealIndex].size)
         _newProteinContent = State(initialValue: "")
-    }
-}
-
-struct ChangeFoodOptions: View {
-    @ObservedObject var mealData: MealData
-    var mealIndex: Int
-    
-    var body: some View {
-        Text("Food Change Options")
     }
 }
 
