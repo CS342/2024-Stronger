@@ -33,10 +33,12 @@ struct WorkoutHome: View {
             
             ForEach(menuItems, id: \.title) { menuItem in
                 HStack {
-                    Image( "woman_workout_leg", label: Text("Workout")) .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxHeight: 180)
-                        .clipped()
+                    NavigationLink(destination: menuItem.view) {
+                        Image( "woman_workout_leg", label: Text("Workout")) .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxHeight: 180)
+                            .clipped()
+                    }
                     NavigationLink(destination: menuItem.view) {
                         Text(menuItem.title)
                             .foregroundColor(.primary)
