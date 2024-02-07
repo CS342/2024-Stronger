@@ -48,6 +48,7 @@ struct HomeReal: View {
                 .frame(width: UIScreen.main.bounds.width * 0.9)
             }
             .navigationBarTitle("Home")
+            .navigationBarHidden(true)
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()
             }

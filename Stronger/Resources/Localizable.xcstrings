@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%@: Set %@" : {
       "localizations" : {
         "en" : {
@@ -446,9 +443,6 @@
 
     },
     "Select Difficulty" : {
-
-    },
-    "Squats: Set %@" : {
 
     },
     "Stronger" : {
