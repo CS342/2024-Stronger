@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@." : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -152,6 +155,9 @@
         }
       }
     },
+    "Great Job!" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -197,6 +203,12 @@
 
     },
     "Home" : {
+
+    },
+    "How to Squat!" : {
+
+    },
+    "Input Results" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -310,6 +322,9 @@
         }
       }
     },
+    "Is this your last set for this exercise?" : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -364,6 +379,12 @@
         }
       }
     },
+    "No" : {
+
+    },
+    "Number of Reps" : {
+
+    },
     "Please sign-in to continue your Stronger journey" : {
 
     },
@@ -408,7 +429,19 @@
         }
       }
     },
+    "Select Band" : {
+
+    },
+    "Select Difficulty" : {
+
+    },
+    "Squats: Set %@" : {
+
+    },
     "Stronger" : {
+
+    },
+    "Submit" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
@@ -460,6 +493,9 @@
           }
         }
       }
+    },
+    "Video Placeholder" : {
+
     },
     "Welcome Mary" : {
 
@@ -574,6 +610,12 @@
           }
         }
       }
+    },
+    "Workout" : {
+
+    },
+    "Yes" : {
+
     },
     "You've finished your exercises for the day! Way to go!" : {
 
