@@ -67,8 +67,8 @@ struct Summary: View {
 
 extension VerticalAlignment {
     private enum ImageAlignment: AlignmentID {
-        static func defaultValue(in d: ViewDimensions) -> CGFloat {
-            d[.top]
+        static func defaultValue(in tmp: ViewDimensions) -> CGFloat {
+            tmp[.top]
         }
     }
     
