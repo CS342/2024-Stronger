@@ -108,7 +108,7 @@ struct WorkoutVideoView: View {
             } else {
                 VideoPlaceholder()
             }
-                                
+            
             Spacer()
             
             SquatTipsView()
