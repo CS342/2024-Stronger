@@ -63,8 +63,6 @@ struct SelectSavedMeal: View {
     }
 }
 
-// Assuming MealData and MealItem are defined elsewhere in your project
-
 // Preview
 struct SelectSavedMeal_Previews: PreviewProvider {
     static var previews: some View {

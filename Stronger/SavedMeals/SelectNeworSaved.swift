@@ -7,47 +7,67 @@
 import SwiftUI
 
 struct SelectNeworSaved: View {
+    private var greeting: String {
+        "Are you logging a new or saved meal?"
+    }
+
     var body: some View {
         NavigationView {
             VStack {
-                Text("Are you logging a new or saved meal?")
+                Text(greeting) // Use the computed property
                     .font(.title)
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                // Custom Divider
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundColor(.gray)
-                    .padding(.vertical)
+                
+                customDivider
+                
                 Spacer()
-                Button(action: {
-                    // placeholder action
-                    print("New Meal")
-                }) {
-                    Text("New Meal")
-                        .foregroundColor(.black)
-                        .font(.headline) // can increase size
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 40)
-                        .overlay(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.orange, lineWidth: 2))
-                } .padding(.bottom, 70)
-                NavigationLink(destination: SelectSavedMeal()) {
-                    Text("Saved Meal")
-                        .foregroundColor(.black)
-                        .font(.headline) // can incease size
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 40)
-                        .overlay(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.orange, lineWidth: 2))
-                }
+                
+                newMealButton
+                
+                savedMealButton
+                
                 Spacer()
             }
         }
     }
-}
 
-#Preview {
-    SelectNeworSaved()
+    private var customDivider: some View {
+        Rectangle()
+            .frame(height: 2)
+            .foregroundColor(.gray)
+            .padding(.vertical)
+    }
+    
+    private var newMealButton: some View {
+        Button(action: {
+            print("New Meal")
+        }) {
+            Text("New Meal")
+                .foregroundColor(.black)
+                .font(.headline)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 40)
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
+        }
+        .padding(.bottom, 70)
+    }
+    
+    private var savedMealButton: some View {
+        NavigationLink(destination: SelectSavedMeal()) {
+            Text("Saved Meal")
+                .foregroundColor(.black)
+                .font(.headline)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 40)
+                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
+        }
+    }
+}
+// Preview
+struct SelectNeworSaved_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectNeworSaved()
+    }
 }
