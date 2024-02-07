@@ -5,9 +5,9 @@
 //  Created by Theodore Kanell on 1/31/24.
 //
 
-import SwiftUI
 import SpeziAccount
 import SpeziMockWebService
+import SwiftUI
 
 
 struct HomeReal: View {
@@ -17,16 +17,17 @@ struct HomeReal: View {
     
     @State private var presentingAccount = false
     
-    var body: some View{
-        NavigationView{
+    var body: some View {
+        NavigationView {
             VStack {
+                Text("Stronger")
+                    .font(.largeTitle)
                 Spacer()
                 // Top section with SummaryInfo component
                 Summary()
                 // Bottom section with navigation buttons
                 Spacer()
                 HStack(spacing: 10) {
-                    
                     NavigationLink(destination: Nutrition()) {
                         Text("Food")
                             .padding()
@@ -58,12 +59,9 @@ struct HomeReal: View {
                 AccountSheet()
             }
             .verifyRequiredAccountDetails(Self.accountEnabled)
-            
         }
     }
-    
 }
-
 
 
 #if DEBUG
@@ -80,7 +78,7 @@ struct HomeReal: View {
         }
 }
 
-//#Preview {
+// #Preview {
 //    CommandLine.arguments.append("--disableFirebase") // make sure the MockWebService is displayed
 //    return HomeView()
 //        .previewWith(standard: StrongerStandard()) {
@@ -90,5 +88,5 @@ struct HomeReal: View {
 //                MockUserIdPasswordAccountService()
 //            }
 //        }
-//}
+// }
 #endif
