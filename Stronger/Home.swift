@@ -17,6 +17,13 @@ enum Tabs: String {
 }
 
 struct HomeView: View {
+    enum Tabs: String {
+        case schedule
+        case contact
+        case mockUpload
+        case savedMeals
+    }
+    
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
