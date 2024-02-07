@@ -49,14 +49,14 @@ struct Summary: View {
                     // Spacer()
                     Text("You've finished your exercises for the day! Way to go!")
                 }
-                .alignmentGuide(.imageAlignment) { d in d[.bottom] }
+                .alignmentGuide(.imageAlignment) { tmp in tmp[.bottom] }
             }
             HStack {
                 VStack(alignment: .leading) {
                     // Spacer()
                     Text("You've had 30 grams of protein today. 150 grams to go!")
                 }
-                .alignmentGuide(.imageAlignment) { d in d[.bottom] }
+                .alignmentGuide(.imageAlignment) { tmp in tmp[.bottom] }
 
                 ProgressBar(title: "Nutrition Progress", value: dietValue, barColor: .blue)
             }
