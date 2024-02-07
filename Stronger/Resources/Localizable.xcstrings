@@ -14,6 +14,9 @@
         }
       }
     },
+    "%@." : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -213,6 +216,9 @@
 
     },
     "Home" : {
+
+    },
+    "How to Squat!" : {
 
     },
     "Input Results" : {
@@ -442,6 +448,9 @@
     "Select Difficulty" : {
 
     },
+    "Squats: Set %@" : {
+
+    },
     "Stronger" : {
 
     },
@@ -497,6 +506,9 @@
           }
         }
       }
+    },
+    "Video Placeholder" : {
+
     },
     "Welcome Mary" : {
 
