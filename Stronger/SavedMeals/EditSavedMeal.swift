@@ -93,15 +93,13 @@ struct EditSavedMeal: View {
 }
 
 // Preview
-struct EditSavedMeal_Previews: PreviewProvider {
-    static var previews: some View {
-        // Sample data
-        EditSavedMeal(mealData: MealData(mealItems: [
-            MealItem(name: "Chicken Salad", size: "large meal", protein: 18),
-            MealItem(name: "Garlic Breadsticks", size: "medium meal", protein: 12),
-            MealItem(name: "Cheese Stick", size: "small meal", protein: 7),
-            MealItem(name: "Glass of Milk", size: "medium meal", protein: 8),
-            MealItem(name: "Chocolate Chip Cookie", size: "small meal", protein: 2)
-        ]))
-    }
-}
+// struct EditSavedMeal_Previews: PreviewProvider {
+//     static var previews: some View {
+//         // Sample data
+//         EditSavedMeal(mealData: MealData(mealItems: [MealItem(name: "Chicken Salad", size: "large meal", protein: 18),
+//             MealItem(name: "Garlic Breadsticks", size: "medium meal", protein: 12),
+//             MealItem(name: "Cheese Stick", size: "small meal", protein: 7),
+//             MealItem(name: "Glass of Milk", size: "medium meal", protein: 8),
+//             MealItem(name: "Chocolate Chip Cookie", size: "small meal", protein: 2)]))
+//     }
+// }

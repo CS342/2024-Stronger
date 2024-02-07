@@ -27,7 +27,7 @@ struct ChooseNewFoodOptions: View {
                     .padding(.vertical)
 
                 Spacer()
-                //change destination later to chat
+                // change destination later to chat
                 NavigationLink(destination: MealReport()) {
                     Text("Input New Food to Chat")
                         .foregroundColor(.black)

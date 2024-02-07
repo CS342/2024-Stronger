@@ -1,14 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
     "%@, [%lld] g of protein" : {
-    "" : {
-
-    },
-    "%@: Set %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -17,6 +16,19 @@
           }
         }
       }
+    },
+    "%@: Set %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: Set %2$@"
+          }
+        }
+      }
+    },
+    "%@." : {
+
     },
     "%lld. %@" : {
       "localizations" : {
@@ -35,19 +47,13 @@
 
     },
     "3. Lunch 02/03/2024" : {
-            "value" : "%1$@: Set %2$@"
-          }
-        }
-      }
-    },
-    "%@." : {
+
     },
     "4. Breakfast 02/03/2024" : {
 
     },
     "5. Dinner 02/02/2024" : {
-    },
-    "%@." : {
+
     },
     "ACCOUNT_NEXT" : {
       "localizations" : {
@@ -194,16 +200,13 @@
       }
     },
     "Edit Meal Content" : {
+
     },
     "Edit Saved Meal" : {
-    },
-    "Food Change Options" : {
-    },
-    "Food Image" : {
-    },
-    "Food Image Placeholder" : {
+
     },
     "Exercise" : {
+
     },
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
@@ -217,6 +220,19 @@
       }
     },
     "Food" : {
+
+    },
+    "Food Change Options" : {
+
+    },
+    "Food Image" : {
+
+    },
+    "Food Image Placeholder" : {
+
+    },
+    "food name placeholder" : {
+
     },
     "FOOD_TAB_TITLE" : {
       "comment" : "MARK: - Food",
@@ -273,15 +289,19 @@
         }
       }
     },
-    "How do you want to change your food option?" : {
-    },
-    "Input New Food to Chat" : {
-    },
     "Hello, World!" : {
+
     },
     "Home" : {
+
+    },
+    "How do you want to change your food option?" : {
+
     },
     "How to Squat!" : {
+
+    },
+    "Input New Food to Chat" : {
 
     },
     "Input Results" : {
@@ -398,12 +418,11 @@
         }
       }
     },
-    "Key" : {
-      "extractionState" : "manual"
+    "Is this your last set for this exercise?" : {
+
     },
     "Large Meal" : {
-    },
-    "Is this your last set for this exercise?" : {
+
     },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
@@ -474,12 +493,14 @@
     "Next" : {
 
     },
-    "Please select which saved meal to log" : {
-    },
     "No" : {
 
     },
     "Number of Reps" : {
+
+    },
+    "Please select which saved meal to log" : {
+
     },
     "Please sign-in to continue your Stronger journey" : {
 
@@ -537,26 +558,23 @@
         }
       }
     },
-    "Select Saved Meal" : {
-
-    },
-    "Small Meal" : {
-    },
-    "Stronger" : {
-    },
     "Select Band" : {
 
     },
     "Select Difficulty" : {
 
     },
-    "Squats: Set %@" : {
+    "Select Saved Meal" : {
+
+    },
+    "Small Meal" : {
 
     },
     "Stronger" : {
 
     },
     "Submit" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
@@ -725,8 +743,6 @@
         }
       }
     },
-    "You indicated: %@" : {
-    },
     "Workout" : {
 
     },
@@ -734,11 +750,16 @@
 
     },
     "Yes" : {
+
+    },
+    "You indicated: %@" : {
+
     },
     "You've finished your exercises for the day! Way to go!" : {
 
     },
     "You've had 30 grams of protein today. 150 grams to go!" : {
+
     }
   },
   "version" : "1.0"

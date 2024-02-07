@@ -85,6 +85,8 @@ struct EditSavedMealContents_Previews: PreviewProvider {
             MealItem(name: "Garlic Breadsticks", size: "medium", protein: 12),
             MealItem(name: "Cheese Stick", size: "small", protein: 7),
             MealItem(name: "Glass of Milk", size: "medium", protein: 8),
-            MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)])
-        }
+            MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
+        ])
+        EditSavedMealContents(mealData: mealData, mealIndex: 0) // initialize w index
+    }
 }

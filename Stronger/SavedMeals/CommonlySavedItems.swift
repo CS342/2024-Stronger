@@ -13,14 +13,12 @@ struct CommonlySavedItems: View {
     @Binding var selectedItem: MealItem
     
     // Sample array of common items
-    let commonItems: [MealItem] = [
-        MealItem(name: "Salmon", size: "large", protein: 23),
+    let commonItems: [MealItem] = [MealItem(name: "Salmon", size: "large", protein: 23),
         MealItem(name: "Rice", size: "small", protein: 4),
         MealItem(name: "Turkey", size: "medium", protein: 15),
         MealItem(name: "Toast", size: "small", protein: 7),
         MealItem(name: "Banana", size: "small", protein: 5),
-        MealItem(name: "Pear", size: "small", protein: 3)
-    ]
+        MealItem(name: "Pear", size: "small", protein: 3)]
     
     var body: some View {
         VStack {
