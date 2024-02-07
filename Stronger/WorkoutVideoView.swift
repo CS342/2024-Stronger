@@ -2,9 +2,8 @@
 //
 // SPDX-License-Identifier: MIT
 //
-
-import SwiftUI
 import AVKit
+import SwiftUI
 
 struct VideoPlayerView: UIViewControllerRepresentable {
     var url: URL
@@ -38,12 +37,12 @@ private struct SquatOverlay: View {
         RoundedRectangle(cornerRadius: 10)
             .fill(Color.yellow)
             .frame(width: 250, height: 74.0)
-            .overlay(Text("How to Squat!")
+            .overlay(
+                Text("How to Squat!")
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(Color.black)
                 .multilineTextAlignment(.leading)
-                     
             )
     }
 }
