@@ -14,7 +14,7 @@ struct InputForm: View {
     @State private var selectedDifficulty: String = "Easy" // Default selection
         let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
     @State private var currentSet: Int = 1 //
-    @State private var showAlert = false // State to control the alert visibility
+    @State private var showAlert = false
     @State private var navigateToHome = false
 
 
@@ -23,6 +23,11 @@ struct InputForm: View {
             Form {
                 exerciseInputSection
                 submitSection
+                Image("WorkoutThumbnail", label: Text("Workout"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 350)
+                    .clipped()
             }
             .navigationBarTitle("Input Results")
             .alert(isPresented: $showAlert) { submissionAlert }
