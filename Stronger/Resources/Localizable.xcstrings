@@ -509,6 +509,9 @@
     "Is this your last set for this exercise?" : {
 
     },
+    "Large Meal" : {
+
+    },
     "Large portion" : {
 
     },
@@ -728,6 +731,9 @@
         }
       }
     },
+    "Video Placeholder" : {
+
+    },
     "This Week's Fitness Progress\n" : {
 
     },
@@ -867,6 +873,9 @@
 
     },
     "Yes" : {
+
+    },
+    "You indicated: %@" : {
 
     },
     "You indicated: %@" : {
