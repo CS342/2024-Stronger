@@ -33,21 +33,6 @@
     "%@." : {
 
     },
-    "1. Lunch 02/05/2024" : {
-
-    },
-    "2. Dinner 02/04/2024" : {
-
-    },
-    "3. Lunch 02/03/2024" : {
-
-    },
-    "4. Breakfast 02/03/2024" : {
-
-    },
-    "5. Dinner 02/02/2024" : {
-
-    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -88,9 +73,6 @@
           }
         }
       }
-    },
-    "Are you logging a new or saved meal?" : {
-
     },
     "Change Food" : {
 
