@@ -5,6 +5,10 @@
 
     },
     "%@, [%lld] g of protein" : {
+    "" : {
+
+    },
+    "%@: Set %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -31,7 +35,12 @@
 
     },
     "3. Lunch 02/03/2024" : {
-
+            "value" : "%1$@: Set %2$@"
+          }
+        }
+      }
+    },
+    "%@." : {
     },
     "4. Breakfast 02/03/2024" : {
 
@@ -719,6 +728,9 @@
     "You indicated: %@" : {
     },
     "Workout" : {
+
+    },
+    "Workout Home" : {
 
     },
     "Yes" : {
