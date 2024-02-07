@@ -74,6 +74,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "Change Food" : {
 
     },
@@ -87,6 +88,9 @@
 
     },
     "Click an item image to edit or next to continue" : {
+    
+    },
+    "Chat View" : {
 
     },
     "CLOSE" : {
@@ -478,6 +482,9 @@
 
     },
     "Please sign-in to continue your Stronger journey" : {
+
+    },
+    "Pro-ChatBot" : {
 
     },
     "PROJECT_LICENSE_DESCRIPTION" : {

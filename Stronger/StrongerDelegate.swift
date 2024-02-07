@@ -14,8 +14,10 @@ import SpeziFirestore
 import SpeziHealthKit
 import SpeziMockWebService
 import SpeziOnboarding
+import SpeziLLM
 import SpeziScheduler
 import SwiftUI
+import SpeziLLMOpenAI
 
 
 class StrongerDelegate: SpeziAppDelegate {
@@ -53,6 +55,10 @@ class StrongerDelegate: SpeziAppDelegate {
             
             StrongerScheduler()
             OnboardingDataSource()
+            
+            LLMRunner {
+                LLMOpenAIRunnerSetupTask()
+            }
         }
     }
     
