@@ -364,6 +364,9 @@
         }
       }
     },
+    "Please sign-in to continue your Stronger journey" : {
+
+    },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
@@ -404,6 +407,9 @@
           }
         }
       }
+    },
+    "Stronger" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
