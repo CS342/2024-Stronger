@@ -16,6 +16,7 @@ struct HomeView: View {
         case schedule
         case contact
         case mockUpload
+        case savedMeals
     }
     
     static var accountEnabled: Bool {
@@ -46,6 +47,11 @@ struct HomeView: View {
                         Label("MOCK_WEB_SERVICE_TAB_TITLE", systemImage: "server.rack")
                     }
             }
+            SelectNeworSaved()
+                .tag(Tabs.savedMeals)
+                .tabItem {
+                    Label("Saved Meals", systemImage: "person.fill") // change icon later
+                }
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()

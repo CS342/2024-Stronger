@@ -18,7 +18,6 @@ struct HomeNew: View {
         case food
         case exercise
     }
-    
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
