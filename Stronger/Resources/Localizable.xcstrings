@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@." : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -164,6 +167,9 @@
           }
         }
       }
+    },
+    "How to Squat!" : {
+
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
       "localizations" : {
@@ -330,6 +336,9 @@
         }
       }
     },
+    "Please sign-in to continue your Stronger journey" : {
+
+    },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
@@ -370,6 +379,9 @@
           }
         }
       }
+    },
+    "Stronger" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
@@ -420,6 +432,9 @@
           }
         }
       }
+    },
+    "Video Placeholder" : {
+
     },
     "WELCOME_AREA1_DESCRIPTION" : {
       "localizations" : {
