@@ -124,6 +124,34 @@
         }
       }
     },
+    "Exercise" : {
+
+    },
+    "EXERCISE_TAB_TITLE" : {
+      "comment" : "MARK: - Exercise",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercise"
+          }
+        }
+      }
+    },
+    "Food" : {
+
+    },
+    "FOOD_TAB_TITLE" : {
+      "comment" : "MARK: - Food",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Food"
+          }
+        }
+      }
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -164,6 +192,12 @@
           }
         }
       }
+    },
+    "Hello, World!" : {
+
+    },
+    "Home" : {
+
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
       "localizations" : {
@@ -330,6 +364,9 @@
         }
       }
     },
+    "Please sign-in to continue your Stronger journey" : {
+
+    },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
@@ -370,6 +407,9 @@
           }
         }
       }
+    },
+    "Stronger" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
@@ -420,6 +460,9 @@
           }
         }
       }
+    },
+    "Welcome Mary" : {
+
     },
     "WELCOME_AREA1_DESCRIPTION" : {
       "localizations" : {
@@ -531,6 +574,12 @@
           }
         }
       }
+    },
+    "You've finished your exercises for the day! Way to go!" : {
+
+    },
+    "You've had 30 grams of protein today. 150 grams to go!" : {
+
     }
   },
   "version" : "1.0"
