@@ -127,6 +127,37 @@
         }
       }
     },
+    "Exercise" : {
+
+    },
+    "EXERCISE_TAB_TITLE" : {
+      "comment" : "MARK: - Exercise",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exercise"
+          }
+        }
+      }
+    },
+    "Food" : {
+
+    },
+    "FOOD_TAB_TITLE" : {
+      "comment" : "MARK: - Food",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Food"
+          }
+        }
+      }
+    },
+    "Great Job!" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -168,7 +199,16 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
+    "Home" : {
+
+    },
     "How to Squat!" : {
+
+    },
+    "Input Results" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -282,6 +322,9 @@
         }
       }
     },
+    "Is this your last set for this exercise?" : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -336,6 +379,12 @@
         }
       }
     },
+    "No" : {
+
+    },
+    "Number of Reps" : {
+
+    },
     "Please sign-in to continue your Stronger journey" : {
 
     },
@@ -380,7 +429,19 @@
         }
       }
     },
+    "Select Band" : {
+
+    },
+    "Select Difficulty" : {
+
+    },
+    "Squats: Set %@" : {
+
+    },
     "Stronger" : {
+
+    },
+    "Submit" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
@@ -434,6 +495,9 @@
       }
     },
     "Video Placeholder" : {
+
+    },
+    "Welcome Mary" : {
 
     },
     "WELCOME_AREA1_DESCRIPTION" : {
@@ -546,6 +610,18 @@
           }
         }
       }
+    },
+    "Workout" : {
+
+    },
+    "Yes" : {
+
+    },
+    "You've finished your exercises for the day! Way to go!" : {
+
+    },
+    "You've had 30 grams of protein today. 150 grams to go!" : {
+
     }
   },
   "version" : "1.0"
