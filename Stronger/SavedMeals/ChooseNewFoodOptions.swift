@@ -1,17 +1,19 @@
 //
-//  SelectNeworSaved.swift
+//  ChooseNewFoodOptions.swift
 //  Stronger
 //
-//  Created by Kevin Zhu on 2/5/24.
+//  Created by Kevin Zhu on 2/7/24.
 //
 
 import SwiftUI
 
-struct SelectNeworSaved: View {
+struct ChooseNewFoodOptions: View {
+    @Binding var selectedMealItem: MealItem // Binding to the meal item being edited
+
     var body: some View {
         NavigationView {
             VStack {
-                Text("Are you logging a new or saved meal?")
+                Text("How do you want to change your food option?")
                     .font(.title)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -24,22 +26,19 @@ struct SelectNeworSaved: View {
                     .padding(.vertical)
 
                 Spacer()
-
-                Button(action: {
-                    // placeholder action
-                    print("New Meal")
-                }) {
-                    Text("New Meal")
+                //change destination later to chat
+                NavigationLink(destination: MealReport()) {
+                    Text("Input New Food to Chat")
                         .foregroundColor(.black)
-                        .font(.headline) // can increase size
+                        .font(.headline) // can incease size
                         .padding(.vertical, 20)
                         .padding(.horizontal, 40)
                         .overlay(RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.orange, lineWidth: 2))
+                        .stroke(Color.orange, lineWidth: 2))
                 }.padding(.bottom, 70)
                 
-                NavigationLink(destination: SelectSavedMeal()) {
-                    Text("Saved Meal")
+                NavigationLink(destination: CommonlySavedItems(selectedItem: $selectedMealItem)) {
+                        Text("Choose From Your Common foods")
                         .foregroundColor(.black)
                         .font(.headline) // can incease size
                         .padding(.vertical, 20)
@@ -55,6 +54,6 @@ struct SelectNeworSaved: View {
 }
 
 
-#Preview {
-    SelectNeworSaved()
-}
+//#Preview {
+//    ChooseNewFoodOptions()
+//}

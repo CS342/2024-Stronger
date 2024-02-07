@@ -4,6 +4,16 @@
     "[%lld] grams of protein" : {
 
     },
+    "%@, [%lld] g of protein" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, [%2$lld] g of protein"
+          }
+        }
+      }
+    },
     "%lld. %@" : {
       "localizations" : {
         "en" : {
@@ -14,7 +24,19 @@
         }
       }
     },
-    "%lld. Meal" : {
+    "1. Lunch 02/05/2024" : {
+
+    },
+    "2. Dinner 02/04/2024" : {
+
+    },
+    "3. Lunch 02/03/2024" : {
+
+    },
+    "4. Breakfast 02/03/2024" : {
+
+    },
+    "5. Dinner 02/02/2024" : {
 
     },
     "ACCOUNT_NEXT" : {
@@ -61,7 +83,19 @@
     "Are you logging a new or saved meal?" : {
 
     },
-    "Click an item to edit or next to continue" : {
+    "Change Food" : {
+
+    },
+    "Change Portion Size" : {
+
+    },
+    "Change Protein Content" : {
+
+    },
+    "Choose From Your Common foods" : {
+
+    },
+    "Click an item image to edit or next to continue" : {
 
     },
     "CLOSE" : {
@@ -74,6 +108,9 @@
           }
         }
       }
+    },
+    "Commonly Saved Items" : {
+
     },
     "COMPLETED_TASK_LABEL %@" : {
       "localizations" : {
@@ -146,10 +183,19 @@
         }
       }
     },
+    "Edit Meal Content" : {
+
+    },
     "Edit Saved Meal" : {
 
     },
+    "Food Change Options" : {
+
+    },
     "Food Image" : {
+
+    },
+    "Food Image Placeholder" : {
 
     },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
@@ -193,7 +239,10 @@
         }
       }
     },
-    "Hello, World!" : {
+    "How do you want to change your food option?" : {
+
+    },
+    "Input New Food to Chat" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -310,6 +359,9 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "Large Meal" : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -331,6 +383,9 @@
         }
       }
     },
+    "Lunch 02/05/2024" : {
+
+    },
     "MARILY_OPPEZZO_BIO" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -342,7 +397,10 @@
         }
       }
     },
-    "Meal 1" : {
+    "Meal Report Placeholder" : {
+
+    },
+    "Medium Meal" : {
 
     },
     "MICHAEL_BAIOCCHI_BIO" : {
@@ -389,6 +447,9 @@
         }
       }
     },
+    "Protein Content" : {
+
+    },
     "Repository Link" : {
       "localizations" : {
         "en" : {
@@ -399,7 +460,13 @@
         }
       }
     },
+    "Save Changes" : {
+
+    },
     "Saved Meal" : {
+
+    },
+    "Saved Meals" : {
 
     },
     "SCHEDULE_LIST_TITLE" : {
@@ -424,6 +491,9 @@
       }
     },
     "Select Saved Meal" : {
+
+    },
+    "Small Meal" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
@@ -587,7 +657,7 @@
         }
       }
     },
-    "You indicated: %@ meal" : {
+    "You indicated: %@" : {
 
     }
   },

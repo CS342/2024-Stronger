@@ -7,74 +7,102 @@
 
 import SwiftUI
 
-struct EditSavedMeal: View {
-    // Placeholder data structure for meal items
-    struct MealItem {
-        var name: String
-        var size: String
-        var protein: Int
-    }
+class MealData: ObservableObject {
+    @Published var mealItems: [MealItem]
     
-    // Sample data for the list
-    let mealItems: [MealItem] = [
-        MealItem(name: "Placeholder 1", size: "large", protein: 20),
-        MealItem(name: "Placeholder 2", size: "small", protein: 10),
-        MealItem(name: "Placeholder 3", size: "large", protein: 20),
-        MealItem(name: "Placeholder 4", size: "large", protein: 20),
-        MealItem(name: "Placeholder 5", size: "large", protein: 20)
-    ]
+    init(mealItems: [MealItem]) {
+        self.mealItems = mealItems
+    }
+}
+
+struct MealItem: Identifiable {
+    let id = UUID()
+    var name: String
+    var size: String
+    var protein: Int
+}
+
+struct EditSavedMeal: View {
+    @ObservedObject var mealData: MealData
     
     var body: some View {
-        VStack(alignment: .leading) {
-            // Header
-            Text("Meal 1")
-                .font(.title)
-                .bold()
-            Text("Click an item to edit or next to continue")
-                .font(.subheadline)
-                .padding(.bottom)
-            
-            Divider()
-            
-            // List of items
-            ForEach(mealItems.indices, id: \.self) { index in
-                HStack {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("\(index + 1). \(mealItems[index].name)")
-                            .bold()
-                        Text("You indicated: \(mealItems[index].size) meal")
-                        Text("[\(mealItems[index].protein)] grams of protein")
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    // Header
+                    Text("Lunch 02/05/2024")
+                        .font(.title)
+                        .bold()
+                        .padding(.top)
+                        .padding(.leading)
+                    
+                    Text("Click an item image to edit or next to continue")
+                        .font(.subheadline)
+                        .padding(.bottom)
+                        .padding(.leading)
+                    
+                    Divider()
+                    
+                    // List of items
+                    ForEach(mealData.mealItems.indices, id: \.self) { index in
+                        NavigationLink(destination: ChooseNewFoodOptions(selectedMealItem: $mealData.mealItems[index])) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text("\(index + 1). \(mealData.mealItems[index].name)")
+                                        .bold()
+                                        .foregroundColor(.black)
+                                    Text("You indicated: \(mealData.mealItems[index].size)")
+                                        .foregroundColor(.black)
+                                    Text("[\(mealData.mealItems[index].protein)] grams of protein")
+                                        .foregroundColor(.black)
+                                }
+                            Spacer()
+                            // Linking image to EditSavedMealContents
+                            Circle()
+                                .stroke(lineWidth: 2)
+                                .frame(width: 80, height: 80)
+                                .overlay(Text("Food Image"))
+                                .foregroundColor(.black)
+                            }
+                        }
+                        .padding()
+                        Divider()
                     }
-                    Spacer()
-                    // Placeholder image
-                    Circle()
-                        .stroke(lineWidth: 2)
-                        .frame(width: 70, height: 70)
-                        .overlay(Text("Food Image"))
                 }
-                .padding()
-                Divider()
             }
             
             Spacer()
-            NavigationLink(destination: MealReport()) {
-                Text("Next")
-                    .foregroundColor(.black)
-                    .font(.headline) // can incease size
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 40)
-                    .overlay(RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.orange, lineWidth: 2))
+            
+            HStack {
+                Spacer()
+                NavigationLink(destination: MealReport()) {
+                    Text("Next")
+                        .foregroundColor(.black)
+                        .font(.headline)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 40)
+                        .overlay(RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.orange, lineWidth: 2))
+                }
+                Spacer()
             }
+            .padding(.bottom)
         }
-        .padding()
-        Spacer()
-        
         .navigationTitle("Edit Saved Meal")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-#Preview {
-    EditSavedMeal()
+// Preview
+struct EditSavedMeal_Previews: PreviewProvider {
+    static var previews: some View {
+        // Sample data
+        EditSavedMeal(mealData: MealData(mealItems: [
+            MealItem(name: "Chicken Salad", size: "large meal", protein: 18),
+            MealItem(name: "Garlic Breadsticks", size: "medium meal", protein: 12),
+            MealItem(name: "Cheese Stick", size: "small meal", protein: 7),
+            MealItem(name: "Glass of Milk", size: "medium meal", protein: 8),
+            MealItem(name: "Chocolate Chip Cookie", size: "small meal", protein: 2)
+        ]))
+    }
 }

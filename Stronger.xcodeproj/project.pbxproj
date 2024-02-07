@@ -11,6 +11,10 @@
 		1E88BEE32B71725600A4BCEE /* SelectSavedMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEE22B71725600A4BCEE /* SelectSavedMeal.swift */; };
 		1E88BEE62B7180FF00A4BCEE /* EditSavedMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEE52B7180FF00A4BCEE /* EditSavedMeal.swift */; };
 		1E88BEE92B71B8F500A4BCEE /* MealReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEE82B71B8F500A4BCEE /* MealReport.swift */; };
+		1E88BEEC2B72F88800A4BCEE /* NewTestAccessFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEEB2B72F88700A4BCEE /* NewTestAccessFirebase.swift */; };
+		1E88BEEF2B73E55800A4BCEE /* EditSavedMealContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEEE2B73E55800A4BCEE /* EditSavedMealContents.swift */; };
+		1E88BEF22B73EB8500A4BCEE /* ChooseNewFoodOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEF12B73EB8500A4BCEE /* ChooseNewFoodOptions.swift */; };
+		1E88BEF52B73EB9100A4BCEE /* CommonlySavedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEF42B73EB9100A4BCEE /* CommonlySavedItems.swift */; };
 		27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA298F2A388E9B009CAC45 /* ModalView.swift */; };
 		2F1AC9DF2B4E840E00C24973 /* Stronger.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AC9DE2B4E840E00C24973 /* Stronger.docc */; };
 		2F3D4ABC2A4E7C290068FB2F /* SpeziScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3D4ABB2A4E7C290068FB2F /* SpeziScheduler */; };
@@ -101,6 +105,10 @@
 		1E88BEE22B71725600A4BCEE /* SelectSavedMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSavedMeal.swift; sourceTree = "<group>"; };
 		1E88BEE52B7180FF00A4BCEE /* EditSavedMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavedMeal.swift; sourceTree = "<group>"; };
 		1E88BEE82B71B8F500A4BCEE /* MealReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealReport.swift; sourceTree = "<group>"; };
+		1E88BEEB2B72F88700A4BCEE /* NewTestAccessFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTestAccessFirebase.swift; sourceTree = "<group>"; };
+		1E88BEEE2B73E55800A4BCEE /* EditSavedMealContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavedMealContents.swift; sourceTree = "<group>"; };
+		1E88BEF12B73EB8500A4BCEE /* ChooseNewFoodOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNewFoodOptions.swift; sourceTree = "<group>"; };
+		1E88BEF42B73EB9100A4BCEE /* CommonlySavedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonlySavedItems.swift; sourceTree = "<group>"; };
 		27FA298F2A388E9B009CAC45 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		2F1AC9DE2B4E840E00C24973 /* Stronger.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Stronger.docc; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
@@ -204,8 +212,12 @@
 			isa = PBXGroup;
 			children = (
 				1E88BEE02B71712000A4BCEE /* SelectNeworSaved.swift */,
+				1E88BEEB2B72F88700A4BCEE /* NewTestAccessFirebase.swift */,
 				1E88BEE22B71725600A4BCEE /* SelectSavedMeal.swift */,
 				1E88BEE52B7180FF00A4BCEE /* EditSavedMeal.swift */,
+				1E88BEEE2B73E55800A4BCEE /* EditSavedMealContents.swift */,
+				1E88BEF12B73EB8500A4BCEE /* ChooseNewFoodOptions.swift */,
+				1E88BEF42B73EB9100A4BCEE /* CommonlySavedItems.swift */,
 				1E88BEE82B71B8F500A4BCEE /* MealReport.swift */,
 			);
 			path = SavedMeals;
@@ -594,6 +606,7 @@
 				2F4FC8D729EE69D300BFFE26 /* MockUpload.swift in Sources */,
 				1E88BEE32B71725600A4BCEE /* SelectSavedMeal.swift in Sources */,
 				2FE5DC3A29EDD7CA004B9AB4 /* Welcome.swift in Sources */,
+				1E88BEEF2B73E55800A4BCEE /* EditSavedMealContents.swift in Sources */,
 				2FE5DC3829EDD7CA004B9AB4 /* InterestingModules.swift in Sources */,
 				2FE5DC3529EDD7CA004B9AB4 /* Consent.swift in Sources */,
 				2FE5DC4529EDD7F2004B9AB4 /* Binding+Negate.swift in Sources */,
@@ -608,6 +621,7 @@
 				2FE5DC4029EDD7EE004B9AB4 /* FeatureFlags.swift in Sources */,
 				2FE5DC4629EDD7F2004B9AB4 /* Bundle+Image.swift in Sources */,
 				2FE5DC4F29EDD7FA004B9AB4 /* EventContext.swift in Sources */,
+				1E88BEF22B73EB8500A4BCEE /* ChooseNewFoodOptions.swift in Sources */,
 				2FE5DC5029EDD7FA004B9AB4 /* EventContextView.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* StrongerTestingSetup.swift in Sources */,
 				2FE5DC5329EDD7FA004B9AB4 /* Bundle+Questionnaire.swift in Sources */,
@@ -624,8 +638,10 @@
 				653A2551283387FE005D4D48 /* Stronger.swift in Sources */,
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,
 				5661552E2AB854C000209B80 /* PackageHelper.swift in Sources */,
+				1E88BEEC2B72F88800A4BCEE /* NewTestAccessFirebase.swift in Sources */,
 				27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */,
 				2FE5DC2629EDD38A004B9AB4 /* Contacts.swift in Sources */,
+				1E88BEF52B73EB9100A4BCEE /* CommonlySavedItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
