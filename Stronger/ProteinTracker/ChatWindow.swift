@@ -4,6 +4,10 @@
 //
 //  Created by Tulika Jha on 29/01/24.
 //
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 
 import SpeziLLM
 import SpeziLLMLocal
@@ -11,9 +15,6 @@ import SpeziLLMOpenAI
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
-
-
-
 
 
 func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
@@ -44,7 +45,6 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
         "timestamp": currentDateString,
         "protein content": totalProteinContent
     ]
-    
     do {
 //        try await db.collection("protein_content").document("food").setData(foodData, merge: true)
 //        try await db.collection("users").document("~2Fusers~2FRrweEA63aiRFM9DXSAPD6ShYb3i1").document("user1").setData(foodData, merge: true)
@@ -54,7 +54,7 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
         print("Error writing document: \(error)")
     }
     return "done"
-    
+
 }
 
 struct GetProteinContent: LLMFunction {
@@ -122,7 +122,7 @@ struct ChatWindow: View {
     
     var body: some View {
         NavigationStack {
-            LLMChatView(
+            LLMChatView (
                 model: model
             )
                 .navigationTitle("Pro-ChatBot")
@@ -135,9 +135,6 @@ struct ChatWindow: View {
         }
     }
 }
-
-
-
 
 #Preview {
     ChatWindow()

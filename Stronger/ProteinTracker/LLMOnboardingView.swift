@@ -4,6 +4,10 @@
 //
 //  Created by Tulika Jha on 01/02/24.
 //
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 
 import SpeziLLMOpenAI
 import SpeziOnboarding
