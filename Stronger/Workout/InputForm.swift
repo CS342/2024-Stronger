@@ -21,7 +21,7 @@ struct InputForm: View {
     var body: some View {
         NavigationStack {
             Form {
-                squatSection
+                exerciseInputSection
                 submitSection
             }
             .navigationBarTitle("Input Results")
@@ -30,7 +30,7 @@ struct InputForm: View {
         }
     }
 
-    private var squatSection: some View {
+    private var exerciseInputSection: some View {
         Section(header: Text("Squats: Set \(String(currentSet))")) {
             TextField("Number of Reps", text: $numReps)
             Picker("Select Band", selection: $selectedBand) {
