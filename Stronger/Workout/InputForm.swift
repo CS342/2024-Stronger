@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct InputForm: View {
+struct WorkoutInputForm: View {
+    var workoutName: String
+
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1" // Default selection
         let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
@@ -36,7 +38,7 @@ struct InputForm: View {
     }
 
     private var exerciseInputSection: some View {
-        Section(header: Text("Squats: Set \(String(currentSet))")) {
+        Section(header: Text("\(workoutName): Set \(String(currentSet))")) {
             TextField("Number of Reps", text: $numReps)
             Picker("Select Band", selection: $selectedBand) {
                 ForEach(bands, id: \.self) { Text($0).tag($0) }
@@ -78,6 +80,6 @@ struct InputForm: View {
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
-        InputForm()
+        WorkoutInputForm(workoutName: "Squats")
     }
 }

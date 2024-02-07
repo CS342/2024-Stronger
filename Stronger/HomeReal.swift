@@ -38,7 +38,7 @@ struct HomeReal: View {
                     }
                     
                     
-                    NavigationLink(destination: ExerciseView()) {
+                    NavigationLink(destination: WorkoutHome()) {
                         Text("Exercise")
                             .modifier(NavButton())
                     }
