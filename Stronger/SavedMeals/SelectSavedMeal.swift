@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SelectSavedMeal: View {
     // replace with real data
-    let mealData = MealData(mealItems: [MealItem(name: "Chicken Salad", size: "large", protein: 18),
+    let mealData = MealData(mealItems: [
+        MealItem(name: "Chicken Salad", size: "large", protein: 18),
         MealItem(name: "Garlic Breadsticks", size: "medium", protein: 12),
         MealItem(name: "Cheese Stick", size: "small", protein: 7),
         MealItem(name: "Glass of Milk", size: "medium", protein: 8),
-        MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)])
+        MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
+    ])
     var body: some View {
         VStack {
             Text("Please select which saved meal to log")

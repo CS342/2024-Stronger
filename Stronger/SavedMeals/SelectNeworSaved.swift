@@ -32,7 +32,7 @@ struct SelectNeworSaved: View {
                         .padding(.horizontal, 40)
                         .overlay(RoundedRectangle(cornerRadius: 12)
                                     .stroke(Color.orange, lineWidth: 2))
-                }.padding(.bottom, 70)
+                } .padding(.bottom, 70)
                 NavigationLink(destination: SelectSavedMeal()) {
                     Text("Saved Meal")
                         .foregroundColor(.black)

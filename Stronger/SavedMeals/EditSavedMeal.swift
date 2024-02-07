@@ -7,21 +7,6 @@
 // Created by Kevin Zhu
 import SwiftUI
 
-class MealData: ObservableObject {
-    @Published var mealItems: [MealItem]
-    
-    init(mealItems: [MealItem]) {
-        self.mealItems = mealItems
-    }
-}
-
-struct MealItem: Identifiable {
-    let id = UUID()
-    var name: String
-    var size: String
-    var protein: Int
-}
-
 struct EditSavedMeal: View {
     @ObservedObject var mealData: MealData
     
@@ -91,15 +76,32 @@ struct EditSavedMeal: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+class MealData: ObservableObject {
+    @Published var mealItems: [MealItem]
+    
+    init(mealItems: [MealItem]) {
+        self.mealItems = mealItems
+    }
+}
+
+struct MealItem: Identifiable {
+    let id = UUID()
+    var name: String
+    var size: String
+    var protein: Int
+}
 
 // Preview
 // struct EditSavedMeal_Previews: PreviewProvider {
 //     static var previews: some View {
 //         // Sample data
-//         EditSavedMeal(mealData: MealData(mealItems: [MealItem(name: "Chicken Salad", size: "large meal", protein: 18),
+//         EditSavedMeal(mealData: 
+//             MealData(mealItems: [
+//             MealItem(name: "Chicken Salad", size: "large meal", protein: 18),
 //             MealItem(name: "Garlic Breadsticks", size: "medium meal", protein: 12),
 //             MealItem(name: "Cheese Stick", size: "small meal", protein: 7),
 //             MealItem(name: "Glass of Milk", size: "medium meal", protein: 8),
-//             MealItem(name: "Chocolate Chip Cookie", size: "small meal", protein: 2)]))
+//             MealItem(name: "Chocolate Chip Cookie", size: "small meal", protein: 2)
+//          ]))
 //     }
 // }
