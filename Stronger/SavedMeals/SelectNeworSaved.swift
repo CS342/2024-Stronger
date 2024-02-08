@@ -40,7 +40,7 @@ struct SelectNeworSaved: View {
     
     private var newMealButton: some View {
         // Change this to navigate to Chatbot
-        NavigationLink(destination: SelectSavedMeal()) {
+        NavigationLink(destination: ChatWindow()) {
             Text("New Meal")
                 .foregroundColor(.black)
                 .font(.headline)
