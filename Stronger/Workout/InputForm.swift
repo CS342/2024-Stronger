@@ -18,7 +18,9 @@ struct WorkoutInputForm: View {
     @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
-    @State private var firstSetComplete = false
+    @State private var onFirstSet = true
+    @State private var onLastSet = true
+    @State private var maxSet: Int = 1
     
     struct BackButtonStyle: ButtonStyle {
         func makeBody(configuration: Self.Configuration) -> some View {
@@ -79,16 +81,21 @@ struct WorkoutInputForm: View {
     private var submitSection: some View {
         Section {
             HStack {
-                if firstSetComplete {
+                if !onFirstSet {
                     Button("Back", action: backToSet)
-                        .buttonStyle(BackButtonStyle()).disabled(!firstSetComplete)
+                        .buttonStyle(BackButtonStyle())
                     Spacer()
                     Spacer()
                 } else {
                     EmptyView()
                 }
-                Button("Submit", action: submitForm)
-                    .buttonStyle(SubmitButtonStyle())
+                if onLastSet {
+                    Button("Submit", action: submitForm)
+                        .buttonStyle(SubmitButtonStyle())
+                } else {
+                    Button("Next Set", action: goToNextSet)
+                        .buttonStyle(BackButtonStyle())
+                }
             }
             .listRowInsets(EdgeInsets())
         }
@@ -103,16 +110,27 @@ struct WorkoutInputForm: View {
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
-                firstSetComplete = true
+                onFirstSet = false
+                onLastSet = true
                 currentSet += 1
+                maxSet += 1
             }
         )
     }
     
     private func backToSet() {
         currentSet -= 1
+        onLastSet = false
         if currentSet == 1 {
-            firstSetComplete = false
+            onFirstSet = true
+        }
+    }
+    
+    private func goToNextSet() {
+        currentSet += 1
+        onFirstSet = false
+        if currentSet == maxSet {
+            onLastSet = true
         }
     }
 
