@@ -27,7 +27,7 @@ struct ChooseNewFoodOptions: View {
 
             Spacer()
             // change destination later to chat
-            NavigationLink(destination: MealReport()) {
+            NavigationLink(destination: ChatWindow()) {
                 Text("Input New Food to Chat")
                     .foregroundColor(.black)
                     .font(.headline) // can incease size

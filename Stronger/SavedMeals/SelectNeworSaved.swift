@@ -8,19 +8,19 @@ import SwiftUI
 
 struct SelectNeworSaved: View {
     var body: some View {
-        NavigationView {
+          NavigationView {
             VStack {
                 Text("Are you logging a new or saved meal?")
                     .font(.title)
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-
+                
                 Divider().frame(height: 2).foregroundColor(.black).padding(.vertical)
-
+                
                 Spacer()
-                // **replace with chat view!!!**
-                NavigationLink(destination: MealReport()) {
+                
+                NavigationLink(destination: ChatWindow()) {
                     Text("New Meal")
                         .foregroundColor(.black)
                         .font(.headline)
@@ -29,7 +29,7 @@ struct SelectNeworSaved: View {
                         .background(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
                 }
                 .padding(.bottom, 70)
-
+                
                 NavigationLink(destination: SelectSavedMeal()) {
                     Text("Saved Meal")
                         .foregroundColor(.black)
@@ -38,12 +38,14 @@ struct SelectNeworSaved: View {
                         .padding(.horizontal, 40)
                         .background(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
                 }
-
+                
                 Spacer()
-            }
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
-
+          }
+              .navigationBarTitle("", displayMode: .inline)
+              .navigationBarHidden(true)
+        }
+    }
+}
 // preview
 struct SelectNeworSaved_Previews: PreviewProvider {
     static var previews: some View {
