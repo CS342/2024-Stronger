@@ -1,11 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
-    "[%lld] grams of protein" : {
+    "" : {
 
     },
-    "%@" : {
+    "[%lld] grams of protein" : {
 
     },
     "%@, [%lld] g of protein" : {
@@ -71,6 +70,9 @@
           }
         }
       }
+    },
+    "Are you logging a new or saved meal?" : {
+
     },
     "Change Food" : {
 
@@ -196,12 +198,6 @@
 
     },
     "Food Change Options" : {
-
-    },
-    "Food Image" : {
-
-    },
-    "Food Image Placeholder" : {
 
     },
     "food name placeholder" : {
@@ -394,7 +390,7 @@
     "Is this your last set for this exercise?" : {
 
     },
-    "Large Meal" : {
+    "Large portion" : {
 
     },
     "LELAND_STANFORD_BIO" : {
@@ -432,10 +428,13 @@
         }
       }
     },
+    "meal picture" : {
+
+    },
     "Meal Report Placeholder" : {
 
     },
-    "Medium Meal" : {
+    "Medium portion" : {
 
     },
     "MICHAEL_BAIOCCHI_BIO" : {
@@ -475,7 +474,6 @@
     "Nutrition" : {
 
     },
-
     "Please select which saved meal to log" : {
 
     },
@@ -544,7 +542,7 @@
     "Select Saved Meal" : {
 
     },
-    "Small Meal" : {
+    "Small portion" : {
 
     },
     "Stronger" : {

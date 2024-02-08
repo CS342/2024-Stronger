@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SelectSavedMeal: View {
     let mealData = MealData(mealItems: [
-        MealItem(name: "Chicken Salad", size: "large", protein: 18),
-        MealItem(name: "Garlic Breadsticks", size: "medium", protein: 12),
-        MealItem(name: "Cheese Stick", size: "small", protein: 7),
-        MealItem(name: "Glass of Milk", size: "medium", protein: 8),
-        MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
+        MealItem(name: "Chicken Salad", size: "large portion", protein: 18, imageName: "chickenSalad"),
+        MealItem(name: "Garlic Breadsticks", size: "medium portion", protein: 12, imageName: "garlicBreadsticks"),
+        MealItem(name: "Cheese Stick", size: "small portion", protein: 7, imageName: "cheeseStick"),
+        MealItem(name: "Glass of Milk", size: "medium portion", protein: 8, imageName: "glassOfMilk"),
+        MealItem(name: "Chocolate Chip Cookie", size: "small portion", protein: 2, imageName: "chocolateChipCookie")
     ])
 
     private var mealTitles: [String] {
