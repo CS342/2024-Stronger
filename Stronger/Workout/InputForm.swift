@@ -159,6 +159,32 @@ struct SubmitButtonStyle: ButtonStyle {
     }
 }
 
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
+    }
+}
+
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
