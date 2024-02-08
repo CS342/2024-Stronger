@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "[%lld] grams of protein" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@, [%lld] g of protein" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, [%2$lld] g of protein"
+          }
+        }
+      }
+    },
     "%@: Set %@" : {
       "localizations" : {
         "en" : {
@@ -55,6 +71,21 @@
         }
       }
     },
+    "Change Food" : {
+
+    },
+    "Change Portion Size" : {
+
+    },
+    "Change Protein Content" : {
+
+    },
+    "Choose From Your Common foods" : {
+
+    },
+    "Click an item image to edit or next to continue" : {
+
+    },
     "CLOSE" : {
       "comment" : "MARK: General",
       "localizations" : {
@@ -65,6 +96,9 @@
           }
         }
       }
+    },
+    "Commonly Saved Items" : {
+
     },
     "COMPLETED_TASK_LABEL %@" : {
       "localizations" : {
@@ -137,6 +171,12 @@
         }
       }
     },
+    "Edit Meal Content" : {
+
+    },
+    "Edit Saved Meal" : {
+
+    },
     "Exercise" : {
 
     },
@@ -152,6 +192,18 @@
       }
     },
     "Food" : {
+
+    },
+    "Food Change Options" : {
+
+    },
+    "Food Image" : {
+
+    },
+    "Food Image Placeholder" : {
+
+    },
+    "food name placeholder" : {
 
     },
     "FOOD_TAB_TITLE" : {
@@ -215,7 +267,13 @@
     "Home" : {
 
     },
+    "How do you want to change your food option?" : {
+
+    },
     "How to Squat!" : {
+
+    },
+    "Input New Food to Chat" : {
 
     },
     "Input Results" : {
@@ -335,6 +393,9 @@
     "Is this your last set for this exercise?" : {
 
     },
+    "Large Meal" : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -356,6 +417,9 @@
         }
       }
     },
+    "Lunch 02/05/2024" : {
+
+    },
     "MARILY_OPPEZZO_BIO" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -366,6 +430,12 @@
           }
         }
       }
+    },
+    "Meal Report Placeholder" : {
+
+    },
+    "Medium Meal" : {
+
     },
     "MICHAEL_BAIOCCHI_BIO" : {
       "extractionState" : "manual",
@@ -389,10 +459,22 @@
         }
       }
     },
+    "New Meal" : {
+
+    },
+    "Next" : {
+
+    },
     "No" : {
 
     },
     "Number of Reps" : {
+
+    },
+    "Nutrition" : {
+
+    },
+    "Please select which saved meal to log" : {
 
     },
     "Please sign-in to continue your Stronger journey" : {
@@ -408,6 +490,9 @@
         }
       }
     },
+    "Protein Content" : {
+
+    },
     "Repository Link" : {
       "localizations" : {
         "en" : {
@@ -417,6 +502,15 @@
           }
         }
       }
+    },
+    "Save Changes" : {
+
+    },
+    "Saved Meal" : {
+
+    },
+    "Saved Meals" : {
+
     },
     "SCHEDULE_LIST_TITLE" : {
       "localizations" : {
@@ -443,6 +537,12 @@
 
     },
     "Select Difficulty" : {
+
+    },
+    "Select Saved Meal" : {
+
+    },
+    "Small Meal" : {
 
     },
     "Stronger" : {
@@ -625,6 +725,9 @@
 
     },
     "Yes" : {
+
+    },
+    "You indicated: %@" : {
 
     },
     "You've finished your exercises for the day! Way to go!" : {

@@ -32,8 +32,8 @@ struct HomeReal: View {
                 // Bottom section with navigation buttons
                 Spacer()
                 HStack(spacing: 10) {
-                    NavigationLink(destination: Nutrition()) {
-                        Text("Food")
+                    NavigationLink(destination: SelectNeworSaved()) {
+                        Text("Nutrition")
                             .modifier(NavButton())
                     }
                     
