@@ -15,9 +15,36 @@ struct WorkoutInputForm: View {
         let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
     @State private var selectedDifficulty: String = "Easy" // Default selection
         let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
-    @State private var currentSet: Int = 1 //
+    @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
+    @State private var firstSetComplete = false
+    
+    struct BackButtonStyle: ButtonStyle {
+        func makeBody(configuration: Self.Configuration) -> some View {
+            configuration.label
+                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                )
+                .foregroundColor(.blue)
+        }
+    }
+    
+    struct SubmitButtonStyle: ButtonStyle {
+        func makeBody(configuration: Self.Configuration) -> some View {
+            configuration.label
+                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                )
+                .foregroundColor(.red)
+        }
+    }
 
 
     var body: some View {
@@ -48,15 +75,24 @@ struct WorkoutInputForm: View {
             }
         }
     }
-
+    
     private var submitSection: some View {
         Section {
             HStack {
-                Spacer()
+                if firstSetComplete {
+                    Button("Back", action: backToSet)
+                        .buttonStyle(BackButtonStyle()).disabled(!firstSetComplete)
+                    Spacer()
+                    Spacer()
+                } else {
+                    EmptyView()
+                }
                 Button("Submit", action: submitForm)
-                Spacer()
+                    .buttonStyle(SubmitButtonStyle())
             }
+            .listRowInsets(EdgeInsets())
         }
+        .listRowBackground(Color.clear)
     }
 
     private var submissionAlert: Alert {
@@ -67,9 +103,17 @@ struct WorkoutInputForm: View {
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
+                firstSetComplete = true
                 currentSet += 1
             }
         )
+    }
+    
+    private func backToSet() {
+        currentSet -= 1
+        if currentSet == 1 {
+            firstSetComplete = false
+        }
     }
 
     private func submitForm() {
