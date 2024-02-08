@@ -32,8 +32,8 @@ struct HomeReal: View {
                 // Bottom section with navigation buttons
                 Spacer()
                 HStack(spacing: 10) {
-                    NavigationLink(destination: Nutrition()) {
-                        Text("Food")
+                    NavigationLink(destination: SelectNeworSaved()) {
+                        Text("Nutrition")
                             .modifier(NavButton())
                     }
                     
@@ -48,6 +48,7 @@ struct HomeReal: View {
                 .frame(width: UIScreen.main.bounds.width * 0.9)
             }
             .navigationBarTitle("Home")
+            .navigationBarHidden(true)
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()
             }

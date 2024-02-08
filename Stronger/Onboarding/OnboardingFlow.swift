@@ -26,10 +26,8 @@ struct OnboardingFlow: View {
         if ProcessInfo.processInfo.isPreviewSimulator {
             return false
         }
-        
         return healthKitDataSource.authorized
     }
-    
     
     var body: some View {
         OnboardingStack(onboardingFlowComplete: $completedOnboardingFlow) {
