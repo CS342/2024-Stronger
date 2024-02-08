@@ -13,12 +13,12 @@ struct CommonlySavedItems: View {
     @Binding var selectedItem: MealItem
     
     let commonItems: [MealItem] = [
-        MealItem(name: "Salmon", size: "large", protein: 23),
-        MealItem(name: "Rice", size: "small", protein: 4),
-        MealItem(name: "Turkey", size: "medium", protein: 15),
-        MealItem(name: "Toast", size: "small", protein: 7),
-        MealItem(name: "Banana", size: "small", protein: 5),
-        MealItem(name: "Pear", size: "small", protein: 3)
+        MealItem(name: "Salmon", size: "large portion", protein: 23, imageName: "salmon"),
+        MealItem(name: "Rice", size: "small portion", protein: 4, imageName: "rice"),
+        MealItem(name: "Turkey", size: "medium portion", protein: 15, imageName: "turkey"),
+        MealItem(name: "Toast", size: "small portion", protein: 7, imageName: "toast"),
+        MealItem(name: "Banana", size: "small portion", protein: 5, imageName: "banana"),
+        MealItem(name: "Pear", size: "small portion", protein: 3, imageName: "pear")
     ]
     
     var body: some View {
@@ -27,37 +27,41 @@ struct CommonlySavedItems: View {
                 .font(.title)
                 .bold()
                 .padding()
-            
+                .foregroundColor(.black)
             Divider()
-            
             ScrollView {
                 ForEach(commonItems, id: \.id) { item in
                     Button(action: {
                         selectedItem = item
                         presentationMode.wrappedValue.dismiss()
+                        presentationMode.wrappedValue.dismiss()
+                        presentationMode.wrappedValue.dismiss()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(item.name)
+                                    .foregroundColor(.black)
                                     .font(.headline)
                                 Text("\(item.size), [\(item.protein)] g of protein")
                                     .font(.subheadline)
+                                    .foregroundColor(.black)
                             }
                             Spacer()
-                            Image(systemName: "photo") // Placeholder for food image
+                            Image(item.imageName)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 50)
                                 .accessibilityLabel("food name placeholder")
                         }
                         .padding()
-                        Divider()
                     }
                 }
             }
         }
     }
 }
+
 
 // #Preview {
 //     CommonlySavedItems()

@@ -20,16 +20,19 @@ struct MealItem: Identifiable {
     var name: String
     var size: String
     var protein: Int
+    var imageName: String
 }
 
 struct MealItemView: View {
     @Binding var mealItem: MealItem
-    
+    var mealData: MealData
+
     var body: some View {
-        NavigationLink(destination: ChooseNewFoodOptions(selectedMealItem: $mealItem)) {
+        NavigationLink(destination:
+                EditSavedMealContents(mealData: mealData, mealIndex: mealData.mealItems.firstIndex(where: { $0.id == mealItem.id }) ?? 0)) {
             HStack {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("\(mealItem.name)")
+                    Text(mealItem.name)
                         .bold()
                         .foregroundColor(.black)
                     Text("You indicated: \(mealItem.size)")
@@ -38,11 +41,13 @@ struct MealItemView: View {
                         .foregroundColor(.black)
                 }
                 Spacer()
-                Circle()
-                    .stroke(lineWidth: 2)
+                // Display the image
+                Image(mealItem.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)
-                    .overlay(Text("Food Image"))
-                    .foregroundColor(.black)
+                    .clipShape(Circle())
+                    .accessibilityLabel("meal picture")
             }
             .padding()
             Divider()
@@ -89,7 +94,7 @@ struct EditSavedMeal: View {
     
     private var mealItemsView: some View {
         ForEach(mealData.mealItems.indices, id: \.self) { index in
-            MealItemView(mealItem: $mealData.mealItems[index])
+            MealItemView(mealItem: $mealData.mealItems[index], mealData: mealData)
         }
     }
     
@@ -105,16 +110,15 @@ struct EditSavedMeal: View {
         }
     }
 }
-
 // preview
 struct EditSavedMeal_Previews: PreviewProvider {
     static var previews: some View {
         let sampleMeals = [
-            MealItem(name: "Chicken Salad", size: "large", protein: 18),
-            MealItem(name: "Garlic Breadsticks", size: "medium", protein: 12),
-            MealItem(name: "Cheese Stick", size: "small", protein: 7),
-            MealItem(name: "Glass of Milk", size: "medium", protein: 8),
-            MealItem(name: "Chocolate Chip Cookie", size: "small", protein: 2)
+            MealItem(name: "Chicken Salad", size: "large portion", protein: 18, imageName: "chickenSalad"),
+            MealItem(name: "Garlic Breadsticks", size: "medium portion", protein: 12, imageName: "garlicBreadsticks"),
+            MealItem(name: "Cheese Stick", size: "small portion", protein: 7, imageName: "cheeseStick"),
+            MealItem(name: "Glass of Milk", size: "medium portion", protein: 8, imageName: "glassOfMilk"),
+            MealItem(name: "Chocolate Chip Cookie", size: "small portion", protein: 2, imageName: "chocolateChipCookie")
         ]
         let mealData = MealData(mealItems: sampleMeals)
         return NavigationView {
