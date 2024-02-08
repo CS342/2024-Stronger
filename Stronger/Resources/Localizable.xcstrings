@@ -1,7 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
     "[%lld] grams of protein" : {
 
     },
@@ -494,6 +493,9 @@
 
     },
     "Next" : {
+
+    },
+    "Next Set" : {
 
     },
     "No" : {
