@@ -34,16 +34,12 @@ private struct TitleView: View {
 
 private struct SquatOverlay: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.yellow)
-            .frame(width: 250, height: 74.0)
-            .overlay(
-                Text("How to Squat!")
-                .font(.title)
-                .fontWeight(.semibold)
-                .foregroundColor(Color.black)
-                .multilineTextAlignment(.leading)
-            )
+        Text("Play the video to see how to Squat!")
+            .font(.title)
+            .fontWeight(.semibold)
+            .foregroundColor(Color.black)
+            .padding(10) // Adds some padding around the text
+            .cornerRadius(10) // Gives the highlighted background rounded corners
     }
 }
 
