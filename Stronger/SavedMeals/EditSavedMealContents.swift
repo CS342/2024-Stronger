@@ -5,8 +5,6 @@
 //
 // SPDX-License-Identifier: MIT
 // Created by Kevin Zhu
-
-
 import SwiftUI
 
 struct ChangeFoodOptions: View {
@@ -24,10 +22,9 @@ struct EditSavedMealContents: View {
     
     @State private var selectedSize: String
     @State private var newProteinContent: String = ""
-    
+
     var body: some View {
         VStack {
-            placeholderImage
             changeFoodOptionLink
             portionSizePicker
             proteinContentInput
@@ -38,25 +35,17 @@ struct EditSavedMealContents: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    private var placeholderImage: some View {
-        Rectangle()
-            .fill(Color.gray)
-            .aspectRatio(16 / 9, contentMode: .fit)
-            .overlay(Text("Food Image Placeholder"))
-            .foregroundColor(.black)
-    }
-    
     private var changeFoodOptionLink: some View {
-        NavigationLink(destination: ChangeFoodOptions(mealData: mealData, mealIndex: mealIndex)) {
+        NavigationLink(destination: ChooseNewFoodOptions(selectedMealItem: $mealData.mealItems[mealIndex])) {
             Text("Change Food")
         }
     }
     
     private var portionSizePicker: some View {
         Picker("Change Portion Size", selection: $selectedSize) {
-            Text("Large Meal").tag("large meal")
-            Text("Medium Meal").tag("medium meal")
-            Text("Small Meal").tag("small meal")
+            Text("Large portion").tag("large portion")
+            Text("Medium portion").tag("medium portion")
+            Text("Small portion").tag("small portion")
         }
         .pickerStyle(MenuPickerStyle())
     }
@@ -78,5 +67,10 @@ struct EditSavedMealContents: View {
                 mealData.mealItems[mealIndex].protein = newProtein
             }
         }
+    }
+    init(mealData: MealData, mealIndex: Int, selectedSize: String? = nil) {
+            self.mealData = mealData
+            self.mealIndex = mealIndex
+            _selectedSize = State(initialValue: selectedSize ?? mealData.mealItems[mealIndex].size)
     }
 }

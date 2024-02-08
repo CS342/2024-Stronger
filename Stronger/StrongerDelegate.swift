@@ -12,6 +12,8 @@ import SpeziFirebaseAccount
 import SpeziFirebaseStorage
 import SpeziFirestore
 import SpeziHealthKit
+import SpeziLLM
+import SpeziLLMOpenAI
 import SpeziMockWebService
 import SpeziOnboarding
 import SpeziScheduler
@@ -53,6 +55,10 @@ class StrongerDelegate: SpeziAppDelegate {
             
             StrongerScheduler()
             OnboardingDataSource()
+            
+            LLMRunner {
+                LLMOpenAIRunnerSetupTask()
+            }
         }
     }
     

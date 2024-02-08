@@ -79,6 +79,13 @@
 		5661552E2AB854C000209B80 /* PackageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5661552D2AB854C000209B80 /* PackageHelper.swift */; };
 		5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5680DD382AB8983D004E6D4A /* PackageCell.swift */; };
 		56F6F2A02AB441930022FE5A /* ContributionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6F29F2AB441930022FE5A /* ContributionsList.swift */; };
+		6301EA5A2B68CF9E005BDFB3 /* ChatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */; };
+		63A3157E2B6C760C00B6B9E4 /* LLMOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */; };
+		63A315812B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */; };
+		63D185152B69D1FA00DD353C /* SpeziLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 63D185142B69D1FA00DD353C /* SpeziLLM */; };
+		63D185172B69D1FA00DD353C /* SpeziLLMLocal in Frameworks */ = {isa = PBXBuildFile; productRef = 63D185162B69D1FA00DD353C /* SpeziLLMLocal */; };
+		63D185192B69D1FA00DD353C /* SpeziLLMLocalDownload in Frameworks */ = {isa = PBXBuildFile; productRef = 63D185182B69D1FA00DD353C /* SpeziLLMLocalDownload */; };
+		63D1851B2B69D1FA00DD353C /* SpeziLLMOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 63D1851A2B69D1FA00DD353C /* SpeziLLMOpenAI */; };
 		653A2551283387FE005D4D48 /* Stronger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* Stronger.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* StrongerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* StrongerTests.swift */; };
@@ -164,6 +171,9 @@
 		5661552D2AB854C000209B80 /* PackageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageHelper.swift; sourceTree = "<group>"; };
 		5680DD382AB8983D004E6D4A /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		56F6F29F2AB441930022FE5A /* ContributionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsList.swift; sourceTree = "<group>"; };
+		6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWindow.swift; sourceTree = "<group>"; };
+		63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOnboardingView.swift; sourceTree = "<group>"; };
+		63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOpenAITokenOnboarding.swift; sourceTree = "<group>"; };
 		653A254D283387FE005D4D48 /* Stronger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stronger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A2550283387FE005D4D48 /* Stronger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stronger.swift; sourceTree = "<group>"; };
 		653A255428338800005D4D48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,16 +192,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D185152B69D1FA00DD353C /* SpeziLLM in Frameworks */,
 				9733CFC62A8066DE001B7ABC /* SpeziOnboarding in Frameworks */,
 				2FE5DC6429EDD883004B9AB4 /* SpeziAccount in Frameworks */,
+				63D185172B69D1FA00DD353C /* SpeziLLMLocal in Frameworks */,
 				2FB099AF2A875DF100B20952 /* FirebaseAuth in Frameworks */,
 				97D73D6A2AD860AD00B47FA0 /* SpeziFirebaseStorage in Frameworks */,
+				63D1851B2B69D1FA00DD353C /* SpeziLLMOpenAI in Frameworks */,
 				2FE5DC6729EDD894004B9AB4 /* SpeziContact in Frameworks */,
 				2FE5DC8429EDD934004B9AB4 /* SpeziQuestionnaire in Frameworks */,
 				2FB099B32A875DF100B20952 /* FirebaseFirestoreSwift in Frameworks */,
 				5661551D2AB8384200209B80 /* SwiftPackageList in Frameworks */,
 				2FB099B12A875DF100B20952 /* FirebaseFirestore in Frameworks */,
 				A9D83F962B083794000D0C78 /* SpeziFirebaseAccountStorage in Frameworks */,
+				63D185192B69D1FA00DD353C /* SpeziLLMLocalDownload in Frameworks */,
 				2FB099B62A875E2B00B20952 /* HealthKitOnFHIR in Frameworks */,
 				2FE5DC8A29EDD972004B9AB4 /* SpeziLocalStorage in Frameworks */,
 				2FE5DC8C29EDD972004B9AB4 /* SpeziSecureStorage in Frameworks */,
@@ -365,6 +379,16 @@
 			path = Contributions;
 			sourceTree = "<group>";
 		};
+		6301EA562B68CF44005BDFB3 /* ProteinTracker */ = {
+			isa = PBXGroup;
+			children = (
+				6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */,
+				63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */,
+				63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */,
+			);
+			path = ProteinTracker;
+			sourceTree = "<group>";
+		};
 		653A2544283387FE005D4D48 = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +419,7 @@
 				40223A512B6CB64C005FC0BF /* Info */,
 				40223A4F2B6CB63B005FC0BF /* Exercise */,
 				40223A472B6C56EC005FC0BF /* Nutrition */,
+				6301EA562B68CF44005BDFB3 /* ProteinTracker */,
 				653A2550283387FE005D4D48 /* Stronger.swift */,
 				40223A402B6C544D005FC0BF /* HomeReal.swift */,
 				2F5E32BC297E05EA003432F8 /* StrongerDelegate.swift */,
@@ -501,6 +526,10 @@
 				9739A0C52AD7B5730084BEA5 /* FirebaseStorage */,
 				97D73D692AD860AD00B47FA0 /* SpeziFirebaseStorage */,
 				A9D83F952B083794000D0C78 /* SpeziFirebaseAccountStorage */,
+				63D185142B69D1FA00DD353C /* SpeziLLM */,
+				63D185162B69D1FA00DD353C /* SpeziLLMLocal */,
+				63D185182B69D1FA00DD353C /* SpeziLLMLocalDownload */,
+				63D1851A2B69D1FA00DD353C /* SpeziLLMOpenAI */,
 			);
 			productName = Stronger;
 			productReference = 653A254D283387FE005D4D48 /* Stronger.app */;
@@ -595,6 +624,7 @@
 				2FE750CA2A87240100723EAE /* XCRemoteSwiftPackageReference "SpeziMockWebService" */,
 				2FB099B42A875E2B00B20952 /* XCRemoteSwiftPackageReference "HealthKitOnFHIR" */,
 				5661551B2AB8384200209B80 /* XCRemoteSwiftPackageReference "swift-package-list" */,
+				6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */,
 			);
 			productRefGroup = 653A254E283387FE005D4D48 /* Products */;
 			projectDirPath = "";
@@ -677,6 +707,7 @@
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2FE5DC4E29EDD7FA004B9AB4 /* ScheduleView.swift in Sources */,
 				A9DFE8A92ABE551400428242 /* AccountButton.swift in Sources */,
+				63A315812B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift in Sources */,
 				2FE5DC3729EDD7CA004B9AB4 /* OnboardingFlow.swift in Sources */,
 				2F1AC9DF2B4E840E00C24973 /* Stronger.docc in Sources */,
 				38FE1D022B716A42008F8BE0 /* WorkoutVideoView.swift in Sources */,
@@ -698,8 +729,10 @@
 				1E88BEE92B71B8F500A4BCEE /* MealReport.swift in Sources */,
 				1E88BEE12B71712000A4BCEE /* SelectNeworSaved.swift in Sources */,
 				40223A5C2B6CC051005FC0BF /* Exercise.swift in Sources */,
+				6301EA5A2B68CF9E005BDFB3 /* ChatWindow.swift in Sources */,
 				2FE5DC5129EDD7FA004B9AB4 /* StrongerTaskContext.swift in Sources */,
 				56F6F2A02AB441930022FE5A /* ContributionsList.swift in Sources */,
+				63A3157E2B6C760C00B6B9E4 /* LLMOnboardingView.swift in Sources */,
 				566155292AB8447C00209B80 /* Package+LicenseType.swift in Sources */,
 				5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* StrongerDelegate.swift in Sources */,
@@ -811,6 +844,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TEST;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Test;
@@ -856,6 +890,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				"SWIFT_ELicenseRef-Stronger_LOC_STRINGS" = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -959,6 +994,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1015,6 +1051,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1061,6 +1098,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				"SWIFT_ELicenseRef-Stronger_LOC_STRINGS" = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1110,6 +1148,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				"SWIFT_ELicenseRef-Stronger_LOC_STRINGS" = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1359,6 +1398,14 @@
 				minimumVersion = 3.0.10;
 			};
 		};
+		6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StanfordSpezi/SpeziLLM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
 		97F466E62A76BBEE005DC9B4 /* XCRemoteSwiftPackageReference "SpeziOnboarding" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/StanfordSpezi/SpeziOnboarding";
@@ -1483,6 +1530,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5661551B2AB8384200209B80 /* XCRemoteSwiftPackageReference "swift-package-list" */;
 			productName = "plugin:SwiftPackageListJSONPlugin";
+		};
+		63D185142B69D1FA00DD353C /* SpeziLLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */;
+			productName = SpeziLLM;
+		};
+		63D185162B69D1FA00DD353C /* SpeziLLMLocal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */;
+			productName = SpeziLLMLocal;
+		};
+		63D185182B69D1FA00DD353C /* SpeziLLMLocalDownload */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */;
+			productName = SpeziLLMLocalDownload;
+		};
+		63D1851A2B69D1FA00DD353C /* SpeziLLMOpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6301EA5C2B68D34B005BDFB3 /* XCRemoteSwiftPackageReference "SpeziLLM" */;
+			productName = SpeziLLMOpenAI;
 		};
 		9739A0C52AD7B5730084BEA5 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;

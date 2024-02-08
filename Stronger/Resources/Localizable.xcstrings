@@ -5,9 +5,6 @@
     "[%lld] grams of protein" : {
 
     },
-    "%@" : {
-
-    },
     "%@, [%lld] g of protein" : {
       "localizations" : {
         "en" : {
@@ -72,6 +69,9 @@
         }
       }
     },
+    "Are you logging a new or saved meal?" : {
+
+    },
     "Change Food" : {
 
     },
@@ -79,6 +79,9 @@
 
     },
     "Change Protein Content" : {
+
+    },
+    "Chat View" : {
 
     },
     "Choose From Your Common foods" : {
@@ -196,12 +199,6 @@
 
     },
     "Food Change Options" : {
-
-    },
-    "Food Image" : {
-
-    },
-    "Food Image Placeholder" : {
 
     },
     "food name placeholder" : {
@@ -394,7 +391,7 @@
     "Is this your last set for this exercise?" : {
 
     },
-    "Large Meal" : {
+    "Large portion" : {
 
     },
     "LELAND_STANFORD_BIO" : {
@@ -432,10 +429,13 @@
         }
       }
     },
+    "meal picture" : {
+
+    },
     "Meal Report Placeholder" : {
 
     },
-    "Medium Meal" : {
+    "Medium portion" : {
 
     },
     "MICHAEL_BAIOCCHI_BIO" : {
@@ -475,11 +475,13 @@
     "Nutrition" : {
 
     },
-
     "Please select which saved meal to log" : {
 
     },
     "Please sign-in to continue your Stronger journey" : {
+
+    },
+    "Pro-ChatBot" : {
 
     },
     "PROJECT_LICENSE_DESCRIPTION" : {
@@ -544,7 +546,7 @@
     "Select Saved Meal" : {
 
     },
-    "Small Meal" : {
+    "Small portion" : {
 
     },
     "Stronger" : {

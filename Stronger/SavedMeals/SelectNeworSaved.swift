@@ -10,7 +10,7 @@ struct SelectNeworSaved: View {
     private var greeting: String {
         "Are you logging a new or saved meal?"
     }
-
+    
     var body: some View {
         VStack {
             Text(greeting) // Use the computed property
@@ -62,7 +62,7 @@ struct SelectNeworSaved: View {
         }
     }
 }
-// Preview
+// preview
 struct SelectNeworSaved_Previews: PreviewProvider {
     static var previews: some View {
         SelectNeworSaved()
