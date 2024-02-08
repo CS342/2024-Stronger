@@ -33,7 +33,7 @@ func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
 }
 
 func log_protein_intake(for totalProteinContent: String, defaultTotalProteinContent: String = "") async -> String {
-    let db = Firestore.firestore()
+    let firestoreDB = Firestore.firestore()
 
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -47,7 +47,7 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
     do {
 //        try await db.collection("protein_content").document("food").setData(foodData, merge: true)
 //        try await db.collection("users").document("~2Fusers~2FRrweEA63aiRFM9DXSAPD6ShYb3i1").document("user1").setData(foodData, merge: true)
-        try await db.collection("users").document("protein_intake_\(currentDateString)").setData(userData)
+        try await firestoreDB.collection("users").document("protein_intake_\(currentDateString)").setData(userData)
         print("Document successfully written!")
     } catch {
         print("Error writing document: \(error)")
@@ -58,10 +58,7 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
 struct GetProteinContent: LLMFunction {
     static let name: String = "get_protein_content"
     static let description: String = "Get protein content of food item"
-
-
-    @Parameter(description: "The food item whose protein content you want to know")
-    var foodItem: String
+    @Parameter(description: "The food item whose protein content you want to know") var foodItem: String
     
     func execute() async throws -> String? {
             "The protein content of \(foodItem) is \(get_protein_content(for: foodItem))."
@@ -72,10 +69,7 @@ struct GetProteinContent: LLMFunction {
 struct LogProteinIntake: LLMFunction {
     static let name: String = "log_protein_intake"
     static let description: String = "Log total protein intake for the user"
-
-
-    @Parameter(description: "The total protein intake computed for the user.")
-    var totalProteinIntake: String
+    @Parameter(description: "The total protein intake computed for the user.") var totalProteinIntake: String
     
     func execute() async throws -> String? {
         "Logged in protein intake for this user with status \(await log_protein_intake(for: totalProteinIntake))"
