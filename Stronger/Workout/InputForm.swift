@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
