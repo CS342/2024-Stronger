@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "[%lld] grams of protein" : {
 
     },
@@ -71,7 +68,11 @@
         }
       }
     },
+    "Back" : {
+
+    },
     "Are you logging a new or saved meal?" : {
+
 
     },
     "Change Food" : {
@@ -466,6 +467,9 @@
 
     },
     "Next" : {
+
+    },
+    "Next Set" : {
 
     },
     "No" : {
