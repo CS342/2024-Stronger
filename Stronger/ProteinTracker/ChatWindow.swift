@@ -117,7 +117,7 @@ struct ChatWindow: View {
                     LLMOnboardingView(showOnboarding: $showOnboarding)
                 }
                 .task {
-                    model.context.append(assistantOutput: "Hello there! What did you have for food today?")
+                    model.context.append(assistantOutput: "Hello! What did you have for your last meal?")
                 }
         }
     }
