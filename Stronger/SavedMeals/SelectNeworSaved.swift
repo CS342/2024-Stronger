@@ -59,7 +59,6 @@ struct SelectNeworSaved: View {
                 .padding(.vertical, 20)
                 .padding(.horizontal, 40)
                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
-
         }
     }
 }
