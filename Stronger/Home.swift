@@ -22,6 +22,7 @@ struct HomeView: View {
         case contact
         case mockUpload
         case savedMeals
+        case chatWindow
     }
     
     static var accountEnabled: Bool {
@@ -51,6 +52,11 @@ struct HomeView: View {
                 .tag(Tabs.chatWindow)
                 .tabItem {
                     Label("Pro-Bot", systemImage: "bubble.fill")
+                }
+            ChatWindow()
+                .tag(Tabs.chatWindow)
+                .tabItem {
+                    Label("Chat View", systemImage: "bubble.fill")
                 }
         }
             .sheet(isPresented: $presentingAccount) {

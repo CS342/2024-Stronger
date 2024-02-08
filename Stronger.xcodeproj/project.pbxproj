@@ -499,6 +499,7 @@
 		7DE98D7E2B69D90400449C81 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
+				38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */,
 				7DE98D802B69D96300449C81 /* InputForm.swift */,
 			);
 			path = Workout;

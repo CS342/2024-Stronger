@@ -7,62 +7,43 @@
 import SwiftUI
 
 struct SelectNeworSaved: View {
-    private var greeting: String {
-        "Are you logging a new or saved meal?"
-    }
-    
     var body: some View {
         VStack {
-            Text(greeting) // Use the computed property
+            Text("Are you logging a new or saved meal?")
                 .font(.title)
                 .bold()
                 .multilineTextAlignment(.center)
                 .padding()
             
-            customDivider
+            Divider().frame(height: 2).foregroundColor(.black).padding(.vertical)
             
             Spacer()
             
-            newMealButton
+            NavigationLink(destination: ChatWindow()) {
+                Text("New Meal")
+                    .foregroundColor(.black)
+                    .font(.headline)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 40)
+                    .background(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
+            }
+            .padding(.bottom, 70)
             
-            savedMealButton
+            NavigationLink(destination: SelectSavedMeal()) {
+                Text("Saved Meal")
+                    .foregroundColor(.black)
+                    .font(.headline)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 40)
+                    .background(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
+            }
             
             Spacer()
-        }
-    }
-
-    private var customDivider: some View {
-        Rectangle()
-            .frame(height: 2)
-            .foregroundColor(.gray)
-            .padding(.vertical)
-    }
-    
-    private var newMealButton: some View {
-        // Change this to navigate to Chatbot
-        NavigationLink(destination: ChatWindow()) {
-            Text("New Meal")
-                .foregroundColor(.black)
-                .font(.headline)
-                .padding(.vertical, 20)
-                .padding(.horizontal, 40)
-                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
-        }
-        .padding(.bottom, 70)
-    }
-    
-    private var savedMealButton: some View {
-        NavigationLink(destination: SelectSavedMeal()) {
-            Text("Saved Meal")
-                .foregroundColor(.black)
-                .font(.headline)
-                .padding(.vertical, 20)
-                .padding(.horizontal, 40)
-                .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orange, lineWidth: 2))
+          .navigationBarTitle("", displayMode: .inline)
+          .navigationBarHidden(true)
         }
     }
 }
-
 // preview
 struct SelectNeworSaved_Previews: PreviewProvider {
     static var previews: some View {
