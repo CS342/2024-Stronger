@@ -39,6 +39,7 @@ struct WorkoutHome: View {
                             .frame(maxHeight: 180)
                             .clipped()
                     }
+
                     NavigationLink(destination: menuItem.view) {
                         Text(menuItem.title)
                             .foregroundColor(.primary)

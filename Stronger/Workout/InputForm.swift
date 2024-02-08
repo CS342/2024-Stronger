@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
@@ -129,6 +130,32 @@ struct WorkoutInputForm: View {
         } else {
             showAlert = true
         }
+    }
+}
+
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
     }
 }
 
