@@ -28,7 +28,7 @@ struct MealItemView: View {
     var mealData: MealData
 
     var body: some View {
-        NavigationLink(destination: EditSavedMealContents(mealData: mealData, mealIndex: mealData.mealItems.firstIndex(where: { $0.id == mealItem.id }) ?? 0)) {
+        NavigationLink(destination:EditSavedMealContents(mealData: mealData, mealIndex:mealData.mealItems.firstIndex(where: { $0.id == mealItem.id }) ?? 0)) {
             HStack {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(mealItem.name)
