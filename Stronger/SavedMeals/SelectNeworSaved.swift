@@ -12,24 +12,22 @@ struct SelectNeworSaved: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Text(greeting) // Use the computed property
-                    .font(.title)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-                customDivider
-                
-                Spacer()
-                
-                newMealButton
-                
-                savedMealButton
-                
-                Spacer()
-            }
+        VStack {
+            Text(greeting) // Use the computed property
+                .font(.title)
+                .bold()
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            customDivider
+            
+            Spacer()
+            
+            newMealButton
+            
+            savedMealButton
+            
+            Spacer()
         }
     }
 
@@ -41,9 +39,8 @@ struct SelectNeworSaved: View {
     }
     
     private var newMealButton: some View {
-        Button(action: {
-            print("New Meal")
-        }) {
+        // Change this to navigate to Chatbot
+        NavigationLink(destination: SelectSavedMeal()) {
             Text("New Meal")
                 .foregroundColor(.black)
                 .font(.headline)

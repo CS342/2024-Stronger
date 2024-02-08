@@ -1,9 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
 
-    },
     "[%lld] grams of protein" : {
 
     },
@@ -477,6 +475,10 @@
     "Number of Reps" : {
 
     },
+    "Nutrition" : {
+
+    },
+
     "Please select which saved meal to log" : {
 
     },
