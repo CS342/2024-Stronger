@@ -7,17 +7,20 @@
 
 import SwiftUI
 
+// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
-    var workoutName: String
-
+    var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
-    @State private var selectedBand: String = "Band 1" // Default selection
-        let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
-    @State private var selectedDifficulty: String = "Easy" // Default selection
-        let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
-    @State private var currentSet: Int = 1 //
+    @State private var selectedBand: String = "Band 1"
+    let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+    @State private var selectedDifficulty: String = "Easy"
+    let difficulties = ["Easy", "Medium", "Hard"]
+    @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
+    @State private var onFirstSet = true
+    @State private var onLastSet = true
+    @State private var maxSet: Int = 1
 
 
     var body: some View {
@@ -48,15 +51,29 @@ struct WorkoutInputForm: View {
             }
         }
     }
-
+    
     private var submitSection: some View {
         Section {
             HStack {
-                Spacer()
-                Button("Submit", action: submitForm)
-                Spacer()
+                if !onFirstSet {
+                    Button("Back", action: backToSet)
+                        .buttonStyle(BackButtonStyle())
+                    Spacer()
+                    Spacer()
+                } else {
+                    EmptyView()
+                }
+                if onLastSet {
+                    Button("Submit", action: submitForm)
+                        .buttonStyle(SubmitButtonStyle())
+                } else {
+                    Button("Next Set", action: goToNextSet)
+                        .buttonStyle(BackButtonStyle())
+                }
             }
+            .listRowInsets(EdgeInsets())
         }
+        .listRowBackground(Color.clear)
     }
 
     private var submissionAlert: Alert {
@@ -67,13 +84,58 @@ struct WorkoutInputForm: View {
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
+                onFirstSet = false
+                onLastSet = true
                 currentSet += 1
+                maxSet += 1
             }
         )
+    }
+    
+    private func backToSet() {
+        currentSet -= 1
+        onLastSet = false
+        if currentSet == 1 {
+            onFirstSet = true
+        }
+    }
+    
+    private func goToNextSet() {
+        currentSet += 1
+        onFirstSet = false
+        if currentSet == maxSet {
+            onLastSet = true
+        }
     }
 
     private func submitForm() {
         showAlert = true
+    }
+}
+
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
     }
 }
 
