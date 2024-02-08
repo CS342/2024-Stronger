@@ -43,9 +43,7 @@ struct SelectNeworSaved: View {
             }
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
-        }
-    }
-}
+
 // preview
 struct SelectNeworSaved_Previews: PreviewProvider {
     static var previews: some View {
