@@ -8,45 +8,18 @@
 import SwiftUI
 
 struct WorkoutInputForm: View {
-    var workoutName: String
-
+    var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
-    @State private var selectedBand: String = "Band 1" // Default selection
-        let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"] // Dropdown options
-    @State private var selectedDifficulty: String = "Easy" // Default selection
-        let difficulties = ["Easy", "Medium", "Hard"] // Dropdown options
+    @State private var selectedBand: String = "Band 1"
+    let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+    @State private var selectedDifficulty: String = "Easy"
+    let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
     @State private var onFirstSet = true
     @State private var onLastSet = true
     @State private var maxSet: Int = 1
-    
-    struct BackButtonStyle: ButtonStyle {
-        func makeBody(configuration: Self.Configuration) -> some View {
-            configuration.label
-                .padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                )
-                .foregroundColor(.blue)
-        }
-    }
-    
-    struct SubmitButtonStyle: ButtonStyle {
-        func makeBody(configuration: Self.Configuration) -> some View {
-            configuration.label
-                .padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
-                )
-                .foregroundColor(.red)
-        }
-    }
 
 
     var body: some View {
@@ -136,6 +109,32 @@ struct WorkoutInputForm: View {
 
     private func submitForm() {
         showAlert = true
+    }
+}
+
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
     }
 }
 
