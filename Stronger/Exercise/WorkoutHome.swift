@@ -33,7 +33,7 @@ struct WorkoutHome: View {
             
             ForEach(menuItems, id: \.title) { menuItem in
                 HStack {
-                    NavigationLink(destination: WorkoutVideoView()){
+                    NavigationLink(destination: WorkoutVideoView()) {
                         Image( "woman_workout_leg", label: Text("Workout")) .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(maxHeight: 180)
@@ -54,19 +54,15 @@ struct WorkoutHome: View {
             }
             
             Spacer()
-            // NavigationLink(destination: HomeReal()) {
-            //             Text("Home")
-            //                 .modifier(NavButton())
-            //         }
             NavigationLink(destination: HomeReal().navigationBarBackButtonHidden(true)) {
                         Text("Home")
                             .modifier(NavButton())
             }
         }
-        .navigationBarTitle("Workout HomeWorkout Home")
+        .navigationBarTitle("Workout Home")
         // .navigationBarBackButtonHidden(true) // Hide the back button on this view
         // .isDetailLink(false)
-        //.navigationBarHidden(true) // Hide the navigation bar
+        .navigationBarHidden(true) // Hide the navigation bar
     }
 }
 
