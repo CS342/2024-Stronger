@@ -141,7 +141,9 @@ struct LogProteinIntake: LLMFunction {
 
 
 struct ChatWindow: View {
-    private static let llmSchema: LLMOpenAISchema = .init(
+    @State var showOnboarding = true
+    
+    @State var model: LLMOpenAI = .init(
         parameters: .init(
             modelType: .gpt3_5Turbo,
             systemPrompt: """
