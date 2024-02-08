@@ -12,12 +12,12 @@ import SpeziFirebaseAccount
 import SpeziFirebaseStorage
 import SpeziFirestore
 import SpeziHealthKit
+import SpeziLLM
+import SpeziLLMOpenAI
 import SpeziMockWebService
 import SpeziOnboarding
-import SpeziLLM
 import SpeziScheduler
 import SwiftUI
-import SpeziLLMOpenAI
 
 
 class StrongerDelegate: SpeziAppDelegate {

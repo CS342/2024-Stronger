@@ -74,7 +74,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "Change Food" : {
 
     },
@@ -84,13 +83,13 @@
     "Change Protein Content" : {
 
     },
+    "Chat View" : {
+
+    },
     "Choose From Your Common foods" : {
 
     },
     "Click an item image to edit or next to continue" : {
-    
-    },
-    "Chat View" : {
 
     },
     "CLOSE" : {

@@ -52,12 +52,13 @@ struct HomeView: View {
                 .tag(Tabs.savedMeals)
                 .tabItem {
                     Label("Saved Meals", systemImage: "person.fill") // change icon later
-            }
+                }
             ChatWindow()
                 .tag(Tabs.chatWindow)
                 .tabItem {
                     Label("Chat View", systemImage: "bubble.fill")
                 }
+        }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()
             }

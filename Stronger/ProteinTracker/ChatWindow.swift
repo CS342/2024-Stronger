@@ -9,12 +9,12 @@
 // SPDX-License-Identifier: MIT
 //
 
+import FirebaseCore
+import FirebaseFirestore
 import SpeziLLM
 import SpeziLLMLocal
 import SpeziLLMOpenAI
 import SwiftUI
-import FirebaseCore
-import FirebaseFirestore
 
 
 func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
@@ -23,9 +23,9 @@ func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
         "chicken salad": 30,
         "chicken sandwich": 35,
         "tuna": 40,
-        "salmon":40,
+        "salmon": 40,
         "lentils": 11,
-        "black beans":11,
+        "black beans": 11,
         "omelette": 15
     ]
     
@@ -33,7 +33,6 @@ func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
 }
 
 func log_protein_intake(for totalProteinContent: String, defaultTotalProteinContent: String = "") async -> String {
-    
     let db = Firestore.firestore()
 
     let dateFormatter = DateFormatter()
@@ -54,7 +53,6 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
         print("Error writing document: \(error)")
     }
     return "done"
-
 }
 
 struct GetProteinContent: LLMFunction {
@@ -71,7 +69,6 @@ struct GetProteinContent: LLMFunction {
 }
 
 
-
 struct LogProteinIntake: LLMFunction {
     static let name: String = "log_protein_intake"
     static let description: String = "Log total protein intake for the user"
@@ -85,11 +82,8 @@ struct LogProteinIntake: LLMFunction {
         }
 }
 
-    
-
 
 struct ChatWindow: View {
-    
     @State var showOnboarding = true
     
     @State var model: LLMOpenAI = .init(
@@ -102,7 +96,7 @@ struct ChatWindow: View {
         [STEP 1]. Ask the user what they had for food today. Extract the food items as a list.
         
         [STEP 2]. Now for each food item in the list, call the "get_protein_content" \
-        function to get its protein content. 
+        function to get its protein content.
         
         [STEP 3]. Add the protein content of all the food items to get the total protein intake \
         for the user. Ask the user if they want to add more food items.
@@ -114,19 +108,18 @@ struct ChatWindow: View {
         to log in the total protein intake for the user. Wish the user a good day and end the conversation.
         """
         )
-    )
-    {
-        GetProteinContent();
+    ) {
+        GetProteinContent()
         LogProteinIntake()
     }
     
     var body: some View {
         NavigationStack {
-            LLMChatView (
+            LLMChatView(
                 model: model
             )
                 .navigationTitle("Pro-ChatBot")
-                .sheet(isPresented: $showOnboarding){
+                .sheet(isPresented: $showOnboarding) {
                     LLMOnboardingView(showOnboarding: $showOnboarding)
                 }
                 .task {
