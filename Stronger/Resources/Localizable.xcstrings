@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -68,11 +71,10 @@
         }
       }
     },
-    "Back" : {
-
-    },
     "Are you logging a new or saved meal?" : {
 
+    },
+    "Back" : {
 
     },
     "Change Food" : {
@@ -91,6 +93,9 @@
 
     },
     "Click an item image to edit or next to continue" : {
+
+    },
+    "Click the video to see how to Squat!" : {
 
     },
     "CLOSE" : {
@@ -269,9 +274,6 @@
 
     },
     "How do you want to change your food option?" : {
-
-    },
-    "How to Squat!" : {
 
     },
     "Input New Food to Chat" : {

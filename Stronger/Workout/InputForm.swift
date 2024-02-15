@@ -36,7 +36,8 @@ struct WorkoutInputForm: View {
             }
             .navigationBarTitle("Input Results")
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { EmptyView() }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome()
+            }
         }
     }
 

@@ -23,7 +23,7 @@ struct Stronger: App {
                 if completedOnboardingFlow {
                     HomeReal()
                 } else {
-                    EmptyView()
+                    Welcome()
                 }
             }
                 .sheet(isPresented: !$completedOnboardingFlow) {
