@@ -28,7 +28,8 @@ class StrongerDelegate: SpeziAppDelegate {
                     .requires(\.userId),
                     .requires(\.name),
                     .requires(\.dateOfBirth),
-                    .collects(\.genderIdentity)
+                    .collects(\.genderIdentity),
+                    .requires(\.weight)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {

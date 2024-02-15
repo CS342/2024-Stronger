@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -97,6 +100,9 @@
 
     },
     "Click an item image to edit or next to continue" : {
+
+    },
+    "Click the video to see how to Squat!" : {
 
     },
     "CLOSE" : {
