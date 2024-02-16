@@ -14,12 +14,12 @@
         }
       }
     },
-    "%@: Set %@" : {
+    "%@: Set %lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@: Set %2$@"
+            "value" : "%1$@: Set %2$lld"
           }
         }
       }
@@ -67,13 +67,6 @@
           }
         }
       }
-    },
-    "Back" : {
-
-    },
-    "Are you logging a new or saved meal?" : {
-
-
     },
     "Change Food" : {
 
@@ -469,9 +462,6 @@
     "Next" : {
 
     },
-    "Next Set" : {
-
-    },
     "No" : {
 
     },
@@ -543,13 +533,19 @@
         }
       }
     },
-    "Select Band" : {
+    "Select Band or Body Weight" : {
 
     },
     "Select Difficulty" : {
 
     },
     "Select Saved Meal" : {
+
+    },
+    "Select Set" : {
+
+    },
+    "Set %lld" : {
 
     },
     "Small portion" : {

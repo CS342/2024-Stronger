@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
@@ -18,62 +17,56 @@ struct WorkoutInputForm: View {
     @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
-    @State private var onFirstSet = true
-    @State private var onLastSet = true
-    @State private var maxSet: Int = 1
-
+    @State private var totalSets: Int = 3
 
     var body: some View {
         NavigationStack {
-            Form {
-                exerciseInputSection
-                submitSection
-                Image("WorkoutThumbnail", label: Text("Workout"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 350)
-                    .clipped()
+            VStack {
+                Text("Input Results")
+                    .font(.title)
+                    .padding()
+                
+                Picker("Select Set", selection: $currentSet) {
+                    ForEach(1...totalSets, id: \.self) {
+                        Text("Set \($0)").tag($0)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                formView(forSet: currentSet)
             }
-            .navigationBarTitle("Input Results")
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { EmptyView() }
-        }
-    }
-
-    private var exerciseInputSection: some View {
-        Section(header: Text("\(workoutName): Set \(String(currentSet))")) {
-            TextField("Number of Reps", text: $numReps)
-            Picker("Select Band", selection: $selectedBand) {
-                ForEach(bands, id: \.self) { Text($0).tag($0) }
-            }
-            Picker("Select Difficulty", selection: $selectedDifficulty) {
-                ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-            }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
         }
     }
     
-    private var submitSection: some View {
-        Section {
-            HStack {
-                if !onFirstSet {
-                    Button("Back", action: backToSet)
-                        .buttonStyle(BackButtonStyle())
-                    Spacer()
-                    Spacer()
-                } else {
-                    EmptyView()
+    private func formView(forSet setNumber: Int) -> some View {
+            Form {
+                Section(header: Text("\(workoutName): Set \(setNumber)")) {
+                    TextField("Number of Reps", text: $numReps)
+                    Picker("Select Band or Body Weight", selection: $selectedBand) {
+                        ForEach(bands, id: \.self) { Text($0).tag($0) }
+                    }
+                    Picker("Select Difficulty", selection: $selectedDifficulty) {
+                        ForEach(difficulties, id: \.self) { Text($0).tag($0) }
+                    }
                 }
-                if onLastSet {
-                    Button("Submit", action: submitForm)
-                        .buttonStyle(SubmitButtonStyle())
-                } else {
-                    Button("Next Set", action: goToNextSet)
-                        .buttonStyle(BackButtonStyle())
+                Section {
+                    HStack {
+                        Spacer()
+                        Button("Submit", action: {
+                            submitForm(forSet: setNumber)
+                        })
+                        Spacer()
+                    }
                 }
+                Image("WorkoutThumbnail", label: Text("Workout"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 320)
+                    .clipped()
             }
-            .listRowInsets(EdgeInsets())
-        }
-        .listRowBackground(Color.clear)
     }
 
     private var submissionAlert: Alert {
@@ -84,58 +77,20 @@ struct WorkoutInputForm: View {
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
-                onFirstSet = false
-                onLastSet = true
-                currentSet += 1
-                maxSet += 1
+                if currentSet < totalSets {
+                    currentSet += 1
+                }
             }
         )
     }
-    
-    private func backToSet() {
-        currentSet -= 1
-        onLastSet = false
-        if currentSet == 1 {
-            onFirstSet = true
+
+    private func submitForm(forSet setNumber: Int) {
+        if currentSet == totalSets {
+            navigateToHome = true
         }
-    }
-    
-    private func goToNextSet() {
-        currentSet += 1
-        onFirstSet = false
-        if currentSet == maxSet {
-            onLastSet = true
+        else {
+            showAlert = true
         }
-    }
-
-    private func submitForm() {
-        showAlert = true
-    }
-}
-
-struct BackButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
-            )
-            .foregroundColor(.blue)
-    }
-}
-
-struct SubmitButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
-            )
-            .foregroundColor(.red)
     }
 }
 
