@@ -19,6 +19,7 @@ struct WorkoutInputForm: View {
     @State private var navigateToHome = false
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
+    @State private var comments: String = ""
 
     var body: some View {
         NavigationStack {
@@ -51,8 +52,6 @@ struct WorkoutInputForm: View {
                                 }
                             }
                         }
-                        Spacer()
-                        Spacer()
                     }
                 }
                 .padding(.bottom)
@@ -75,7 +74,7 @@ struct WorkoutInputForm: View {
     }
     
     private func formView(forSet setNumber: Int) -> some View {
-            Form {
+        Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
                     TextField("Number of Reps", text: $numReps)
                     Picker("Select Band or Body Weight", selection: $selectedBand) {
@@ -83,6 +82,11 @@ struct WorkoutInputForm: View {
                     }
                     Picker("Select Difficulty", selection: $selectedDifficulty) {
                         ForEach(difficulties, id: \.self) { Text($0).tag($0) }
+                    }
+                    Section(header: Text("Comments")) {
+                        TextEditor(text: $comments)
+                            .frame(minHeight: 100) // Adjust the height as needed
+                            .border(Color.gray, width: 1) // Optional: Adds a border to the TextEditor
                     }
                 }
                 Section {
@@ -97,7 +101,7 @@ struct WorkoutInputForm: View {
                 Image("WorkoutThumbnail", label: Text("Workout"))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 320)
+                    .frame(height: 300)
                     .clipped()
             }
     }
