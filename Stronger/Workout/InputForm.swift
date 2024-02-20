@@ -20,74 +20,6 @@ struct WorkoutInputForm: View {
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
     @State private var comments: String = ""
-
-    private func overlayView(for index: Int) -> some View {
-        Group {
-            if completedSets.contains(index) {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
-                    .offset(x: 20, y: 0)
-                    .accessibilityLabel(Text("Completed"))
-            }
-        }
-    }
-    
-    private func formView(forSet setNumber: Int) -> some View {
-            Form {
-                Section(header: Text("\(workoutName): Set \(setNumber)")) {
-                    TextField("Number of Reps", text: $numReps)
-                    Picker("Select Band or Body Weight", selection: $selectedBand) {
-                        ForEach(bands, id: \.self) { Text($0).tag($0) }
-                    }
-                    Picker("Select Difficulty", selection: $selectedDifficulty) {
-                        ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-                    }
-                    Section(header: Text("Comments")) {
-                        TextEditor(text: $comments)
-                            .frame(minHeight: 50)
-                            .border(Color.gray, width: 1)
-                    }
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        Button("Submit", action: {
-                            submitForm(forSet: setNumber)
-                        })
-                        Spacer()
-                    }
-                }
-                Image("WorkoutThumbnail", label: Text("Workout"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 300)
-                    .clipped()
-        }
-    }
-
-    private var submissionAlert: Alert {
-        Alert(
-            title: Text("Great Job!"),
-            message: Text("Is this your last set for this exercise?"),
-            primaryButton: .destructive(Text("Yes")) {
-                navigateToHome = true
-            },
-            secondaryButton: .cancel(Text("No")) {
-                if currentSet < totalSets {
-                    currentSet += 1
-                }
-            }
-        )
-    }
-
-    private func submitForm(forSet setNumber: Int) {
-        completedSets.insert(setNumber)
-        if setNumber == 3 {
-            navigateToHome = true
-        } else {
-            showAlert = true
-        }
-    }
     
     var body: some View {
         NavigationStack {
@@ -128,6 +60,74 @@ struct WorkoutInputForm: View {
             }
             .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
+        }
+    }
+    
+    private var submissionAlert: Alert {
+        Alert(
+            title: Text("Great Job!"),
+            message: Text("Is this your last set for this exercise?"),
+            primaryButton: .destructive(Text("Yes")) {
+                navigateToHome = true
+            },
+            secondaryButton: .cancel(Text("No")) {
+                if currentSet < totalSets {
+                    currentSet += 1
+                }
+            }
+        )
+    }
+    
+    private func formView(forSet setNumber: Int) -> some View {
+            Form {
+                Section(header: Text("\(workoutName): Set \(setNumber)")) {
+                    TextField("Number of Reps", text: $numReps)
+                    Picker("Select Band or Body Weight", selection: $selectedBand) {
+                        ForEach(bands, id: \.self) { Text($0).tag($0) }
+                    }
+                    Picker("Select Difficulty", selection: $selectedDifficulty) {
+                        ForEach(difficulties, id: \.self) { Text($0).tag($0) }
+                    }
+                    Section(header: Text("Comments")) {
+                        TextEditor(text: $comments)
+                            .frame(minHeight: 50)
+                            .border(Color.gray, width: 1)
+                    }
+                }
+                Section {
+                    HStack {
+                        Spacer()
+                        Button("Submit", action: {
+                            submitForm(forSet: setNumber)
+                        })
+                        Spacer()
+                    }
+                }
+                Image("WorkoutThumbnail", label: Text("Workout"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 300)
+                    .clipped()
+            }
+    }
+    
+    private func overlayView(for index: Int) -> some View {
+        Group {
+            if completedSets.contains(index) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                    .offset(x: 20, y: 0)
+                    .accessibilityLabel(Text("Completed"))
+            }
+        }
+    }
+    
+    private func submitForm(forSet setNumber: Int) {
+        completedSets.insert(setNumber)
+        if setNumber == 3 {
+            navigateToHome = true
+        } else {
+            showAlert = true
         }
     }
 }
