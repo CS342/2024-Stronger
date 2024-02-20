@@ -40,6 +40,19 @@
     "%@." : {
 
     },
+    "%lld g of your %lld g goal." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld g of your %2$lld g goal."
+          }
+        }
+      }
+    },
+    "%lld kg" : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {
@@ -91,9 +104,6 @@
 
     },
     "Change Protein Content" : {
-
-    },
-    "Chat View" : {
 
     },
     "Choose From Your Common foods" : {
@@ -157,6 +167,7 @@
     },
     "CONTACTS_TAB_TITLE" : {
       "comment" : "MARK: - Contacts",
+      "extractionState" : "stale",
       "extractionState" : "stale",
       "localizations" : {
         "en" : {
@@ -243,7 +254,38 @@
         }
       }
     },
+    "Goal Resistance" : {
+
+    },
+    "Goal Weight" : {
+
+    },
+    "GOAL_RESISTANCE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Resistance"
+          }
+        }
+      }
+    },
+    "GOAL_WEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Weight"
+          }
+        }
+      }
+    },
     "Great Job!" : {
+
+    },
+    "Hard" : {
 
     },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
@@ -292,6 +334,17 @@
     },
     "Home" : {
 
+    },
+    "HOME_TAB_TITLE" : {
+      "comment" : "MARK: - Home",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
     "How do you want to change your food option?" : {
 
@@ -796,12 +849,6 @@
 
     },
     "You indicated: %@" : {
-
-    },
-    "You've finished your exercises for the day! Way to go!" : {
-
-    },
-    "You've had 30 grams of protein today. 150 grams to go!" : {
 
     }
   },

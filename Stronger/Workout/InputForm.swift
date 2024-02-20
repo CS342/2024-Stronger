@@ -9,7 +9,9 @@ import SwiftUI
 
 // swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
-    var workoutName: String = "Squats"
+    var workoutName: String
+    @Binding var presentingAccount: Bool
+
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
@@ -188,6 +190,6 @@ struct SubmitButtonStyle: ButtonStyle {
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutInputForm(workoutName: "Squats")
+        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
     }
 }

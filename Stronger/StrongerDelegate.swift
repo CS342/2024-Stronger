@@ -29,7 +29,9 @@ class StrongerDelegate: SpeziAppDelegate {
                     .requires(\.name),
                     .requires(\.dateOfBirth),
                     .collects(\.genderIdentity),
-                    .requires(\.weight)
+                    .requires(\.weight),
+                    .requires(\.goalresistance),
+                    .requires(\.goalweight)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {
