@@ -11,7 +11,6 @@ import SwiftUI
 struct WorkoutInputForm: View {
     var workoutName: String
     @Binding var presentingAccount: Bool
-
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
@@ -23,7 +22,6 @@ struct WorkoutInputForm: View {
     @State private var onFirstSet = true
     @State private var onLastSet = true
     @State private var maxSet: Int = 1
-    
 
     var body: some View {
         NavigationStack {
