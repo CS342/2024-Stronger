@@ -103,7 +103,7 @@ struct WorkoutInputForm: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 300)
                     .clipped()
-            }
+        }
     }
 
     private var submissionAlert: Alert {
@@ -125,8 +125,7 @@ struct WorkoutInputForm: View {
         completedSets.insert(setNumber)
         if setNumber == 3 {
             navigateToHome = true
-        }
-        else {
+        } else {
             showAlert = true
         }
     }
