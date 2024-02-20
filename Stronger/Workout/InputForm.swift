@@ -81,6 +81,11 @@ struct WorkoutInputForm: View {
         )
     }
     
+    init(workoutName: String, presentingAccount: Binding<Bool>) {
+            self._presentingAccount = presentingAccount
+            self.workoutName = workoutName
+    }
+    
     private func formView(forSet setNumber: Int) -> some View {
             Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
