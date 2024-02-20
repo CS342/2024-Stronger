@@ -81,6 +81,8 @@
 		5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5680DD382AB8983D004E6D4A /* PackageCell.swift */; };
 		56F6F2A02AB441930022FE5A /* ContributionsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6F29F2AB441930022FE5A /* ContributionsList.swift */; };
 		6301EA5A2B68CF9E005BDFB3 /* ChatWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */; };
+		6325F3932B830B9C00A31314 /* ProteinRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325F3922B830B9C00A31314 /* ProteinRing.swift */; };
+		6325F39A2B83138A00A31314 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325F3992B83138A00A31314 /* MainPage.swift */; };
 		63A3157E2B6C760C00B6B9E4 /* LLMOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */; };
 		63A315812B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */; };
 		63D185152B69D1FA00DD353C /* SpeziLLM in Frameworks */ = {isa = PBXBuildFile; productRef = 63D185142B69D1FA00DD353C /* SpeziLLM */; };
@@ -173,6 +175,8 @@
 		5680DD382AB8983D004E6D4A /* PackageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageCell.swift; sourceTree = "<group>"; };
 		56F6F29F2AB441930022FE5A /* ContributionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsList.swift; sourceTree = "<group>"; };
 		6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWindow.swift; sourceTree = "<group>"; };
+		6325F3922B830B9C00A31314 /* ProteinRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinRing.swift; sourceTree = "<group>"; };
+		6325F3992B83138A00A31314 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOnboardingView.swift; sourceTree = "<group>"; };
 		63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOpenAITokenOnboarding.swift; sourceTree = "<group>"; };
 		653A254D283387FE005D4D48 /* Stronger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stronger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,6 +390,7 @@
 				6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */,
 				63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */,
 				63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */,
+				6325F3922B830B9C00A31314 /* ProteinRing.swift */,
 			);
 			path = ProteinTracker;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				2FF53D8C2A8729D600042B76 /* StrongerStandard.swift */,
 				2F4E23822989D51F0013F3D9 /* StrongerTestingSetup.swift */,
 				2FC975A72978F11A00BA99FE /* Home.swift */,
+				6325F3992B83138A00A31314 /* MainPage.swift */,
 				1E88BEDF2B7170FA00A4BCEE /* SavedMeals */,
 				405239E22B6B815D00EEA67A /* HomeNew.swift */,
 				A9720E412ABB68B300872D23 /* Account */,
@@ -469,7 +475,6 @@
 		7DE98D7E2B69D90400449C81 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */,
 				7DE98D802B69D96300449C81 /* InputForm.swift */,
 			);
 			path = Workout;
@@ -724,6 +729,7 @@
 				1E88BEF22B73EB8500A4BCEE /* ChooseNewFoodOptions.swift in Sources */,
 				2FE5DC5029EDD7FA004B9AB4 /* EventContextView.swift in Sources */,
 				40223A592B6CC02E005FC0BF /* Nutrition.swift in Sources */,
+				6325F3932B830B9C00A31314 /* ProteinRing.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* StrongerTestingSetup.swift in Sources */,
 				7DE98D812B69D96300449C81 /* InputForm.swift in Sources */,
 				2FE5DC5329EDD7FA004B9AB4 /* Bundle+Questionnaire.swift in Sources */,
@@ -739,6 +745,7 @@
 				5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* StrongerDelegate.swift in Sources */,
 				2FE5DC5229EDD7FA004B9AB4 /* StrongerScheduler.swift in Sources */,
+				6325F39A2B83138A00A31314 /* MainPage.swift in Sources */,
 				A9FE7AD02AA39BAB0077B045 /* AccountSheet.swift in Sources */,
 				653A2551283387FE005D4D48 /* Stronger.swift in Sources */,
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,
