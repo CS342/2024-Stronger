@@ -24,7 +24,6 @@ struct WorkoutInputForm: View {
     @State private var onLastSet = true
     @State private var maxSet: Int = 1
     
-    
 
     var body: some View {
         NavigationStack {
@@ -44,7 +43,7 @@ struct WorkoutInputForm: View {
         }
     }
     
-    init(workoutName: String,presentingAccount: Binding<Bool>) {
+    init(workoutName: String, presentingAccount: Binding<Bool>) {
             self._presentingAccount = presentingAccount
             self.workoutName = workoutName
     }

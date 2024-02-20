@@ -54,8 +54,8 @@ struct SummaryView: View {
                 .alignmentGuide(.imageAlignment) { tmp in tmp[.bottom] }
             }
             Spacer()
-            ExerciseWeek(value:"Easy")
-            ExerciseWeek(value:"Medium")
+            ExerciseWeek(value: "Easy")
+            ExerciseWeek(value: "Medium")
             Spacer()
         }
         .padding()

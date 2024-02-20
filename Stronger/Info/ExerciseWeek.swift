@@ -23,11 +23,10 @@ struct ExerciseWeek: View {
                 Text("Hard")
                     .modifier(NavButton())
             }
-
         }
     }
 }
 
 #Preview {
-    ExerciseWeek(value:"Easy")
+    ExerciseWeek(value: "Easy")
 }
