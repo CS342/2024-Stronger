@@ -42,21 +42,21 @@ struct ProgressCircle: View {
     }
 }
 
-struct ContentViewPC: View {
-    @State private var progressValue: Double = 0 // Example value
-    
-    var body: some View {
-        VStack {
-            ProgressCircle(progress: 46, totalProtein: 66)
-                .frame(width: 150, height: 150)
-            
-            Slider(value: $progressValue, in: 0...100, step: 1)
-                .padding()
-        }
-        .padding()
-    }
-}
+// struct ContentViewPC: View {
+//    @State private var progressValue: Double = 0 // Example value
+//    
+//    var body: some View {
+//        VStack {
+//            ProgressCircle(progress: 46, totalProtein: 66)
+//                .frame(width: 150, height: 150)
+//            
+//            Slider(value: $progressValue, in: 0...100, step: 1)
+//                .padding()
+//        }
+//        .padding()
+//    }
+// }
 
-#Preview {
-    ContentViewPC()
-}
+// #Preview {
+//    ContentViewPC()
+// }
