@@ -93,6 +93,11 @@ struct WorkoutInputForm: View {
         )
     }
     
+    init(workoutName: String, presentingAccount: Binding<Bool>) {
+            self._presentingAccount = presentingAccount
+            self.workoutName = workoutName
+    }
+    
     private func backToSet() {
         currentSet -= 1
         onLastSet = false
@@ -111,11 +116,6 @@ struct WorkoutInputForm: View {
 
     private func submitForm() {
         showAlert = true
-    }
-    
-    init(workoutName: String, presentingAccount: Binding<Bool>) {
-            self._presentingAccount = presentingAccount
-            self.workoutName = workoutName
     }
 }
 
