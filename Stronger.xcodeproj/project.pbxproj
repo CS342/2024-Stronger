@@ -65,6 +65,11 @@
 		2FF53D8B2A8725DE00042B76 /* SpeziMockWebService in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF53D8A2A8725DE00042B76 /* SpeziMockWebService */; };
 		2FF53D8D2A8729D600042B76 /* StrongerStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF53D8C2A8729D600042B76 /* StrongerStandard.swift */; };
 		38FE1D022B716A42008F8BE0 /* WorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */; };
+		4011141A2B7EE59A000083A2 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114192B7EE59A000083A2 /* ProgressCircle.swift */; };
+		4011141D2B83FCD1000083A2 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011141C2B83FCD1000083A2 /* SummaryView.swift */; };
+		401114202B8487AC000083A2 /* GoalWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011141F2B8487AC000083A2 /* GoalWeight.swift */; };
+		401114232B8489D1000083A2 /* GoalResist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114222B8489D1000083A2 /* GoalResist.swift */; };
+		401114252B84913F000083A2 /* ExerciseWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114242B84913F000083A2 /* ExerciseWeek.swift */; };
 		40223A412B6C544D005FC0BF /* HomeReal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A402B6C544D005FC0BF /* HomeReal.swift */; };
 		40223A562B6CB6CB005FC0BF /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A552B6CB6CB005FC0BF /* Summary.swift */; };
 		40223A592B6CC02E005FC0BF /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A582B6CC02E005FC0BF /* Nutrition.swift */; };
@@ -159,6 +164,11 @@
 		2FE5DCAC29EE6107004B9AB4 /* AccountOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOnboarding.swift; sourceTree = "<group>"; };
 		2FF53D8C2A8729D600042B76 /* StrongerStandard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongerStandard.swift; sourceTree = "<group>"; };
 		38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoView.swift; sourceTree = "<group>"; };
+		401114192B7EE59A000083A2 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		4011141C2B83FCD1000083A2 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		4011141F2B8487AC000083A2 /* GoalWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeight.swift; sourceTree = "<group>"; };
+		401114222B8489D1000083A2 /* GoalResist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalResist.swift; sourceTree = "<group>"; };
+		401114242B84913F000083A2 /* ExerciseWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseWeek.swift; sourceTree = "<group>"; };
 		40223A402B6C544D005FC0BF /* HomeReal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeReal.swift; sourceTree = "<group>"; };
 		40223A552B6CB6CB005FC0BF /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		40223A582B6CC02E005FC0BF /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
@@ -367,6 +377,9 @@
 			children = (
 				40223A552B6CB6CB005FC0BF /* Summary.swift */,
 				406605B12B72F6000073E024 /* ProgressBar.swift */,
+				401114192B7EE59A000083A2 /* ProgressCircle.swift */,
+				4011141C2B83FCD1000083A2 /* SummaryView.swift */,
+				401114242B84913F000083A2 /* ExerciseWeek.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -483,6 +496,8 @@
 				A9720E422ABB68CC00872D23 /* AccountSetupHeader.swift */,
 				A9DFE8A82ABE551400428242 /* AccountButton.swift */,
 				40644ECE2B7C4E7E009F9E28 /* Weight.swift */,
+				4011141F2B8487AC000083A2 /* GoalWeight.swift */,
+				401114222B8489D1000083A2 /* GoalResist.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -726,12 +741,15 @@
 				1E88BEF22B73EB8500A4BCEE /* ChooseNewFoodOptions.swift in Sources */,
 				2FE5DC5029EDD7FA004B9AB4 /* EventContextView.swift in Sources */,
 				40223A592B6CC02E005FC0BF /* Nutrition.swift in Sources */,
+				4011141D2B83FCD1000083A2 /* SummaryView.swift in Sources */,
+				4011141A2B7EE59A000083A2 /* ProgressCircle.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* StrongerTestingSetup.swift in Sources */,
 				7DE98D812B69D96300449C81 /* InputForm.swift in Sources */,
 				2FE5DC5329EDD7FA004B9AB4 /* Bundle+Questionnaire.swift in Sources */,
 				1E88BEE62B7180FF00A4BCEE /* EditSavedMeal.swift in Sources */,
 				1E88BEE92B71B8F500A4BCEE /* MealReport.swift in Sources */,
 				1E88BEE12B71712000A4BCEE /* SelectNeworSaved.swift in Sources */,
+				401114252B84913F000083A2 /* ExerciseWeek.swift in Sources */,
 				40223A5C2B6CC051005FC0BF /* Exercise.swift in Sources */,
 				6301EA5A2B68CF9E005BDFB3 /* ChatWindow.swift in Sources */,
 				2FE5DC5129EDD7FA004B9AB4 /* StrongerTaskContext.swift in Sources */,
@@ -739,6 +757,7 @@
 				63A3157E2B6C760C00B6B9E4 /* LLMOnboardingView.swift in Sources */,
 				566155292AB8447C00209B80 /* Package+LicenseType.swift in Sources */,
 				5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */,
+				401114232B8489D1000083A2 /* GoalResist.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* StrongerDelegate.swift in Sources */,
 				2FE5DC5229EDD7FA004B9AB4 /* StrongerScheduler.swift in Sources */,
 				A9FE7AD02AA39BAB0077B045 /* AccountSheet.swift in Sources */,
@@ -750,6 +769,7 @@
 				406605B92B7365C30073E024 /* WorkoutHome.swift in Sources */,
 				2FE5DC2629EDD38A004B9AB4 /* Contacts.swift in Sources */,
 				1E88BEF52B73EB9100A4BCEE /* CommonlySavedItems.swift in Sources */,
+				401114202B8487AC000083A2 /* GoalWeight.swift in Sources */,
 				40644ECF2B7C4E7E009F9E28 /* Weight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

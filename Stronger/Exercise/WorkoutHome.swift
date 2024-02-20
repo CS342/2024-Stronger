@@ -19,11 +19,15 @@ struct WorkoutHome: View {
     }
     
     // Array of MenuItem structs
+    // TODO Modify to pull workouts from database of update to schedule.
+    
     private var menuItems: [MenuItem] = [
-        MenuItem(view: WorkoutInputForm(workoutName: "Workout 1"), title: "Workout 1"),
-        MenuItem(view: WorkoutInputForm(workoutName: "Workout 2"), title: "Workout 2"),
-        MenuItem(view: WorkoutInputForm(workoutName: "Workout 3"), title: "Workout 3")
+        MenuItem(view: WorkoutInputForm(workoutName: "Workout 1", presentingAccount: .constant(false)), title: "Workout 1"),
+        MenuItem(view: WorkoutInputForm(workoutName: "Workout 2", presentingAccount: .constant(false)), title: "Workout 2"),
+        MenuItem(view: WorkoutInputForm(workoutName: "Workout 3", presentingAccount: .constant(false)), title: "Workout 3")
     ]
+    
+    @Binding var presentingAccount: Bool
     
     var body: some View {
         VStack {
@@ -63,11 +67,19 @@ struct WorkoutHome: View {
         // .navigationBarBackButtonHidden(true) // Hide the back button on this view
         // .isDetailLink(false)
         .navigationBarHidden(true) // Hide the navigation bar
+        .toolbar {
+            if AccountButton.shouldDisplay {
+                AccountButton(isPresented: $presentingAccount)
+            }
+        }
+    }
+    init(presentingAccount: Binding<Bool>) {
+        self._presentingAccount = presentingAccount
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutHome()
+        WorkoutHome(presentingAccount: .constant(false))
     }
 }

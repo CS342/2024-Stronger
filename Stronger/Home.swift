@@ -13,10 +13,8 @@ import SwiftUI
 
 struct HomeView: View {
     enum Tabs: String {
-        case schedule
-        case contact
-        case mockUpload
-        case savedMeals
+        case home
+        case workout
         case chatWindow
     }
     
@@ -25,38 +23,27 @@ struct HomeView: View {
     }
 
 
-    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
+    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.home
     @State private var presentingAccount = false
 
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            ScheduleView(presentingAccount: $presentingAccount)
-                .tag(Tabs.schedule)
+            Summary(presentingAccount: $presentingAccount)
+                .tag(Tabs.home)
                 .tabItem {
-                    Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
+                    Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
-            Contacts(presentingAccount: $presentingAccount)
-                .tag(Tabs.contact)
-                .tabItem {
-                    Label("CONTACTS_TAB_TITLE", systemImage: "person.fill")
-                }
-            if FeatureFlags.disableFirebase {
-                MockUpload(presentingAccount: $presentingAccount)
-                    .tag(Tabs.mockUpload)
-                    .tabItem {
-                        Label("MOCK_WEB_SERVICE_TAB_TITLE", systemImage: "server.rack")
-                    }
+
+            WorkoutHome(presentingAccount: $presentingAccount)
+            .tag(Tabs.workout)
+            .tabItem {
+                Label("Exercise", systemImage: "figure.cooldown" )
             }
-            SelectNeworSaved()
-                .tag(Tabs.savedMeals)
-                .tabItem {
-                    Label("Saved Meals", systemImage: "person.fill") // change icon later
-                }
             ChatWindow()
                 .tag(Tabs.chatWindow)
                 .tabItem {
-                    Label("Chat View", systemImage: "bubble.fill")
+                    Label("Pro-Bot", systemImage: "bubble.fill")
                 }
         }
             .sheet(isPresented: $presentingAccount) {
