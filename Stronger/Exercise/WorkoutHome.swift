@@ -19,7 +19,7 @@ struct WorkoutHome: View {
     }
     
     // Array of MenuItem structs
-    // TODO Modify to pull workouts from database of update to schedule.
+    // TDO Modify to pull workouts from database of update to schedule.
     
     private var menuItems: [MenuItem] = [
         MenuItem(view: WorkoutInputForm(workoutName: "Workout 1", presentingAccount: .constant(false)), title: "Workout 1"),
