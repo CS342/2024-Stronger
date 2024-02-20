@@ -18,6 +18,7 @@ struct WorkoutInputForm: View {
     @State private var showAlert = false
     @State private var navigateToHome = false
     @State private var totalSets: Int = 3
+    @State private var completedSets = Set<Int>()
 
     var body: some View {
         NavigationStack {
@@ -26,18 +27,50 @@ struct WorkoutInputForm: View {
                     .font(.title)
                     .padding()
                 
-                Picker("Select Set", selection: $currentSet) {
-                    ForEach(1...totalSets, id: \.self) {
-                        Text("Set \($0)").tag($0)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Spacer()
+                        Spacer()
+                        HStack(spacing: 20) {
+                            ForEach(1...totalSets, id: \.self) { index in
+                                VStack {
+                                    HStack {
+                                        Text("Set \(index)")
+                                        // Conditionally display icon based on completion status
+                                        Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
+                                            .foregroundColor(completedSets.contains(index) ? .green : .red)
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(currentSet == index ? Color.blue : Color.gray)
+                                    .foregroundColor(Color.white)
+                                    .clipShape(Capsule())
+                                    .onTapGesture {
+                                        self.currentSet = index
+                                    }
+                                }
+                            }
+                        }
+                        Spacer()
+                        Spacer()
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
+                .padding(.bottom)
                 
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
+        }
+    }
+
+    private func overlayView(for index: Int) -> some View {
+        Group {
+            if completedSets.contains(index) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                    .offset(x: 20, y: 0)
+            }
         }
     }
     
@@ -85,7 +118,8 @@ struct WorkoutInputForm: View {
     }
 
     private func submitForm(forSet setNumber: Int) {
-        if currentSet == totalSets {
+        completedSets.insert(setNumber)
+        if setNumber == 3 {
             navigateToHome = true
         }
         else {
