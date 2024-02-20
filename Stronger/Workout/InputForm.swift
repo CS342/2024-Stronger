@@ -40,11 +40,6 @@ struct WorkoutInputForm: View {
             }
         }
     }
-    
-    init(workoutName: String, presentingAccount: Binding<Bool>) {
-            self._presentingAccount = presentingAccount
-            self.workoutName = workoutName
-    }
 
     private var exerciseInputSection: some View {
         Section(header: Text("\(workoutName): Set \(String(currentSet))")) {
@@ -116,6 +111,11 @@ struct WorkoutInputForm: View {
 
     private func submitForm() {
         showAlert = true
+    }
+    
+    init(workoutName: String, presentingAccount: Binding<Bool>) {
+            self._presentingAccount = presentingAccount
+            self.workoutName = workoutName
     }
 }
 
