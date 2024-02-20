@@ -21,60 +21,19 @@ struct WorkoutInputForm: View {
     @State private var completedSets = Set<Int>()
     @State private var comments: String = ""
 
-    var body: some View {
-        NavigationStack {
-            VStack {
-                Text("Input Results")
-                    .font(.title)
-                    .padding()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Spacer()
-                        Spacer()
-                        HStack(spacing: 20) {
-                            ForEach(1...totalSets, id: \.self) { index in
-                                VStack {
-                                    HStack {
-                                        Text("Set \(index)")
-                                        // Conditionally display icon based on completion status
-                                        Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
-                                            .foregroundColor(completedSets.contains(index) ? .green : .red)
-                                    }
-                                    .padding(.vertical, 10)
-                                    .padding(.horizontal, 20)
-                                    .background(currentSet == index ? Color.blue : Color.gray)
-                                    .foregroundColor(Color.white)
-                                    .clipShape(Capsule())
-                                    .onTapGesture {
-                                        self.currentSet = index
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .padding(.bottom)
-                
-                formView(forSet: currentSet)
-            }
-            .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
-        }
-    }
-
     private func overlayView(for index: Int) -> some View {
         Group {
             if completedSets.contains(index) {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.green)
                     .offset(x: 20, y: 0)
+                    .accessibilityLabel(Text("Completed"))
             }
         }
     }
     
     private func formView(forSet setNumber: Int) -> some View {
-        Form {
+            Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
                     TextField("Number of Reps", text: $numReps)
                     Picker("Select Band or Body Weight", selection: $selectedBand) {
@@ -85,8 +44,8 @@ struct WorkoutInputForm: View {
                     }
                     Section(header: Text("Comments")) {
                         TextEditor(text: $comments)
-                            .frame(minHeight: 100) // Adjust the height as needed
-                            .border(Color.gray, width: 1) // Optional: Adds a border to the TextEditor
+                            .frame(minHeight: 50)
+                            .border(Color.gray, width: 1)
                     }
                 }
                 Section {
@@ -127,6 +86,48 @@ struct WorkoutInputForm: View {
             navigateToHome = true
         } else {
             showAlert = true
+        }
+    }
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                Text("Input Results")
+                    .font(.title)
+                    .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Spacer()
+                        Spacer()
+                        HStack(spacing: 20) {
+                            ForEach(1...totalSets, id: \.self) { index in
+                                VStack {
+                                    HStack {
+                                        Text("Set \(index)")
+                                        Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
+                                            .accessibilityLabel(Text("Incomplete"))
+                                            .foregroundColor(completedSets.contains(index) ? .green : .red)
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(currentSet == index ? Color.blue : Color.gray)
+                                    .foregroundColor(Color.white)
+                                    .clipShape(Capsule())
+                                    .onTapGesture {
+                                        self.currentSet = index
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(.bottom)
+                
+                formView(forSet: currentSet)
+            }
+            .alert(isPresented: $showAlert) { submissionAlert }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
         }
     }
 }
