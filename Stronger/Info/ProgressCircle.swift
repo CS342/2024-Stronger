@@ -28,7 +28,7 @@ struct ProgressCircle: View {
                 .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.green)
                 .rotationEffect(.degrees(90)) // Start from the top (12 o'clock position)
-                .animation(.easeInOut)
+                // .animation(.easeInOut)
             
             Text("\(Int(progress)) g of your \(Int(totalProtein)) g goal.")
                                 .font(.body)
