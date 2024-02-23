@@ -81,7 +81,14 @@ struct WorkoutInputForm: View {
     private func formView(forSet setNumber: Int) -> some View {
             Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
-                    TextField("Number of Reps", text: $numReps)
+                    HStack {
+                        Text("Reps")
+                        Spacer()
+                        TextField("", text: $numReps)
+                            .frame(width: 80)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.numberPad)
+                    }
                     Picker("Select Resistance", selection: $selectedBand) {
                         ForEach(bands, id: \.self) { Text($0).tag($0) }
                     }
