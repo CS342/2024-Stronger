@@ -11,7 +11,7 @@ struct WorkoutInputForm: View {
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
-    let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+    let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
@@ -24,7 +24,7 @@ struct WorkoutInputForm: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Input Results")
+                Text("Log Resistance Training")
                     .font(.title)
                     .padding()
                 
@@ -82,16 +82,11 @@ struct WorkoutInputForm: View {
             Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
                     TextField("Number of Reps", text: $numReps)
-                    Picker("Select Band or Body Weight", selection: $selectedBand) {
+                    Picker("Select Resistance", selection: $selectedBand) {
                         ForEach(bands, id: \.self) { Text($0).tag($0) }
                     }
                     Picker("Select Difficulty", selection: $selectedDifficulty) {
                         ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-                    }
-                    Section(header: Text("Comments")) {
-                        TextEditor(text: $comments)
-                            .frame(minHeight: 50)
-                            .border(Color.gray, width: 1)
                     }
                 }
                 Section {
@@ -106,7 +101,7 @@ struct WorkoutInputForm: View {
                 Image("WorkoutThumbnail", label: Text("Workout"))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 300)
+                    .frame(height: 315)
                     .clipped()
             }
     }
