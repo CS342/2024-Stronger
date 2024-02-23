@@ -11,7 +11,7 @@ struct WorkoutInputForm: View {
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
-    let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+    let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Band 7", "Band 8"]
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
