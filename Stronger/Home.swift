@@ -36,10 +36,10 @@ struct HomeView: View {
                 }
 
             WorkoutHome(presentingAccount: $presentingAccount)
-            .tag(Tabs.workout)
-            .tabItem {
-                Label("Exercise", systemImage: "figure.cooldown" )
-            }
+                .tag(Tabs.workout)
+                .tabItem {
+                    Label("Exercise", systemImage: "figure.cooldown" )
+                }
             ChatWindow()
                 .tag(Tabs.chatWindow)
                 .tabItem {
