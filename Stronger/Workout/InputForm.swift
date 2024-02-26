@@ -4,13 +4,18 @@
 //
 // SPDX-License-Identifier: MIT
 //
-
+import Firebase
+import SpeziAccount
 import SwiftUI
 
 struct WorkoutInputForm: View {
+    @State private var account = {}
+    @State private var exerciseDay: Int = 1
+    @State private var exerciseWeek: Int = 1
     var workoutName: String = "Squats"
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
+    @State private var currentUserID: String?
     let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Band 7", "Band 8"]
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
@@ -68,6 +73,9 @@ struct WorkoutInputForm: View {
             title: Text("Great Job!"),
             message: Text("Is this your last set for this exercise?"),
             primaryButton: .destructive(Text("Yes")) {
+                Task {
+                    await self.uploadExerciseData()
+                }
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
@@ -76,6 +84,42 @@ struct WorkoutInputForm: View {
                 }
             }
         )
+    }
+    
+    private func uploadExerciseData() async {
+        await uploadExerciseLog()
+    }
+    
+    private func uploadExerciseLog() async {
+        guard let currentUserID = currentUserID else {
+            print("User ID not available")
+            return
+        }
+        let date = Date()
+        let exercise = workoutName
+        let exerciseNum = 1
+        let reps = numReps
+        let set = currentSet
+        let difficulty = selectedDifficulty
+        let band = selectedBand
+        let datab = Firestore.firestore()
+        
+        do {
+            try await datab.collection("users").document(currentUserID).collection("exerciseLog").addDocument(data: [
+                "date": date,
+                "exercise": exercise,
+                "exerciseDay": exerciseDay,
+                "exerciseNum": exerciseNum,
+                "reps": reps,
+                "set": set,
+                "week": exerciseWeek,
+                "band": band,
+                "difficulty": difficulty
+            ])
+            print("Document added successfully")
+        } catch {
+            print("Error adding document: \(error)")
+        }
     }
     
     private func formView(forSet setNumber: Int) -> some View {
