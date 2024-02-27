@@ -4,15 +4,20 @@
 //
 // SPDX-License-Identifier: MIT
 //
-
+import Firebase
+import SpeziAccount
 import SwiftUI
 
 struct WorkoutInputForm: View {
+    @Environment(Account.self) var account
+    @State private var exerciseDay: Int = 1
+    @State private var exerciseWeek: Int = 1
     var workoutName: String = "Squats"
     @Binding var presentingAccount: Bool
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
-    let bands = ["Band 1", "Band 2", "Band 3", "Band 4", "Band 5"]
+    @State private var currentUserID: String?
+    let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Band 7", "Band 8"]
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
@@ -25,7 +30,7 @@ struct WorkoutInputForm: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Input Results")
+                Text("Log Resistance Training")
                     .font(.title)
                     .padding()
                 
@@ -69,6 +74,9 @@ struct WorkoutInputForm: View {
             title: Text("Great Job!"),
             message: Text("Is this your last set for this exercise?"),
             primaryButton: .destructive(Text("Yes")) {
+                Task {
+                    await self.uploadExerciseData()
+                }
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
@@ -79,25 +87,58 @@ struct WorkoutInputForm: View {
         )
     }
     
-    init(workoutName: String, presentingAccount: Binding<Bool>) {
-        self._presentingAccount = presentingAccount
-        self.workoutName = workoutName
+    private func uploadExerciseData() async {
+        await uploadExerciseLog()
+    }
+    
+    private func uploadExerciseLog() async {
+        guard let currentUserID = currentUserID else {
+            print("User ID not available")
+            return
+        }
+        let date = Date()
+        let exercise = workoutName
+        let exerciseNum = 1
+        let reps = Int(numReps) ?? 0
+        let set = currentSet
+        let difficulty = selectedDifficulty
+        let band = selectedBand
+        let datab = Firestore.firestore()
+        
+        do {
+            try await datab.collection("users").document(currentUserID).collection("exerciseLog").addDocument(data: [
+                "date": date,
+                "exercise": exercise,
+                "exerciseDay": exerciseDay,
+                "exerciseNum": exerciseNum,
+                "reps": reps,
+                "set": set,
+                "week": exerciseWeek,
+                "band": band,
+                "difficulty": difficulty
+            ])
+            print("Document added successfully")
+        } catch {
+            print("Error adding document: \(error)")
+        }
     }
     
     private func formView(forSet setNumber: Int) -> some View {
             Form {
                 Section(header: Text("\(workoutName): Set \(setNumber)")) {
-                    TextField("Number of Reps", text: $numReps)
-                    Picker("Select Band or Body Weight", selection: $selectedBand) {
+                    HStack {
+                        Text("Reps")
+                        Spacer()
+                        TextField("", text: $numReps)
+                            .frame(width: 80)
+                            .textFieldStyle(.roundedBorder)
+                            .keyboardType(.numberPad)
+                    }
+                    Picker("Select Resistance", selection: $selectedBand) {
                         ForEach(bands, id: \.self) { Text($0).tag($0) }
                     }
                     Picker("Select Difficulty", selection: $selectedDifficulty) {
                         ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-                    }
-                    Section(header: Text("Comments")) {
-                        TextEditor(text: $comments)
-                            .frame(minHeight: 50)
-                            .border(Color.gray, width: 1)
                     }
                 }
                 Section {
@@ -112,7 +153,7 @@ struct WorkoutInputForm: View {
                 Image("WorkoutThumbnail", label: Text("Workout"))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 300)
+                    .frame(height: 315)
                     .clipped()
             }
     }

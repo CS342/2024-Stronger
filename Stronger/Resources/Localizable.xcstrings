@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -378,10 +381,10 @@
     "Incomplete" : {
 
     },
-    "Input New Food to Chat" : {
+    "Incomplete" : {
 
     },
-    "Input Results" : {
+    "Input New Food to Chat" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -514,7 +517,11 @@
         }
       }
     },
+    "Log Resistance Training" : {
+    
+    },
     "Log more with Pro-Bot" : {
+
 
     },
     "Lunch 02/05/2024" : {
@@ -563,9 +570,6 @@
     "No" : {
 
     },
-    "Number of Reps" : {
-
-    },
     "Nutrition" : {
 
     },
@@ -610,6 +614,9 @@
         }
       }
     },
+    "Reps" : {
+
+    },
     "Save Changes" : {
 
     },
@@ -629,10 +636,12 @@
     "Select Band or Body Weight" : {
 
     },
+    "Select Difficulty" : {
+    },
     "Select Day" : {
 
     },
-    "Select Difficulty" : {
+    "Select Resistance" : {
 
     },
     "Select Saved Meal" : {
