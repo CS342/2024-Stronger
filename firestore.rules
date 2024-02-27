@@ -5,5 +5,11 @@ service cloud.firestore {
     match /users/{userId}/{documents=**} {
       allow read, write: if true; 
     }
+    
+    // Allow read access to the workouts collection
+    match /workouts/{document=**} {
+      allow read: if true; // Adjust this condition as needed
+      // Add write rules if necessary
+    }
   }
 }

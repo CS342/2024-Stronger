@@ -1,5 +1,5 @@
 //
-// This source file is part of the PICS based on the Stanford Spezi Template Application project
+// This source file is part of the STRONGER based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -11,64 +11,63 @@ import SpeziValidation
 import SpeziViews
 import SwiftUI
 
-/// The weight of a user.
-public struct GoalWeightKey: AccountKey {
+/// The height of a user.
+public struct HeightKey: AccountKey {
     public typealias Value = Int
-    public static let name = LocalizedStringResource("GOAL_WEIGHT")
+    public static let name = LocalizedStringResource("HEIGHT")
     public static let category: AccountKeyCategory = .personalDetails
 }
 
 
 extension AccountKeys {
-    /// this is the weightKey of the user
-    public var goalweight: GoalWeightKey.Type {
-        GoalWeightKey.self
+    /// this is the HeightKey of the user
+    public var height: HeightKey.Type {
+        HeightKey.self
     }
 }
 
 
 extension AccountValues {
-    /// this is the weight value to be stored
-    public var goalweight: Int? {
-        storage[GoalWeightKey.self]
+    /// this is the value of the height to store
+    public var height: Int? {
+        storage[HeightKey.self]
     }
 }
 
 
 // MARK: - UI
-extension GoalWeightKey {
+extension HeightKey {
     public struct DataDisplay: DataDisplayView {
-        public typealias Key = GoalWeightKey
-        private let goalweight: Int
+        public typealias Key = HeightKey
+        private let height: Int
         public init(_ value: Int) {
-            self.goalweight = value
+            self.height = value
         }
         public var body: some View {
             HStack {
-                Text(GoalWeightKey.name)
+                Text(HeightKey.name)
                 Spacer()
-                Text("\(goalweight) kg")
+                Text("\(height) cm")
                     .foregroundColor(.secondary)
             }
             .accessibilityElement(children: .combine)
         }
     }
 }
-
-extension GoalWeightKey {
+extension HeightKey {
     public struct DataEntry: DataEntryView {
-        public typealias Key = GoalWeightKey
-        @Binding private var goalweight: Int
+        public typealias Key = HeightKey
+        @Binding private var height: Int
         public var body: some View {
             HStack {
-                    Text(GoalWeightKey.name)
+                    Text(HeightKey.name)
                     Spacer()
-                    TextField("Goal Weight", value: $goalweight, formatter: NumberFormatter())
+                    TextField("Height", value: $height, formatter: NumberFormatter())
                          .frame(width: 120) // set frame width to enable more spaces.
             }
         }
         public init(_ value: Binding<Int>) {
-            self._goalweight = value
+            self._height = value
         }
     }
 }

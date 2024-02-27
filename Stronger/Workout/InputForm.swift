@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
-    var workoutName: String
+    var workoutName: String = "Squats"
     @Binding var presentingAccount: Bool
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
@@ -19,64 +18,52 @@ struct WorkoutInputForm: View {
     @State private var currentSet: Int = 1
     @State private var showAlert = false
     @State private var navigateToHome = false
-    @State private var onFirstSet = true
-    @State private var onLastSet = true
-    @State private var maxSet: Int = 1
-
+    @State private var totalSets: Int = 3
+    @State private var completedSets = Set<Int>()
+    @State private var comments: String = ""
+    
     var body: some View {
         NavigationStack {
-            Form {
-                exerciseInputSection
-                submitSection
-                Image("WorkoutThumbnail", label: Text("Workout"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 350)
-                    .clipped()
+            VStack {
+                Text("Input Results")
+                    .font(.title)
+                    .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        Spacer()
+                        Spacer()
+                        HStack(spacing: 20) {
+                            ForEach(1...totalSets, id: \.self) { index in
+                                VStack {
+                                    HStack {
+                                        Text("Set \(index)")
+                                        Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
+                                            .accessibilityLabel(Text("Incomplete"))
+                                            .foregroundColor(completedSets.contains(index) ? .green : .red)
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .background(currentSet == index ? Color.blue : Color.gray)
+                                    .foregroundColor(Color.white)
+                                    .clipShape(Capsule())
+                                    .onTapGesture {
+                                        self.currentSet = index
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(.bottom)
+                
+                formView(forSet: currentSet)
             }
-            .navigationBarTitle("Input Results")
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount)
-            }
-        }
-    }
-
-    private var exerciseInputSection: some View {
-        Section(header: Text("\(workoutName): Set \(String(currentSet))")) {
-            TextField("Number of Reps", text: $numReps)
-            Picker("Select Band", selection: $selectedBand) {
-                ForEach(bands, id: \.self) { Text($0).tag($0) }
-            }
-            Picker("Select Difficulty", selection: $selectedDifficulty) {
-                ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-            }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount) }
         }
     }
     
-    private var submitSection: some View {
-        Section {
-            HStack {
-                if !onFirstSet {
-                    Button("Back", action: backToSet)
-                        .buttonStyle(BackButtonStyle())
-                    Spacer()
-                    Spacer()
-                } else {
-                    EmptyView()
-                }
-                if onLastSet {
-                    Button("Submit", action: submitForm)
-                        .buttonStyle(SubmitButtonStyle())
-                } else {
-                    Button("Next Set", action: goToNextSet)
-                        .buttonStyle(BackButtonStyle())
-                }
-            }
-            .listRowInsets(EdgeInsets())
-        }
-        .listRowBackground(Color.clear)
-    }
-
     private var submissionAlert: Alert {
         Alert(
             title: Text("Great Job!"),
@@ -85,63 +72,69 @@ struct WorkoutInputForm: View {
                 navigateToHome = true
             },
             secondaryButton: .cancel(Text("No")) {
-                onFirstSet = false
-                onLastSet = true
-                currentSet += 1
-                maxSet += 1
+                if currentSet < totalSets {
+                    currentSet += 1
+                }
             }
         )
     }
     
     init(workoutName: String, presentingAccount: Binding<Bool>) {
-            self._presentingAccount = presentingAccount
-            self.workoutName = workoutName
+        self._presentingAccount = presentingAccount
+        self.workoutName = workoutName
     }
     
-    private func backToSet() {
-        currentSet -= 1
-        onLastSet = false
-        if currentSet == 1 {
-            onFirstSet = true
+    private func formView(forSet setNumber: Int) -> some View {
+            Form {
+                Section(header: Text("\(workoutName): Set \(setNumber)")) {
+                    TextField("Number of Reps", text: $numReps)
+                    Picker("Select Band or Body Weight", selection: $selectedBand) {
+                        ForEach(bands, id: \.self) { Text($0).tag($0) }
+                    }
+                    Picker("Select Difficulty", selection: $selectedDifficulty) {
+                        ForEach(difficulties, id: \.self) { Text($0).tag($0) }
+                    }
+                    Section(header: Text("Comments")) {
+                        TextEditor(text: $comments)
+                            .frame(minHeight: 50)
+                            .border(Color.gray, width: 1)
+                    }
+                }
+                Section {
+                    HStack {
+                        Spacer()
+                        Button("Submit", action: {
+                            submitForm(forSet: setNumber)
+                        })
+                        Spacer()
+                    }
+                }
+                Image("WorkoutThumbnail", label: Text("Workout"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 300)
+                    .clipped()
+            }
+    }
+    
+    private func overlayView(for index: Int) -> some View {
+        Group {
+            if completedSets.contains(index) {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                    .offset(x: 20, y: 0)
+                    .accessibilityLabel(Text("Completed"))
+            }
         }
     }
     
-    private func goToNextSet() {
-        currentSet += 1
-        onFirstSet = false
-        if currentSet == maxSet {
-            onLastSet = true
+    private func submitForm(forSet setNumber: Int) {
+        completedSets.insert(setNumber)
+        if setNumber == 3 {
+            navigateToHome = true
+        } else {
+            showAlert = true
         }
-    }
-
-    private func submitForm() {
-        showAlert = true
-    }
-}
-
-struct BackButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
-            )
-            .foregroundColor(.blue)
-    }
-}
-
-struct SubmitButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
-            )
-            .foregroundColor(.red)
     }
 }
 
