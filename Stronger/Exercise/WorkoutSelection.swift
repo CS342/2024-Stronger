@@ -78,9 +78,9 @@ struct WorkoutSelection: View {
     
     private func fetchMenuItemsFromFirestore() {
         print("Fetch MenuItems from firestore", "week\(self.selectedWeek)", "day\(self.selectedDay)")
-        let db = Firestore.firestore()
+        let dbe = Firestore.firestore()
         
-        db.collection("workouts").document("week\(self.selectedWeek)").collection("day\(self.selectedDay)").getDocuments { snapshot, error in
+        dbe.collection("workouts").document("week\(self.selectedWeek)").collection("day\(self.selectedDay)").getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching menu items: \(error.localizedDescription)")
                 return
@@ -105,8 +105,8 @@ struct WorkoutSelection: View {
 
     
     private func fetchWorkoutsFromFirebase(completion: @escaping ([MenuItem]?, Error?) -> Void) {
-        let db = Firestore.firestore()
-        db.collection("workouts").getDocuments { snapshot, error in
+        let dbe = Firestore.firestore()
+        dbe.collection("workouts").getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else {
                 completion(nil, error)
                 return
@@ -123,7 +123,7 @@ struct WorkoutSelection: View {
     }
     
     private func uploadUserData() {
-        let db = Firestore.firestore()
+        let dbe = Firestore.firestore()
         
         // Data to be uploaded
         let userData: [String: Any] = [
@@ -132,7 +132,7 @@ struct WorkoutSelection: View {
         ]
         
         // Upload data to Firestore
-        db.collection("users").document("admin").setData(userData) { error in
+        dbe.collection("users").document("admin").setData(userData) { error in
             if let error = error {
                 print("Error uploading user data: \(error.localizedDescription)")
             } else {

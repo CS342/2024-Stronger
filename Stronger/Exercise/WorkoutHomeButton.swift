@@ -56,7 +56,3 @@ struct WorkoutHomeButton: View {
         self.totalWidth = totalWidth
     }
 }
-
-// #Preview {
-//    WorkoutHomeButton()
-// }

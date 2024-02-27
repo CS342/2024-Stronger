@@ -36,10 +36,10 @@ struct ExerciseLogUploaderView: View {
         let set = 3
         let week = 1
         
-        let db = Firestore.firestore()
+        let dbe = Firestore.firestore()
         
         do {
-            try await db.collection("users").document(currentUserID).collection("exerciseLog").addDocument(data: [
+            try await dbe.collection("users").document(currentUserID).collection("exerciseLog").addDocument(data: [
                 "date": date,
                 "exercise": exercise,
                 "exerciseDay": exerciseDay,
