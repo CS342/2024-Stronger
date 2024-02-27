@@ -45,8 +45,8 @@ func log_protein_intake(for totalProteinContent: String, defaultTotalProteinCont
         "protein content": totalProteinContent
     ]
     do {
-//        try await db.collection("protein_content").document("food").setData(foodData, merge: true)
-//        try await db.collection("users").document("~2Fusers~2FRrweEA63aiRFM9DXSAPD6ShYb3i1").document("user1").setData(foodData, merge: true)
+//        try await dbe.collection("protein_content").document("food").setData(foodData, merge: true)
+//        try await dbe.collection("users").document("~2Fusers~2FRrweEA63aiRFM9DXSAPD6ShYb3i1").document("user1").setData(foodData, merge: true)
         try await firestoreDB.collection("users").document("protein_intake_\(currentDateString)").setData(userData)
         print("Document successfully written!")
     } catch {

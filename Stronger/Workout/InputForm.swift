@@ -13,6 +13,7 @@ struct WorkoutInputForm: View {
     @State private var exerciseDay: Int = 1
     @State private var exerciseWeek: Int = 1
     var workoutName: String = "Squats"
+    @Binding var presentingAccount: Bool
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     @State private var currentUserID: String?
@@ -64,7 +65,7 @@ struct WorkoutInputForm: View {
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome() }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount) }
         }
     }
     
@@ -181,6 +182,6 @@ struct WorkoutInputForm: View {
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutInputForm(workoutName: "Squats")
+        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
     }
 }

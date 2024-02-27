@@ -28,7 +28,7 @@ struct HomeReal: View {
                     .font(.largeTitle)
                 Spacer()
                 // Top section with SummaryInfo component
-                Summary()
+                Summary(presentingAccount: $presentingAccount)
                 // Bottom section with navigation buttons
                 Spacer()
                 HStack(spacing: 10) {
@@ -38,7 +38,7 @@ struct HomeReal: View {
                     }
                     
 
-                    NavigationLink(destination: WorkoutHome()) {
+                    NavigationLink(destination: WorkoutHome(presentingAccount: $presentingAccount)) {
                         Text("Exercise")
                             .modifier(NavButton())
                     }
