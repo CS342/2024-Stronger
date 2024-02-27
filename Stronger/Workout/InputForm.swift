@@ -9,7 +9,7 @@ import SpeziAccount
 import SwiftUI
 
 struct WorkoutInputForm: View {
-    @State private var account = {}
+    @Environment(Account.self) var account
     @State private var exerciseDay: Int = 1
     @State private var exerciseWeek: Int = 1
     var workoutName: String = "Squats"

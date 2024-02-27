@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -98,6 +101,9 @@
       }
     },
     "Commonly Saved Items" : {
+
+    },
+    "Completed" : {
 
     },
     "COMPLETED_TASK_LABEL %@" : {
@@ -267,10 +273,10 @@
     "How to Squat!" : {
 
     },
-    "Input New Food to Chat" : {
+    "Incomplete" : {
 
     },
-    "Input Results" : {
+    "Input New Food to Chat" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -411,6 +417,9 @@
         }
       }
     },
+    "Log Resistance Training" : {
+
+    },
     "Lunch 02/05/2024" : {
 
     },
@@ -465,9 +474,6 @@
     "No" : {
 
     },
-    "Number of Reps" : {
-
-    },
     "Nutrition" : {
 
     },
@@ -503,6 +509,9 @@
         }
       }
     },
+    "Reps" : {
+
+    },
     "Save Changes" : {
 
     },
@@ -533,16 +542,13 @@
         }
       }
     },
-    "Select Band or Body Weight" : {
-
-    },
     "Select Difficulty" : {
 
     },
-    "Select Saved Meal" : {
+    "Select Resistance" : {
 
     },
-    "Select Set" : {
+    "Select Saved Meal" : {
 
     },
     "Set %lld" : {
