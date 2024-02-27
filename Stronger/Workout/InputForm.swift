@@ -98,7 +98,7 @@ struct WorkoutInputForm: View {
         let date = Date()
         let exercise = workoutName
         let exerciseNum = 1
-        let reps = numReps
+        let reps = Int(numReps) ?? 0
         let set = currentSet
         let difficulty = selectedDifficulty
         let band = selectedBand
