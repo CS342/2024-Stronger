@@ -398,10 +398,10 @@
     "Incomplete" : {
 
     },
-    "Input New Food to Chat" : {
+    "Incomplete" : {
 
     },
-    "Input Results" : {
+    "Input New Food to Chat" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -583,9 +583,6 @@
     "No" : {
 
     },
-    "Number of Reps" : {
-
-    },
     "Nutrition" : {
 
     },
@@ -634,6 +631,9 @@
         }
       }
     },
+    "Reps" : {
+
+    },
     "Save Changes" : {
 
     },
@@ -656,7 +656,7 @@
     "Select Band or Body Weight" : {
 
     },
-    "Select Difficulty" : {
+    "Select Resistance" : {
 
     },
     "Select Saved Meal" : {
