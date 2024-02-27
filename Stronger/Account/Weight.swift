@@ -1,5 +1,5 @@
 //
-// This source file is part of the PICS based on the Stanford Spezi Template Application project
+// This source file is part of the STRONGER based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -59,12 +59,29 @@ extension WeightKey {
     public struct DataEntry: DataEntryView {
         public typealias Key = WeightKey
         @Binding private var weight: Int
+        @State private var isShowingInfo = false // State variable to control info pop-up
         public var body: some View {
             HStack {
-                    Text(WeightKey.name)
-                    Spacer()
-                    TextField("Weight", value: $weight, formatter: NumberFormatter())
-                         .frame(width: 120) // set frame width to enable more spaces.
+                Text(WeightKey.name)
+                Spacer()
+                Button(action: {
+                    isShowingInfo.toggle() // Toggle info pop-up visibility
+                }) {
+                    Image(systemName: "info.circle") // Info symbol
+                        .foregroundColor(.blue)
+                }
+                .popover(isPresented: $isShowingInfo, content: {
+                    VStack {
+                        Text("Weight Information")
+                            .font(.headline)
+                            .padding()
+                        Text("Weight is gathered to determine protein intake.")
+                            .padding()
+                    }
+                })
+                .padding(.trailing, 4) // Adjust spacing
+                TextField("Weight", value: $weight, formatter: NumberFormatter())
+                    .frame(width: 120) // set frame width to enable more spaces.
             }
         }
         public init(_ value: Binding<Int>) {
@@ -72,3 +89,20 @@ extension WeightKey {
         }
     }
 }
+// extension WeightKey {
+//     public struct DataEntry: DataEntryView {
+//         public typealias Key = WeightKey
+//         @Binding private var weight: Int
+//         public var body: some View {
+//             HStack {
+//                     Text(WeightKey.name)
+//                     Spacer()
+//                     TextField("Weight", value: $weight, formatter: NumberFormatter())
+//                          .frame(width: 120) // set frame width to enable more spaces.
+//             }
+//         }
+//         public init(_ value: Binding<Int>) {
+//             self._weight = value
+//         }
+//     }
+// }

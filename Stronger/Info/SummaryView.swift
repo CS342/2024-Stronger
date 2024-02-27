@@ -9,16 +9,26 @@
 // SPDX-License-Identifier: MIT
 //
 
+// Store current week in user information.
+// This can be updated.
+// 
+
 import SpeziAccount
 import SpeziMockWebService
 import SwiftUI
 
 struct SummaryView: View {
+    enum Tabs: String {
+        case home
+        case workout
+        case chatWindow
+    }
+    
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
-
-   
+    @Environment(Account.self) var account
+    
     @State private var presentingAccount = false
     
     // var username: String
@@ -31,19 +41,18 @@ struct SummaryView: View {
     var body: some View {
         VStack {
             // Welcome message
-            Text("Welcome Mary")
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 50)
+            if let details = account.details {
+                Text("Hello \(details.name!.formatted(.name(style: .medium)))")
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 50)
+            } else {
+                Text("Hello World")
+            }
+                
             // Spacer()
             // Image and text boxes
             HStack {
-//                Image(systemName: "person.circle")
-//                    .resizable()
-//                Rectangle()
-//                    .fill(Color.gray)
-//                    .frame(maxWidth: .infinity, maxHeight: 200)
-//                    .padding(.trailing, 10)
                 ProgressCircle(progress: dietValue, totalProtein: totalProtein)
                 
                 VStack(alignment: .leading) {
@@ -54,8 +63,11 @@ struct SummaryView: View {
                 .alignmentGuide(.imageAlignment) { tmp in tmp[.bottom] }
             }
             Spacer()
-            ExerciseWeek(value: "Easy")
-            ExerciseWeek(value: "Medium")
+            Text("This Week's Fitness Progress\n")
+            ExerciseWeek(value: 2, presentingAccount: $presentingAccount)
+            Spacer()
+            Text("Last Week's Fitness Progress\n")
+            ExerciseWeek(value: 1, presentingAccount: $presentingAccount)
             Spacer()
         }
         .padding()

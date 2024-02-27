@@ -40,6 +40,9 @@
     "%@." : {
 
     },
+    "%lld cm" : {
+
+    },
     "%lld g of your %lld g goal." : {
       "localizations" : {
         "en" : {
@@ -220,11 +223,31 @@
     "Edit Saved Meal" : {
 
     },
+    "Enter Workout Information\n for Week %lld Day %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter Workout Information\n for Week %1$lld Day %2$lld."
+          }
+        }
+      }
+    },
     "Exercise" : {
+
+    },
+    "Exercise 1" : {
+
+    },
+    "Exercise 2" : {
+
+    },
+    "Exercise 3" : {
 
     },
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -233,6 +256,9 @@
           }
         }
       }
+    },
+    "Female" : {
+
     },
     "Food" : {
 
@@ -245,6 +271,7 @@
     },
     "FOOD_TAB_TITLE" : {
       "comment" : "MARK: - Food",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -257,11 +284,7 @@
     "Goal Resistance" : {
 
     },
-    "Goal Weight" : {
-
-    },
     "GOAL_RESISTANCE" : {
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -283,9 +306,6 @@
       }
     },
     "Great Job!" : {
-
-    },
-    "Hard" : {
 
     },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
@@ -328,6 +348,29 @@
           }
         }
       }
+    },
+    "Height" : {
+
+    },
+    "HEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Height"
+          }
+        }
+      }
+    },
+    "Hello" : {
+
+    },
+    "Hello %@" : {
+
+    },
+    "Hello World" : {
+
     },
     "Hello, World!" : {
 
@@ -478,16 +521,8 @@
     "Large portion" : {
 
     },
-    "LELAND_STANFORD_BIO" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amasa Leland Stanford (March 9, 1824 – June 21, 1893) was an American industrialist and politician. [...] He and his wife Jane were also the founders of Stanford University, which they named after their late son.\n[https://en.wikipedia.org/wiki/Leland_Stanford]"
-          }
-        }
-      }
+    "Last Week's Fitness Progress\n" : {
+
     },
     "LICENSE_INFO_TITLE" : {
       "localizations" : {
@@ -503,6 +538,9 @@
 
     },
     "Lunch 02/05/2024" : {
+
+    },
+    "Male" : {
 
     },
     "MARILY_OPPEZZO_BIO" : {
@@ -536,25 +574,10 @@
         }
       }
     },
-    "MOCK_WEB_SERVICE_TAB_TITLE" : {
-      "comment" : "MARK: - Mock Upload Data Storage Provider",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mock Web Service"
-          }
-        }
-      }
-    },
     "New Meal" : {
 
     },
     "Next" : {
-
-    },
-    "Next Set" : {
 
     },
     "No" : {
@@ -627,17 +650,8 @@
         }
       }
     },
-    "SCHEDULE_TAB_TITLE" : {
-      "comment" : "MARK: - Schedule",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schedule"
-          }
-        }
-      }
+    "Select Band or Body Weight" : {
+
     },
     "Select Band or Body Weight" : {
 
@@ -712,6 +726,12 @@
           }
         }
       }
+    },
+    "This Week's Fitness Progress\n" : {
+
+    },
+    "Upload Exercise Log" : {
+
     },
     "Video Placeholder" : {
 
@@ -849,6 +869,9 @@
 
     },
     "You indicated: %@" : {
+
+    },
+    "Your current week is %lld" : {
 
     }
   },

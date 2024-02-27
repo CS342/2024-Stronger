@@ -10,15 +10,10 @@ import SpeziAccount
 import SpeziMockWebService
 import SwiftUI
 
-
 enum Tabs: String {
-    case schedule
-    case contact
-    case mockUpload
-    case savedMeals
+    case home
+    case workout
     case chatWindow
-    case mainPage
-    case workoutHome
 }
 
 struct TabViewChatWindow: View {
@@ -32,6 +27,12 @@ struct TabViewChatWindow: View {
 }
 
 struct HomeView: View {
+    enum Tabs: String {
+        case home
+        case workout
+        case chatWindow
+    }
+    
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
@@ -40,6 +41,7 @@ struct HomeView: View {
     @State private var presentingAccount = false
     
     var body: some View {
+        Text("Hello")
         TabView(selection: $selectedTab) {
             MainPage()
                 .tag(Tabs.mainPage)

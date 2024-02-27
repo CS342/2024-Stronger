@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-// swiftlint:disable file_types_order
 struct WorkoutInputForm: View {
-    var workoutName: String
+    var workoutName: String = "Squats"
     @Binding var presentingAccount: Bool
 
     @AppStorage("numReps") private var numReps: String = ""
@@ -82,8 +81,8 @@ struct WorkoutInputForm: View {
     }
     
     init(workoutName: String, presentingAccount: Binding<Bool>) {
-            self._presentingAccount = presentingAccount
-            self.workoutName = workoutName
+        self._presentingAccount = presentingAccount
+        self.workoutName = workoutName
     }
     
     private func formView(forSet setNumber: Int) -> some View {
