@@ -28,6 +28,7 @@ struct ExerciseWeek: View {
     @State private var colorTwo: Color = .gray.opacity(0.5)
     @State private var colorThree: Color = .gray.opacity(0.5)
     @State private var averageDifficulties: [Double] = [0, 0, 0]
+    private let defaultColor: Color = .green.opacity(0.3)
     @Environment(Account.self) var account
     // Array to store average difficulties for each day
 
@@ -36,34 +37,40 @@ struct ExerciseWeek: View {
             Button(action: {
                 selectedTab = Tabs.workout
             }) {
-                Text("Exercise 1")
+                Text(" Workout 1 ")
                     .padding()
             }
              // Apply background color
-            .cornerRadius(8)
+            
             .frame(width: 120, height: 50)
-            .background(colorOne)
+            .background(defaultColor)
+            .cornerRadius(8)
             // .border(Color.black, width: 1) // Add black border
             Button(action: {
                 selectedTab = Tabs.workout
             }) {
-                Text("Exercise 2")
+                Text(" Workout 2 ")
             }
              // Apply background color
-            .cornerRadius(8)
+            
             .frame(width: 120, height: 50)
-            .background(colorTwo)
-            // .border(Color.black, width: 1) // Add black border
+            .background(defaultColor)
+            .cornerRadius(8)
+            .border(Color.black, width: 1) // Add black border
+           
+
             Button(action: {
                 selectedTab = Tabs.workout
             }) {
-                Text("Exercise 3")
+                Text(" Workout 3 ")
             }
             
-            .cornerRadius(8)
+            
             .frame(width: 120, height: 50)
-            .background(colorThree) // Apply background color
-            // .border(Color.black, width: 1) // Add black border
+            .cornerRadius(8)
+            .border(Color.black, width: 1)
+            .background(defaultColor) // Apply background color
+            //  // Add black border
 //            NavigationLink(destination: WorkoutHome(presentingAccount: $presentingAccount)) {
 //                Text("Exercise 1")
 //                    .modifier(NavButton())
@@ -103,7 +110,9 @@ struct ExerciseWeek: View {
 
     // Function to get the current user ID
     private func getCurrentUserID() async throws -> String? {
-        guard let details = try await account.details else { return nil }
+        guard let details = try await account.details else {
+            return nil
+        }
         return details.accountId
     }
 

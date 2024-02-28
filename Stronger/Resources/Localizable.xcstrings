@@ -4,6 +4,15 @@
     "" : {
 
     },
+    " Workout 1 " : {
+
+    },
+    " Workout 2 " : {
+
+    },
+    " Workout 3 " : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -129,9 +138,6 @@
         }
       }
     },
-    "Comments" : {
-
-    },
     "Commonly Saved Items" : {
 
     },
@@ -234,15 +240,6 @@
       }
     },
     "Exercise" : {
-
-    },
-    "Exercise 1" : {
-
-    },
-    "Exercise 2" : {
-
-    },
-    "Exercise 3" : {
 
     },
     "EXERCISE_TAB_TITLE" : {
@@ -650,7 +647,7 @@
         }
       }
     },
-    "Select Band or Body Weight" : {
+    "Select Day" : {
 
     },
     "Select Band or Body Weight" : {

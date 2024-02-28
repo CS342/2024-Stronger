@@ -10,9 +10,9 @@ import SwiftUI
 
 struct WorkoutInputForm: View {
     @Environment(Account.self) var account
-    @State private var exerciseDay: Int = 1
-    @State private var exerciseWeek: Int = 1
     var workoutName: String = "Squats"
+    
+    
     @Binding var presentingAccount: Bool
 
     @AppStorage("numReps") private var numReps: String = ""
@@ -87,6 +87,14 @@ struct WorkoutInputForm: View {
             }
         )
     }
+
+    // init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
+    //     self.workoutName = workoutName
+    //     self._presentingAccount = presentingAccount
+    //     self.selectedWeek = selectedWeek
+    //     self.selectedDay = selectedDay
+    // }
+
     
     private func uploadExerciseData() async {
         await uploadExerciseLog()
@@ -110,11 +118,11 @@ struct WorkoutInputForm: View {
             try await datab.collection("users").document(currentUserID).collection("exerciseLog").addDocument(data: [
                 "date": date,
                 "exercise": exercise,
-                "exerciseDay": exerciseDay,
+                "exerciseDay": selectedDay,
                 "exerciseNum": exerciseNum,
                 "reps": reps,
                 "set": set,
-                "week": exerciseWeek,
+                "week": selectedWeek,
                 "band": band,
                 "difficulty": difficulty
             ])
