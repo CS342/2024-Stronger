@@ -97,7 +97,13 @@
         }
       }
     },
+    "Comments" : {
+
+    },
     "Commonly Saved Items" : {
+
+    },
+    "Completed" : {
 
     },
     "COMPLETED_TASK_LABEL %@" : {
@@ -265,6 +271,9 @@
 
     },
     "How to Squat!" : {
+
+    },
+    "Incomplete" : {
 
     },
     "Input New Food to Chat" : {
@@ -540,9 +549,6 @@
 
     },
     "Select Saved Meal" : {
-
-    },
-    "Select Set" : {
 
     },
     "Set %lld" : {
