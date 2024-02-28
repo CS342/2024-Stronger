@@ -77,6 +77,7 @@
 		4051334D2B8C8D5400ED62BA /* WorkoutHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051334C2B8C8D5400ED62BA /* WorkoutHome.swift */; };
 		4051334F2B8C9D8100ED62BA /* UploadDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051334E2B8C9D8100ED62BA /* UploadDummyData.swift */; };
 		405133522B8D632200ED62BA /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133512B8D632200ED62BA /* Sex.swift */; };
+		405133572B8F332100ED62BA /* StartDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133562B8F332100ED62BA /* StartDate.swift */; };
 		405239E02B574BA500EEA67A /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 405239DF2B574BA500EEA67A /* AppIcon.png */; };
 		405239E32B6B815D00EEA67A /* HomeNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405239E22B6B815D00EEA67A /* HomeNew.swift */; };
 		40644EC42B756B53009F9E28 /* workout.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40644EC32B756B53009F9E28 /* workout.mp4 */; };
@@ -184,6 +185,7 @@
 		4051334C2B8C8D5400ED62BA /* WorkoutHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHome.swift; sourceTree = "<group>"; };
 		4051334E2B8C9D8100ED62BA /* UploadDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDummyData.swift; sourceTree = "<group>"; };
 		405133512B8D632200ED62BA /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		405133562B8F332100ED62BA /* StartDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDate.swift; sourceTree = "<group>"; };
 		405239DF2B574BA500EEA67A /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		405239E22B6B815D00EEA67A /* HomeNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNew.swift; sourceTree = "<group>"; };
 		40644EC32B756B53009F9E28 /* workout.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = workout.mp4; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				401114222B8489D1000083A2 /* GoalResist.swift */,
 				40EFC2A52B87DAD2006B3B59 /* Height.swift */,
 				405133512B8D632200ED62BA /* Sex.swift */,
+				405133562B8F332100ED62BA /* StartDate.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				2F5E32BD297E05EA003432F8 /* StrongerDelegate.swift in Sources */,
 				405133482B8C808E00ED62BA /* WorkoutSelection.swift in Sources */,
 				2FE5DC5229EDD7FA004B9AB4 /* StrongerScheduler.swift in Sources */,
+				405133572B8F332100ED62BA /* StartDate.swift in Sources */,
 				A9FE7AD02AA39BAB0077B045 /* AccountSheet.swift in Sources */,
 				653A2551283387FE005D4D48 /* Stronger.swift in Sources */,
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,

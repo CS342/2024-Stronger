@@ -4,6 +4,15 @@
     "" : {
 
     },
+    " Workout 1 " : {
+
+    },
+    " Workout 2 " : {
+
+    },
+    " Workout 3 " : {
+
+    },
     "[%lld] grams of protein" : {
 
     },
@@ -116,9 +125,6 @@
         }
       }
     },
-    "Comments" : {
-
-    },
     "Commonly Saved Items" : {
 
     },
@@ -220,15 +226,6 @@
       }
     },
     "Exercise" : {
-
-    },
-    "Exercise 1" : {
-
-    },
-    "Exercise 2" : {
-
-    },
-    "Exercise 3" : {
 
     },
     "EXERCISE_TAB_TITLE" : {
@@ -381,9 +378,6 @@
     "Incomplete" : {
 
     },
-    "Incomplete" : {
-
-    },
     "Input New Food to Chat" : {
 
     },
@@ -517,11 +511,10 @@
         }
       }
     },
-    "Log Resistance Training" : {
-    
-    },
     "Log more with Pro-Bot" : {
 
+    },
+    "Log Resistance Training" : {
 
     },
     "Lunch 02/05/2024" : {
@@ -571,6 +564,9 @@
 
     },
     "Nutrition" : {
+
+    },
+    "OK" : {
 
     },
     "Please select Exercise Date" : {
@@ -633,12 +629,10 @@
         }
       }
     },
-    "Select Band or Body Weight" : {
+    "Select Day" : {
 
     },
     "Select Difficulty" : {
-    },
-    "Select Day" : {
 
     },
     "Select Resistance" : {

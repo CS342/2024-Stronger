@@ -41,7 +41,8 @@ struct WorkoutSelection: View {
                 // Use the initialized menuItems array
                 ForEach(menuItems, id: \.title) { menuItem in
                     WorkoutHomeButton(presentingAccount: $presentingAccount,
-                                      item: menuItem.title, totalWidth: widthForMenuItems(in: geometry))
+                                      item: menuItem.title, totalWidth: widthForMenuItems(in: geometry),
+                                      selectedWeek: selectedWeek, selectedDay: selectedDay)
                 }
                 
                 Spacer()
@@ -50,13 +51,6 @@ struct WorkoutSelection: View {
             .onAppear {
                 fetchMenuItemsFromFirestore()
             }
-            // .navigationBarHidden(true) // Hide the navigation bar
-            //                 .toolbar {
-            //                     if AccountButton.shouldDisplay {
-            //                         AccountButton(isPresented: $presentingAccount)
-            //                     }
-            //                 }
-            
         }
     }
     
@@ -72,15 +66,29 @@ struct WorkoutSelection: View {
         // Ensure the width does not exceed the screen width
         return min(desiredWidth, geometry.size.width * 0.5) // Set width as 50% of screen width
     }
-    
+    private func adjustSelectedWeek(_ week: Int) -> Int {
+        switch week {
+        case 1...3:
+            return 1
+        case 4...6:
+            return 4
+        case 7...9:
+            return 7
+        case 10...12:
+            return 10
+        default:
+            return week // Return the original value for any other cases
+        }
+    }
     
     @State private var geometry: CGSize = .zero
     
     private func fetchMenuItemsFromFirestore() {
+        let useWeek = adjustSelectedWeek(self.selectedWeek)
         print("Fetch MenuItems from firestore", "week\(self.selectedWeek)", "day\(self.selectedDay)")
         let dbe = Firestore.firestore()
         
-        dbe.collection("workouts").document("week\(self.selectedWeek)").collection("day\(self.selectedDay)").getDocuments { snapshot, error in
+        dbe.collection("workouts").document("week\(useWeek)").collection("day\(self.selectedDay)").getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching menu items: \(error.localizedDescription)")
                 return
@@ -95,7 +103,9 @@ struct WorkoutSelection: View {
                 let data = document.data()
                 if let exercises = data["exercises"] as? [String] {
                     self.menuItems = exercises.map { exercise in
-                        MenuItem(view: WorkoutInputForm(workoutName: exercise, presentingAccount: $presentingAccount), title: exercise)
+                        MenuItem(view: WorkoutInputForm(workoutName: exercise, presentingAccount: $presentingAccount
+//                                                        selectedWeek: 1, selectedDay: 1
+                                                       ), title: exercise)
                         //                return MenuItem(view: WorkoutInputForm(workoutName: exerciseName, presentingAccount: $presentingAccount), title: exerciseName)
                     }
                 }
@@ -115,7 +125,9 @@ struct WorkoutSelection: View {
             let menuItems = documents.compactMap { document -> MenuItem? in
                 let data = document.data()
                 let title = data["title"] as? String ?? ""
-                let view = WorkoutInputForm(workoutName: title, presentingAccount: self.$presentingAccount)
+                let view = WorkoutInputForm(workoutName: title, presentingAccount: self.$presentingAccount
+//                                            selectedWeek: selectedWeek, selectedDay: selectedDay
+                )
                 return MenuItem(view: view, title: title)
             }
             completion(menuItems, nil)

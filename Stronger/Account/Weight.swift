@@ -55,50 +55,71 @@ extension WeightKey {
     }
 }
 
+
 extension WeightKey {
     public struct DataEntry: DataEntryView {
         public typealias Key = WeightKey
         @Binding private var weight: Int
-        @State private var isShowingInfo = false // State variable to control info pop-up
+        @State private var showAlert = false // State variable to control alert visibility
+
         public var body: some View {
             HStack {
                 Text(WeightKey.name)
                 Spacer()
                 Button(action: {
-                    isShowingInfo.toggle() // Toggle info pop-up visibility
+                    showAlert.toggle() // Toggle alert visibility
                 }) {
                     Image(systemName: "info.circle") // Info symbol
                         .foregroundColor(.blue)
                 }
-                .popover(isPresented: $isShowingInfo, content: {
-                    VStack {
-                        Text("Weight Information")
-                            .font(.headline)
-                            .padding()
-                        Text("Weight is gathered to determine protein intake.")
-                            .padding()
-                    }
-                })
                 .padding(.trailing, 4) // Adjust spacing
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Weight Information"),
+                        message: Text("Weight is gathered to determine protein intake."),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
+                
                 TextField("Weight", value: $weight, formatter: NumberFormatter())
                     .frame(width: 120) // set frame width to enable more spaces.
             }
         }
+        
         public init(_ value: Binding<Int>) {
             self._weight = value
         }
     }
 }
+
 // extension WeightKey {
 //     public struct DataEntry: DataEntryView {
 //         public typealias Key = WeightKey
 //         @Binding private var weight: Int
+//         @State private var isShowingInfo = false // State variable to control info pop-up
 //         public var body: some View {
 //             HStack {
-//                     Text(WeightKey.name)
-//                     Spacer()
-//                     TextField("Weight", value: $weight, formatter: NumberFormatter())
-//                          .frame(width: 120) // set frame width to enable more spaces.
+//                 Text(WeightKey.name)
+//                 Spacer()
+//                 Button(action: {
+//                     isShowingInfo.toggle() // Toggle info pop-up visibility
+//                 }) {
+//                     Image(systemName: "info.circle") // Info symbol
+//                         .foregroundColor(.blue)
+//                 }
+//                 .popover(isPresented: $isShowingInfo, content: {
+//                     VStack {
+//                         Text("Weight Information")
+//                             .font(.headline)
+//                             .padding()
+//                         Text("Weight is gathered to determine protein intake.")
+//                             .padding()
+//                     }
+//                 })
+//                 .frame(width:200, height:100)
+//                 .padding(.trailing, 4) // Adjust spacing
+//                 TextField("Weight", value: $weight, formatter: NumberFormatter())
+//                     .frame(width: 120) // set frame width to enable more spaces.
 //             }
 //         }
 //         public init(_ value: Binding<Int>) {
