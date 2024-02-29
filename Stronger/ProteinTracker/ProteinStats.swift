@@ -2,6 +2,10 @@
 //  ProteinStats.swift
 //  Stronger
 //
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 //  Created by Tulika Jha on 25/02/24.
 //
 

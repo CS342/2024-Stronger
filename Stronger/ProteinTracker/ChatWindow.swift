@@ -218,7 +218,6 @@ struct ChatWindow: View {
 //                    print(model.context)
                     session.context.removeAll()
                     session.context.append(assistantOutput: greetingMessage)
-                    
                 }
 //                .onDisappear {
 //                    model.context.removeAll()

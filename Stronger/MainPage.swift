@@ -2,8 +2,13 @@
 //  HomePage.swift
 //  Stronger
 //
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 //  Created by Tulika Jha on 18/02/24.
 //
+
 
 import Firebase
 import FirebaseAuth
