@@ -78,6 +78,7 @@
 		4051334F2B8C9D8100ED62BA /* UploadDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051334E2B8C9D8100ED62BA /* UploadDummyData.swift */; };
 		405133522B8D632200ED62BA /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133512B8D632200ED62BA /* Sex.swift */; };
 		405133572B8F332100ED62BA /* StartDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133562B8F332100ED62BA /* StartDate.swift */; };
+		4051335A2B8F449300ED62BA /* StartDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133592B8F449300ED62BA /* StartDatePicker.swift */; };
 		405239E02B574BA500EEA67A /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 405239DF2B574BA500EEA67A /* AppIcon.png */; };
 		405239E32B6B815D00EEA67A /* HomeNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405239E22B6B815D00EEA67A /* HomeNew.swift */; };
 		40644EC42B756B53009F9E28 /* workout.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40644EC32B756B53009F9E28 /* workout.mp4 */; };
@@ -186,6 +187,7 @@
 		4051334E2B8C9D8100ED62BA /* UploadDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDummyData.swift; sourceTree = "<group>"; };
 		405133512B8D632200ED62BA /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		405133562B8F332100ED62BA /* StartDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDate.swift; sourceTree = "<group>"; };
+		405133592B8F449300ED62BA /* StartDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDatePicker.swift; sourceTree = "<group>"; };
 		405239DF2B574BA500EEA67A /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		405239E22B6B815D00EEA67A /* HomeNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNew.swift; sourceTree = "<group>"; };
 		40644EC32B756B53009F9E28 /* workout.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = workout.mp4; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				40EFC2A52B87DAD2006B3B59 /* Height.swift */,
 				405133512B8D632200ED62BA /* Sex.swift */,
 				405133562B8F332100ED62BA /* StartDate.swift */,
+				405133592B8F449300ED62BA /* StartDatePicker.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				2FE5DC4729EDD7F2004B9AB4 /* CodableArray+RawRepresentable.swift in Sources */,
 				40223A562B6CB6CB005FC0BF /* Summary.swift in Sources */,
 				A9720E432ABB68CC00872D23 /* AccountSetupHeader.swift in Sources */,
+				4051335A2B8F449300ED62BA /* StartDatePicker.swift in Sources */,
 				2FE5DC4029EDD7EE004B9AB4 /* FeatureFlags.swift in Sources */,
 				406605B52B731AE30073E024 /* NavButton.swift in Sources */,
 				2FE5DC4629EDD7F2004B9AB4 /* Bundle+Image.swift in Sources */,

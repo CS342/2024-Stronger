@@ -4,16 +4,10 @@
     "" : {
 
     },
-    " Workout 1 " : {
-
-    },
-    " Workout 2 " : {
-
-    },
-    " Workout 3 " : {
-
-    },
     "[%lld] grams of protein" : {
+
+    },
+    "%@" : {
 
     },
     "%@, [%lld] g of protein" : {
@@ -37,6 +31,9 @@
       }
     },
     "%@." : {
+
+    },
+    "%lld" : {
 
     },
     "%lld cm" : {
@@ -95,6 +92,9 @@
           }
         }
       }
+    },
+    "ADD_DATE" : {
+
     },
     "Change Food" : {
 
@@ -651,10 +651,27 @@
 
     },
     "SEX" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sex"
+          }
+        }
+      }
     },
     "Small portion" : {
 
+    },
+    "START_DATE_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Date"
+          }
+        }
+      }
     },
     "Stronger" : {
 
@@ -716,6 +733,9 @@
 
     },
     "Upload Exercise Log" : {
+
+    },
+    "VALUE_ADD %@" : {
 
     },
     "Video Placeholder" : {
