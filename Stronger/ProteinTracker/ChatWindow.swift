@@ -12,26 +12,77 @@
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
+import Foundation
 import SpeziLLM
 import SpeziLLMLocal
 import SpeziLLMOpenAI
 import SwiftUI
 
 
-func get_protein_content(for foodItem: String, defaultProtein: Int = 0) -> Int {
-    let proteinContentMapping = [
-        "chicken pasta": 30,
-        "chicken salad": 30,
-        "chicken sandwich": 35,
-        "tuna": 40,
-        "salmon": 40,
-        "lentils": 11,
-        "black beans": 11,
-        "omelette": 15
-    ]
+func get_protein_content(for foodItem: String, defaultProtein: Double = 0.0) -> Double {
+    let apiKey = "VoMgF5a5X4WmJEJGy/276g==E74l1XVgVLeMN4hh"
+    let urlString = "https://api.api-ninjas.com/v1/nutrition?&query=\(foodItem)&x-api-key=\(apiKey)"
     
-    return proteinContentMapping[foodItem.lowercased()] ?? defaultProtein
+    guard let url = URL(string: urlString) else {
+        print("Error: Invalid URL")
+        return defaultProtein
+    }
+    
+    let session = URLSession.shared
+    let semaphore = DispatchSemaphore(value: 0)
+    
+    var proteinContent: Double = defaultProtein
+    
+    // Create a data task with the URL
+    let task = session.dataTask(with: url) { data, response, error in
+        defer {
+            semaphore.signal() // Signal the semaphore when the task completes
+        }
+        
+        if let error = error {
+            print("Error: \(error)")
+            return
+        }
+        
+        // Check for a successful response
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200...299).contains(httpResponse.statusCode) else {
+            print("Error: Invalid response")
+            return
+        }
+        
+        // Check if data is available
+        guard let responseData = data else {
+            print("Error: No data received")
+            return
+        }
+        
+        do {
+            if let jsonArray = try JSONSerialization.jsonObject(with: responseData, options: []) as? [[String: Any]] {
+                // Extract protein_g from the first item in the array
+                if let firstItem = jsonArray.first,
+                   let protein = firstItem["protein_g"] as? Double {
+                    proteinContent = protein
+                } else {
+                    print("Error: Unable to extract protein content from the first item")
+                }
+            } else {
+                print("Error: Unable to parse JSON as an array of dictionaries")
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    // Start the data task
+    task.resume()
+    
+    // Wait for the task to complete
+    _ = semaphore.wait(timeout: .distantFuture)
+    
+    return proteinContent
 }
+
 
 func log_protein_intake(for totalProteinContent: String, for foodItems: String, defaultTotalProteinContent: String = "") async -> String {
     let firestoreDB = Firestore.firestore()
@@ -68,11 +119,11 @@ func log_protein_intake(for totalProteinContent: String, for foodItems: String, 
 
  struct GetProteinContent: LLMFunction {
     static let name: String = "get_protein_content"
-    static let description: String = "Get protein content of food item"
+    static let description: String = "Get protein content per 100 grams of food item"
     @Parameter(description: "The food item whose protein content you want to know") var foodItem: String
     
     func execute() async throws -> String? {
-            "The protein content of \(foodItem) is \(get_protein_content(for: foodItem))."
+            "The protein content of \(foodItem) is \(get_protein_content(for: foodItem)) per 100 grams."
         }
  }
 
@@ -161,11 +212,9 @@ struct ChatWindow: View {
                     LLMOnboardingView(showOnboarding: $showOnboarding)
                 }
                 .task {
-                    print("Before the model.context.append line. Here is the model.context before: ")
                     print(model.context)
                     model.context.removeAll()
                     model.context.append(assistantOutput: greetingMessage)
-                    print("the model.context.append line executed. Here is the model.context after: ")
                     print(model.context)
                 }
 //                .onDisappear {

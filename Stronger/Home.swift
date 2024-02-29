@@ -45,10 +45,7 @@ struct HomeView: View {
                 .tabItem {
                     Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
-//                .id(UUID())
             TabViewChatWindow()
-//                .id(UUID())
-            
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()
@@ -69,10 +66,7 @@ struct HomeView: View {
                 }
         }
     }
-    
 }
-
-
 
 
 #if DEBUG

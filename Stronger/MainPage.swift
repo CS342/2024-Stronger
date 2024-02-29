@@ -20,41 +20,51 @@ struct MainPage: View {
     
     var body: some View {
         @ScaledMetric var proteinVStackSpace = 10
+        NavigationView {
         VStack {
-            // Protein View
-            ZStack {
-                Rectangle()
-                    .foregroundColor(Color(white: 0.9, opacity: 0.7))
-                HStack {
-                    ZStack {
-                        ProteinRing(fractionComplete: currProtein / targetProtein)
-                        Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
-                    }.frame(width: UIScreen.main.bounds.width * 0.45)
-                    Spacer()
-                    VStack(spacing: proteinVStackSpace) {
-                        Text("Daily Protein")
-                            .font(.title)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                                        
-                        Text("Hello, \(userID). Your target protein consumption for today is \(String(format: "%.1f", targetProtein)) g. You have consumed \(String(format: "%.1f", currProtein)) g so far.")
-                            .multilineTextAlignment(.center)
-                        
-                        NavigationLink(destination: ChatWindow()) {
-                                        Text("Log more with ProBot!")
+//            ZStack {
+//                Rectangle()
+//                    .foregroundColor(Color(white: 0.9, opacity: 0.7))
+                VStack {
+                    HStack {
+                        ZStack {
+                            ProteinRing(fractionComplete: currProtein / targetProtein)
+                            Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
                         }
+                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                        Spacer()
+                        VStack(spacing: proteinVStackSpace) {
+                            Text("Daily Protein")
+                                .font(.title)
+                                .bold()
+                                .multilineTextAlignment(.center)
+                            
+                            NavigationLink(destination: ChatWindow()) {
+                                Text("Log more with ProBot!")
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                    }.padding()
+                    NavigationLink(destination: ProteinStats()) {
+                        Text("Weekly Stats")
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.45)
-                }.padding()
-            }.onAppear {
-                fetchDataFromFirestore()
-            }
+                }
+                .padding()
+//            } //ZStack over rectangle
             
             // Exercise View
-            Rectangle()
-                .foregroundColor(.green)
+//            Text("this is where the exercise buttons/stats will show")
         }
         }
+        .navigationBarTitle("Welcome, Mary")
+        .onAppear {
+                fetchDataFromFirestore()
+        }
+    }
     private func fetchDataFromFirestore() {
         let firestoreDB = Firestore.firestore()
         let dateFormatter = DateFormatter()

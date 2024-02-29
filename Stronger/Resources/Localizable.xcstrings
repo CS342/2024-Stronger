@@ -78,6 +78,9 @@
         }
       }
     },
+    "Average Protein Intake" : {
+
+    },
     "Back" : {
 
     },
@@ -185,6 +188,9 @@
     "Daily Protein" : {
 
     },
+    "Date" : {
+
+    },
     "Edit Meal Content" : {
 
     },
@@ -265,16 +271,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "HealthKit Access"
-          }
-        }
-      }
-    },
-    "Hello, %@. Your target protein consumption for today is %@ g. You have consumed %@ g so far." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Hello, %1$@. Your target protein consumption for today is %2$@ g. You have consumed %3$@ g so far."
           }
         }
       }
@@ -527,6 +523,15 @@
     "Protein Content" : {
 
     },
+    "Protein intake (grams)" : {
+
+    },
+    "Protein Intake Data" : {
+
+    },
+    "Protein intake in the last 7 days" : {
+
+    },
     "Repository Link" : {
       "localizations" : {
         "en" : {
@@ -583,6 +588,9 @@
     "Submit" : {
 
     },
+    "Target Protein Intake" : {
+
+    },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
         "en" : {
@@ -634,6 +642,9 @@
       }
     },
     "Video Placeholder" : {
+
+    },
+    "Weekly Stats" : {
 
     },
     "Welcome Mary" : {
@@ -749,6 +760,9 @@
           }
         }
       }
+    },
+    "Welcome, Mary" : {
+
     },
     "Workout" : {
 

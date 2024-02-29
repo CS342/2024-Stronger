@@ -21,26 +21,20 @@ struct ProteinRing: View {
     }
     
     let animation = Animation
-            .easeOut(duration: 3)
+            .easeOut(duration: 5)
 //            .repeatForever(autoreverses: false)
             .delay(1)
     
     var body: some View {
         ZStack {
-//                Color.black
                 ring(for: strawberry)
                     .frame(width: 160)
-//                ring(for: lime)
-//                    .frame(width: 128)
-//                ring(for: ice)
-//                    .frame(width: 92)
-            
+//                    .animation(animation, value: drawingStroke)
+                    .onAppear {
+                        drawingStroke.toggle()
+                        drawingStroke = true
+                    }
         }
-            .animation(animation, value: drawingStroke)
-            .onAppear {
-//                drawingStroke.toggle()
-                drawingStroke = true
-            }
     }
     
     func ring(for color: Color) -> some View {
