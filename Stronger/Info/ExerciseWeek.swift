@@ -24,68 +24,47 @@ struct ExerciseWeek: View {
     @State private var documents: [DocumentSnapshot] = []
     @Binding var presentingAccount: Bool
     var value: Int
-    @State private var colorOne: Color = .gray.opacity(0.5)
-    @State private var colorTwo: Color = .gray.opacity(0.5)
-    @State private var colorThree: Color = .gray.opacity(0.5)
+    @State private var dayOne: String = "Hard"
+    @State private var dayTwo: String = "Hard"
+    @State private var dayThree: String = "Hard"
     @State private var averageDifficulties: [Double] = [0, 0, 0]
+    
+    @State private var weeksSince: Int = 0
     private let defaultColor: Color = .green.opacity(0.3)
     @Environment(Account.self) var account
     // Array to store average difficulties for each day
-
+    
     var body: some View {
-        HStack {
+        VStack {
+            HStack {
+                workoutButton("Workout 1", tab: Tabs.workout)
+                workoutButton("Workout 2", tab: Tabs.workout)
+                workoutButton("Workout 3", tab: Tabs.workout) // Apply background color
+            }
+            .onAppear {
+                fetchDocuments(week: value)
+            }
+            HStack {
+                Text("\(dayOne)")
+                    .frame(width: 120)
+                Text("\(dayTwo)")
+                    .frame(width: 120)
+                Text("\(dayThree)")
+                    .frame(width: 120)
+            }
             Button(action: {
-                selectedTab = Tabs.workout
+                Task {
+                    do {
+                        weeksSince = try await calculateWeeksElapsed() ?? 0
+                    } catch {
+                        // Handle error
+                        print("Error: \(error)")
+                    }
+                }
             }) {
-                Text(" Workout 1 ")
+                Text("\(weeksSince)")
                     .padding()
             }
-             // Apply background color
-            
-            .frame(width: 120, height: 50)
-            .background(defaultColor)
-            .cornerRadius(8)
-            // .border(Color.black, width: 1) // Add black border
-            Button(action: {
-                selectedTab = Tabs.workout
-            }) {
-                Text(" Workout 2 ")
-            }
-             // Apply background color
-            
-            .frame(width: 120, height: 50)
-            .background(defaultColor)
-            .cornerRadius(8)
-            .border(Color.black, width: 1) // Add black border
-           
-
-            Button(action: {
-                selectedTab = Tabs.workout
-            }) {
-                Text(" Workout 3 ")
-            }
-            
-            
-            .frame(width: 120, height: 50)
-            .cornerRadius(8)
-            .border(Color.black, width: 1)
-            .background(defaultColor) // Apply background color
-            //  // Add black border
-//            NavigationLink(destination: WorkoutHome(presentingAccount: $presentingAccount)) {
-//                Text("Exercise 1")
-//                    .modifier(NavButton())
-//            }
-//                           NavigationLink(destination: WorkoutHome(presentingAccount: $presentingAccount)) {
-//                Text("Exercise 2")
-//                    .modifier(NavButton())
-//            }
-//                           NavigationLink(destination: WorkoutHome(presentingAccount:$presentingAccount)) {
-//                Text("Exercise 3")
-//                    .modifier(NavButton())
-//            }
-        }
-        .onAppear {
-            fetchDocuments(week: value)
         }
     }
     
@@ -93,6 +72,20 @@ struct ExerciseWeek: View {
         self._presentingAccount = presentingAccount
         self.value = value
     }
+    
+    @ViewBuilder
+    func workoutButton(_ title: String, tab: Tabs) -> some View {
+        Button(action: {
+            selectedTab = tab
+        }) {
+            Text(title)
+                .padding()
+        }
+        .frame(width: 120, height: 50)
+        .background(defaultColor)
+        .cornerRadius(8)
+    }
+    
     private func fetchDocuments(week: Int) {
         Task {
             do {
@@ -100,7 +93,7 @@ struct ExerciseWeek: View {
                     for day in 1...3 {
                         await queryDocumentsForWeekAndDay(week: week, day: day, currentUserID: currentUserID)
                     }
-                    updateColor()
+//                    updateColor()
                 }
             } catch {
                 print("Error fetching current week:", error)
@@ -128,6 +121,53 @@ struct ExerciseWeek: View {
         } catch {
             print("Error querying documents for week \(week), day \(day):", error.localizedDescription)
         }
+    }
+    
+    
+    // Function to retrieve start day field and calculate weeks elapsed
+    private func calculateWeeksElapsed() async throws -> Int? {
+        // Get current user ID
+        guard let userID = try await getCurrentUserID() else {
+            return nil
+        }
+
+        // Reference to Firestore database
+        let dbe = Firestore.firestore()
+
+        // Reference to document for current user
+        let userDocRef = dbe.collection("users").document(userID)
+
+        // Get snapshot of document
+        let userDocSnapshot = try await userDocRef.getDocument()
+
+        // Check if document exists and contains start day field
+        guard let userData = userDocSnapshot.data(),
+              let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
+            print("did not find start day key", userID)
+            return nil
+        }
+        
+        print("Found start date key", userID)
+        // Get start date from Timestamp
+        var startDayDate = startDayTimestamp.dateValue()
+
+        // Get current date
+        let currentDate = Date()
+
+        // Get Calendar instance
+        let calendar = Calendar.current
+        
+        // Move start day to closest Monday
+        let weekday = calendar.component(.weekday, from: startDayDate)
+        let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
+        startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
+
+
+        // Calculate difference in weeks between start day and current date
+        let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
+        let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
+        
+        return weeksElapsed
     }
 
     // Function to process queried documents and calculate average difficulty
@@ -167,30 +207,30 @@ struct ExerciseWeek: View {
         averageDifficulties[day - 1] = averageDifficulty
     }
     
-    private func updateColor() {
-        for button in 1...3 {
-            let averageDifficulty = averageDifficulties[button - 1]
-            switch averageDifficulty {
-            case 0..<1:
-                colorOne = button == 1 ? .gray.opacity(0.5) : colorOne
-                colorTwo = button == 2 ? .gray.opacity(0.5) : colorTwo
-                colorThree = button == 3 ? .gray.opacity(0.5) : colorThree
-            case 1..<2:
-                colorOne = button == 1 ? .green.opacity(0.3) : colorOne
-                colorTwo = button == 2 ? .green.opacity(0.3) : colorTwo
-                colorThree = button == 3 ? .green.opacity(0.3) : colorThree
-            case 2..<3:
-                colorOne = button == 1 ? .green.opacity(0.75) : colorOne
-                colorTwo = button == 2 ? .green.opacity(0.75) : colorTwo
-                colorThree = button == 3 ? .green.opacity(0.75) : colorThree
-            default:
-                colorOne = button == 1 ? .green : colorOne
-                colorTwo = button == 2 ? .green : colorTwo
-                colorThree = button == 3 ? .green : colorThree
-            }
-        }
-        print("We are updating color", colorOne, colorTwo, colorThree)
-    }
+//    private func updateColor() {
+//        for button in 1...3 {
+//            let averageDifficulty = averageDifficulties[button - 1]
+//            switch averageDifficulty {
+//            case 0..<1:
+//                colorOne = button == 1 ? .gray.opacity(0.5) : colorOne
+//                colorTwo = button == 2 ? .gray.opacity(0.5) : colorTwo
+//                colorThree = button == 3 ? .gray.opacity(0.5) : colorThree
+//            case 1..<2:
+//                colorOne = button == 1 ? .green.opacity(0.3) : colorOne
+//                colorTwo = button == 2 ? .green.opacity(0.3) : colorTwo
+//                colorThree = button == 3 ? .green.opacity(0.3) : colorThree
+//            case 2..<3:
+//                colorOne = button == 1 ? .green.opacity(0.75) : colorOne
+//                colorTwo = button == 2 ? .green.opacity(0.75) : colorTwo
+//                colorThree = button == 3 ? .green.opacity(0.75) : colorThree
+//            default:
+//                colorOne = button == 1 ? .green : colorOne
+//                colorTwo = button == 2 ? .green : colorTwo
+//                colorThree = button == 3 ? .green : colorThree
+//            }
+//        }
+//        print("We are updating color", colorOne, colorTwo, colorThree)
+//    }
 }
 
 #Preview {

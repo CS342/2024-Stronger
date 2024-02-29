@@ -4,15 +4,6 @@
     "" : {
 
     },
-    " Workout 1 " : {
-
-    },
-    " Workout 2 " : {
-
-    },
-    " Workout 3 " : {
-
-    },
     "[%lld] grams of protein" : {
 
     },
@@ -47,6 +38,9 @@
       }
     },
     "%@." : {
+
+    },
+    "%lld" : {
 
     },
     "%lld cm" : {
@@ -665,6 +659,16 @@
     "Small portion" : {
 
     },
+    "START_DATE_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Date"
+          }
+        }
+      }
+    },
     "Stronger" : {
 
     },
@@ -730,7 +734,7 @@
     "Upload Exercise Log" : {
 
     },
-    "Video Placeholder" : {
+    "VALUE_ADD %@" : {
 
     },
     "Weekly Stats" : {
