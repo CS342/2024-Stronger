@@ -24,12 +24,12 @@
         }
       }
     },
-    "%@: Set %@" : {
+    "%@: Set %lld" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@: Set %2$@"
+            "value" : "%1$@: Set %2$lld"
           }
         }
       }
@@ -110,7 +110,13 @@
         }
       }
     },
+    "Comments" : {
+
+    },
     "Commonly Saved Items" : {
+
+    },
+    "Completed" : {
 
     },
     "COMPLETED_TASK_LABEL %@" : {
@@ -285,6 +291,9 @@
 
     },
     "How to Squat!" : {
+
+    },
+    "Incomplete" : {
 
     },
     "Input New Food to Chat" : {
@@ -486,9 +495,6 @@
     "Next" : {
 
     },
-    "Next Set" : {
-
-    },
     "No" : {
 
     },
@@ -570,13 +576,16 @@
         }
       }
     },
-    "Select Band" : {
+    "Select Band or Body Weight" : {
 
     },
     "Select Difficulty" : {
 
     },
     "Select Saved Meal" : {
+
+    },
+    "Set %lld" : {
 
     },
     "Small portion" : {

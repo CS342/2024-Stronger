@@ -141,9 +141,7 @@ struct LogProteinIntake: LLMFunction {
 
 
 struct ChatWindow: View {
-    @State var showOnboarding = true
-    
-    @State var model: LLMOpenAI = .init(
+    private static let llmSchema: LLMOpenAISchema = .init(
         parameters: .init(
             modelType: .gpt3_5Turbo,
             systemPrompt: """
@@ -199,23 +197,28 @@ struct ChatWindow: View {
 ////        GetProteinContent()
 //        LogProteinIntake()
 //    }
+    @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
+    @State var showOnboarding = true
     
     var body: some View {
         let greetingMessage: String = "Hello! What did you have for your last meal?"
         
         NavigationStack {
             LLMChatView(
-                model: model
+                session: $session
             )
                 .navigationTitle("Pro-ChatBot")
                 .sheet(isPresented: $showOnboarding) {
                     LLMOnboardingView(showOnboarding: $showOnboarding)
                 }
                 .task {
-                    print(model.context)
-                    model.context.removeAll()
-                    model.context.append(assistantOutput: greetingMessage)
-                    print(model.context)
+//                    print(model.context)
+//                    model.context.removeAll()
+//                    model.context.append(assistantOutput: greetingMessage)
+//                    print(model.context)
+                    session.context.removeAll()
+                    session.context.append(assistantOutput: greetingMessage)
+                    
                 }
 //                .onDisappear {
 //                    model.context.removeAll()
