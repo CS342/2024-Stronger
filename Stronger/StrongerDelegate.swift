@@ -60,7 +60,7 @@ class StrongerDelegate: SpeziAppDelegate {
             OnboardingDataSource()
             
             LLMRunner {
-                LLMOpenAIRunnerSetupTask()
+                LLMOpenAIPlatform()
             }
         }
     }
