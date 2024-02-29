@@ -42,13 +42,25 @@ struct SummaryView: View {
         VStack {
             // Welcome message
             if let details = account.details {
-                Text("Hello \(details.name!.formatted(.name(style: .medium)))")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 50)
+                if let name = details.name {
+                    Text("Hello \(name.formatted(.name(style: .medium)))")
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 50)
+                } else {
+                    Text("Hello World")
+                }
             } else {
                 Text("Hello World")
             }
+//            if let details = account.details {
+//                Text("Hello \(details.name!.formatted(.name(style: .medium)))")
+//                    .font(.title)
+//                    .multilineTextAlignment(.center)
+//                    .padding(.bottom, 50)
+//            } else {
+//                Text("Hello World")
+//            }
                 
             // Spacer()
             // Image and text boxes
