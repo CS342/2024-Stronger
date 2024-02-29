@@ -15,13 +15,6 @@ struct WorkoutHome: View {
     @Environment(Account.self) var account
     
     var body: some View {
-        // let weekPicker = Picker("Select Week to input results", selection: $selectedWeek) {
-        //     ForEach(0..<4) { index in
-        //         Text("Week \(index * 3 + 1)-\(index * 3 + 3)").tag(index)
-        //     }
-        // }
-        // .pickerStyle(SegmentedPickerStyle())
-        // .padding()
         let firstSixWeeks = Picker("Select Week to input results", selection: $selectedWeek) {
             ForEach(0..<6) { index in
                 Text("Week \(index + 1)").tag(index)
@@ -53,17 +46,19 @@ struct WorkoutHome: View {
                     .padding()
                 // ExerciseLogUploaderView()
                 Text("Please select week.")
-                // weekPicker
                 firstSixWeeks
                 secondSixWeeks
                 Spacer()
                 Text("Please select Exercise Date")
                 dayPicker
                 Spacer()
-                NavigationLink(destination:
-                               WorkoutSelection(presentingAccount: $presentingAccount,
-                                                selectedWeek: selectedWeek + 1,
-                                                selectedDay: selectedDay + 1)) {
+                NavigationLink(
+                    destination: WorkoutSelection(
+                                    presentingAccount: $presentingAccount,
+                                    selectedWeek: (selectedWeek + 1),
+                                    selectedDay: selectedDay + 1
+                    )
+                ) {
                     Text("Enter Workout Information\n for Week \(selectedWeek + 1) Day \(selectedDay + 1).")
                         .padding()
                         .background(Color.green)
