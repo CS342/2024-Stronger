@@ -125,9 +125,6 @@
         }
       }
     },
-    "Comments" : {
-
-    },
     "Commonly Saved Items" : {
 
     },
@@ -376,9 +373,6 @@
       }
     },
     "How do you want to change your food option?" : {
-
-    },
-    "Incomplete" : {
 
     },
     "Incomplete" : {
@@ -635,11 +629,9 @@
         }
       }
     },
-    "Select Day" : {
-
-    },
     "SCHEDULE_TAB_TITLE" : {
       "comment" : "MARK: - Schedule",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -649,7 +641,7 @@
         }
       }
     },
-    "Select Band or Body Weight" : {
+    "Select Day" : {
 
     },
     "Select Difficulty" : {
