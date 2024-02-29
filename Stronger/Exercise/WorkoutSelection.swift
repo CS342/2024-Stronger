@@ -21,15 +21,11 @@ struct WorkoutSelection: View {
     }
     @State private var menuItems: [MenuItem] = []
     @Binding var presentingAccount: Bool
+    @State private var geometry: CGSize = .zero
     
     private var selectedWeek: Int
     private var selectedDay: Int
     
-    init(presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
-        self._presentingAccount = presentingAccount
-        self.selectedWeek = selectedWeek
-        self.selectedDay = selectedDay
-    }
     
     var body: some View {
         GeometryReader {geometry in
@@ -40,9 +36,13 @@ struct WorkoutSelection: View {
                 
                 // Use the initialized menuItems array
                 ForEach(menuItems, id: \.title) { menuItem in
-                    WorkoutHomeButton(presentingAccount: $presentingAccount,
-                                      item: menuItem.title, totalWidth: widthForMenuItems(in: geometry),
-                                      selectedWeek: selectedWeek, selectedDay: selectedDay)
+                    WorkoutHomeButton(
+                        presentingAccount: $presentingAccount,
+                        item: menuItem.title,
+                        totalWidth: widthForMenuItems(in: geometry),
+                        selectedWeek: selectedWeek,
+                        selectedDay: selectedDay
+                    )
                 }
                 
                 Spacer()
@@ -54,11 +54,18 @@ struct WorkoutSelection: View {
         }
     }
     
+    init(presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
+        self._presentingAccount = presentingAccount
+        self.selectedWeek = selectedWeek
+        self.selectedDay = selectedDay
+    }
+    
     private func widthForMenuItems(in geometry: GeometryProxy) -> CGFloat {
         // Calculate the width of the longest title
         let longestTitleWidth = menuItems.map { menuItem in
-            menuItem.title.widthOfString(usingFont: .systemFont(ofSize: 17)) // Adjust font size as needed
-        }.max() ?? 0
+            menuItem.title.widthOfString(usingFont: .systemFont(ofSize: 17))
+        }
+        .max() ?? 0
         print(longestTitleWidth)
         // Calculate the width as a percentage of the screen width
         let desiredWidth = longestTitleWidth + 32 // Add padding
@@ -81,14 +88,15 @@ struct WorkoutSelection: View {
         }
     }
     
-    @State private var geometry: CGSize = .zero
-    
     private func fetchMenuItemsFromFirestore() {
         let useWeek = adjustSelectedWeek(self.selectedWeek)
         print("Fetch MenuItems from firestore", "week\(self.selectedWeek)", "day\(self.selectedDay)")
         let dbe = Firestore.firestore()
         
-        dbe.collection("workouts").document("week\(useWeek)").collection("day\(self.selectedDay)").getDocuments { snapshot, error in
+        dbe.collection("workouts")
+        .document("week\(useWeek)")
+        .collection("day\(self.selectedDay)")
+        .getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching menu items: \(error.localizedDescription)")
                 return
@@ -103,9 +111,10 @@ struct WorkoutSelection: View {
                 let data = document.data()
                 if let exercises = data["exercises"] as? [String] {
                     self.menuItems = exercises.map { exercise in
-                        MenuItem(view: WorkoutInputForm(workoutName: exercise, presentingAccount: $presentingAccount
-//                                                        selectedWeek: 1, selectedDay: 1
-                                                       ), title: exercise)
+                        MenuItem(view: WorkoutInputForm(
+                            workoutName: exercise, presentingAccount: $presentingAccount
+                            //                                                        selectedWeek: 1, selectedDay: 1
+                        ), title: exercise)
                         //                return MenuItem(view: WorkoutInputForm(workoutName: exerciseName, presentingAccount: $presentingAccount), title: exerciseName)
                     }
                 }
@@ -113,26 +122,6 @@ struct WorkoutSelection: View {
         }
     }
 
-    
-    private func fetchWorkoutsFromFirebase(completion: @escaping ([MenuItem]?, Error?) -> Void) {
-        let dbe = Firestore.firestore()
-        dbe.collection("workouts").getDocuments { snapshot, error in
-            guard let documents = snapshot?.documents else {
-                completion(nil, error)
-                return
-            }
-            
-            let menuItems = documents.compactMap { document -> MenuItem? in
-                let data = document.data()
-                let title = data["title"] as? String ?? ""
-                let view = WorkoutInputForm(workoutName: title, presentingAccount: self.$presentingAccount
-//                                            selectedWeek: selectedWeek, selectedDay: selectedDay
-                )
-                return MenuItem(view: view, title: title)
-            }
-            completion(menuItems, nil)
-        }
-    }
     
     private func uploadUserData() {
         let dbe = Firestore.firestore()

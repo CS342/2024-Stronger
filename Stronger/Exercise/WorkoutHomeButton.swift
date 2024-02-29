@@ -31,18 +31,14 @@ struct WorkoutHomeButton: View {
                 NavigationLink(destination: WorkoutVideoView()) {
                     Image("woman_workout_leg")
                         .resizable()
+                        .accessibilityLabel("Woman working out")
                         .aspectRatio(contentMode: .fill)
                         .frame(maxHeight: 180)
                         .clipped()
                 }
                 .frame(width: geometry.size.width * 0.3) // Set width as 30% of screen width
                 Spacer()
-                NavigationLink(destination:
-                                WorkoutInputForm(workoutName: item,
-                                                     presentingAccount: $presentingAccount
-//                                                     selectedWeek: selectedWeek,
-//                                                     selectedDay: selectedDay
-                                                )) {
+                NavigationLink(destination: WorkoutInputForm(workoutName: item, presentingAccount: $presentingAccount)) {
                     Text(item)
                         .foregroundColor(.primary)
                         .padding()
@@ -56,8 +52,14 @@ struct WorkoutHomeButton: View {
         }
     }
     
-    init(presentingAccount: Binding<Bool>, item: String, totalWidth: CGFloat,
-        selectedWeek: Int, selectedDay: Int) {
+    init
+    (
+        presentingAccount: Binding<Bool>,
+        item: String,
+        totalWidth: CGFloat,
+        selectedWeek: Int,
+        selectedDay: Int
+    ) {
         self._presentingAccount = presentingAccount
         self.item = item
         self.totalWidth = totalWidth

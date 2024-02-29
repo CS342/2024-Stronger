@@ -113,7 +113,10 @@ struct ExerciseWeek: View {
     private func queryDocumentsForWeekAndDay(week: Int, day: Int, currentUserID: String) async {
         let dbe = Firestore.firestore()
         do {
-            let snapshot = try await dbe.collection("users").document(currentUserID).collection("exerciseLog")
+            let snapshot = try await dbe
+                .collection("users")
+                .document(currentUserID)
+                .collection("exerciseLog")
                 .whereField("week", isEqualTo: week)
                 .whereField("exerciseDay", isEqualTo: day)
                 .getDocuments()
