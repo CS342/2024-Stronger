@@ -9,12 +9,18 @@ import SpeziAccount
 import SwiftUI
 
 struct WorkoutInputForm: View {
+    struct WorkoutData: Codable {
+        var reps: String
+        var band: String
+        var difficulty: String
+    }
     @Environment(Account.self) var account
     var workoutName: String = "Squats"
     
     
     @Binding var presentingAccount: Bool
     @State private var selectedWeek: Int = 1
+    @State private var imageName: String = "WorkoutThumbnail"
     @State private var selectedDay: Int = 1
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
@@ -36,39 +42,21 @@ struct WorkoutInputForm: View {
                 Text("Log \(workoutName)")
                     .font(.title)
                     .padding()
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        Spacer()
-                        Spacer()
-                        HStack(spacing: 20) {
-                            ForEach(1...totalSets, id: \.self) { index in
-                                VStack {
-                                    HStack {
-                                        Text("Set \(index)")
-                                        Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
-                                            .accessibilityLabel(Text("Incomplete"))
-                                            .foregroundColor(completedSets.contains(index) ? .green : .red)
-                                    }
-                                    .padding(.vertical, 10)
-                                    .padding(.horizontal, 20)
-                                    .background(currentSet == index ? Color.blue : Color.gray)
-                                    .foregroundColor(Color.white)
-                                    .clipShape(Capsule())
-                                    .onTapGesture {
-                                        self.currentSet = index
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                .padding(.bottom)
+                setsDisplay()
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount) }
+            .onAppear {
+                if let workoutData = loadWorkoutData(for: workoutName) {
+                    numReps = workoutData.reps
+                    selectedBand = workoutData.band
+                    selectedDifficulty = workoutData.difficulty
+                }
+            }
         }
     }
+    
     
     private var submissionAlert: Alert {
         Alert(
@@ -95,6 +83,36 @@ struct WorkoutInputForm: View {
     //     self.selectedWeek = selectedWeek
     //     self.selectedDay = selectedDay
     // }
+    
+    private func setsDisplay() -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                Spacer()
+                Spacer()
+                HStack(spacing: 20) {
+                    ForEach(1...totalSets, id: \.self) { index in
+                        VStack {
+                            HStack {
+                                Text("Set \(index)")
+                                Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
+                                    .accessibilityLabel(Text("Incomplete"))
+                                    .foregroundColor(completedSets.contains(index) ? .green : .red)
+                            }
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .background(currentSet == index ? Color.blue : Color.gray)
+                            .foregroundColor(Color.white)
+                            .clipShape(Capsule())
+                            .onTapGesture {
+                                self.currentSet = index
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.bottom)
+    }
 
     
     private func uploadExerciseData() async {
@@ -189,7 +207,7 @@ struct WorkoutInputForm: View {
     }
 
     private func workoutThumbnail() -> some View {
-        Image("WorkoutThumbnail", label: Text("Workout"))
+        Image(imageName, label: Text("Workout"))
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(height: 315)
@@ -207,6 +225,23 @@ struct WorkoutInputForm: View {
         }
     }
     
+    private func saveWorkoutData() {
+        let workoutData = WorkoutData(reps: numReps, band: selectedBand, difficulty: selectedDifficulty)
+        if let encodedData = try? JSONEncoder().encode(workoutData) {
+            UserDefaults.standard.set(encodedData, forKey: "workoutData_\(workoutName)")
+        }
+    }
+    
+    private func loadWorkoutData(for workoutName: String) -> WorkoutData? {
+        if let savedWorkoutData = UserDefaults.standard.object(forKey: "workoutData_\(workoutName)") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedWorkoutData = try? decoder.decode(WorkoutData.self, from: savedWorkoutData) {
+                return loadedWorkoutData
+            }
+        }
+        return nil
+    }
+    
     private func submitForm(forSet setNumber: Int) {
         completedSets.insert(setNumber)
         if setNumber == 3 {
@@ -214,6 +249,7 @@ struct WorkoutInputForm: View {
         } else {
             showAlert = true
         }
+        saveWorkoutData()
     }
 }
 
