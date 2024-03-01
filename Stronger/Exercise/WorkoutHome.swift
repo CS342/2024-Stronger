@@ -53,11 +53,7 @@ struct WorkoutHome: View {
                 dayPicker
                 Spacer()
                 NavigationLink(
-                    destination: WorkoutSelection(
-                                    presentingAccount: $presentingAccount,
-                                    selectedWeek: (selectedWeek + 1),
-                                    selectedDay: selectedDay + 1
-                    )
+                    destination: WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
                 ) {
                     Text("Enter Workout Information\n for Week \(selectedWeek + 1) Day \(selectedDay + 1).")
                         .padding()
@@ -82,6 +78,7 @@ struct WorkoutHome: View {
     private func fetchCurrentWeek() {
         Task {
             do {
+                print(account)
                 if let details = try await account.details {
                     let currentUserID = details.accountId
                     let dbe = Firestore.firestore()

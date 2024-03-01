@@ -20,16 +20,6 @@
         }
       }
     },
-    "%@: Set %lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@: Set %2$lld"
-          }
-        }
-      }
-    },
     "%@." : {
 
     },
@@ -230,7 +220,6 @@
     },
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -254,7 +243,6 @@
     },
     "FOOD_TAB_TITLE" : {
       "comment" : "MARK: - Food",
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -511,10 +499,10 @@
         }
       }
     },
-    "Log more with Pro-Bot" : {
+    "Log %@" : {
 
     },
-    "Log Resistance Training" : {
+    "Log more with Pro-Bot" : {
 
     },
     "Lunch 02/05/2024" : {
@@ -579,6 +567,9 @@
 
     },
     "Please sign-in to continue your Stronger journey" : {
+
+    },
+    "Populate with previous workout data" : {
 
     },
     "Pro-Bot" : {

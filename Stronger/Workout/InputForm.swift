@@ -14,8 +14,6 @@ struct WorkoutInputForm: View {
     
     
     @Binding var presentingAccount: Bool
-    // var selectedWeek: Int = 1
-    // var selectedDay: Int = 1
     @State private var selectedWeek: Int = 1
     @State private var selectedDay: Int = 1
     @AppStorage("numReps") private var numReps: String = ""
@@ -30,14 +28,14 @@ struct WorkoutInputForm: View {
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
     @State private var comments: String = ""
+    @State private var populateWithPreviousData = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Log Resistance Training")
+                Text("Log \(workoutName)")
                     .font(.title)
                     .padding()
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         Spacer()
@@ -65,7 +63,6 @@ struct WorkoutInputForm: View {
                     }
                 }
                 .padding(.bottom)
-                
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
@@ -78,6 +75,7 @@ struct WorkoutInputForm: View {
             title: Text("Great Job!"),
             message: Text("Is this your last set for this exercise?"),
             primaryButton: .destructive(Text("Yes")) {
+                print("current account", account)
                 Task {
                     await self.uploadExerciseData()
                 }
@@ -104,10 +102,12 @@ struct WorkoutInputForm: View {
     }
     
     private func uploadExerciseLog() async {
-        guard let currentUserID = currentUserID else {
+        print(account)
+        guard let details = await account.details else {
             print("User ID not available")
             return
         }
+        let currentUserID = details.accountId
         let date = Date()
         let exercise = workoutName
         let exerciseNum = 1
@@ -136,38 +136,64 @@ struct WorkoutInputForm: View {
     }
     
     private func formView(forSet setNumber: Int) -> some View {
-            Form {
-                Section(header: Text("\(workoutName): Set \(setNumber)")) {
-                    HStack {
-                        Text("Reps")
-                        Spacer()
-                        TextField("", text: $numReps)
-                            .frame(width: 80)
-                            .textFieldStyle(.roundedBorder)
-                            .keyboardType(.numberPad)
-                    }
-                    Picker("Select Resistance", selection: $selectedBand) {
-                        ForEach(bands, id: \.self) { Text($0).tag($0) }
-                    }
-                    Picker("Select Difficulty", selection: $selectedDifficulty) {
-                        ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-                    }
-                }
-                Section {
-                    HStack {
-                        Spacer()
-                        Button("Submit", action: {
-                            submitForm(forSet: setNumber)
-                        })
-                        Spacer()
-                    }
-                }
-                Image("WorkoutThumbnail", label: Text("Workout"))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 315)
-                    .clipped()
+        Form {
+            toggleSection()
+            Section(header: Text("Set \(setNumber)")) {
+                repsInputSection()
+                pickersSection()
             }
+            submitButtonSection(forSet: setNumber)
+            workoutThumbnail()
+        }
+    }
+
+    private func toggleSection() -> some View {
+        Toggle(isOn: $populateWithPreviousData) {
+            Text("Populate with previous workout data")
+        }
+    }
+
+    private func repsInputSection() -> some View {
+        HStack {
+            Text("Reps")
+            Spacer()
+            TextField("", text: $numReps)
+                .frame(width: 80)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.center)
+        }
+    }
+
+    private func pickersSection() -> some View {
+        Section {
+            Picker("Select Resistance", selection: $selectedBand) {
+                ForEach(bands, id: \.self) { Text($0).tag($0) }
+            }
+            Picker("Select Difficulty", selection: $selectedDifficulty) {
+                ForEach(difficulties, id: \.self) { Text($0).tag($0) }
+            }
+        }
+    }
+
+    private func submitButtonSection(forSet setNumber: Int) -> some View {
+        Section {
+            HStack {
+                Spacer()
+                Button("Submit") {
+                    submitForm(forSet: setNumber)
+                }
+                Spacer()
+            }
+        }
+    }
+
+    private func workoutThumbnail() -> some View {
+        Image("WorkoutThumbnail", label: Text("Workout"))
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(height: 315)
+            .clipped()
     }
     
     private func overlayView(for index: Int) -> some View {
