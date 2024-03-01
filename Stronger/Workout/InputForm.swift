@@ -22,7 +22,7 @@ struct WorkoutInputForm: View {
     @State private var selectedWeek: Int = 1
     @State private var imageName: String = "WorkoutThumbnail"
     @State private var selectedDay: Int = 1
-    @AppStorage("numReps") private var numReps: String = ""
+    @State private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     @State private var currentUserID: String?
     let bands = ["Bodyweight", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5", "Band 6", "Band 7", "Band 8"]
@@ -47,12 +47,8 @@ struct WorkoutInputForm: View {
             }
             .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount) }
-            .onAppear {
-                if let workoutData = loadWorkoutData(for: workoutName) {
-                    numReps = workoutData.reps
-                    selectedBand = workoutData.band
-                    selectedDifficulty = workoutData.difficulty
-                }
+            .onChange(of: populateWithPreviousData) {
+                handleToggleChange(to: populateWithPreviousData)
             }
         }
     }
@@ -113,7 +109,28 @@ struct WorkoutInputForm: View {
         }
         .padding(.bottom)
     }
+    
+    private func handleToggleChange(to newValue: Bool) {
+        if newValue {
+            loadPreviousWorkoutData()
+        } else {
+            resetToDefaultValues()
+        }
+    }
 
+    private func loadPreviousWorkoutData() {
+        if let workoutData = loadWorkoutData(for: workoutName) {
+            numReps = workoutData.reps
+            selectedBand = workoutData.band
+            selectedDifficulty = workoutData.difficulty
+        }
+    }
+
+    private func resetToDefaultValues() {
+        numReps = "" // Or your default "starting" value for reps
+        selectedBand = bands.first ?? "Band 1" // Reset to the first band or a default
+        selectedDifficulty = difficulties.first ?? "Easy" // Reset to the first difficulty or a default
+    }
     
     private func uploadExerciseData() async {
         await uploadExerciseLog()
