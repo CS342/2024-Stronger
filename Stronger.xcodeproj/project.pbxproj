@@ -14,6 +14,10 @@
 		1E88BEEF2B73E55800A4BCEE /* EditSavedMealContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEEE2B73E55800A4BCEE /* EditSavedMealContents.swift */; };
 		1E88BEF22B73EB8500A4BCEE /* ChooseNewFoodOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEF12B73EB8500A4BCEE /* ChooseNewFoodOptions.swift */; };
 		1E88BEF52B73EB9100A4BCEE /* CommonlySavedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88BEF42B73EB9100A4BCEE /* CommonlySavedItems.swift */; };
+		1EF7056A2B914A570068A3F6 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EF705692B914A570068A3F6 /* MobileNet.mlmodel */; };
+		1EF7056C2B914A5C0068A3F6 /* FoodImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF7056B2B914A5C0068A3F6 /* FoodImageRecognition.swift */; };
+		1EF7056E2B914A610068A3F6 /* FoodImageRecognitionV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF7056D2B914A610068A3F6 /* FoodImageRecognitionV2.swift */; };
+		1EF705742B914ED70068A3F6 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EF705732B914ED70068A3F6 /* MobileNetV2.mlmodel */; };
 		27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA298F2A388E9B009CAC45 /* ModalView.swift */; };
 		2F1AC9DF2B4E840E00C24973 /* Stronger.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AC9DE2B4E840E00C24973 /* Stronger.docc */; };
 		2F3D4ABC2A4E7C290068FB2F /* SpeziScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3D4ABB2A4E7C290068FB2F /* SpeziScheduler */; };
@@ -141,6 +145,10 @@
 		1E88BEEE2B73E55800A4BCEE /* EditSavedMealContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavedMealContents.swift; sourceTree = "<group>"; };
 		1E88BEF12B73EB8500A4BCEE /* ChooseNewFoodOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseNewFoodOptions.swift; sourceTree = "<group>"; };
 		1E88BEF42B73EB9100A4BCEE /* CommonlySavedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonlySavedItems.swift; sourceTree = "<group>"; };
+		1EF705692B914A570068A3F6 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		1EF7056B2B914A5C0068A3F6 /* FoodImageRecognition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodImageRecognition.swift; sourceTree = "<group>"; };
+		1EF7056D2B914A610068A3F6 /* FoodImageRecognitionV2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodImageRecognitionV2.swift; sourceTree = "<group>"; };
+		1EF705732B914ED70068A3F6 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		27FA298F2A388E9B009CAC45 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		2F1AC9DE2B4E840E00C24973 /* Stronger.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Stronger.docc; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
@@ -420,6 +428,10 @@
 				6301EA592B68CF9E005BDFB3 /* ChatWindow.swift */,
 				63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */,
 				63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */,
+				1EF7056B2B914A5C0068A3F6 /* FoodImageRecognition.swift */,
+				1EF7056D2B914A610068A3F6 /* FoodImageRecognitionV2.swift */,
+				1EF705692B914A570068A3F6 /* MobileNet.mlmodel */,
+				1EF705732B914ED70068A3F6 /* MobileNetV2.mlmodel */,
 			);
 			path = ProteinTracker;
 			sourceTree = "<group>";
@@ -744,6 +756,7 @@
 				1E88BEE32B71725600A4BCEE /* SelectSavedMeal.swift in Sources */,
 				2FE5DC3A29EDD7CA004B9AB4 /* Welcome.swift in Sources */,
 				1E88BEEF2B73E55800A4BCEE /* EditSavedMealContents.swift in Sources */,
+				1EF7056A2B914A570068A3F6 /* MobileNet.mlmodel in Sources */,
 				4051334D2B8C8D5400ED62BA /* WorkoutHome.swift in Sources */,
 				2FE5DC3829EDD7CA004B9AB4 /* InterestingModules.swift in Sources */,
 				40EFC2A62B87DAD2006B3B59 /* Height.swift in Sources */,
@@ -753,6 +766,7 @@
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2FE5DC4E29EDD7FA004B9AB4 /* ScheduleView.swift in Sources */,
 				A9DFE8A92ABE551400428242 /* AccountButton.swift in Sources */,
+				1EF705742B914ED70068A3F6 /* MobileNetV2.mlmodel in Sources */,
 				4051334F2B8C9D8100ED62BA /* UploadDummyData.swift in Sources */,
 				63A315812B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift in Sources */,
 				2FE5DC3729EDD7CA004B9AB4 /* OnboardingFlow.swift in Sources */,
@@ -778,6 +792,7 @@
 				1E88BEE62B7180FF00A4BCEE /* EditSavedMeal.swift in Sources */,
 				1E88BEE92B71B8F500A4BCEE /* MealReport.swift in Sources */,
 				1E88BEE12B71712000A4BCEE /* SelectNeworSaved.swift in Sources */,
+				1EF7056C2B914A5C0068A3F6 /* FoodImageRecognition.swift in Sources */,
 				401114252B84913F000083A2 /* ExerciseWeek.swift in Sources */,
 				40223A5C2B6CC051005FC0BF /* Exercise.swift in Sources */,
 				6301EA5A2B68CF9E005BDFB3 /* ChatWindow.swift in Sources */,
@@ -797,6 +812,7 @@
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,
 				5661552E2AB854C000209B80 /* PackageHelper.swift in Sources */,
 				27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */,
+				1EF7056E2B914A610068A3F6 /* FoodImageRecognitionV2.swift in Sources */,
 				406605B22B72F6000073E024 /* ProgressBar.swift in Sources */,
 				2FE5DC2629EDD38A004B9AB4 /* Contacts.swift in Sources */,
 				1E88BEF52B73EB9100A4BCEE /* CommonlySavedItems.swift in Sources */,

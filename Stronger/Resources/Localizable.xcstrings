@@ -108,6 +108,9 @@
     "Choose From Your Common foods" : {
 
     },
+    "Choose Photo" : {
+
+    },
     "Click an item image to edit or next to continue" : {
 
     },
@@ -243,10 +246,16 @@
     "Female" : {
 
     },
+    "Fix Result" : {
+
+    },
     "Food" : {
 
     },
     "Food Change Options" : {
+
+    },
+    "Food Image Classifier" : {
 
     },
     "food name placeholder" : {
@@ -511,6 +520,9 @@
         }
       }
     },
+    "Log Food" : {
+
+    },
     "Log more with Pro-Bot" : {
 
     },
@@ -647,6 +659,9 @@
     "Select Difficulty" : {
 
     },
+    "Select Image" : {
+
+    },
     "Select Resistance" : {
 
     },
@@ -689,6 +704,12 @@
 
     },
     "Submit" : {
+
+    },
+    "Take Photo" : {
+
+    },
+    "Tap below to select an image" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
