@@ -80,7 +80,6 @@
 		405133572B8F332100ED62BA /* StartDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133562B8F332100ED62BA /* StartDate.swift */; };
 		4051335A2B8F449300ED62BA /* StartDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133592B8F449300ED62BA /* StartDatePicker.swift */; };
 		405239E02B574BA500EEA67A /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 405239DF2B574BA500EEA67A /* AppIcon.png */; };
-		405239E32B6B815D00EEA67A /* HomeNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405239E22B6B815D00EEA67A /* HomeNew.swift */; };
 		40644EC42B756B53009F9E28 /* workout.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40644EC32B756B53009F9E28 /* workout.mp4 */; };
 		40644ECF2B7C4E7E009F9E28 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40644ECE2B7C4E7E009F9E28 /* Weight.swift */; };
 		406605B22B72F6000073E024 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406605B12B72F6000073E024 /* ProgressBar.swift */; };
@@ -189,7 +188,6 @@
 		405133562B8F332100ED62BA /* StartDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDate.swift; sourceTree = "<group>"; };
 		405133592B8F449300ED62BA /* StartDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDatePicker.swift; sourceTree = "<group>"; };
 		405239DF2B574BA500EEA67A /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
-		405239E22B6B815D00EEA67A /* HomeNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNew.swift; sourceTree = "<group>"; };
 		40644EC32B756B53009F9E28 /* workout.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = workout.mp4; sourceTree = "<group>"; };
 		40644ECE2B7C4E7E009F9E28 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		406605B12B72F6000073E024 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -462,7 +460,6 @@
 				2F4E23822989D51F0013F3D9 /* StrongerTestingSetup.swift */,
 				2FC975A72978F11A00BA99FE /* Home.swift */,
 				1E88BEDF2B7170FA00A4BCEE /* SavedMeals */,
-				405239E22B6B815D00EEA67A /* HomeNew.swift */,
 				A9720E412ABB68B300872D23 /* Account */,
 				2FE5DC2829EDD398004B9AB4 /* Onboarding */,
 				2FE5DC3B29EDD7D0004B9AB4 /* Schedule */,
@@ -737,7 +734,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE5DC4129EDD7EE004B9AB4 /* StorageKeys.swift in Sources */,
-				405239E32B6B815D00EEA67A /* HomeNew.swift in Sources */,
 				405133452B8C5C2200ED62BA /* WorkoutHomeButton.swift in Sources */,
 				2FE5DCB129EE6107004B9AB4 /* AccountOnboarding.swift in Sources */,
 				2F4FC8D729EE69D300BFFE26 /* MockUpload.swift in Sources */,
