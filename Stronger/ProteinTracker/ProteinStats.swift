@@ -21,24 +21,7 @@ struct ProteinStats: View {
     @State private var weeklyData: [ProteinDataDaily] = []
     @State private var dailyTargetProtein: Double = 45.0
     @State private var averageWeeklyProtein: Double = 0.0
-    
-    struct ProteinDataDaily: Identifiable {
-        var date: String
-        var protein: Double
-        var id = UUID()
-    }
-    
-    let strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
-
-//    var weeklyData: [ProteinDataDaily] = [
-//        .init(date: "02-25", protein: 30),
-//        .init(date: "02-23", protein: 15),
-//        .init(date: "02-20", protein: 20),
-//        .init(date: "02-11", protein: 45),
-//        .init(date: "02-12", protein: 30),
-//        .init(date: "02-13", protein: 15),
-//        .init(date: "02-14", protein: 20)
-//    ]
+    @State private var strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
     
     var body: some View {
         VStack {
@@ -87,6 +70,12 @@ struct ProteinStats: View {
 //            }
 //        }
 //        )
+    }
+    
+    struct ProteinDataDaily: Identifiable {
+        var date: String
+        var protein: Double
+        var id = UUID()
     }
     
     private func fetchDataFromFirestore() {

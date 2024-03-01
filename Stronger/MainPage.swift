@@ -22,14 +22,10 @@ struct MainPage: View {
     @State private var targetProtein: Float = 45
     @State private var currProtein: Float = 0
     
-    
     var body: some View {
         @ScaledMetric var proteinVStackSpace = 10
         NavigationView {
         VStack {
-//            ZStack {
-//                Rectangle()
-//                    .foregroundColor(Color(white: 0.9, opacity: 0.7))
                 VStack {
                     HStack {
                         ZStack {
@@ -59,7 +55,6 @@ struct MainPage: View {
                     }
                 }
                 .padding()
-//            } //ZStack over rectangle
             
             // Exercise View
 //            Text("this is where the exercise buttons/stats will show")
@@ -79,10 +74,14 @@ struct MainPage: View {
         let date = Date()
         
         let startOfDay = calendar.startOfDay(for: date)
-        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
-        
         let startDateString = dateFormatter.string(from: startOfDay)
-        let endDateString = dateFormatter.string(from: endOfDay)
+        var endDateString = dateFormatter.string(from: startOfDay)
+        
+        if let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay) {
+            endDateString = dateFormatter.string(from: endOfDay)
+        } else {
+            endDateString = dateFormatter.string(from: startOfDay)
+        }
         
         let collectionRef = firestoreDB.collection("users").document(userID).collection("ProteinIntake")
         
