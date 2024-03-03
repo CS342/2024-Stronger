@@ -100,14 +100,18 @@ struct MainPage: View {
                     print("Error fetching documents: \(error)")
                     return
                 }
-
-                for document in querySnapshot!.documents {
-                    if let proteinContentString = document.data()["protein content"] as? String {
-                        if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Float.init) {
-                            currProtein += numericValue
-                        }
-                    }
-                }
+                
+                             if let temp = querySnapshot {
+                                 for document in querySnapshot!.documents {
+                                     if let proteinContentString = document.data()["protein content"] as? String {
+                                         if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Float.init) {
+                                             currProtein += numericValue
+                                         }
+                                     }
+                                 }
+                             } else {
+                                 print("No documents found!")
+                             }
                          }
     }
 }
