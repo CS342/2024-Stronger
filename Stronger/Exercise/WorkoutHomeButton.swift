@@ -13,10 +13,10 @@
 import SwiftUI
 
 struct WorkoutHomeButton: View {
-//     struct MenuItem {
-//        var view: WorkoutInputForm
-//        var title: String
-//    }
+    static var viewModel = ExerciseViewModel()
+    static var exerciseName = "Rows" // Specify name here
+    let exercise = viewModel.exerciseByName(exerciseName)
+    
     @Binding var presentingAccount: Bool
 
     private var item: String
@@ -25,19 +25,34 @@ struct WorkoutHomeButton: View {
     private var selectedDay: Int
     
     var body: some View {
-        GeometryReader {geometry in
+        GeometryReader { geometry in
             HStack {
                 Spacer()
-                NavigationLink(destination: WorkoutVideoView()) {
-                    Image("woman_workout_leg")
-                        .resizable()
-                        .accessibilityLabel("Woman working out")
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxHeight: 180)
-                        .clipped()
+                // Optional binding to safely unwrap `exercise`
+                Group {
+                    if let safeExercise = exercise {
+                        NavigationLink(destination: WorkoutVideoView(exercise: safeExercise)) {
+                            Image("woman_workout_leg")
+                                .resizable()
+                                .accessibilityLabel("Woman working out")
+                                .aspectRatio(contentMode: .fill)
+                                .frame(maxHeight: 180)
+                                .clipped()
+                        }
+                    } else {
+                        // Here you can handle the nil case as you see fit
+                        Image("woman_workout_leg")
+                            .resizable()
+                            .accessibilityLabel("No workout available")
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxHeight: 180)
+                            .clipped()
+                        // Maybe add some disabled state or message
+                    }
                 }
                 .frame(width: geometry.size.width * 0.3) // Set width as 30% of screen width
                 Spacer()
+
                 NavigationLink(destination: WorkoutInputForm(workoutName: item, presentingAccount: $presentingAccount)) {
                     Text(item)
                         .foregroundColor(.primary)
