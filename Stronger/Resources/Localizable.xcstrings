@@ -7,6 +7,16 @@
     "[%lld] grams of protein" : {
 
     },
+    "%@ g/ %@ g" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ g/ %2$@ g"
+          }
+        }
+      }
+    },
     "%@, [%lld] g of protein" : {
       "localizations" : {
         "en" : {
@@ -90,7 +100,7 @@
         }
       }
     },
-    "ADD_DATE" : {
+    "Average Protein Intake" : {
 
     },
     "Change Food" : {
@@ -164,6 +174,7 @@
     "CONTACTS_TAB_TITLE" : {
       "comment" : "MARK: - Contacts",
       "extractionState" : "stale",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -203,10 +214,10 @@
         }
       }
     },
-    "Daily Protein:\n" : {
+    "Daily Protein" : {
 
     },
-    "Day %lld" : {
+    "Date" : {
 
     },
     "Edit Meal Content" : {
@@ -375,6 +386,12 @@
     "How do you want to change your food option?" : {
 
     },
+    "How to Squat!" : {
+
+    },
+    "Incomplete" : {
+
+    },
     "Incomplete" : {
 
     },
@@ -514,10 +531,7 @@
         }
       }
     },
-    "Log more with Pro-Bot" : {
-
-    },
-    "Log Resistance Training" : {
+    "Log more with ProBot!" : {
 
     },
     "Lunch 02/05/2024" : {
@@ -569,15 +583,7 @@
     "Nutrition" : {
 
     },
-    "OK" : {
 
-    },
-    "Please select Exercise Date" : {
-
-    },
-    "Please select week." : {
-
-    },
     "Please select which saved meal to log" : {
 
     },
@@ -587,7 +593,7 @@
     "Pro-Bot" : {
 
     },
-    "Pro-ChatBot" : {
+    "ProBot" : {
 
     },
     "PROJECT_LICENSE_DESCRIPTION" : {
@@ -601,6 +607,15 @@
       }
     },
     "Protein Content" : {
+
+    },
+    "Protein intake (grams)" : {
+
+    },
+    "Protein Intake Data" : {
+
+    },
+    "Protein intake in the last 7 days" : {
 
     },
     "Repository Link" : {
@@ -632,22 +647,10 @@
         }
       }
     },
-    "SCHEDULE_TAB_TITLE" : {
-      "comment" : "MARK: - Schedule",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schedule"
-          }
-        }
-      }
-    },
     "Select Day" : {
 
     },
-    "Select Difficulty" : {
+    "Select Day" : {
 
     },
     "Select Resistance" : {
@@ -692,6 +695,9 @@
 
     },
     "Submit" : {
+
+    },
+    "Target Protein Intake" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
@@ -756,30 +762,10 @@
     "VALUE_ADD %@" : {
 
     },
-    "Video Placeholder" : {
+    "Weekly Stats" : {
 
     },
-    "Week %lld" : {
-
-    },
-    "Weight" : {
-
-    },
-    "WEIGHT" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weight"
-          }
-        }
-      }
-    },
-    "Weight Information" : {
-
-    },
-    "Weight is gathered to determine protein intake." : {
+    "Welcome Mary" : {
 
     },
     "WELCOME_AREA1_DESCRIPTION" : {
@@ -893,7 +879,7 @@
         }
       }
     },
-    "Woman working out" : {
+    "Welcome, Mary" : {
 
     },
     "Workout" : {
@@ -902,7 +888,7 @@
     "Workout Home" : {
 
     },
-    "Workout Selection" : {
+    "Workout HomeWorkout Home" : {
 
     },
     "Yes" : {

@@ -10,18 +10,27 @@ import SpeziAccount
 import SpeziMockWebService
 import SwiftUI
 
+
 enum Tabs: String {
     case home
     case workout
     case chatWindow
 }
 
+struct TabViewChatWindow: View {
+    var body: some View {
+        ChatWindow()
+            .tag(Tabs.chatWindow)
+            .tabItem {
+                Label("ProBot", systemImage: "fork.knife")
+            }
+    }
+}
+
 struct HomeView: View {
     enum Tabs: String {
-        case schedule
-        case contact
-        case mockUpload
-        case savedMeals
+        case home
+        case workout
         case chatWindow
     }
     
@@ -29,35 +38,27 @@ struct HomeView: View {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
 
-
     @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.home
     @State private var presentingAccount = false
-
     
     var body: some View {
         Text("Hello")
         TabView(selection: $selectedTab) {
             Summary(presentingAccount: $presentingAccount)
                 .tag(Tabs.home)
+//             MainPage()
+//                 .tag(Tabs.mainPage)
+// >>>>>>> main
                 .tabItem {
                     Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
 
             WorkoutHome(presentingAccount: $presentingAccount)
-            .tag(Tabs.workout)
-            .tabItem {
-                Label("Exercise", systemImage: "figure.cooldown" )
-            }
-            ChatWindow()
-                .tag(Tabs.chatWindow)
+                .tag(Tabs.workoutHome)
                 .tabItem {
-                    Label("Pro-Bot", systemImage: "bubble.fill")
+                    Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
-            ChatWindow()
-                .tag(Tabs.chatWindow)
-                .tabItem {
-                    Label("Chat View", systemImage: "bubble.fill")
-                }
+            TabViewChatWindow()
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()

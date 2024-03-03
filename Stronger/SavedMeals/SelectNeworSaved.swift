@@ -40,7 +40,7 @@ struct SelectNeworSaved: View {
             
             Spacer()
           .navigationBarTitle("", displayMode: .inline)
-          .navigationBarHidden(true)
+          // .navigationBarHidden(true)
         }
     }
 }

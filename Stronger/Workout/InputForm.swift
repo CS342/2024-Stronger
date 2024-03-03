@@ -14,10 +14,7 @@ struct WorkoutInputForm: View {
     
     
     @Binding var presentingAccount: Bool
-    // var selectedWeek: Int = 1
-    // var selectedDay: Int = 1
-    @State private var selectedWeek: Int = 1
-    @State private var selectedDay: Int = 1
+
     @AppStorage("numReps") private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     @State private var currentUserID: String?
@@ -188,6 +185,58 @@ struct WorkoutInputForm: View {
         } else {
             showAlert = true
         }
+    }
+}
+
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
+    }
+}
+
+struct BackButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.blue)
+    }
+}
+
+struct SubmitButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.white)
+            )
+            .foregroundColor(.red)
     }
 }
 
