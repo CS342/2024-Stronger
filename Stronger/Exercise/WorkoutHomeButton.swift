@@ -17,6 +17,11 @@ struct WorkoutHomeButton: View {
 //        var view: WorkoutInputForm
 //        var title: String
 //    }
+    
+    static var viewModel = ExerciseViewModel()
+    static var exerciseName = "Rows" // Specify name here
+    let exercise = viewModel.exerciseByName(exerciseName)
+            
     @Binding var presentingAccount: Bool
 
     private var item: String
@@ -28,7 +33,7 @@ struct WorkoutHomeButton: View {
         GeometryReader {geometry in
             HStack {
                 Spacer()
-                NavigationLink(destination: WorkoutVideoView()) {
+                NavigationLink(destination: WorkoutVideoView(exercise: exercise!)) {
                     Image("woman_workout_leg")
                         .resizable()
                         .accessibilityLabel("Woman working out")

@@ -63,6 +63,20 @@
 		2FE5DCB129EE6107004B9AB4 /* AccountOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DCAC29EE6107004B9AB4 /* AccountOnboarding.swift */; };
 		2FF53D8B2A8725DE00042B76 /* SpeziMockWebService in Frameworks */ = {isa = PBXBuildFile; productRef = 2FF53D8A2A8725DE00042B76 /* SpeziMockWebService */; };
 		2FF53D8D2A8729D600042B76 /* StrongerStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF53D8C2A8729D600042B76 /* StrongerStandard.swift */; };
+		38756AA32B946C6700FDF599 /* pulldowns.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A942B946C5800FDF599 /* pulldowns.mp4 */; };
+		38756AA42B946C6700FDF599 /* rows.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A952B946C5800FDF599 /* rows.mp4 */; };
+		38756AA52B946C6700FDF599 /* lungesright.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A962B946C5800FDF599 /* lungesright.mp4 */; };
+		38756AA62B946C6700FDF599 /* tricepextensions.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A972B946C5900FDF599 /* tricepextensions.mp4 */; };
+		38756AA72B946C6700FDF599 /* pushups.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A982B946C5900FDF599 /* pushups.mp4 */; };
+		38756AA82B946C6700FDF599 /* straightarmpulldowns.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A992B946C5900FDF599 /* straightarmpulldowns.mp4 */; };
+		38756AA92B946C6700FDF599 /* splitsquatsright.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A9A2B946C5A00FDF599 /* splitsquatsright.mp4 */; };
+		38756AAA2B946C6700FDF599 /* splitsquatsleft.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A9B2B946C5A00FDF599 /* splitsquatsleft.mp4 */; };
+		38756AAB2B946C6700FDF599 /* sumosquats.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A9C2B946C5A00FDF599 /* sumosquats.mp4 */; };
+		38756AAC2B946C6700FDF599 /* lungesleft.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A9D2B946C5B00FDF599 /* lungesleft.mp4 */; };
+		38756AAE2B946C6700FDF599 /* squats.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756A9F2B946C6200FDF599 /* squats.mp4 */; };
+		38756AAF2B946C6700FDF599 /* calfraises.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756AA12B946C6700FDF599 /* calfraises.mp4 */; };
+		38756AB02B946C6700FDF599 /* hiphinges.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 38756AA22B946C6700FDF599 /* hiphinges.mp4 */; };
+		38756AB22B946D0E00FDF599 /* ExerciseInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 38756AB12B946D0E00FDF599 /* ExerciseInfo.json */; };
 		38FE1D022B716A42008F8BE0 /* WorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */; };
 		4011141A2B7EE59A000083A2 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114192B7EE59A000083A2 /* ProgressCircle.swift */; };
 		4011141D2B83FCD1000083A2 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011141C2B83FCD1000083A2 /* SummaryView.swift */; };
@@ -80,7 +94,6 @@
 		405133572B8F332100ED62BA /* StartDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133562B8F332100ED62BA /* StartDate.swift */; };
 		4051335A2B8F449300ED62BA /* StartDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133592B8F449300ED62BA /* StartDatePicker.swift */; };
 		405239E02B574BA500EEA67A /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 405239DF2B574BA500EEA67A /* AppIcon.png */; };
-		40644EC42B756B53009F9E28 /* workout.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40644EC32B756B53009F9E28 /* workout.mp4 */; };
 		40644ECF2B7C4E7E009F9E28 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40644ECE2B7C4E7E009F9E28 /* Weight.swift */; };
 		406605B22B72F6000073E024 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406605B12B72F6000073E024 /* ProgressBar.swift */; };
 		406605B52B731AE30073E024 /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406605B42B731AE30073E024 /* NavButton.swift */; };
@@ -173,6 +186,20 @@
 		2FE5DC5529EDD811004B9AB4 /* SocialSupportQuestionnaire.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SocialSupportQuestionnaire.json; sourceTree = "<group>"; };
 		2FE5DCAC29EE6107004B9AB4 /* AccountOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountOnboarding.swift; sourceTree = "<group>"; };
 		2FF53D8C2A8729D600042B76 /* StrongerStandard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongerStandard.swift; sourceTree = "<group>"; };
+		38756A942B946C5800FDF599 /* pulldowns.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pulldowns.mp4; sourceTree = "<group>"; };
+		38756A952B946C5800FDF599 /* rows.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rows.mp4; sourceTree = "<group>"; };
+		38756A962B946C5800FDF599 /* lungesright.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lungesright.mp4; sourceTree = "<group>"; };
+		38756A972B946C5900FDF599 /* tricepextensions.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tricepextensions.mp4; sourceTree = "<group>"; };
+		38756A982B946C5900FDF599 /* pushups.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pushups.mp4; sourceTree = "<group>"; };
+		38756A992B946C5900FDF599 /* straightarmpulldowns.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = straightarmpulldowns.mp4; sourceTree = "<group>"; };
+		38756A9A2B946C5A00FDF599 /* splitsquatsright.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splitsquatsright.mp4; sourceTree = "<group>"; };
+		38756A9B2B946C5A00FDF599 /* splitsquatsleft.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = splitsquatsleft.mp4; sourceTree = "<group>"; };
+		38756A9C2B946C5A00FDF599 /* sumosquats.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sumosquats.mp4; sourceTree = "<group>"; };
+		38756A9D2B946C5B00FDF599 /* lungesleft.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lungesleft.mp4; sourceTree = "<group>"; };
+		38756A9F2B946C6200FDF599 /* squats.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = squats.mp4; sourceTree = "<group>"; };
+		38756AA12B946C6700FDF599 /* calfraises.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = calfraises.mp4; sourceTree = "<group>"; };
+		38756AA22B946C6700FDF599 /* hiphinges.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hiphinges.mp4; sourceTree = "<group>"; };
+		38756AB12B946D0E00FDF599 /* ExerciseInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ExerciseInfo.json; sourceTree = "<group>"; };
 		38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoView.swift; sourceTree = "<group>"; };
 		401114192B7EE59A000083A2 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		4011141C2B83FCD1000083A2 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
@@ -190,7 +217,6 @@
 		405133562B8F332100ED62BA /* StartDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDate.swift; sourceTree = "<group>"; };
 		405133592B8F449300ED62BA /* StartDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDatePicker.swift; sourceTree = "<group>"; };
 		405239DF2B574BA500EEA67A /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
-		40644EC32B756B53009F9E28 /* workout.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = workout.mp4; sourceTree = "<group>"; };
 		40644ECE2B7C4E7E009F9E28 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		406605B12B72F6000073E024 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		406605B42B731AE30073E024 /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
@@ -330,7 +356,20 @@
 		2FE5DC2D29EDD792004B9AB4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				40644EC32B756B53009F9E28 /* workout.mp4 */,
+				38756AB12B946D0E00FDF599 /* ExerciseInfo.json */,
+				38756AA12B946C6700FDF599 /* calfraises.mp4 */,
+				38756AA22B946C6700FDF599 /* hiphinges.mp4 */,
+				38756A9D2B946C5B00FDF599 /* lungesleft.mp4 */,
+				38756A962B946C5800FDF599 /* lungesright.mp4 */,
+				38756A942B946C5800FDF599 /* pulldowns.mp4 */,
+				38756A982B946C5900FDF599 /* pushups.mp4 */,
+				38756A952B946C5800FDF599 /* rows.mp4 */,
+				38756A9B2B946C5A00FDF599 /* splitsquatsleft.mp4 */,
+				38756A9A2B946C5A00FDF599 /* splitsquatsright.mp4 */,
+				38756A9F2B946C6200FDF599 /* squats.mp4 */,
+				38756A992B946C5900FDF599 /* straightarmpulldowns.mp4 */,
+				38756A9C2B946C5A00FDF599 /* sumosquats.mp4 */,
+				38756A972B946C5900FDF599 /* tricepextensions.mp4 */,
 				653A255428338800005D4D48 /* Assets.xcassets */,
 				2FA0BFEC2ACC977500E0EF83 /* Localizable.xcstrings */,
 				405239DF2B574BA500EEA67A /* AppIcon.png */,
@@ -508,7 +547,6 @@
 		7DE98D7E2B69D90400449C81 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */,
 				7DE98D802B69D96300449C81 /* InputForm.swift */,
 			);
 			path = Workout;
@@ -689,11 +727,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC3439229EE634B002D773C /* ConsentDocument.md in Resources */,
+				38756AB02B946C6700FDF599 /* hiphinges.mp4 in Resources */,
+				38756AAA2B946C6700FDF599 /* splitsquatsleft.mp4 in Resources */,
+				38756AAB2B946C6700FDF599 /* sumosquats.mp4 in Resources */,
+				38756AA62B946C6700FDF599 /* tricepextensions.mp4 in Resources */,
+				38756AB22B946D0E00FDF599 /* ExerciseInfo.json in Resources */,
+				38756AA92B946C6700FDF599 /* splitsquatsright.mp4 in Resources */,
 				653A255528338800005D4D48 /* Assets.xcassets in Resources */,
+				38756AAC2B946C6700FDF599 /* lungesleft.mp4 in Resources */,
 				2FC3439029EE6346002D773C /* SocialSupportQuestionnaire.json in Resources */,
 				2FA0BFED2ACC977500E0EF83 /* Localizable.xcstrings in Resources */,
+				38756AAE2B946C6700FDF599 /* squats.mp4 in Resources */,
+				38756AA52B946C6700FDF599 /* lungesright.mp4 in Resources */,
+				38756AA72B946C6700FDF599 /* pushups.mp4 in Resources */,
+				38756AA32B946C6700FDF599 /* pulldowns.mp4 in Resources */,
 				405239E02B574BA500EEA67A /* AppIcon.png in Resources */,
-				40644EC42B756B53009F9E28 /* workout.mp4 in Resources */,
+				38756AAF2B946C6700FDF599 /* calfraises.mp4 in Resources */,
+				38756AA82B946C6700FDF599 /* straightarmpulldowns.mp4 in Resources */,
+				38756AA42B946C6700FDF599 /* rows.mp4 in Resources */,
 				40EFC2A02B859DDA006B3B59 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

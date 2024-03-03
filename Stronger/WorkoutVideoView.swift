@@ -3,8 +3,43 @@
 // SPDX-License-Identifier: MIT
 //
 import AVKit
+import Foundation
 import SwiftUI
-
+struct Exercise: Identifiable, Codable {
+    let id = UUID()
+    let name: String
+    let videoName: String
+    let tips: [String]
+    
+    var videoURL: URL? {
+        Bundle.main.url(forResource: videoName, withExtension: "mp4")
+    }
+}
+class ExerciseViewModel: ObservableObject {
+    @Published var exercises: [Exercise] = []
+    
+    init() {
+        loadExercisesFromJSON()
+    }
+    func loadExercisesFromJSON() {
+        guard let url = Bundle.main.url(forResource: "ExerciseInfo", withExtension: "json") else {
+            print("ExerciseInfo.json not found")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            exercises = try decoder.decode([Exercise].self, from: data)
+        } catch {
+            print("Error loading exercises: \(error)")
+        }
+    }
+    
+    func exerciseByName(_ name: String) -> Exercise? {
+        return exercises.first { $0.name.lowercased() == name.lowercased() }
+    }
+}
 struct VideoPlayerView: UIViewControllerRepresentable {
     var url: URL
     
@@ -20,7 +55,6 @@ struct VideoPlayerView: UIViewControllerRepresentable {
     // Fill Later Info
     }
 }
-
 private struct TitleView: View {
     var body: some View {
         Text("Stronger")
@@ -31,18 +65,18 @@ private struct TitleView: View {
             .padding(.bottom, 8)
     }
 }
-
-private struct SquatOverlay: View {
+private struct ExerciseOverlay: View {
+    let overlayText: String
+    
     var body: some View {
-        Text("Click the video to see how to Squat!")
+        Text(overlayText)
             .font(.title)
             .fontWeight(.semibold)
             .foregroundColor(Color.black)
-            .padding(10) // Adds some padding around the text
-            .cornerRadius(10) // Gives the highlighted background rounded corners
+            .padding(10)
+            .cornerRadius(10)
     }
 }
-
 private struct VideoPlaceholder: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
@@ -55,15 +89,15 @@ private struct VideoPlaceholder: View {
             )
     }
 }
-
-private struct SquatTipsView: View {
+private struct TipsView: View {
+    let tips: [String]
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                tipRow(number: "1", label: "STANCE", text: "Stand with feet shoulder-width apart, toes slightly pointed out.")
-                tipRow(number: "2", label: "MOVEMENT", text: "Bend at the hips and knees, sitting back as if into a chair")
-                tipRow(number: "3", label: "POSTURE", text: "Keep your back straight and core engaged throughout the " +
-                        "movement, driving up through your heels.")
+                ForEach(Array(tips.enumerated()), id: \.offset) { index, tip in
+                    tipRow(number: "\(index + 1)", text: tip)
+                }
             }
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
@@ -73,30 +107,25 @@ private struct SquatTipsView: View {
         }
         .padding(.horizontal)
     }
-
     @ViewBuilder
-    func tipRow(number: String, label: String, text: String) -> some View {
+    func tipRow(number: String, text: String) -> some View {
         HStack(alignment: .top) {
             Text("\(number).")
                 .bold()
                 .foregroundColor(.accentColor)
                 .padding(.trailing, 4)
-
-            Text(label)
-                .bold() +
-            Text(": " + text)
+            Text(text)
         }
     }
 }
-
 struct WorkoutVideoView: View {
-    let videoURL: URL? = Bundle.main.url(forResource: "workout", withExtension: "mp4")
+    let exercise: Exercise
     
     var body: some View {
         VStack {
             TitleView()
-            SquatOverlay()
-            if let videoURL = videoURL {
+            ExerciseOverlay(overlayText: "Play the video to see how to do \(exercise.name)!")
+            if let videoURL = exercise.videoURL {
                 VideoPlayerView(url: videoURL)
                     .frame(height: 310)
                     .cornerRadius(12)
@@ -107,15 +136,27 @@ struct WorkoutVideoView: View {
             
             Spacer()
             
-            SquatTipsView()
-                .frame(maxWidth: .infinity) //
+            TipsView(tips: exercise.tips)
+                .frame(maxWidth: .infinity)
         }
         .padding()
     }
 }
-
 struct WorkoutVideoView_Previews: PreviewProvider {
+    static var viewModel = ExerciseViewModel()
+    static var exerciseName = "Rows" // Specify name here
+    
     static var previews: some View {
-        WorkoutVideoView()
+        Group {
+            if let exercise = viewModel.exerciseByName(exerciseName) {
+                WorkoutVideoView(exercise: exercise)
+            } else {
+                Text("Exercise named \(exerciseName) not found")
+            }
+        }
+        .onAppear {
+            viewModel.loadExercisesFromJSON() // Make sure the exercises are loaded
+        }
     }
 }
+
