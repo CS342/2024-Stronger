@@ -13,20 +13,11 @@ import SwiftUI
 
 
 struct ProteinRing: View {
+    @State private var fractionComplete: Float
     @State private var drawingStroke = false
-    
-    let strawberry = Color(#colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1))
-    let lime = Color(#colorLiteral(red: 0.5563425422, green: 0.9793455005, blue: 0, alpha: 1))
-    let ice = Color(#colorLiteral(red: 0.4513868093, green: 0.9930960536, blue: 1, alpha: 1))
-    let fractionComplete: Float
-    
-    init(fractionComplete: Float = 0.0) {
-        self.fractionComplete = fractionComplete
-    }
-    
-    let animation = Animation
+    @State private var strawberry = Color(red: 1, green: 0.1857388616, blue: 0.5733950138, opacity: 1)
+    @State private var animation = Animation
             .easeOut(duration: 5)
-//            .repeatForever(autoreverses: false)
             .delay(1)
     
     var body: some View {
@@ -41,7 +32,11 @@ struct ProteinRing: View {
         }
     }
     
-    func ring(for color: Color) -> some View {
+    init(fractionComplete: Float = 0.0) {
+        self.fractionComplete = fractionComplete
+    }
+    
+    private func ring(for color: Color) -> some View {
         // Background ring
         Circle()
             .stroke(style: StrokeStyle(lineWidth: 20))
@@ -50,8 +45,10 @@ struct ProteinRing: View {
                 // Foreground ring
                 Circle()
                     .trim(from: 0, to: drawingStroke ? CGFloat(fractionComplete) : 0)
-                    .stroke(color.gradient,
-                            style: StrokeStyle(lineWidth: 20, lineCap: .round))
+                    .stroke(
+                        color.gradient,
+                        style: StrokeStyle(lineWidth: 20, lineCap: .round)
+                    )
             }
             .rotationEffect(.degrees(-90))
     }

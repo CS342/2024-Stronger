@@ -11,25 +11,33 @@ import SpeziMockWebService
 import SwiftUI
 
 
-struct HomeView: View {
-    enum Tabs: String {
-        case schedule
-        case contact
-        case mockUpload
-        case savedMeals
-        case chatWindow
-        case mainPage
-        case workoutHome
+enum Tabs: String {
+    case schedule
+    case contact
+    case mockUpload
+    case savedMeals
+    case chatWindow
+    case mainPage
+    case workoutHome
+}
+
+struct TabViewChatWindow: View {
+    var body: some View {
+        ChatWindow()
+            .tag(Tabs.chatWindow)
+            .tabItem {
+                Label("ProBot", systemImage: "fork.knife")
+            }
     }
-    
+}
+
+struct HomeView: View {
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
-
-
+    
     @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
     @State private var presentingAccount = false
-
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -54,17 +62,6 @@ struct HomeView: View {
                 AccountSheet()
             }
             .verifyRequiredAccountDetails(Self.accountEnabled)
-    }
-    
-    
-    struct TabViewChatWindow: View {
-        var body: some View {
-            ChatWindow()
-                .tag(Tabs.chatWindow)
-                .tabItem {
-                    Label("ProBot", systemImage: "fork.knife")
-                }
-        }
     }
 }
 

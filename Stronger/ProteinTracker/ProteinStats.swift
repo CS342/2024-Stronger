@@ -16,12 +16,20 @@ import FirebaseCore
 import FirebaseFirestore
 import SwiftUI
 
+
+struct ProteinDataDaily: Identifiable {
+    var date: String
+    var protein: Double
+    var id = UUID()
+}
+
+
 struct ProteinStats: View {
     @State private var userID: String = "jtulika"
-    @State private var weeklyData: [ProteinDataDaily] = []
     @State private var dailyTargetProtein: Double = 45.0
     @State private var averageWeeklyProtein: Double = 0.0
     @State private var strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
+    @State private var weeklyData: [ProteinDataDaily] = []
     
     var body: some View {
         VStack {
@@ -72,35 +80,49 @@ struct ProteinStats: View {
 //        )
     }
     
-    struct ProteinDataDaily: Identifiable {
-        var date: String
-        var protein: Double
-        var id = UUID()
-    }
-    
-    private func fetchDataFromFirestore() {
-        let firestoreDB = Firestore.firestore()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateFormatterXLabel = DateFormatter()
-        dateFormatterXLabel.dateFormat = "MM-dd"
-        
+    private func getLastWeekDates() -> [Date] {
         let calendar = Calendar.current
         var dates = [Date]()
         let today = Date()
-        
         for index in 0...6 {
             if let date = calendar.date(byAdding: .day, value: -index, to: today) {
                 dates.append(date)
             }
         }
         dates = dates.reversed()
+        return dates
+    }
+    
+    private func fetchDataFromFirestore() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateFormatterXLabel = DateFormatter()
+        dateFormatterXLabel.dateFormat = "MM-dd"
         
-        let collectionRef = firestoreDB.collection("users").document(userID).collection("ProteinIntake")
+        let dates = getLastWeekDates()
+        let calendar = Calendar.current
+        
+//        var dates = [Date]()
+//        let today = Date()
+//        
+//        for index in 0...6 {
+//            if let date = calendar.date(byAdding: .day, value: -index, to: today) {
+//                dates.append(date)
+//            }
+//        }
+//        dates = dates.reversed()
+        
+        let collectionRef = Firestore.firestore().collection("users").document(userID).collection("ProteinIntake")
         
         for date in dates {
             let startOfDay = calendar.startOfDay(for: date)
-            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+            var endOfDay = calendar.startOfDay(for: date)
+            if let temp = calendar.date(byAdding: .day, value: 1, to: startOfDay) {
+                endOfDay = temp
+            } else {
+                endOfDay = calendar.startOfDay(for: date)
+            }
+//            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
             let startDateString = dateFormatter.string(from: startOfDay)
             let endDateString = dateFormatter.string(from: endOfDay)
             
@@ -121,13 +143,24 @@ struct ProteinStats: View {
                         print("Error fetching documents: \(error)")
                         return
                     }
-                    for document in querySnapshot!.documents {
-                        if let proteinContentString = document.data()["protein content"] as? String {
-                            if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
-                                proteinContent += numericValue
-                            }
-                        }
-                    }
+                     if let allDocuments = querySnapshot.documents {
+                         for document in allDocuments {
+                             if let proteinContentString = document.data()["protein content"] as? String {
+                                 if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
+                                     proteinContent += numericValue
+                                 }
+                             }
+                         }
+                     } else {
+                         print("There are no documents for startDate = \(startOfDay) and endDate = \(endOfDay)")
+                     }
+//                    for document in querySnapshot!.documents {
+//                        if let proteinContentString = document.data()["protein content"] as? String {
+//                            if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
+//                                proteinContent += numericValue
+//                            }
+//                        }
+//                    }
                  print("Protein content value is \(proteinContent)")
                  averageWeeklyProtein += (proteinContent / 7)
                  weeklyData.append(.init(date: storeDateString, protein: proteinContent))

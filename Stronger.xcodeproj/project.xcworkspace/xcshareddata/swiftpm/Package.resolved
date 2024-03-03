@@ -158,8 +158,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordBDHG/ResearchKitOnFHIR",
       "state" : {
-        "revision" : "300fbc0038df28f53a9b653298931f71aa6f0bb5",
-        "version" : "1.1.1"
+        "revision" : "7c2efdcb17796fc9ee686900304dbbe9dd4aaf85",
+        "version" : "1.1.2"
       }
     },
     {
@@ -257,8 +257,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordSpezi/SpeziOnboarding",
       "state" : {
-        "revision" : "91463ae190611bd14ef52b0657e8db3bf53c9ae8",
-        "version" : "1.1.0"
+        "revision" : "4971a82e94996ce0c3d8ecf64fdeec874a1f20d6",
+        "version" : "1.1.1"
       }
     },
     {
@@ -293,8 +293,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordSpezi/SpeziStorage.git",
       "state" : {
-        "revision" : "eaed2220375c35400aa69d1f96a8d32b7e66b1c7",
-        "version" : "1.0.0"
+        "revision" : "7d1c8ff8310e2f628f918fb535d80f368730ad6b",
+        "version" : "1.0.1"
       }
     },
     {
