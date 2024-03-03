@@ -19,8 +19,8 @@ import SwiftUI
 
 struct MainPage: View {
     @State private var userID: String = "jtulika"
-    @State private var targetProtein: Float = 45
-    @State private var currProtein: Float = 0
+    @State private var targetProtein: Float = 45.0
+    @State private var currProtein: Float = 0.0
     
     var body: some View {
         @ScaledMetric var proteinVStackSpace = 10
@@ -29,7 +29,8 @@ struct MainPage: View {
                 VStack {
                     HStack {
                         ZStack {
-                            ProteinRing(fractionComplete: currProtein / targetProtein)
+                            var fractionComplete: Float = currProtein / targetProtein
+                            ProteinRing(fracComplete: fractionComplete)
                             Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.45)

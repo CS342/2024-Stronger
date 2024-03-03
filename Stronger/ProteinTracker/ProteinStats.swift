@@ -143,8 +143,8 @@ struct ProteinStats: View {
                         print("Error fetching documents: \(error)")
                         return
                     }
-                     if let allDocuments = querySnapshot.documents {
-                         for document in allDocuments {
+                     if let temp = querySnapshot {
+                         for document in temp.documents {
                              if let proteinContentString = document.data()["protein content"] as? String {
                                  if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
                                      proteinContent += numericValue
