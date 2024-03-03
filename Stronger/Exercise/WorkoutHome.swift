@@ -54,9 +54,7 @@ struct WorkoutHome: View {
                 Spacer()
                 NavigationLink(
                     destination: WorkoutSelection(
-                                    presentingAccount: $presentingAccount,
-                                    selectedWeek: (selectedWeek + 1),
-                                    selectedDay: selectedDay + 1
+                                    presentingAccount: $presentingAccount
                     )
                 ) {
                     Text("Enter Workout Information\n for Week \(selectedWeek + 1) Day \(selectedDay + 1).")

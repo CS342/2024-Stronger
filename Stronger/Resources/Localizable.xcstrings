@@ -7,6 +7,9 @@
     "[%lld] grams of protein" : {
 
     },
+    "%@" : {
+
+    },
     "%@ g/ %@ g" : {
       "localizations" : {
         "en" : {
@@ -27,20 +30,7 @@
         }
       }
     },
-    "%@: Set %lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@: Set %2$lld"
-          }
-        }
-      }
-    },
     "%@." : {
-
-    },
-    "%lld" : {
 
     },
     "%lld cm" : {
@@ -100,6 +90,12 @@
         }
       }
     },
+    "ADD_DATE" : {
+
+    },
+    "Are you logging a new or saved meal?" : {
+
+    },
     "Average Protein Intake" : {
 
     },
@@ -110,9 +106,6 @@
 
     },
     "Change Protein Content" : {
-
-    },
-    "Chat View" : {
 
     },
     "Choose From Your Common foods" : {
@@ -174,7 +167,6 @@
     "CONTACTS_TAB_TITLE" : {
       "comment" : "MARK: - Contacts",
       "extractionState" : "stale",
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -220,6 +212,9 @@
     "Date" : {
 
     },
+    "Day %lld" : {
+
+    },
     "Edit Meal Content" : {
 
     },
@@ -235,9 +230,6 @@
           }
         }
       }
-    },
-    "Exercise" : {
-
     },
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
@@ -386,12 +378,6 @@
     "How do you want to change your food option?" : {
 
     },
-    "How to Squat!" : {
-
-    },
-    "Incomplete" : {
-
-    },
     "Incomplete" : {
 
     },
@@ -515,9 +501,6 @@
     "Large portion" : {
 
     },
-    "Large portion" : {
-
-    },
     "Last Week's Fitness Progress\n" : {
 
     },
@@ -530,6 +513,9 @@
           }
         }
       }
+    },
+    "Log %@" : {
+
     },
     "Log more with ProBot!" : {
 
@@ -583,11 +569,22 @@
     "Nutrition" : {
 
     },
+    "OK" : {
 
+    },
+    "Please select Exercise Date" : {
+
+    },
+    "Please select week." : {
+
+    },
     "Please select which saved meal to log" : {
 
     },
     "Please sign-in to continue your Stronger journey" : {
+
+    },
+    "Populate with previous workout data" : {
 
     },
     "Pro-Bot" : {
@@ -650,7 +647,7 @@
     "Select Day" : {
 
     },
-    "Select Day" : {
+    "Select Difficulty" : {
 
     },
     "Select Resistance" : {
@@ -750,9 +747,6 @@
         }
       }
     },
-    "Video Placeholder" : {
-
-    },
     "This Week's Fitness Progress\n" : {
 
     },
@@ -762,10 +756,25 @@
     "VALUE_ADD %@" : {
 
     },
+    "Video Placeholder" : {
+
+    },
+    "Week %lld" : {
+
+    },
     "Weekly Stats" : {
 
     },
-    "Welcome Mary" : {
+    "Weight" : {
+
+    },
+    "WEIGHT" : {
+
+    },
+    "Weight Information" : {
+
+    },
+    "Weight is gathered to determine protein intake." : {
 
     },
     "WELCOME_AREA1_DESCRIPTION" : {
@@ -879,7 +888,7 @@
         }
       }
     },
-    "Welcome, Mary" : {
+    "Woman working out" : {
 
     },
     "Workout" : {
@@ -888,13 +897,10 @@
     "Workout Home" : {
 
     },
-    "Workout HomeWorkout Home" : {
+    "Workout Selection" : {
 
     },
     "Yes" : {
-
-    },
-    "You indicated: %@" : {
 
     },
     "You indicated: %@" : {

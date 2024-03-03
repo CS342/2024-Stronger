@@ -37,10 +37,10 @@ struct HomeReal: View {
                             .modifier(NavButton())
                     }
                     
-                    NavigationLink(destination: WorkoutHome()) {
-                        Text("Exercise")
-                            .modifier(NavButton())
-                    }
+//                    NavigationLink(destination: WorkoutHome()) {
+//                        Text("Exercise")
+//                            .modifier(NavButton())
+//                    }
                 }
                 .padding()
                 .frame(maxWidth: .infinity)

@@ -53,27 +53,8 @@ struct SummaryView: View {
             } else {
                 Text("Hello World")
             }
-//            if let details = account.details {
-//                Text("Hello \(details.name!.formatted(.name(style: .medium)))")
-//                    .font(.title)
-//                    .multilineTextAlignment(.center)
-//                    .padding(.bottom, 50)
-//            } else {
-//                Text("Hello World")
-//            }
-                
-            // Spacer()
-            // Image and text boxes
-            HStack {
-                ProgressCircle(progress: dietValue, totalProtein: totalProtein)
-                
-                VStack(alignment: .leading) {
-                    // Spacer()
-                    Text("Daily Protein:\n")
-                    Text("Log more with Pro-Bot")
-                }
-                .alignmentGuide(.imageAlignment) { tmp in tmp[.bottom] }
-            }
+            
+            MainPage()
             Spacer()
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: 2, presentingAccount: $presentingAccount)

@@ -48,17 +48,21 @@ struct HomeView: View {
                 .tag(Tabs.home)
 //             MainPage()
 //                 .tag(Tabs.mainPage)
-// >>>>>>> main
                 .tabItem {
                     Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
 
-            WorkoutHome(presentingAccount: $presentingAccount)
-                .tag(Tabs.workoutHome)
+            WorkoutSelection(presentingAccount: $presentingAccount)
+                .tag(Tabs.workout)
                 .tabItem {
                     Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
-            TabViewChatWindow()
+            // TabViewChatWindow()
+            ChatWindow()
+                .tag(Tabs.chatWindow)
+                .tabItem {
+                    Label("ProBot", systemImage: "fork.knife")
+                }
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()

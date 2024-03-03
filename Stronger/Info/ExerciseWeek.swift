@@ -52,19 +52,6 @@ struct ExerciseWeek: View {
                 Text("\(dayThree)")
                     .frame(width: 120)
             }
-            Button(action: {
-                Task {
-                    do {
-                        weeksSince = try await calculateWeeksElapsed() ?? 0
-                    } catch {
-                        // Handle error
-                        print("Error: \(error)")
-                    }
-                }
-            }) {
-                Text("\(weeksSince)")
-                    .padding()
-            }
         }
     }
     
