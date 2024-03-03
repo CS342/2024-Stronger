@@ -207,7 +207,7 @@ struct ChatWindow: View {
             LLMChatView(
                 session: $session
             )
-                .navigationTitle("Pro-ChatBot")
+                .navigationTitle("Pro-Bot")
                 .sheet(isPresented: $showOnboarding) {
                     LLMOnboardingView(showOnboarding: $showOnboarding)
                 }
