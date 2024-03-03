@@ -102,7 +102,7 @@ struct MainPage: View {
                 }
                 
                              if let temp = querySnapshot {
-                                 for document in querySnapshot!.documents {
+                                 for document in temp.documents {
                                      if let proteinContentString = document.data()["protein content"] as? String {
                                          if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Float.init) {
                                              currProtein += numericValue
