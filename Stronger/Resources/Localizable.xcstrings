@@ -1,7 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
+
+    },
+    "%@" : {
 
     },
     "%@ g/ %@ g" : {
@@ -24,17 +30,23 @@
         }
       }
     },
-    "%@: Set %lld" : {
+    "%@." : {
+
+    },
+    "%lld cm" : {
+
+    },
+    "%lld g of your %lld g goal." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@: Set %2$lld"
+            "value" : "%1$lld g of your %2$lld g goal."
           }
         }
       }
     },
-    "%@." : {
+    "%lld kg" : {
 
     },
     "ACCOUNT_NEXT" : {
@@ -78,6 +90,12 @@
         }
       }
     },
+    "ADD_DATE" : {
+
+    },
+    "Are you logging a new or saved meal?" : {
+
+    },
     "Average Protein Intake" : {
 
     },
@@ -96,6 +114,9 @@
     "Click an item image to edit or next to continue" : {
 
     },
+    "Click the video to see how to Squat!" : {
+
+    },
     "CLOSE" : {
       "comment" : "MARK: General",
       "localizations" : {
@@ -106,9 +127,6 @@
           }
         }
       }
-    },
-    "Comments" : {
-
     },
     "Commonly Saved Items" : {
 
@@ -194,17 +212,28 @@
     "Date" : {
 
     },
+    "Day %lld" : {
+
+    },
     "Edit Meal Content" : {
 
     },
     "Edit Saved Meal" : {
 
     },
-    "Exercise" : {
-
+    "Enter Workout Information\n for Week %lld Day %lld." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enter Workout Information\n for Week %1$lld Day %2$lld."
+          }
+        }
+      }
     },
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -213,6 +242,9 @@
           }
         }
       }
+    },
+    "Female" : {
+
     },
     "Food" : {
 
@@ -225,11 +257,36 @@
     },
     "FOOD_TAB_TITLE" : {
       "comment" : "MARK: - Food",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Food"
+          }
+        }
+      }
+    },
+    "Goal Resistance" : {
+
+    },
+    "GOAL_RESISTANCE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Resistance"
+          }
+        }
+      }
+    },
+    "GOAL_WEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Weight"
           }
         }
       }
@@ -278,25 +335,53 @@
         }
       }
     },
+    "Height" : {
+
+    },
+    "HEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Height"
+          }
+        }
+      }
+    },
+    "Hello" : {
+
+    },
+    "Hello %@" : {
+
+    },
+    "Hello World" : {
+
+    },
     "Hello, World!" : {
 
     },
     "Home" : {
 
     },
-    "How do you want to change your food option?" : {
-
+    "HOME_TAB_TITLE" : {
+      "comment" : "MARK: - Home",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
-    "How to Squat!" : {
+    "How do you want to change your food option?" : {
 
     },
     "Incomplete" : {
 
     },
     "Input New Food to Chat" : {
-
-    },
-    "Input Results" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -416,16 +501,8 @@
     "Large portion" : {
 
     },
-    "LELAND_STANFORD_BIO" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amasa Leland Stanford (March 9, 1824 – June 21, 1893) was an American industrialist and politician. [...] He and his wife Jane were also the founders of Stanford University, which they named after their late son.\n[https://en.wikipedia.org/wiki/Leland_Stanford]"
-          }
-        }
-      }
+    "Last Week's Fitness Progress\n" : {
+
     },
     "LICENSE_INFO_TITLE" : {
       "localizations" : {
@@ -437,10 +514,16 @@
         }
       }
     },
+    "Log %@" : {
+
+    },
     "Log more with ProBot!" : {
 
     },
     "Lunch 02/05/2024" : {
+
+    },
+    "Male" : {
 
     },
     "MARILY_OPPEZZO_BIO" : {
@@ -474,18 +557,6 @@
         }
       }
     },
-    "MOCK_WEB_SERVICE_TAB_TITLE" : {
-      "comment" : "MARK: - Mock Upload Data Storage Provider",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mock Web Service"
-          }
-        }
-      }
-    },
     "New Meal" : {
 
     },
@@ -495,16 +566,25 @@
     "No" : {
 
     },
-    "Number of Reps" : {
+    "Nutrition" : {
 
     },
-    "Nutrition" : {
+    "OK" : {
+
+    },
+    "Please select Exercise Date" : {
+
+    },
+    "Please select week." : {
 
     },
     "Please select which saved meal to log" : {
 
     },
     "Please sign-in to continue your Stronger journey" : {
+
+    },
+    "Populate with previous workout data" : {
 
     },
     "Pro-Bot" : {
@@ -545,6 +625,9 @@
         }
       }
     },
+    "Reps" : {
+
+    },
     "Save Changes" : {
 
     },
@@ -561,32 +644,49 @@
         }
       }
     },
-    "SCHEDULE_TAB_TITLE" : {
-      "comment" : "MARK: - Schedule",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schedule"
-          }
-        }
-      }
-    },
-    "Select Band or Body Weight" : {
+    "Select Day" : {
 
     },
     "Select Difficulty" : {
 
     },
+    "Select Resistance" : {
+
+    },
     "Select Saved Meal" : {
+
+    },
+    "Select Week to input results" : {
 
     },
     "Set %lld" : {
 
     },
+    "Sex" : {
+
+    },
+    "SEX" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sex"
+          }
+        }
+      }
+    },
     "Small portion" : {
 
+    },
+    "START_DATE_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Date"
+          }
+        }
+      }
     },
     "Stronger" : {
 
@@ -647,13 +747,34 @@
         }
       }
     },
+    "This Week's Fitness Progress\n" : {
+
+    },
+    "Upload Exercise Log" : {
+
+    },
+    "VALUE_ADD %@" : {
+
+    },
     "Video Placeholder" : {
+
+    },
+    "Week %lld" : {
 
     },
     "Weekly Stats" : {
 
     },
-    "Welcome Mary" : {
+    "Weight" : {
+
+    },
+    "WEIGHT" : {
+
+    },
+    "Weight Information" : {
+
+    },
+    "Weight is gathered to determine protein intake." : {
 
     },
     "WELCOME_AREA1_DESCRIPTION" : {
@@ -767,7 +888,7 @@
         }
       }
     },
-    "Welcome, Mary" : {
+    "Woman working out" : {
 
     },
     "Workout" : {
@@ -776,16 +897,16 @@
     "Workout Home" : {
 
     },
+    "Workout Selection" : {
+
+    },
     "Yes" : {
 
     },
     "You indicated: %@" : {
 
     },
-    "You've finished your exercises for the day! Way to go!" : {
-
-    },
-    "You've had 30 grams of protein today. 150 grams to go!" : {
+    "Your current week is %lld" : {
 
     }
   },

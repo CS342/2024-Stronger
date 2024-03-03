@@ -12,13 +12,9 @@ import SwiftUI
 
 
 enum Tabs: String {
-    case schedule
-    case contact
-    case mockUpload
-    case savedMeals
+    case home
+    case workout
     case chatWindow
-    case mainPage
-    case workoutHome
 }
 
 struct TabViewChatWindow: View {
@@ -32,28 +28,41 @@ struct TabViewChatWindow: View {
 }
 
 struct HomeView: View {
+    enum Tabs: String {
+        case home
+        case workout
+        case chatWindow
+    }
+    
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
-    
-    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
+
+    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.home
     @State private var presentingAccount = false
     
     var body: some View {
+        Text("Hello")
         TabView(selection: $selectedTab) {
-            MainPage()
-                .tag(Tabs.mainPage)
+            Summary(presentingAccount: $presentingAccount)
+                .tag(Tabs.home)
+//             MainPage()
+//                 .tag(Tabs.mainPage)
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
-                .id(UUID())
-        
-            WorkoutHome()
-                .tag(Tabs.workoutHome)
+
+            WorkoutSelection(presentingAccount: $presentingAccount)
+                .tag(Tabs.workout)
                 .tabItem {
                     Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
-            TabViewChatWindow()
+            // TabViewChatWindow()
+            ChatWindow()
+                .tag(Tabs.chatWindow)
+                .tabItem {
+                    Label("ProBot", systemImage: "fork.knife")
+                }
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()

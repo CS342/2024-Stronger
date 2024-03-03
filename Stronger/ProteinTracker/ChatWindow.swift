@@ -176,17 +176,17 @@ struct ChatWindow: View {
 //            systemPrompt: """
 //        You are Pro-Chatbot. Your task is to ask the user what food they had today, estimate the total protein content \
 //        of their meal and log this information for them. You will approach this task in a step-by-step manner. \
-//        
+//
 //        [STEP 1] Ask the user what they had for food today. Extract the foods items as a list. \
-//        
+//
 //        [STEP 2] Estimate the protein content of each food item in the list by yourself. Show your working. \
-//        
+//
 //        [STEP 3] Add the protein content of all the food items to get the total protein intake \
 //        for the user. Ask the user if they want to add more food items. \
-//        
+//
 //        [STEP 4] If the user adds more food items, repeat the steps to compute the protein content \
 //        for every new food item and update the total protein intake.
-//        
+//
 //        [STEP 5] If the user does not add new food items, call the "log_protein_content" function \
 //        to log in the total protein intake for the user. Once you have logged in the total protein \
 //        intake for the user, inform the user that their protein intake has been logged in \

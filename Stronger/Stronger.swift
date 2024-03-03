@@ -22,7 +22,6 @@ struct Stronger: App {
             ZStack {
                 if completedOnboardingFlow {
                     HomeView()
-//                    HomeReal()
                 } else {
                     EmptyView()
                 }
