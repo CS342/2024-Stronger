@@ -25,7 +25,7 @@ struct WorkoutSelection: View {
     @State private var geometry: CGSize = .zero
     @Environment(Account.self) var account
     
-    @State private var selectedWeek: Int? = nil // Initialize as optional
+    @State private var selectedWeek: Int? // Initialize as optional
     private var selectedDay: Int = 1
 
     private var menuItemsBackup: [MenuItem] = [
@@ -37,7 +37,7 @@ struct WorkoutSelection: View {
     
     var body: some View {
         GeometryReader {geometry in
-            NavigationStack{
+            NavigationStack {
                 VStack {
                     Text("Workout Home")
                         .font(.title)

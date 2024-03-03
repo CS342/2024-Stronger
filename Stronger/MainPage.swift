@@ -61,7 +61,7 @@ struct MainPage: View {
 //            Text("this is where the exercise buttons/stats will show")
         }
         }
-        //.navigationBarTitle("Welcome, Mary")
+        // .navigationBarTitle("Welcome, Mary")
         .onAppear {
                 fetchDataFromFirestore()
         }
