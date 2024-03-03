@@ -119,8 +119,8 @@ private struct TipsView: View {
     }
 }
 struct WorkoutVideoView: View {
-    let exercise: Exercise
     
+    let exercise: Exercise
     var body: some View {
         VStack {
             TitleView()
