@@ -89,7 +89,6 @@
 		40EFC2A22B859DDA006B3B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EFC29F2B859DDA006B3B59 /* GoogleService-Info.plist */; };
 		40EFC2A62B87DAD2006B3B59 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EFC2A52B87DAD2006B3B59 /* Height.swift */; };
 		40EFC2A72B87DAD2006B3B59 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EFC2A52B87DAD2006B3B59 /* Height.swift */; };
-		40EFC2A82B87DAD2006B3B59 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EFC2A52B87DAD2006B3B59 /* Height.swift */; };
 		5661551D2AB8384200209B80 /* SwiftPackageList in Frameworks */ = {isa = PBXBuildFile; productRef = 5661551C2AB8384200209B80 /* SwiftPackageList */; };
 		566155292AB8447C00209B80 /* Package+LicenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566155282AB8447C00209B80 /* Package+LicenseType.swift */; };
 		5661552E2AB854C000209B80 /* PackageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5661552D2AB854C000209B80 /* PackageHelper.swift */; };
@@ -825,7 +824,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40EFC2A82B87DAD2006B3B59 /* Height.swift in Sources */,
 				2F4E237E2989A2FE0013F3D9 /* LaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
