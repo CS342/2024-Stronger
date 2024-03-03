@@ -37,7 +37,7 @@ class ExerciseViewModel: ObservableObject {
     }
     
     func exerciseByName(_ name: String) -> Exercise? {
-        return exercises.first { $0.name.lowercased() == name.lowercased() }
+        exercises.first { $0.name.lowercased() == name.lowercased() }
     }
 }
 struct VideoPlayerView: UIViewControllerRepresentable {
@@ -119,7 +119,6 @@ private struct TipsView: View {
     }
 }
 struct WorkoutVideoView: View {
-    
     let exercise: Exercise
     var body: some View {
         VStack {
@@ -144,7 +143,7 @@ struct WorkoutVideoView: View {
 }
 struct WorkoutVideoView_Previews: PreviewProvider {
     static var viewModel = ExerciseViewModel()
-    static var exerciseName = "Rows" // Specify name here
+    static var exerciseName = "Squats" // Specify name here
     
     static var previews: some View {
         Group {
@@ -159,4 +158,3 @@ struct WorkoutVideoView_Previews: PreviewProvider {
         }
     }
 }
-
