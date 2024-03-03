@@ -4,6 +4,16 @@
     "[%lld] grams of protein" : {
 
     },
+    "%@ g/ %@ g" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ g/ %2$@ g"
+          }
+        }
+      }
+    },
     "%@, [%lld] g of protein" : {
       "localizations" : {
         "en" : {
@@ -68,6 +78,9 @@
         }
       }
     },
+    "Average Protein Intake" : {
+
+    },
     "Change Food" : {
 
     },
@@ -75,9 +88,6 @@
 
     },
     "Change Protein Content" : {
-
-    },
-    "Chat View" : {
 
     },
     "Choose From Your Common foods" : {
@@ -138,6 +148,7 @@
     },
     "CONTACTS_TAB_TITLE" : {
       "comment" : "MARK: - Contacts",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -176,6 +187,12 @@
           }
         }
       }
+    },
+    "Daily Protein" : {
+
+    },
+    "Date" : {
+
     },
     "Edit Meal Content" : {
 
@@ -420,6 +437,9 @@
         }
       }
     },
+    "Log more with ProBot!" : {
+
+    },
     "Lunch 02/05/2024" : {
 
     },
@@ -456,6 +476,7 @@
     },
     "MOCK_WEB_SERVICE_TAB_TITLE" : {
       "comment" : "MARK: - Mock Upload Data Storage Provider",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -486,7 +507,10 @@
     "Please sign-in to continue your Stronger journey" : {
 
     },
-    "Pro-ChatBot" : {
+    "Pro-Bot" : {
+
+    },
+    "ProBot" : {
 
     },
     "PROJECT_LICENSE_DESCRIPTION" : {
@@ -500,6 +524,15 @@
       }
     },
     "Protein Content" : {
+
+    },
+    "Protein intake (grams)" : {
+
+    },
+    "Protein Intake Data" : {
+
+    },
+    "Protein intake in the last 7 days" : {
 
     },
     "Repository Link" : {
@@ -518,9 +551,6 @@
     "Saved Meal" : {
 
     },
-    "Saved Meals" : {
-
-    },
     "SCHEDULE_LIST_TITLE" : {
       "localizations" : {
         "en" : {
@@ -533,6 +563,7 @@
     },
     "SCHEDULE_TAB_TITLE" : {
       "comment" : "MARK: - Schedule",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -561,6 +592,9 @@
 
     },
     "Submit" : {
+
+    },
+    "Target Protein Intake" : {
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
@@ -614,6 +648,9 @@
       }
     },
     "Video Placeholder" : {
+
+    },
+    "Weekly Stats" : {
 
     },
     "Welcome Mary" : {
@@ -729,6 +766,9 @@
           }
         }
       }
+    },
+    "Welcome, Mary" : {
+
     },
     "Workout" : {
 

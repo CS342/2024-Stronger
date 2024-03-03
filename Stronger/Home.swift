@@ -11,53 +11,49 @@ import SpeziMockWebService
 import SwiftUI
 
 
-struct HomeView: View {
-    enum Tabs: String {
-        case schedule
-        case contact
-        case mockUpload
-        case savedMeals
-        case chatWindow
+enum Tabs: String {
+    case schedule
+    case contact
+    case mockUpload
+    case savedMeals
+    case chatWindow
+    case mainPage
+    case workoutHome
+}
+
+struct TabViewChatWindow: View {
+    var body: some View {
+        ChatWindow()
+            .tag(Tabs.chatWindow)
+            .tabItem {
+                Label("ProBot", systemImage: "fork.knife")
+            }
     }
-    
+}
+
+struct HomeView: View {
     static var accountEnabled: Bool {
         !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
-
-
+    
     @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
     @State private var presentingAccount = false
-
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            ScheduleView(presentingAccount: $presentingAccount)
-                .tag(Tabs.schedule)
+            MainPage()
+                .tag(Tabs.mainPage)
                 .tabItem {
-                    Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
+                    Label("Home", systemImage: "house.fill")
                 }
-            Contacts(presentingAccount: $presentingAccount)
-                .tag(Tabs.contact)
+                .id(UUID())
+        
+            WorkoutHome()
+                .tag(Tabs.workoutHome)
                 .tabItem {
-                    Label("CONTACTS_TAB_TITLE", systemImage: "person.fill")
+                    Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
-            if FeatureFlags.disableFirebase {
-                MockUpload(presentingAccount: $presentingAccount)
-                    .tag(Tabs.mockUpload)
-                    .tabItem {
-                        Label("MOCK_WEB_SERVICE_TAB_TITLE", systemImage: "server.rack")
-                    }
-            }
-            SelectNeworSaved()
-                .tag(Tabs.savedMeals)
-                .tabItem {
-                    Label("Saved Meals", systemImage: "person.fill") // change icon later
-                }
-            ChatWindow()
-                .tag(Tabs.chatWindow)
-                .tabItem {
-                    Label("Chat View", systemImage: "bubble.fill")
-                }
+            TabViewChatWindow()
         }
             .sheet(isPresented: $presentingAccount) {
                 AccountSheet()
