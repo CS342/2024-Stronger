@@ -14,11 +14,6 @@ import SpeziMockWebService
 import SwiftUI
 
 struct Summary: View {
-    static var accountEnabled: Bool {
-        !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
-    }
-
-   
     @State private var presentingAccount = false
     
     // var username: String
