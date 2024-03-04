@@ -51,6 +51,7 @@ struct HomeView: View {
                 .tabItem {
                     Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
+                .id(UUID())
 
             WorkoutSelection(presentingAccount: $presentingAccount)
                 .tag(Tabs.workout)
