@@ -3,9 +3,13 @@
       {
          "workoutDay": "Workout Day 1",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "calf raises",
+         "exercise2video": "calfraises",
          "exercise3": "split squats - left",
+         "exercise3video": "splitsquatsleft",
          "exercise4": "split squats - right",
+         "exercise4video": "splitsquatsright",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -13,9 +17,13 @@
       {
          "workoutDay": "Workout Day 2",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "rows",
+         "exercise2video": "rows",
          "exercise3": "tricep extensions",
+         "exercise3video": "tricepextensions",
          "exercise4": "pushups",
+         "exercise4video": "pushups",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -23,9 +31,13 @@
       {
          "workoutDay": "Workout Day 3",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "calf raises",
+         "exercise2video": "calfraises",
          "exercise3": "split squats - left",
+         "exercise3video": "splitsquatsleft",
          "exercise4": "split squats - right",
+         "exercise4video": "splitsquatsright",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -35,9 +47,13 @@
       {
          "workoutDay": "Workout Day 1",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "calf raises",
+         "exercise2video": "calfraises",
          "exercise3": "split squats - left",
+         "exercise3video": "splitsquatsleft",
          "exercise4": "split squats - right",
+         "exercise4video": "splitsquatsright",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -45,9 +61,13 @@
       {
          "workoutDay": "Workout Day 2",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "rows",
+         "exercise2video": "rows",
          "exercise3": "tricep extensions",
+         "exercise3video": "tricepextensions",
          "exercise4": "pushups",
+         "exercise4video": "pushups",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -55,9 +75,13 @@
       {
          "workoutDay": "Workout Day 3",
          "exercise1": "squats",
+         "exercise1video": "squats",
          "exercise2": "calf raises",
+         "exercise2video": "calfraises",
          "exercise3": "split squats - left",
+         "exercise3video": "splitsquatsleft",
          "exercise4": "split squats - right",
+         "exercise4video": "splitsquatsright",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -67,9 +91,13 @@
       {
          "workoutDay": "Workout Day 1",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "hip hinges",
+         "exercise2video": "hiphinges",
          "exercise3": "lunges - left",
+         "exercise3video": "lungesleft",
          "exercise4": "lunges - right",
+         "exercise4video": "lungesright",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -77,9 +105,13 @@
       {
          "workoutDay": "Workout Day 2",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "pull downs",
+         "exercise2video": "pulldowns",
          "exercise3": "tricep pull backs",
+         "exercise3video": "triceppullbacks",
          "exercise4": "rows",
+         "exercise4video": "rows",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -87,9 +119,13 @@
       {
          "workoutDay": "Workout Day 3",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "hip hinges",
+         "exercise2video": "hiphinges",
          "exercise3": "lunges - left",
+         "exercise3video": "lungesleft",
          "exercise4": "lunges - right",
+         "exercise4video": "lungesright",
          "sets": 2,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -99,9 +135,13 @@
       {
          "workoutDay": "Workout Day 1",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "hip hinges",
+         "exercise2video": "hiphinges",
          "exercise3": "lunges - left",
+         "exercise3video": "lungesleft",
          "exercise4": "lunges - right",
+         "exercise4video": "lungesright",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -109,9 +149,13 @@
       {
          "workoutDay": "Workout Day 2",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "pull downs",
+         "exercise2video": "pulldowns",
          "exercise3": "tricep pull backs",
+         "exercise3video": "triceppullbacks",
          "exercise4": "rows",
+         "exercise4video": "rows",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"
@@ -119,9 +163,13 @@
       {
          "workoutDay": "Workout Day 3",
          "exercise1": "sumo squats",
+         "exercise1video": "sumosquats",
          "exercise2": "hip hinges",
+         "exercise2video": "hiphinges",
          "exercise3": "lunges - left",
+         "exercise3video": "lungesleft",
          "exercise4": "lunges - right",
+         "exercise4video": "lungesright",
          "sets": 3,
          "reps": "Populate what they did the week before",
          "resistance": "Populate what they did the week before"

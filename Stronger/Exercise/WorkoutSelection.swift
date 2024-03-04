@@ -20,6 +20,10 @@ struct Workout: Codable {
     let exercise2: String
     let exercise3: String
     let exercise4: String
+    let exercise1video: String
+    let exercise2video: String
+    let exercise3video: String
+    let exercise4video: String
 //    let sets: Int
 //    let reps: String
 //    let resistance: String
@@ -38,6 +42,7 @@ struct WorkoutSelection: View {
     struct MenuItem {
         var view: WorkoutInputForm
         var title: String
+        var video: String
     }
     @State private var menuItems: [MenuItem] = []
     @Binding var presentingAccount: Bool
@@ -48,9 +53,14 @@ struct WorkoutSelection: View {
     @State private var selectedDay: Int = 1
 
     private var menuItemsBackup: [MenuItem] = [
-        MenuItem(view: WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false)), title: "Squats"),
-        MenuItem(view: WorkoutInputForm(workoutName: "Row", presentingAccount: .constant(false)), title: "Row"),
-        MenuItem(view: WorkoutInputForm(workoutName: "Pull Downs", presentingAccount: .constant(false)), title: "Pull Downs")
+        MenuItem(view: WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false)), title: "Squats", video: "squats"),
+        MenuItem(view: WorkoutInputForm(workoutName: "Row", presentingAccount: .constant(false)), title: "Row", video: "row"),
+        MenuItem(view: WorkoutInputForm(
+            workoutName: "Pull Downs",
+            presentingAccount: .constant(false)),
+                 title: "Pull Downs",
+                 video: "straightarmpulldowns"
+        )
     ]
     
     
@@ -174,24 +184,31 @@ struct WorkoutSelection: View {
         self.menuItems = []
         for exerciseNumber in 1...4 {
             let exercise: String
+            let video: String
             switch exerciseNumber {
             case 1:
                 exercise = workoutInst.exercise1
+                video = workoutInst.exercise1video
             case 2:
                 exercise = workoutInst.exercise2
+                video = workoutInst.exercise2video
             case 3:
                 exercise = workoutInst.exercise3
+                video = workoutInst.exercise3video
             case 4:
                 exercise = workoutInst.exercise4
+                video = workoutInst.exercise4video
             default:
                 exercise = "" // This should never happen
+                video = ""
             }
             let menuItem = MenuItem(
                 view: WorkoutInputForm(
                     workoutName: exercise,
                     presentingAccount: $presentingAccount
                 ),
-                title: exercise
+                title: exercise,
+                video: video
             )
             self.menuItems.append(menuItem)
         }
@@ -261,7 +278,7 @@ struct WorkoutSelection: View {
                             MenuItem(view: WorkoutInputForm(
                                 workoutName: exercise, presentingAccount: $presentingAccount
                                 //                                                        selectedWeek: 1, selectedDay: 1
-                            ), title: exercise)
+                            ), title: exercise, video: "squats")
                             //                return MenuItem(view: WorkoutInputForm(workoutName: exerciseName, presentingAccount: $presentingAccount), title: exerciseName)
                         }
                     }
