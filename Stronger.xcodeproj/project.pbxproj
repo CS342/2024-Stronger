@@ -86,6 +86,7 @@
 		40223A562B6CB6CB005FC0BF /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A552B6CB6CB005FC0BF /* Summary.swift */; };
 		40223A592B6CC02E005FC0BF /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A582B6CC02E005FC0BF /* Nutrition.swift */; };
 		40223A5C2B6CC051005FC0BF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40223A5B2B6CC051005FC0BF /* Exercise.swift */; };
+		4036AE6B2B9543ED00F4DDBB /* exercise_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 4036AE6A2B9543ED00F4DDBB /* exercise_list.json */; };
 		405133452B8C5C2200ED62BA /* WorkoutHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133442B8C5C2200ED62BA /* WorkoutHomeButton.swift */; };
 		405133482B8C808E00ED62BA /* WorkoutSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405133472B8C808E00ED62BA /* WorkoutSelection.swift */; };
 		4051334D2B8C8D5400ED62BA /* WorkoutHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051334C2B8C8D5400ED62BA /* WorkoutHome.swift */; };
@@ -209,6 +210,7 @@
 		40223A552B6CB6CB005FC0BF /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		40223A582B6CC02E005FC0BF /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		40223A5B2B6CC051005FC0BF /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		4036AE6A2B9543ED00F4DDBB /* exercise_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercise_list.json; sourceTree = "<group>"; };
 		405133442B8C5C2200ED62BA /* WorkoutHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHomeButton.swift; sourceTree = "<group>"; };
 		405133472B8C808E00ED62BA /* WorkoutSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelection.swift; sourceTree = "<group>"; };
 		4051334C2B8C8D5400ED62BA /* WorkoutHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutHome.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 		40223A512B6CB64C005FC0BF /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				4036AE6A2B9543ED00F4DDBB /* exercise_list.json */,
 				40223A552B6CB6CB005FC0BF /* Summary.swift */,
 				406605B12B72F6000073E024 /* ProgressBar.swift */,
 				401114192B7EE59A000083A2 /* ProgressCircle.swift */,
@@ -741,6 +744,7 @@
 				38756AA52B946C6700FDF599 /* lungesright.mp4 in Resources */,
 				38756AA72B946C6700FDF599 /* pushups.mp4 in Resources */,
 				38756AA32B946C6700FDF599 /* pulldowns.mp4 in Resources */,
+				4036AE6B2B9543ED00F4DDBB /* exercise_list.json in Resources */,
 				405239E02B574BA500EEA67A /* AppIcon.png in Resources */,
 				38756AAF2B946C6700FDF599 /* calfraises.mp4 in Resources */,
 				38756AA82B946C6700FDF599 /* straightarmpulldowns.mp4 in Resources */,

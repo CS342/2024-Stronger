@@ -1,0 +1,130 @@
+{
+   "weeks1to3": [
+      {
+         "workoutDay": "Workout Day 1",
+         "exercise1": "squats",
+         "exercise2": "calf raises",
+         "exercise3": "split squats - left",
+         "exercise4": "split squats - right",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 2",
+         "exercise1": "squats",
+         "exercise2": "rows",
+         "exercise3": "tricep extensions",
+         "exercise4": "pushups",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 3",
+         "exercise1": "squats",
+         "exercise2": "calf raises",
+         "exercise3": "split squats - left",
+         "exercise4": "split squats - right",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      }
+   ],
+   "weeks4to6": [
+      {
+         "workoutDay": "Workout Day 1",
+         "exercise1": "squats",
+         "exercise2": "calf raises",
+         "exercise3": "split squats - left",
+         "exercise4": "split squats - right",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 2",
+         "exercise1": "squats",
+         "exercise2": "rows",
+         "exercise3": "tricep extensions",
+         "exercise4": "pushups",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 3",
+         "exercise1": "squats",
+         "exercise2": "calf raises",
+         "exercise3": "split squats - left",
+         "exercise4": "split squats - right",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      }
+   ],
+   "weeks7to9": [
+      {
+         "workoutDay": "Workout Day 1",
+         "exercise1": "sumo squats",
+         "exercise2": "hip hinges",
+         "exercise3": "lunges - left",
+         "exercise4": "lunges - right",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 2",
+         "exercise1": "sumo squats",
+         "exercise2": "pull downs",
+         "exercise3": "tricep pull backs",
+         "exercise4": "rows",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 3",
+         "exercise1": "sumo squats",
+         "exercise2": "hip hinges",
+         "exercise3": "lunges - left",
+         "exercise4": "lunges - right",
+         "sets": 2,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      }
+   ],
+   "weeks10to12": [
+      {
+         "workoutDay": "Workout Day 1",
+         "exercise1": "sumo squats",
+         "exercise2": "hip hinges",
+         "exercise3": "lunges - left",
+         "exercise4": "lunges - right",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 2",
+         "exercise1": "sumo squats",
+         "exercise2": "pull downs",
+         "exercise3": "tricep pull backs",
+         "exercise4": "rows",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      },
+      {
+         "workoutDay": "Workout Day 3",
+         "exercise1": "sumo squats",
+         "exercise2": "hip hinges",
+         "exercise3": "lunges - left",
+         "exercise4": "lunges - right",
+         "sets": 3,
+         "reps": "Populate what they did the week before",
+         "resistance": "Populate what they did the week before"
+      }
+   ]
+}

@@ -16,7 +16,7 @@ struct ExerciseLogUploaderView: View {
             Task {
                 if let details = try? await account.details {
                     currentUserID = details.accountId
-                    await uploadExerciseLog()
+                    await uploadWorkout()
                 }
             }
         }
@@ -51,6 +51,38 @@ struct ExerciseLogUploaderView: View {
             print("Document added successfully")
         } catch {
             print("Error adding document: \(error)")
+        }
+    }
+    
+    private func uploadWorkout() {
+        // Reference to the Firestore database
+        let db = Firestore.firestore()
+
+        // Reference to the "workout" collection
+        let workoutCollection = db.collection("workout")
+
+        // Add document for week 1
+        workoutCollection.addDocument(data: [
+            "week": 1,
+            // Add other fields related to week 1 if needed
+        ]) { error in
+            if let error = error {
+                print("Error adding document for week 1: \(error)")
+            } else {
+                print("Document added successfully for week 1")
+            }
+        }
+
+        // Add document for week 2
+        workoutCollection.addDocument(data: [
+            "week": 2,
+            // Add other fields related to week 2 if needed
+        ]) { error in
+            if let error = error {
+                print("Error adding document for week 2: \(error)")
+            } else {
+                print("Document added successfully for week 2")
+            }
         }
     }
 }
