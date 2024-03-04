@@ -56,10 +56,10 @@ struct ExerciseLogUploaderView: View {
     
     private func uploadWorkout() {
         // Reference to the Firestore database
-        let db = Firestore.firestore()
+        let dbe = Firestore.firestore()
 
         // Reference to the "workout" collection
-        let workoutCollection = db.collection("workout")
+        let workoutCollection = dbe.collection("workout")
 
         // Add document for week 1
         workoutCollection.addDocument(data: [

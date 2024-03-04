@@ -359,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				38756AB12B946D0E00FDF599 /* ExerciseInfo.json */,
+				4036AE6A2B9543ED00F4DDBB /* exercise_list.json */,
 				38756AA12B946C6700FDF599 /* calfraises.mp4 */,
 				38756AA22B946C6700FDF599 /* hiphinges.mp4 */,
 				38756A9D2B946C5B00FDF599 /* lungesleft.mp4 */,
@@ -438,7 +439,6 @@
 		40223A512B6CB64C005FC0BF /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				4036AE6A2B9543ED00F4DDBB /* exercise_list.json */,
 				40223A552B6CB6CB005FC0BF /* Summary.swift */,
 				406605B12B72F6000073E024 /* ProgressBar.swift */,
 				401114192B7EE59A000083A2 /* ProgressCircle.swift */,

@@ -55,11 +55,13 @@ struct WorkoutSelection: View {
     private var menuItemsBackup: [MenuItem] = [
         MenuItem(view: WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false)), title: "Squats", video: "squats"),
         MenuItem(view: WorkoutInputForm(workoutName: "Row", presentingAccount: .constant(false)), title: "Row", video: "row"),
-        MenuItem(view: WorkoutInputForm(
-            workoutName: "Pull Downs",
-            presentingAccount: .constant(false)),
-                 title: "Pull Downs",
-                 video: "straightarmpulldowns"
+        MenuItem(
+            view: WorkoutInputForm(
+                workoutName: "Pull Downs",
+                presentingAccount: .constant(false)
+            ),
+            title: "Pull Downs",
+            video: "straightarmpulldowns"
         )
     ]
     
