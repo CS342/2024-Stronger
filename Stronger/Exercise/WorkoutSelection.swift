@@ -276,10 +276,13 @@ struct WorkoutSelection: View {
                     if let exercises = data["exercises"] as? [String], !exercises.isEmpty {
                         print("Did find something")
                         self.menuItems = exercises.map { exercise in
-                            MenuItem(view: WorkoutInputForm(
-                                workoutName: exercise, presentingAccount: $presentingAccount
-                                //                                                        selectedWeek: 1, selectedDay: 1
-                            ), title: exercise, video: "squats")
+                            MenuItem(
+                                view: WorkoutInputForm(
+                                    workoutName: exercise, presentingAccount: $presentingAccount
+                                ),
+                                title: exercise,
+                                video: "squats"
+                            )
                             //                return MenuItem(view: WorkoutInputForm(workoutName: exerciseName, presentingAccount: $presentingAccount), title: exerciseName)
                         }
                     }
