@@ -160,7 +160,7 @@ struct WorkoutSelection: View {
                 }
                 print("Day at parse exercises: \(day)")
                 
-                if (day >= workout.count || day <= 0) {
+                if day >= workout.count || day <= 0 {
                     return workout[0]
                 }
                 
@@ -212,7 +212,6 @@ struct WorkoutSelection: View {
             )
             self.menuItems.append(menuItem)
         }
-
     }
     
     private func updateExerciseDate() async throws {
@@ -230,7 +229,7 @@ struct WorkoutSelection: View {
         let userDocRef = dbe.collection("users").document(userID).collection("exerciseLog")
         let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek)
 
-        query.getDocuments { (querySnapshot, error) in
+        query.getDocuments { querySnapshot, error in
             if let error = error {
                 print("Error fetching documents: \(error)")
             } else {

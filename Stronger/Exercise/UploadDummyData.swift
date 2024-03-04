@@ -63,7 +63,7 @@ struct ExerciseLogUploaderView: View {
 
         // Add document for week 1
         workoutCollection.addDocument(data: [
-            "week": 1,
+            "week": 1
             // Add other fields related to week 1 if needed
         ]) { error in
             if let error = error {
@@ -75,7 +75,7 @@ struct ExerciseLogUploaderView: View {
 
         // Add document for week 2
         workoutCollection.addDocument(data: [
-            "week": 2,
+            "week": 2
             // Add other fields related to week 2 if needed
         ]) { error in
             if let error = error {

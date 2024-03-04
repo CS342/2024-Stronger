@@ -23,6 +23,7 @@ struct Summary: View {
     var body: some View {
         NavigationStack {
             SummaryView()
+                .id(UUID())
 //            .navigationTitle(String(localized: "SUMMARY_NAVIGATION_TITLE"))
             .toolbar {
                 if AccountButton.shouldDisplay {
