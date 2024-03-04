@@ -62,6 +62,7 @@ struct SummaryView: View {
             Text("Last Week's Fitness Progress\n")
             ExerciseWeek(value: 1, presentingAccount: $presentingAccount)
             Spacer()
+            ExerciseLogUploaderView()
         }
         .padding()
     }
