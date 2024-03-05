@@ -90,7 +90,9 @@ class ImageClassifier: ObservableObject {
         }
 
         let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
 
             if let error = error {
                 DispatchQueue.main.async {
@@ -224,6 +226,7 @@ struct FoodClassifierApp: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+                    .accessibilityLabel("image")
             } else {
                 Text("Tap below to select an image or take a picture")
                     .foregroundColor(.gray)
@@ -255,7 +258,8 @@ struct FoodClassifierApp: View {
             EditClassificationView(
                 classification: $imageClassifier.highestConfidenceClassification,
                 showingEditView: $showingEditView,
-                imageClassifier: imageClassifier, onSave: {
+                imageClassifier: imageClassifier,
+                onSave: {
                     self.showNextStepOptions = true
                 } // Here is where you pass the imageClassifier
             )
