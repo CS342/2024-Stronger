@@ -9,6 +9,7 @@ struct Exercise: Identifiable, Codable {
     let id = UUID()
     let name: String
     let videoName: String
+    let thumbnailName: String?
     let tips: [String]
     
     var videoURL: URL? {

@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//
 
 import SwiftUI
 

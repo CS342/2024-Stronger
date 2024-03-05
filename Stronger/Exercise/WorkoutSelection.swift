@@ -207,14 +207,15 @@ struct WorkoutSelection: View {
             let menuItem = MenuItem(
                 view: WorkoutInputForm(
                     workoutName: exercise,
-                    presentingAccount: $presentingAccount
+                    presentingAccount:
+                        $presentingAccount
                 ),
                 title: exercise,
                 video: video
             )
             self.menuItems.append(menuItem)
+            }
         }
-    }
     
     private func updateExerciseDate() async throws {
 //        print("Selected Week: \(selectedWeek)")
@@ -367,6 +368,12 @@ extension String {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
         return size.width
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters3() -> String {
+        self.filter { $0.isLetter }
     }
 }
 

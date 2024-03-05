@@ -2,6 +2,7 @@
     {
         "name": "Squats",
         "videoName": "squats",
+        "thumbnailName": "squats",
         "tips": [
             "Hinge at the hip and reach back as if you're sitting in a chair.",
             "Keep your knees tracking with your second and third toe. Don't let them cave in!",
@@ -11,6 +12,7 @@
     {
         "name": "Calf Raises",
         "videoName": "calfraises",
+        "thumbnailName": "calfraises",
         "tips": [
             "Squeeze the calves at the top.",
             "Do this off a step to increase the challenge."
@@ -19,6 +21,7 @@
     {
         "name": "Split Squats - Left",
         "videoName": "splitsquatsleft",
+        "thumbnailName": "splitsquatsleft",
         "tips": [
             "Be sure to keep feet shoulder width apart.",
             "Hinge at the hips, not the back.",
@@ -29,6 +32,7 @@
     {
         "name": "Split Squats - Right",
         "videoName": "splitsquatsright",
+        "thumbnailName": "splitsquatsright",
         "tips": [
             "Be sure to keep feet shoulder width apart.",
             "Hinge at the hips, not the back.",
@@ -39,6 +43,7 @@
     {
         "name": "Rows",
         "videoName": "rows",
+        "thumbnailName": "rows",
         "tips": [
             "Relax your shoulders (don't let them shrug up).",
             "Tighten your core.",
@@ -49,6 +54,7 @@
     {
         "name": "Tricep Extensions",
         "videoName": "tricepextensions",
+        "thumbnailName": "tricepextensions",
         "tips": [
             "Keep your elbows by your ribs.",
             "Your elbows should not move in space during the extension."
@@ -57,6 +63,7 @@
     {
         "name": "Pushups",
         "videoName": "pushups",
+        "thumbnailName": "pushups",
         "tips": [
             "Place your hands on a stable surface (like the floor or sturdy furniture) so that they are in line with your shoulders.",
             "Keep a flat back and neutral spine.",
@@ -66,6 +73,7 @@
     {
         "name": "Sumo Squats",
         "videoName": "sumosquats",
+        "thumbnailName": "sumosquats",
         "tips": [
             "Stand with your feet wider than shoulder width, and toes angled outward slightly.",
             "Hinge at your hips, bend your knees, and squat down until your thighs approach parallel to the floor.",
@@ -75,6 +83,7 @@
     {
         "name": "Hip Hinges",
         "videoName": "hiphinges",
+        "thumbnailName": "hiphinges",
         "tips": [
             "The movement is all driven from your hips!",
             "Try to push your hips back as if you are closing a door with your butt.",
@@ -85,6 +94,7 @@
     {
         "name": "Lunges - Left",
         "videoName": "lungesleft",
+        "thumbnailName": "lungesleft",
         "tips": [
             "Be sure to keep feet shoulder width apart.",
             "Hinge at the hip, not the back.",
@@ -95,6 +105,7 @@
     {
         "name": "Lunges - Right",
         "videoName": "lungesright",
+        "thumbnailName": "lungesright",
         "tips": [
             "Be sure to keep feet shoulder width apart.",
             "Hinge at the hip, not the back.",
@@ -105,6 +116,7 @@
     {
         "name": "Pull Downs",
         "videoName": "pulldowns",
+        "thumbnailName": "pulldowns",
         "tips": [
             "Bring the band handles down to your chin height.",
             "Think of pulling from your armpits, not your elbows.",
@@ -114,6 +126,7 @@
     {
         "name": "Straight Arm Pull Downs",
         "videoName": "straightarmpulldowns",
+        "thumbnailName": "straightarmpulldowns",
         "tips": [
             "Hinge forward slightly at the hip.",
             "Pull your arms straight back behind you, keeping your arms straight.",

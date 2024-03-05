@@ -53,11 +53,15 @@ struct WorkoutInputForm: View {
         var band: String
         var difficulty: String
     }
+    
     @Environment(Account.self) var account
     var workoutName: String = "Squats"
     @Binding var presentingAccount: Bool
     @State private var selectedWeek: Int = 1
-    @State private var imageName: String = "WorkoutThumbnail"
+    
+    var imageName: String {
+        workoutName.removingNonAlphabeticCharacters2()
+    }
     @State private var selectedDay: Int = 1
     @State private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
@@ -296,6 +300,12 @@ struct WorkoutInputForm: View {
             showAlert = true
         }
         saveWorkoutData()
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters2() -> String {
+        self.filter { $0.isLetter }
     }
 }
 
