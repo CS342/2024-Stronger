@@ -8,6 +8,45 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
+struct RepsInputSection: View {
+    @Binding var numReps: String
+
+    var body: some View {
+        HStack {
+            Text("Reps")
+            Spacer()
+            TextField("", text: $numReps)
+                .frame(width: 80)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
+
+struct PickersSection: View {
+    @Binding var selectedBand: String
+    @Binding var selectedDifficulty: String
+    let bands: [String]
+    let difficulties: [String]
+
+    var body: some View {
+        Section {
+            Picker("Select Resistance", selection: $selectedBand) {
+                ForEach(bands, id: \.self) { band in
+                    Text(band).tag(band)
+                }
+            }
+            Picker("Select Difficulty", selection: $selectedDifficulty) {
+                ForEach(difficulties, id: \.self) { difficulty in
+                    Text(difficulty).tag(difficulty)
+                }
+            }
+        }
+    }
+}
+
+
 struct WorkoutInputForm: View {
     struct WorkoutData: Codable {
         var reps: String
@@ -259,45 +298,6 @@ struct WorkoutInputForm: View {
         saveWorkoutData()
     }
 }
-
-struct RepsInputSection: View {
-    @Binding var numReps: String
-
-    var body: some View {
-        HStack {
-            Text("Reps")
-            Spacer()
-            TextField("", text: $numReps)
-                .frame(width: 80)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numberPad)
-                .multilineTextAlignment(.center)
-        }
-    }
-}
-
-struct PickersSection: View {
-    @Binding var selectedBand: String
-    @Binding var selectedDifficulty: String
-    let bands: [String]
-    let difficulties: [String]
-
-    var body: some View {
-        Section {
-            Picker("Select Resistance", selection: $selectedBand) {
-                ForEach(bands, id: \.self) { band in
-                    Text(band).tag(band)
-                }
-            }
-            Picker("Select Difficulty", selection: $selectedDifficulty) {
-                ForEach(difficulties, id: \.self) { difficulty in
-                    Text(difficulty).tag(difficulty)
-                }
-            }
-        }
-    }
-}
-
 
 // Preview
 struct InputForm_Previews: PreviewProvider {
