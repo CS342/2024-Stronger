@@ -32,7 +32,5 @@ class HomeTests: XCTestCase {
         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
         
         app.buttons["Weekly Stats"].tap()
-       
-        
     }
 }
