@@ -13,6 +13,12 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
+extension String {
+    func removingNonAlphabeticCharacters3() -> String {
+        self.filter { $0.isLetter }
+    }
+}
+
 // Define the Swift structs to represent the JSON structure
 struct Workout: Codable {
 //    let workoutDay: String
@@ -207,8 +213,7 @@ struct WorkoutSelection: View {
             let menuItem = MenuItem(
                 view: WorkoutInputForm(
                     workoutName: exercise,
-                    presentingAccount: $presentingAccount
-                ),
+                    presentingAccount: $presentingAccount),
                 title: exercise,
                 video: video
             )
@@ -278,8 +283,7 @@ struct WorkoutSelection: View {
                         self.menuItems = exercises.map { exercise in
                             MenuItem(
                                 view: WorkoutInputForm(
-                                    workoutName: exercise, presentingAccount: $presentingAccount
-                                ),
+                                    workoutName: exercise, presentingAccount: $presentingAccount),
                                 title: exercise,
                                 video: "squats"
                             )
