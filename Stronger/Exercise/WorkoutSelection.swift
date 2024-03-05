@@ -252,8 +252,8 @@ struct WorkoutSelection: View {
                 video: video
             )
             self.menuItems.append(menuItem)
+            }
         }
-    }
     
     private func updateExerciseDate() async throws {
         // Get current user ID
@@ -431,6 +431,12 @@ extension String {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
         return size.width
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters3() -> String {
+        self.filter { $0.isLetter }
     }
 }
 

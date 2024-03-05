@@ -44,27 +44,24 @@ struct WorkoutHomeButton: View {
         GeometryReader { geometry in
             HStack {
                 Spacer()
-                // Optional binding to safely unwrap `exercise`
                 Group {
-                    let exercise = viewModel.exerciseByName(item)
-                    if let safeExercise = exercise {
+                    if let safeExercise = viewModel.exerciseByName(item) {
                         NavigationLink(destination: WorkoutVideoView(exercise: safeExercise)) {
-                            Image("woman_workout_leg")
+                            Image(item.removingNonAlphabeticCharacters())
                                 .resizable()
+                                .scaledToFit()
                                 .accessibilityLabel("Woman working out")
                                 .aspectRatio(contentMode: .fill)
                                 .frame(maxHeight: 180)
                                 .clipped()
                         }
                     } else {
-                        // Here you can handle the nil case as you see fit
                         Image("woman_workout_leg")
                             .resizable()
                             .accessibilityLabel("No workout available")
                             .aspectRatio(contentMode: .fill)
-                            .frame(maxHeight: 180)
+                            .frame(maxHeight: 130)
                             .clipped()
-                        // Maybe add some disabled state or message
                     }
                 }
                 .frame(width: geometry.size.width * 0.3) // Set width as 30% of screen width
@@ -90,5 +87,11 @@ struct WorkoutHomeButton: View {
         self.totalWidth = totalWidth
         self.selectedWeek = selectedWeek
         self.selectedDay = selectedDay
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters() -> String {
+        self.filter { $0.isLetter }
     }
 }
