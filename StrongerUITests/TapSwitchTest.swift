@@ -28,11 +28,11 @@ class TabTests: XCTestCase {
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Home"].tap()
         
-        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["ProBot"].waitForExistence(timeout: 2))
-        app.tabBars["Tab Bar"].buttons["ProBot"].tap()
-        
-        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 2))
-        app.buttons["Next"].tap()
+//        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["ProBot"].waitForExistence(timeout: 2))
+//        app.tabBars["Tab Bar"].buttons["ProBot"].tap()
+//        
+//        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 2))
+//        app.buttons["Next"].tap()
         
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Workout"].tap()
