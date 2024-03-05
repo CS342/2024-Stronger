@@ -16,8 +16,6 @@ struct WorkoutInputForm: View {
     }
     @Environment(Account.self) var account
     var workoutName: String = "Squats"
-    
-    
     @Binding var presentingAccount: Bool
     @State private var selectedWeek: Int = 1
     @State private var imageName: String = "WorkoutThumbnail"
@@ -37,7 +35,6 @@ struct WorkoutInputForm: View {
     @State private var populateWithPreviousData = false
     @State private var loggedSets = Set<Int>()
 
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -62,7 +59,6 @@ struct WorkoutInputForm: View {
         }
     }
     
-    
     private var submissionAlert: Alert {
         Alert(
             title: Text("Great Job!"),
@@ -77,13 +73,6 @@ struct WorkoutInputForm: View {
             }
         )
     }
-
-    // init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
-    //     self.workoutName = workoutName
-    //     self._presentingAccount = presentingAccount
-    //     self.selectedWeek = selectedWeek
-    //     self.selectedDay = selectedDay
-    // }
     
     private func setsDisplay() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -180,7 +169,6 @@ struct WorkoutInputForm: View {
             return
         }
         let currentUserID = details.accountId
-        print(currentUserID)
         let datab = Firestore.firestore()
         let path = datab.collection("users").document(currentUserID).collection("exerciseLog")
         let query = path.whereField("exercise", isEqualTo: workoutName)
@@ -194,7 +182,6 @@ struct WorkoutInputForm: View {
                     self.loggedSets.insert(setNumber)
                 }
             }
-            print("sets", loggedSets)
         } catch {
             print("Error fetching logged sets: \(error)")
         }
