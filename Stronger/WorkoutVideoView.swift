@@ -15,10 +15,6 @@ struct Exercise: Identifiable, Codable {
     var videoURL: URL? {
         Bundle.main.url(forResource: videoName, withExtension: "mp4")
     }
-    var thumbnailURL: URL? {
-            guard let thumbnailName = thumbnailName else { return nil }
-            return Bundle.main.url(forResource: thumbnailName, withExtension: "jpg")
-    }
 }
 class ExerciseViewModel: ObservableObject {
     @Published var exercises: [Exercise] = []

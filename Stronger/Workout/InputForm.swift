@@ -8,12 +8,6 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
-extension String {
-    func removingNonAlphabeticCharacters2() -> String {
-        self.filter { $0.isLetter }
-    }
-}
-
 struct WorkoutInputForm: View {
     struct WorkoutData: Codable {
         var reps: String
@@ -29,7 +23,7 @@ struct WorkoutInputForm: View {
     @State private var selectedWeek: Int = 1
     
     var imageName: String {
-        return workoutName.removingNonAlphabeticCharacters2()
+        workoutName.removingNonAlphabeticCharacters2()
     }
     @State private var selectedDay: Int = 1
     @State private var numReps: String = ""
@@ -286,3 +280,10 @@ struct InputForm_Previews: PreviewProvider {
         WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
     }
 }
+
+extension String {
+    func removingNonAlphabeticCharacters2() -> String {
+        self.filter { $0.isLetter }
+    }
+}
+

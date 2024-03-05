@@ -13,12 +13,6 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
-extension String {
-    func removingNonAlphabeticCharacters3() -> String {
-        self.filter { $0.isLetter }
-    }
-}
-
 // Define the Swift structs to represent the JSON structure
 struct Workout: Codable {
 //    let workoutDay: String
@@ -218,8 +212,8 @@ struct WorkoutSelection: View {
                 video: video
             )
             self.menuItems.append(menuItem)
+            }
         }
-    }
     
     private func updateExerciseDate() async throws {
 //        print("Selected Week: \(selectedWeek)")
@@ -377,5 +371,11 @@ extension String {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutSelection(presentingAccount: .constant(false))
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters3() -> String {
+        self.filter { $0.isLetter }
     }
 }

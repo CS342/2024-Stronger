@@ -12,12 +12,6 @@
 
 import SwiftUI
 
-extension String {
-    func removingNonAlphabeticCharacters() -> String {
-        self.filter { $0.isLetter }
-    }
-}
-
 struct WorkoutHomeButton: View {
     let viewModel = ExerciseViewModel()
    // static var exerciseName = "Rows" // Specify name here
@@ -84,5 +78,11 @@ struct WorkoutHomeButton: View {
         self.totalWidth = totalWidth
         self.selectedWeek = selectedWeek
         self.selectedDay = selectedDay
+    }
+}
+
+extension String {
+    func removingNonAlphabeticCharacters() -> String {
+        self.filter { $0.isLetter }
     }
 }
