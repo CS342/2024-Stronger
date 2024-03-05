@@ -207,7 +207,9 @@ struct WorkoutSelection: View {
             let menuItem = MenuItem(
                 view: WorkoutInputForm(
                     workoutName: exercise,
-                    presentingAccount: $presentingAccount),
+                    presentingAccount: 
+                        $presentingAccount
+                ),
                 title: exercise,
                 video: video
             )
@@ -275,7 +277,7 @@ struct WorkoutSelection: View {
                     if let exercises = data["exercises"] as? [String], !exercises.isEmpty {
                         print("Did find something")
                         self.menuItems = exercises.map { exercise in
-                            MenuItem (
+                            MenuItem(
                                 view: WorkoutInputForm (
                                     workoutName: exercise, presentingAccount: $presentingAccount
                                 ),
