@@ -19,11 +19,15 @@ struct Summary: View {
     }
 
     @Binding var presentingAccount: Bool
+    static var accountEnabled: Bool {
+        !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
+    }
+
+    @Binding var presentingAccount: Bool
 
     var body: some View {
         NavigationStack {
             SummaryView()
-                .id(UUID())
 //            .navigationTitle(String(localized: "SUMMARY_NAVIGATION_TITLE"))
             .toolbar {
                 if AccountButton.shouldDisplay {

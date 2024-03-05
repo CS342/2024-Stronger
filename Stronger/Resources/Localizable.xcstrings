@@ -4,7 +4,13 @@
     "" : {
 
     },
+    "" : {
+
+    },
     "[%lld] grams of protein" : {
+
+    },
+    "%@" : {
 
     },
     "%@" : {
@@ -37,15 +43,24 @@
 
     },
     "%lld g of your %lld g goal." : {
+    "%@." : {
+
+    },
+    "%lld cm" : {
+
+    },
+    "%lld g of your %lld g goal." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld g of your %2$lld g goal."
+            "value" : "%1$lld g of your %2$lld g goal."
           }
         }
       }
     },
+    "%lld kg" : {
     "%lld kg" : {
 
     },
@@ -96,6 +111,12 @@
     "Are you logging a new or saved meal?" : {
 
     },
+    "ADD_DATE" : {
+
+    },
+    "Are you logging a new or saved meal?" : {
+
+    },
     "Average Protein Intake" : {
 
     },
@@ -112,6 +133,9 @@
 
     },
     "Click an item image to edit or next to continue" : {
+
+    },
+    "Click the video to see how to Squat!" : {
 
     },
     "CLOSE" : {
@@ -212,6 +236,9 @@
     "Day %lld" : {
 
     },
+    "Day %lld" : {
+
+    },
     "Edit Meal Content" : {
 
     },
@@ -234,6 +261,7 @@
     "EXERCISE_TAB_TITLE" : {
       "comment" : "MARK: - Exercise",
       "extractionState" : "stale",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -242,6 +270,9 @@
           }
         }
       }
+    },
+    "Female" : {
+
     },
     "Female" : {
 
@@ -258,11 +289,36 @@
     "FOOD_TAB_TITLE" : {
       "comment" : "MARK: - Food",
       "extractionState" : "stale",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Food"
+          }
+        }
+      }
+    },
+    "Goal Resistance" : {
+
+    },
+    "GOAL_RESISTANCE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Resistance"
+          }
+        }
+      }
+    },
+    "GOAL_WEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal Weight"
           }
         }
       }
@@ -358,11 +414,45 @@
     "Hello World" : {
 
     },
+    "Height" : {
+
+    },
+    "HEIGHT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Height"
+          }
+        }
+      }
+    },
+    "Hello" : {
+
+    },
+    "Hello %@" : {
+
+    },
+    "Hello World" : {
+
+    },
     "Hello, World!" : {
 
     },
     "Home" : {
 
+    },
+    "HOME_TAB_TITLE" : {
+      "comment" : "MARK: - Home",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
     },
     "HOME_TAB_TITLE" : {
       "comment" : "MARK: - Home",
@@ -503,6 +593,8 @@
     },
     "Last Week's Fitness Progress\n" : {
 
+    "Last Week's Fitness Progress\n" : {
+
     },
     "LICENSE_INFO_TITLE" : {
       "localizations" : {
@@ -517,10 +609,16 @@
     "Log %@" : {
 
     },
+    "Log %@" : {
+
+    },
     "Log more with ProBot!" : {
 
     },
     "Lunch 02/05/2024" : {
+
+    },
+    "Male" : {
 
     },
     "Male" : {
@@ -590,6 +688,9 @@
     "Populate with previous workout data" : {
 
     },
+    "Populate with previous workout data" : {
+
+    },
     "Pro-Bot" : {
 
     },
@@ -627,6 +728,9 @@
           }
         }
       }
+    },
+    "Reps" : {
+
     },
     "Reps" : {
 
@@ -680,6 +784,16 @@
     },
     "Small portion" : {
 
+    },
+    "START_DATE_TITLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Date"
+          }
+        }
+      }
     },
     "START_DATE_TITLE" : {
       "localizations" : {
@@ -759,7 +873,19 @@
     "VALUE_ADD %@" : {
 
     },
+    "This Week's Fitness Progress\n" : {
+
+    },
+    "Upload Exercise Log" : {
+
+    },
+    "VALUE_ADD %@" : {
+
+    },
     "Video Placeholder" : {
+
+    },
+    "Week %lld" : {
 
     },
     "Week %lld" : {
@@ -768,6 +894,16 @@
     "Weekly Stats" : {
 
     },
+    "Weight" : {
+
+    },
+    "WEIGHT" : {
+
+    },
+    "Weight Information" : {
+
+    },
+    "Weight is gathered to determine protein intake." : {
     "Weight" : {
 
     },
@@ -892,6 +1028,7 @@
       }
     },
     "Woman working out" : {
+    "Woman working out" : {
 
     },
     "Workout" : {
@@ -903,12 +1040,16 @@
     "Workout Selection" : {
 
     },
+    "Workout Selection" : {
+
+    },
     "Yes" : {
 
     },
     "You indicated: %@" : {
 
     },
+    "Your current week is %lld" : {
     "Your current week is %lld" : {
 
     }
