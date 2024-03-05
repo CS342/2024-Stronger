@@ -274,16 +274,15 @@ struct WorkoutInputForm: View {
     }
 }
 
-// Preview
-struct InputForm_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
-    }
-}
-
 extension String {
     func removingNonAlphabeticCharacters2() -> String {
         self.filter { $0.isLetter }
     }
 }
 
+// Preview
+struct InputForm_Previews: PreviewProvider {
+    static var previews: some View {
+        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
+    }
+}

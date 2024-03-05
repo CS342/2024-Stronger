@@ -275,9 +275,10 @@ struct WorkoutSelection: View {
                     if let exercises = data["exercises"] as? [String], !exercises.isEmpty {
                         print("Did find something")
                         self.menuItems = exercises.map { exercise in
-                            MenuItem(
-                                view: WorkoutInputForm(
-                                    workoutName: exercise, presentingAccount: $presentingAccount),
+                            MenuItem (
+                                view: WorkoutInputForm (
+                                    workoutName: exercise, presentingAccount: $presentingAccount
+                                ),
                                 title: exercise,
                                 video: "squats"
                             )
@@ -368,14 +369,14 @@ extension String {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkoutSelection(presentingAccount: .constant(false))
-    }
-}
-
 extension String {
     func removingNonAlphabeticCharacters3() -> String {
         self.filter { $0.isLetter }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        WorkoutSelection(presentingAccount: .constant(false))
     }
 }
