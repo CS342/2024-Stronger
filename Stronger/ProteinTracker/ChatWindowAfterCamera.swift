@@ -18,7 +18,6 @@ import SpeziLLMOpenAI
 import SwiftUI
 
 struct ChatWindowAfterCamera: View {
-    var loggedFoodItems: [String]
     private static let llmSchema: LLMOpenAISchema = .init(
         parameters: .init(
             modelType: .gpt3_5Turbo,
@@ -56,7 +55,8 @@ struct ChatWindowAfterCamera: View {
 
     @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
     @State var showOnboarding = false
-
+    
+    var loggedFoodItems: [String]
     var body: some View {
         let greetingMessage: String = "These are the foods you logged with your camera: \(loggedFoodItems.joined(separator: ", ")). Is this correct?"
 
