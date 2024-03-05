@@ -19,11 +19,6 @@ struct Summary: View {
     }
 
     @Binding var presentingAccount: Bool
-    static var accountEnabled: Bool {
-        !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
-    }
-
-    @Binding var presentingAccount: Bool
 
     var body: some View {
         NavigationStack {

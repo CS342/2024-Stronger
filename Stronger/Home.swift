@@ -14,8 +14,6 @@ import SwiftUI
 enum Tabs: String {
     case home
     case workout
-    case home
-    case workout
     case chatWindow
 }
 
@@ -44,8 +42,6 @@ struct HomeView: View {
     @State private var presentingAccount = false
     
     var body: some View {
-        Text("Hello")
-        Text("Hello")
         TabView(selection: $selectedTab) {
             Summary(presentingAccount: $presentingAccount)
                 .tag(Tabs.home)
@@ -59,12 +55,6 @@ struct HomeView: View {
                 .tag(Tabs.workout)
                 .tabItem {
                     Label("Workout", systemImage: "dumbbell.fill") // change icon later
-                }
-            // TabViewChatWindow()
-            ChatWindow()
-                .tag(Tabs.chatWindow)
-                .tabItem {
-                    Label("ProBot", systemImage: "fork.knife")
                 }
             // TabViewChatWindow()
             ChatWindow()

@@ -47,7 +47,7 @@ extension HeightKey {
             HStack {
                 Text(HeightKey.name)
                 Spacer()
-                Text("\(height) cm")
+                Text("\(height) inches")
                     .foregroundColor(.secondary)
             }
             .accessibilityElement(children: .combine)

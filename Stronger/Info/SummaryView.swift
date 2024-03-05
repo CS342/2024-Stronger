@@ -55,7 +55,6 @@ struct SummaryView: View {
             }
             
             MainPage()
-                .id(UUID())
             Spacer()
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: 2, presentingAccount: $presentingAccount)
