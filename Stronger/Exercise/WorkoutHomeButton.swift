@@ -14,7 +14,7 @@ import SwiftUI
 
 struct WorkoutHomeButton: View {
     let viewModel = ExerciseViewModel()
-    static var exerciseName = "Rows" // Specify name here
+//    static var exerciseName = "Rows" // Specify name here
     
     
     @Binding var presentingAccount: Bool

@@ -61,7 +61,8 @@ struct WorkoutSelection: View {
                 selectedDay: 1
             ),
             title: "Squats",
-            video: "squats"),
+            video: "squats"
+        ),
         MenuItem(
             view: WorkoutInputForm(
                 workoutName: "Row",

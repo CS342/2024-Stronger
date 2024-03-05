@@ -1,8 +1,9 @@
 //
-//  SharedWeekModel.swift
-//  Stronger
+// This source file is part of the Stronger based on the Stanford Spezi Template Application project
 //
-//  Created by Theodore Kanell on 3/5/24.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Firebase
