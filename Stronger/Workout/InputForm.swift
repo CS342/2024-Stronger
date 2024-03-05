@@ -8,6 +8,45 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
+struct RepsInputSection: View {
+    @Binding var numReps: String
+
+    var body: some View {
+        HStack {
+            Text("Reps")
+            Spacer()
+            TextField("", text: $numReps)
+                .frame(width: 80)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
+
+struct PickersSection: View {
+    @Binding var selectedBand: String
+    @Binding var selectedDifficulty: String
+    let bands: [String]
+    let difficulties: [String]
+
+    var body: some View {
+        Section {
+            Picker("Select Resistance", selection: $selectedBand) {
+                ForEach(bands, id: \.self) { band in
+                    Text(band).tag(band)
+                }
+            }
+            Picker("Select Difficulty", selection: $selectedDifficulty) {
+                ForEach(difficulties, id: \.self) { difficulty in
+                    Text(difficulty).tag(difficulty)
+                }
+            }
+        }
+    }
+}
+
+
 struct WorkoutInputForm: View {
     struct WorkoutData: Codable {
         var reps: String
@@ -16,8 +55,6 @@ struct WorkoutInputForm: View {
     }
     @Environment(Account.self) var account
     var workoutName: String = "Squats"
-    
-    
     @Binding var presentingAccount: Bool
     @State private var selectedWeek: Int
     @State private var selectedDay: Int
@@ -30,12 +67,13 @@ struct WorkoutInputForm: View {
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
     @State private var showAlert = false
-    @State private var navigateToHome = false
+    @State private var navigateToWorkoutSelection = false
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
     @State private var comments: String = ""
     @State private var populateWithPreviousData = false
-    
+    @State private var loggedSets = Set<Int>()
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,25 +84,27 @@ struct WorkoutInputForm: View {
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { WorkoutSelection(presentingAccount: $presentingAccount) }
+            .navigationDestination(isPresented: $navigateToWorkoutSelection) {
+                WorkoutHome(presentingAccount: $presentingAccount)
+            }
             .onChange(of: populateWithPreviousData) {
                 handleToggleChange(to: populateWithPreviousData)
+            }
+            .onAppear {
+                Task {
+                    await fetchLoggedSets()
+                }
             }
         }
 //        .navigationBar BackButtonHidden(true)
     }
-    
     
     private var submissionAlert: Alert {
         Alert(
             title: Text("Great Job!"),
             message: Text("Is this your last set for this exercise?"),
             primaryButton: .destructive(Text("Yes")) {
-                print("current account", account)
-                Task {
-                    await self.uploadExerciseData()
-                }
-                navigateToHome = true
+                navigateToWorkoutSelection = true
             },
             secondaryButton: .cancel(Text("No")) {
                 if currentSet < totalSets {
@@ -73,13 +113,14 @@ struct WorkoutInputForm: View {
             }
         )
     }
-
+  
      init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
          self.workoutName = workoutName
          _presentingAccount = presentingAccount
          _selectedWeek = State(initialValue: selectedWeek)
          _selectedDay = State(initialValue: selectedDay)
      }
+
     
     private func setsDisplay() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -87,21 +128,21 @@ struct WorkoutInputForm: View {
                 Spacer()
                 Spacer()
                 HStack(spacing: 20) {
-                    ForEach(1...totalSets, id: \.self) { index in
+                    ForEach(1...totalSets, id: \.self) { idx in
                         VStack {
                             HStack {
-                                Text("Set \(index)")
-                                Image(systemName: completedSets.contains(index) ? "checkmark.circle.fill" : "xmark.circle")
+                                Text("Set \(idx)")
+                                Image(systemName: completedSets.contains(idx) || loggedSets.contains(idx) ? "checkmark.circle.fill" : "xmark.circle")
                                     .accessibilityLabel(Text("Incomplete"))
-                                    .foregroundColor(completedSets.contains(index) ? .green : .red)
+                                    .foregroundColor(completedSets.contains(idx) || loggedSets.contains(idx) ? .green : .red)
                             }
                             .padding(.vertical, 10)
                             .padding(.horizontal, 20)
-                            .background(currentSet == index ? Color.blue : Color.gray)
+                            .background(currentSet == idx ? Color.blue : Color.gray)
                             .foregroundColor(Color.white)
                             .clipShape(Capsule())
                             .onTapGesture {
-                                self.currentSet = index
+                                self.currentSet = idx
                             }
                         }
                     }
@@ -138,7 +179,6 @@ struct WorkoutInputForm: View {
     }
     
     private func uploadExerciseLog() async {
-        print(account)
         guard let details = await account.details else {
             print("User ID not available")
             return
@@ -171,44 +211,47 @@ struct WorkoutInputForm: View {
         }
     }
     
+    private func fetchLoggedSets() async {
+        guard let details = await account.details else {
+            print("User ID not available")
+            return
+        }
+        let currentUserID = details.accountId
+        let datab = Firestore.firestore()
+        let path = datab.collection("users").document(currentUserID).collection("exerciseLog")
+        let query = path.whereField("exercise", isEqualTo: workoutName)
+                        .whereField("exerciseDay", isEqualTo: selectedDay)
+                        .whereField("week", isEqualTo: selectedWeek)
+        do {
+            let snapshot = try await query.getDocuments()
+            self.loggedSets.removeAll()
+            for document in snapshot.documents {
+                if let setNumber = document.data()["set"] as? Int {
+                    self.loggedSets.insert(setNumber)
+                }
+            }
+        } catch {
+            print("Error fetching logged sets: \(error)")
+        }
+    }
+
+    
     private func formView(forSet setNumber: Int) -> some View {
         Form {
             toggleSection()
             Section(header: Text("Set \(setNumber)")) {
-                repsInputSection()
-                pickersSection()
+                RepsInputSection(numReps: $numReps)
+                PickersSection(selectedBand: $selectedBand, selectedDifficulty: $selectedDifficulty, bands: bands, difficulties: difficulties)
             }
             submitButtonSection(forSet: setNumber)
             workoutThumbnail()
         }
     }
 
+
     private func toggleSection() -> some View {
         Toggle(isOn: $populateWithPreviousData) {
             Text("Populate with previous workout data")
-        }
-    }
-
-    private func repsInputSection() -> some View {
-        HStack {
-            Text("Reps")
-            Spacer()
-            TextField("", text: $numReps)
-                .frame(width: 80)
-                .textFieldStyle(.roundedBorder)
-                .keyboardType(.numberPad)
-                .multilineTextAlignment(.center)
-        }
-    }
-
-    private func pickersSection() -> some View {
-        Section {
-            Picker("Select Resistance", selection: $selectedBand) {
-                ForEach(bands, id: \.self) { Text($0).tag($0) }
-            }
-            Picker("Select Difficulty", selection: $selectedDifficulty) {
-                ForEach(difficulties, id: \.self) { Text($0).tag($0) }
-            }
         }
     }
 
@@ -219,9 +262,11 @@ struct WorkoutInputForm: View {
                 Button("Submit") {
                     submitForm(forSet: setNumber)
                 }
+                .disabled(numReps.isEmpty) // Disable the button if numReps is empty
                 Spacer()
             }
         }
+        .foregroundColor(numReps.isEmpty ? .gray : .red)
     }
 
     private func workoutThumbnail() -> some View {
@@ -230,17 +275,6 @@ struct WorkoutInputForm: View {
             .aspectRatio(contentMode: .fill)
             .frame(height: 315)
             .clipped()
-    }
-    
-    private func overlayView(for index: Int) -> some View {
-        Group {
-            if completedSets.contains(index) {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
-                    .offset(x: 20, y: 0)
-                    .accessibilityLabel(Text("Completed"))
-            }
-        }
     }
     
     private func saveWorkoutData() {
@@ -261,9 +295,12 @@ struct WorkoutInputForm: View {
     }
     
     private func submitForm(forSet setNumber: Int) {
+        Task {
+            await uploadExerciseLog()
+        }
         completedSets.insert(setNumber)
         if setNumber == 3 {
-            navigateToHome = true
+            navigateToWorkoutSelection = true
         } else {
             showAlert = true
         }
