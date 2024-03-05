@@ -15,6 +15,49 @@ import SwiftUI
 import UIKit
 import Vision
 
+// entry point
+struct ProteinTrackerOptions: View {
+    private var greeting: String {
+        "How would you like to input your meal?"
+    }
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text(greeting)
+                    .font(.title)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundColor(.gray)
+                    .padding(.vertical)
+
+                Spacer()
+                // Ensure NavigationLink directs to the correct view
+                NavigationLink(destination: FoodClassifierApp()) {
+                    Text("Input with Camera")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                Spacer()
+                NavigationLink(destination: ChatWindow()) {
+                    Text("Input with ChatBot")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                Spacer()
+            }
+        }
+    }
+}
+
 // main view
 struct FoodClassifierApp: View {
     @StateObject private var imageClassifier = ImageClassifier()
@@ -72,7 +115,7 @@ struct FoodClassifierApp: View {
         .cornerRadius(8)
         .actionSheet(isPresented: $showingActionSheet, content: selectImageActionSheet)
     }
-    
+
     private var nextStepOptions: some View {
         HStack { // Change from VStack to HStack to align buttons horizontally
             logAnotherFoodButton
@@ -199,54 +242,11 @@ struct FoodClassifierApp: View {
     }
 }
 
-// entry point
-struct ProteinTrackerOptions: View {
-    private var greeting: String {
-        "How would you like to input your meal?"
-    }
-
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text(greeting)
-                    .font(.title)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundColor(.gray)
-                    .padding(.vertical)
-
-                Spacer()
-                // Ensure NavigationLink directs to the correct view
-                NavigationLink(destination: FoodClassifierApp()) {
-                    Text("Input with Camera")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                Spacer()
-                NavigationLink(destination: ChatWindow()) {
-                    Text("Input with ChatBot")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                Spacer()
-            }
-        }
-    }
-}
-
 // PhotoPicker to handle image selection or capturing
 struct PhotoPicker: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var presentationMode
     var imageClassifier: ImageClassifier
     var sourceType: UIImagePickerController.SourceType
+    @Environment(\.presentationMode) var presentationMode
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
