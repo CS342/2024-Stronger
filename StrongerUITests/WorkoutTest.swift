@@ -29,6 +29,5 @@ class WorkoutTests: XCTestCase {
         app.tabBars["Tab Bar"].buttons["Workout"].tap()
         
         XCTAssertTrue(app.buttons["Enter Missed Workout"].waitForExistence(timeout: 2))
-        
     }
 }

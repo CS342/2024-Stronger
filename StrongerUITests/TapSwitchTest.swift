@@ -37,7 +37,6 @@ class TabTests: XCTestCase {
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Workout"].tap()
         
-        
 
 //        XCTAssertTrue(app.staticTexts["Contact: Leland Stanford"].waitForExistence(timeout: 2))
 //
