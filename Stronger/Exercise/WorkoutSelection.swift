@@ -24,6 +24,10 @@ struct Workout: Codable {
     let exercise2video: String
     let exercise3video: String
     let exercise4video: String
+    let exercise1video: String
+    let exercise2video: String
+    let exercise3video: String
+    let exercise4video: String
 //    let sets: Int
 //    let reps: String
 //    let resistance: String
@@ -49,16 +53,35 @@ struct WorkoutSelection: View {
     @State private var geometry: CGSize = .zero
     @Environment(Account.self) var account
     
-    @State private var selectedWeek: Int? // Initialize as optional
+    @State private var selectedWeek: Int?
     @State private var selectedDay: Int = 1
 
     private var menuItemsBackup: [MenuItem] = [
-        MenuItem(view: WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false)), title: "Squats", video: "squats"),
-        MenuItem(view: WorkoutInputForm(workoutName: "Row", presentingAccount: .constant(false)), title: "Row", video: "row"),
+        MenuItem(
+            view: WorkoutInputForm(
+                workoutName: "Squats",
+                presentingAccount: .constant(false),
+                selectedWeek: 1,
+                selectedDay: 1
+            ),
+            title: "Squats",
+            video: "squats"),
+        MenuItem(
+            view: WorkoutInputForm(
+                workoutName: "Row",
+                presentingAccount: .constant(false),
+                selectedWeek: 1,
+                selectedDay: 1
+            ),
+            title: "Row",
+            video: "row"
+        ),
         MenuItem(
             view: WorkoutInputForm(
                 workoutName: "Pull Downs",
-                presentingAccount: .constant(false)
+                presentingAccount: .constant(false),
+                selectedWeek: 1,
+                selectedDay: 1
             ),
             title: "Pull Downs",
             video: "straightarmpulldowns"
@@ -80,34 +103,51 @@ struct WorkoutSelection: View {
                             presentingAccount: $presentingAccount,
                             item: menuItem.title,
                             totalWidth: widthForMenuItems(in: geometry),
-                            selectedWeek: selectedWeek ?? 0,
+                            selectedWeek: selectedWeek ?? 1,
                             selectedDay: selectedDay
                         )
                     }
                     
                     Spacer()
+                    NavigationLink(destination: WorkoutHome(presentingAccount: $presentingAccount)) {
+                        Text("Enter Missed Workout")
+                            .foregroundColor(.primary)
+                            .padding()
+//                            .frame(width: totalWidth)
+                            .background(Color.blue)
+                            .cornerRadius(8)
+                    }
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .navigationBarTitle("Workout Selection")
             .onAppear {
                 Task {
-                    selectedWeek = try? await calculateWeeksElapsed()
-                    print("Selected Week: \(selectedWeek)")
-                    try await updateExerciseDate()
-                    // fetchMenuItemsFromFirestore()
-                    if let exercises = parseExercises(week: selectedWeek ?? 1, day: selectedDay) {
-                        buildMenuItem(workoutInst: exercises)
-                    } else {
-                        // Handle the case where exercises could not be parsed
-                        print("Error: Unable to parse exercises for the selected week and day.")
-                    }
+                    try await onAppearFunc()
                 }
             }
         }
     }
     
-    init(presentingAccount: Binding<Bool>) {
+    init(presentingAccount: Binding<Bool>, selectedWeek: Int? = nil) {
         self._presentingAccount = presentingAccount
+        // Call calculateWeeksElapsed with a completion handler
+//        calculateWeeksElapsed { weeksElapsed in
+//            self._selectedWeek = State(wrappedValue: weeksElapsed)
+//        }
+    }
+    
+    private func onAppearFunc() async throws {
+        selectedWeek = try? await calculateWeeksElapsed()
+        print("Selected Week: \(selectedWeek)")
+        try await updateExerciseDate()
+        // fetchMenuItemsFromFirestore()
+        if let exercises = parseExercises(week: selectedWeek ?? 1, day: selectedDay) {
+            buildMenuItem(workoutInst: exercises)
+        } else {
+            // Handle the case where exercises could not be parsed
+            print("Error: Unable to parse exercises for the selected week and day.")
+        }
     }
     
     private func widthForMenuItems(in geometry: GeometryProxy) -> CGFloat {
@@ -116,27 +156,27 @@ struct WorkoutSelection: View {
             menuItem.title.widthOfString(usingFont: .systemFont(ofSize: 17))
         }
         .max() ?? 0
-        print(longestTitleWidth)
+//        print(longestTitleWidth)
         // Calculate the width as a percentage of the screen width
         let desiredWidth = longestTitleWidth + 32 // Add padding
         
         // Ensure the width does not exceed the screen width
         return min(desiredWidth, geometry.size.width * 0.5) // Set width as 50% of screen width
     }
-    private func adjustSelectedWeek(_ week: Int) -> Int {
-        switch week {
-        case 1...3:
-            return 1
-        case 4...6:
-            return 4
-        case 7...9:
-            return 7
-        case 10...12:
-            return 10
-        default:
-            return week // Return the original value for any other cases
-        }
-    }
+//    private func adjustSelectedWeek(_ week: Int) -> Int {
+//        switch week {
+//        case 1...3:
+//            return 1
+//        case 4...6:
+//            return 4
+//        case 7...9:
+//            return 7
+//        case 10...12:
+//            return 10
+//        default:
+//            return week // Return the original value for any other cases
+//        }
+//    }
     
     private func parseExercises(week: Int, day: Int) -> Workout? {
         // Get the URL of the JSON file in the app bundle
@@ -207,7 +247,9 @@ struct WorkoutSelection: View {
             let menuItem = MenuItem(
                 view: WorkoutInputForm(
                     workoutName: exercise,
-                    presentingAccount: $presentingAccount
+                    presentingAccount: $presentingAccount,
+                    selectedWeek: selectedWeek ?? 1,
+                    selectedDay: selectedDay
                 ),
                 title: exercise,
                 video: video
@@ -217,8 +259,6 @@ struct WorkoutSelection: View {
     }
     
     private func updateExerciseDate() async throws {
-//        print("Selected Week: \(selectedWeek)")
-//        print("self Selected Week: \(self.selectedWeek)")
         // Get current user ID
         guard let userID = try await getCurrentUserID() else {
             print("Error getting user id")
@@ -235,70 +275,95 @@ struct WorkoutSelection: View {
             if let error = error {
                 print("Error fetching documents: \(error)")
             } else {
-                let documentCount = querySnapshot?.documents.count ?? 1
-                print("Finding Exercises week: \(self.selectedWeek)")
+                // Get the count of documents
+                let documentCount = querySnapshot?.documents.count ?? 0
+
                 print("Number of documents returned: \(documentCount)")
-                self.selectedDay = documentCount + 1
+
+                // Check if there are no documents
+                if documentCount == 0 {
+                    print("No documents found. Setting selectedDay to 1.")
+                    self.selectedDay = 1
+                } else {
+                    // Check if there are documents with selectedDay equal to 1
+                    let selectedDay1Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 2 }.count ?? 0
+                    if selectedDay1Count > 0 {
+                        print("Documents found with selectedDay equal to 2. Setting selectedDay to 3.")
+                        self.selectedDay = 3
+                    } else {
+                        // Check if there are documents with selectedDay equal to 2
+                        let selectedDay2Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 1 }.count ?? 0
+                        if selectedDay2Count > 0 {
+                            print("Documents found with selectedDay equal to 1. Setting selectedDay to 2.")
+                            self.selectedDay = 2
+                        } else {
+                            // If no documents have selectedDay equal to 1 or 2, set selectedDay to 1
+                            print("No documents found with selectedDay equal to 1 or 2. Setting selectedDay to 1.")
+                            self.selectedDay = 1
+                        }
+                    }
+                }
             }
         }
     }
 
+
      // Function to get the current user ID
-    private func getCurrentUserID() async throws -> String? {
-        guard let details = try await account.details else {
+    private func getCurrentUserID() async throws-> String? {
+        guard let details = try? await account.details else {
             return nil
         }
         return details.accountId
     }
-    
-    private func fetchMenuItemsFromFirestore() {
-        let useWeek = adjustSelectedWeek(self.selectedWeek ?? 0)
-        print("Fetch MenuItems from firestore", "week\(self.selectedWeek)", "day\(self.selectedDay)")
-        let dbe = Firestore.firestore()
-        
-        dbe.collection("workouts")
-        .document("week\(useWeek)")
-        .collection("day\(self.selectedDay)")
-        .getDocuments { snapshot, error in
-            if let error = error {
-                print("Error fetching menu items: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                print("No documents found")
-                return
-            }
-            
-            if !documents.isEmpty {
-                documents.map { document in
-                    let data = document.data()
-                    if let exercises = data["exercises"] as? [String], !exercises.isEmpty {
-                        print("Did find something")
-                        self.menuItems = exercises.map { exercise in
-                            MenuItem(
-                                view: WorkoutInputForm(
-                                    workoutName: exercise, presentingAccount: $presentingAccount
-                                ),
-                                title: exercise,
-                                video: "squats"
-                            )
-                            //                return MenuItem(view: WorkoutInputForm(workoutName: exerciseName, presentingAccount: $presentingAccount), title: exerciseName)
-                        }
-                    }
-                }
-            } else {
-                self.menuItems = self.menuItemsBackup
-                print("Didn't find menuitems")
-            }
-        }
-    }
+
+//    private func calculateWeeksElapsed(completion: @escaping (Int) -> Void) {
+//        // Get current user ID
+//        guard let userID = try await getCurrentUserID() else {
+//            completion(1) // Return default value if user ID cannot be retrieved
+//            return
+//        }
+//
+//        // Reference to Firestore database
+//        let dbe = Firestore.firestore()
+//
+//        // Reference to document for current user
+//        let userDocRef = dbe.collection("users").document(userID)
+//
+//        // Get snapshot of document
+//        userDocRef.getDocument { userDocSnapshot, error in
+//            guard let userData = userDocSnapshot?.data(),
+//                  let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
+//                print("Error retrieving start day timestamp:", error?.localizedDescription ?? "Unknown error")
+//                completion(1) // Return default value if start day timestamp cannot be retrieved
+//                return
+//            }
+//
+//            // Get start date from Timestamp
+//            var startDayDate = startDayTimestamp.dateValue()
+//
+//            // Get current date
+//            let currentDate = Date()
+//
+//            // Get Calendar instance
+//            let calendar = Calendar.current
+//
+//            // Move start day to closest Monday
+//            let weekday = calendar.component(.weekday, from: startDayDate)
+//            let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
+//            startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
+//
+//            // Calculate difference in weeks between start day and current date
+//            let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
+//            let roundedWeeksElapsed = max(weeksElapsed, 0) // Ensure weeksElapsed is non-negative
+//            completion(roundedWeeksElapsed)
+//        }
+//    }
 
     // Function to retrieve start day field and calculate weeks elapsed
-    private func calculateWeeksElapsed() async throws -> Int? {
+    private func calculateWeeksElapsed() async throws -> Int {
         // Get current user ID
         guard let userID = try await getCurrentUserID() else {
-            return nil
+            return 1
         }
 
         // Reference to Firestore database
@@ -314,7 +379,7 @@ struct WorkoutSelection: View {
         guard let userData = userDocSnapshot.data(),
               let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
             print("did not find start day key", userID)
-            return nil
+            return 1
         }
         
         print("Found start date key", userID)
@@ -330,11 +395,13 @@ struct WorkoutSelection: View {
         // Move start day to closest Monday
         let weekday = calendar.component(.weekday, from: startDayDate)
         let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
+        print("daysTOMonday \(daysToMonday)")
         startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-
+        print("startDayDate \(startDayDate)")
 
         // Calculate difference in weeks between start day and current date
         let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
+        print("weeksElapsed \(weeksElapsed)")
         let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
         print("rounded weeks elapsed \(roundedWeeksElapsed)")
         return weeksElapsed
@@ -372,6 +439,6 @@ extension String {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutSelection(presentingAccount: .constant(false))
+        WorkoutSelection(presentingAccount: .constant(false), selectedWeek: nil)
     }
 }

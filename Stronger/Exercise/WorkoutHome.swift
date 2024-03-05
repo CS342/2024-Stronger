@@ -14,6 +14,7 @@ struct WorkoutHome: View {
     @State private var currentWeek: Int?
     @Environment(Account.self) var account
     
+    
     var body: some View {
         let firstSixWeeks = Picker("Select Week to input results", selection: $selectedWeek) {
             ForEach(0..<6) { index in

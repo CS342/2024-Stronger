@@ -19,9 +19,9 @@ struct WorkoutInputForm: View {
     
     
     @Binding var presentingAccount: Bool
-    @State private var selectedWeek: Int = 1
+    @State private var selectedWeek: Int
+    @State private var selectedDay: Int
     @State private var imageName: String = "WorkoutThumbnail"
-    @State private var selectedDay: Int = 1
     @State private var numReps: String = ""
     @State private var selectedBand: String = "Band 1"
     @State private var currentUserID: String?
@@ -46,11 +46,12 @@ struct WorkoutInputForm: View {
                 formView(forSet: currentSet)
             }
             .alert(isPresented: $showAlert) { submissionAlert }
-            .navigationDestination(isPresented: $navigateToHome) { WorkoutHome(presentingAccount: $presentingAccount) }
+            .navigationDestination(isPresented: $navigateToHome) { WorkoutSelection(presentingAccount: $presentingAccount) }
             .onChange(of: populateWithPreviousData) {
                 handleToggleChange(to: populateWithPreviousData)
             }
         }
+//        .navigationBar BackButtonHidden(true)
     }
     
     
@@ -73,12 +74,12 @@ struct WorkoutInputForm: View {
         )
     }
 
-    // init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
-    //     self.workoutName = workoutName
-    //     self._presentingAccount = presentingAccount
-    //     self.selectedWeek = selectedWeek
-    //     self.selectedDay = selectedDay
-    // }
+     init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
+         self.workoutName = workoutName
+         _presentingAccount = presentingAccount
+         _selectedWeek = State(initialValue: selectedWeek)
+         _selectedDay = State(initialValue: selectedDay)
+     }
     
     private func setsDisplay() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -273,6 +274,6 @@ struct WorkoutInputForm: View {
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
+        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false), selectedWeek: 2, selectedDay: 1)
     }
 }
