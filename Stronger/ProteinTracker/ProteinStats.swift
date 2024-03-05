@@ -16,13 +16,11 @@ import FirebaseCore
 import FirebaseFirestore
 import SwiftUI
 
-
 struct ProteinDataDaily: Identifiable {
     var date: String
     var protein: Double
     var id = UUID()
 }
-
 
 struct ProteinStats: View {
     @State private var userID: String = "jtulika"
@@ -30,7 +28,7 @@ struct ProteinStats: View {
     @State private var averageWeeklyProtein: Double = 0.0
     @State private var strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
     @State private var weeklyData: [ProteinDataDaily] = []
-    
+
     var body: some View {
         VStack {
             Text("Protein Intake Data")
@@ -79,7 +77,7 @@ struct ProteinStats: View {
 //        }
 //        )
     }
-    
+
     private func getLastWeekDates() -> [Date] {
         let calendar = Calendar.current
         var dates = [Date]()
@@ -92,16 +90,16 @@ struct ProteinStats: View {
         dates = dates.reversed()
         return dates
     }
-    
+
     private func fetchDataFromFirestore() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateFormatterXLabel = DateFormatter()
         dateFormatterXLabel.dateFormat = "MM-dd"
-        
+
         let dates = getLastWeekDates()
         let calendar = Calendar.current
-        
+
 //        var dates = [Date]()
 //        let today = Date()
 //        
@@ -111,9 +109,9 @@ struct ProteinStats: View {
 //            }
 //        }
 //        dates = dates.reversed()
-        
+
         let collectionRef = Firestore.firestore().collection("users").document(userID).collection("ProteinIntake")
-        
+
         for date in dates {
             let startOfDay = calendar.startOfDay(for: date)
             var endOfDay = calendar.startOfDay(for: date)
@@ -125,17 +123,17 @@ struct ProteinStats: View {
 //            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
             let startDateString = dateFormatter.string(from: startOfDay)
             let endDateString = dateFormatter.string(from: endOfDay)
-            
+
             if let currentUser = Auth.auth().currentUser {
                 userID = currentUser.uid
                 print("User ID: \(userID)")
             } else {
                 print("No user is currently signed in.")
             }
-            
+
             let storeDateString = dateFormatterXLabel.string(from: startOfDay)
             var proteinContent = 0.0
-            
+
             collectionRef.whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
                              .whereField(FieldPath.documentID(), isLessThan: endDateString)
                              .getDocuments { querySnapshot, error in

@@ -1,8 +1,12 @@
 //
-//  FoodImageRecognition.swift
+//  Chatwindow.swift
 //  Stronger
 //
-//  Created by Kevin Zhu and Yanav Lall on 2/27/24.
+//  Created by Kevin Zhu and Yanav Lell on 02/28/2024.
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Combine
@@ -10,12 +14,13 @@ import CoreML
 import SwiftUI
 import UIKit
 import Vision
+
 // This is your entry point
 struct ProteinTrackerOptions: View {
     private var greeting: String {
         "How would you like to input your meal?"
     }
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -24,12 +29,12 @@ struct ProteinTrackerOptions: View {
                     .bold()
                     .multilineTextAlignment(.center)
                     .padding()
-                
+
                 Rectangle()
                     .frame(height: 2)
                     .foregroundColor(.gray)
                     .padding(.vertical)
-                
+
                 Spacer()
                 // Ensure NavigationLink directs to the correct view
                 NavigationLink(destination: FoodClassifierApp()) {
@@ -64,8 +69,11 @@ class ImageClassifier: ObservableObject {
     @Published var showNextStepOptions = false
     @Published var loggedFoodItems: [String] = []
     @Published var foodLog: [String] = []
-    
-
+    func prepareForNextSteps() {
+        DispatchQueue.main.async {
+            self.showNextStepOptions = true
+        }
+    }
     func classifyImage(_ image: UIImage) {
         guard let ciImage = CIImage(image: image) else {
             DispatchQueue.main.async {
@@ -100,7 +108,7 @@ class ImageClassifier: ObservableObject {
 
             let topResults = results.prefix(3)
             self.classificationOptions = topResults.map { "\($0.identifier) (\(String(format: "%.2f", $0.confidence * 100))%)" }
-            
+
             if let highestResult = topResults.first {
                 DispatchQueue.main.async {
                     self.highestConfidenceClassification = highestResult.identifier
@@ -126,11 +134,6 @@ class ImageClassifier: ObservableObject {
             self.classificationResults = "\(foodItem) logged."
         }
     }
-    func prepareForNextSteps() {
-        DispatchQueue.main.async {
-            self.showNextStepOptions = true
-        }
-    }
 }
 
 // Main View of the App
@@ -142,7 +145,7 @@ struct FoodClassifierApp: View {
     @State private var showingEditView = false
     @State private var showNextStepOptions = false
     @State private var navigateToChatAfterCamera = false
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -157,7 +160,7 @@ struct FoodClassifierApp: View {
                     nextStepOptions
                 }
                 Spacer()
-                
+
                 NavigationLink(
                     destination: ChatWindowAfterCamera(
                         loggedFoodItems: imageClassifier.loggedFoodItems
@@ -174,6 +177,12 @@ struct FoodClassifierApp: View {
             .navigationTitle("Food Image Classifier")
         }
     }
+    private func classificationActions(classification: String) -> some View {
+        HStack {
+            logFoodButton(classification: classification)
+            editClassificationButton()
+        }
+    }
     private var selectOrTakePictureButton: some View {
         Button("Select or Take Picture") {
             showingActionSheet = true
@@ -184,20 +193,14 @@ struct FoodClassifierApp: View {
         .cornerRadius(8)
         .actionSheet(isPresented: $showingActionSheet, content: selectImageActionSheet)
     }
-    private func classificationActions(classification: String) -> some View {
-        HStack {
-            logFoodButton(classification: classification)
-            editClassificationButton()
-        }
-    }
-
+    
     private var nextStepOptions: some View {
         HStack { // Change from VStack to HStack to align buttons horizontally
             logAnotherFoodButton
             finishLoggingButton
         }
     }
-    
+
     private func selectImageActionSheet() -> ActionSheet {
         ActionSheet(
             title: Text("Choose an option"),
@@ -297,7 +300,7 @@ struct FoodClassifierApp: View {
         .background(Color.blue)
         .foregroundColor(.white)
         .cornerRadius(8)
-        
+
         .navigationDestination(isPresented: $navigateToChatAfterCamera) {
             ChatWindowAfterCamera(loggedFoodItems: imageClassifier.loggedFoodItems)
         }
@@ -314,43 +317,36 @@ struct FoodClassifierApp: View {
         // Any cleanup or final actions
     }
 }
-extension Binding where Value: ExpressibleByStringLiteral {
-    static func orEmpty(_ binding: Binding<Value?>) -> Binding<Value> {
-        Binding<Value>(
-            get: { binding.wrappedValue ?? "" },
-            set: { binding.wrappedValue = $0 }
-        )
-    }
-}
+
 
 // PhotoPicker to handle image selection or capturing
 struct PhotoPicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     var imageClassifier: ImageClassifier
     var sourceType: UIImagePickerController.SourceType
-    
+
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         picker.sourceType = sourceType
         return picker
     }
-    
+
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
-    
+
     func makeCoordinator() -> Coordinator {
         Coordinator(self, imageClassifier: imageClassifier)
     }
-    
+
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
         var parent: PhotoPicker
         var imageClassifier: ImageClassifier
-        
+
         init(_ parent: PhotoPicker, imageClassifier: ImageClassifier) {
             self.parent = parent
             self.imageClassifier = imageClassifier
         }
-        
+
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
                 imageClassifier.image = uiImage // Update the image in ImageClassifier
@@ -372,11 +368,11 @@ struct EditClassificationView: View {
         VStack(spacing: 20) {
             Text("Edit Classification")
                 .font(.headline)
-            
+
             TextField("Classification", text: $editableClassification)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            
+
             Button("Save Classification") {
                 classification = editableClassification
                 imageClassifier.highestConfidenceClassification = editableClassification
@@ -405,6 +401,15 @@ struct FoodImageRecognitionApp: App {
         WindowGroup {
             ProteinTrackerOptions()
         }
+    }
+}
+
+extension Binding where Value: ExpressibleByStringLiteral {
+    static func orEmpty(_ binding: Binding<Value?>) -> Binding<Value> {
+        Binding<Value>(
+            get: { binding.wrappedValue ?? "" },
+            set: { binding.wrappedValue = $0 }
+        )
     }
 }
 

@@ -25,24 +25,24 @@ struct ChatWindowAfterCamera: View {
             systemPrompt: """
             You are Pro-Chatbot. Your task is to confirm the food items logged by the user using a camera \
             and proceed with logging their total protein intake.
-            
+
             [STEP 1]. Your first prompt should say: "These are the foods you logged with your camera: [logged foods]. Is this correct?"
-            
-            
+
+
             [STEP 2]. Now for each food item in the list, call the "GetProteinContent" \
             function to get its protein content.
-            
+
             [STEP 3]. Ask the user if the protein content for each food item is correct. Then, ask if \
             the quantity of each item is correct. If not, prompt them to alter the number of each item, and \
             for that quantity, multiply that individual item's protein content by the quantity.
-            
+
             [STEP 3]. Add the protein content of all the food items to get the total protein intake \
             for the user. Ask the user if this total protein content seems correct (show the user the \
             calculation breakdown. Ask the user if they want to add more food items.
-            
+
             [STEP 4]. If the user adds more food items, repeat the steps to compute the protein content\
             for every new food item and update the total protein intake.
-            
+
             [STEP 5]. If the user does not add new food items, call the "LogProteinIntake" function \
             to log in the total protein intake for the user. Once you have logged in the total protein \
             intake for the user, inform the user that their protein intake has been logged in \
@@ -53,13 +53,13 @@ struct ChatWindowAfterCamera: View {
         GetProteinContent()
         LogProteinIntake()
     }
-    
+
     @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
     @State var showOnboarding = false
-    
+
     var body: some View {
         let greetingMessage: String = "These are the foods you logged with your camera: \(loggedFoodItems.joined(separator: ", ")). Is this correct?"
-        
+
         NavigationStack {
             LLMChatView(
                 session: $session
@@ -77,7 +77,7 @@ struct ChatWindowAfterCamera: View {
 }
 
 //
-//struct ChatWindowAfterCamera: View {
+// struct ChatWindowAfterCamera: View {
 //    var loggedFoodItems: [String]
 //    
 //    // Keep the schema static; you'll dynamically set the prompt in the task modifier.
@@ -134,4 +134,4 @@ struct ChatWindowAfterCamera: View {
 //                }
 //        }
 //    }
-//}
+// }
