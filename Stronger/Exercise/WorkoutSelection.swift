@@ -24,10 +24,6 @@ struct Workout: Codable {
     let exercise2video: String
     let exercise3video: String
     let exercise4video: String
-    let exercise1video: String
-    let exercise2video: String
-    let exercise3video: String
-    let exercise4video: String
 //    let sets: Int
 //    let reps: String
 //    let resistance: String
@@ -309,7 +305,7 @@ struct WorkoutSelection: View {
 
 
      // Function to get the current user ID
-    private func getCurrentUserID() async throws-> String? {
+    private func getCurrentUserID() async throws -> String? {
         guard let details = try? await account.details else {
             return nil
         }

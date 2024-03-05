@@ -5,9 +5,9 @@
 //  Created by Theodore Kanell on 3/5/24.
 //
 
+import Firebase
 import Foundation
 import SpeziAccount
-import Firebase
 
 class SharedWeekModel: ObservableObject {
     @Published var currentWeek: Int?
