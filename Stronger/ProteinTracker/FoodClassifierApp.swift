@@ -15,130 +15,7 @@ import SwiftUI
 import UIKit
 import Vision
 
-// This is your entry point
-struct ProteinTrackerOptions: View {
-    private var greeting: String {
-        "How would you like to input your meal?"
-    }
-
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text(greeting)
-                    .font(.title)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundColor(.gray)
-                    .padding(.vertical)
-
-                Spacer()
-                // Ensure NavigationLink directs to the correct view
-                NavigationLink(destination: FoodClassifierApp()) {
-                    Text("Input with Camera")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                Spacer()
-                NavigationLink(destination: ChatWindow()) {
-                    Text("Input with ChatBot")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                Spacer()
-            }
-        }
-    }
-}
-
-// ImageClassifier to handle image processing and classification
-class ImageClassifier: ObservableObject {
-    @Published var image: UIImage?
-    @Published var classificationResults: String = "No results"
-    @Published var highestConfidenceClassification: String?
-    @Published var showingClassificationOptions = false
-    @Published var classificationOptions: [String] = []
-    @Published var showAlertAfterLog = false
-    @Published var showNextStepOptions = false
-    @Published var loggedFoodItems: [String] = []
-    @Published var foodLog: [String] = []
-    func prepareForNextSteps() {
-        DispatchQueue.main.async {
-            self.showNextStepOptions = true
-        }
-    }
-    func classifyImage(_ image: UIImage) {
-        guard let ciImage = CIImage(image: image) else {
-            DispatchQueue.main.async {
-                self.classificationResults = "Could not create CIImage from UIImage"
-            }
-            return
-        }
-
-        guard let model = try? VNCoreMLModel(for: MobileNetV2().model) else {
-            DispatchQueue.main.async {
-                self.classificationResults = "Failed to load model"
-            }
-            return
-        }
-
-        let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-            guard let self = self else {
-                return
-            }
-
-            if let error = error {
-                DispatchQueue.main.async {
-                    self.classificationResults = "Classification failed: \(error.localizedDescription)"
-                }
-                return
-            }
-
-            guard let results = request.results as? [VNClassificationObservation] else {
-                DispatchQueue.main.async {
-                    self.classificationResults = "Could not process classification results"
-                }
-                return
-            }
-
-            let topResults = results.prefix(3)
-            self.classificationOptions = topResults.map { "\($0.identifier) (\(String(format: "%.2f", $0.confidence * 100))%)" }
-
-            if let highestResult = topResults.first {
-                DispatchQueue.main.async {
-                    self.highestConfidenceClassification = highestResult.identifier
-                    self.classificationResults = "Highest: \(highestResult.identifier) Confidence: \(Int(highestResult.confidence * 100))%"
-                    self.showingClassificationOptions = true
-                }
-            }
-        }
-
-        let handler = VNImageRequestHandler(ciImage: ciImage)
-        do {
-            try handler.perform([request])
-        } catch {
-            DispatchQueue.main.async {
-                self.classificationResults = "Failed to perform classification request: \(error.localizedDescription)"
-            }
-        }
-    }
-
-    func logFoodItem(_ foodItem: String) {
-        DispatchQueue.main.async {
-            self.loggedFoodItems.append(foodItem)
-            self.classificationResults = "\(foodItem) logged."
-        }
-    }
-}
-
-// Main View of the App
+// main view
 struct FoodClassifierApp: View {
     @StateObject private var imageClassifier = ImageClassifier()
     @State private var showImagePicker = false
@@ -322,6 +199,48 @@ struct FoodClassifierApp: View {
     }
 }
 
+// entry point
+struct ProteinTrackerOptions: View {
+    private var greeting: String {
+        "How would you like to input your meal?"
+    }
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text(greeting)
+                    .font(.title)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundColor(.gray)
+                    .padding(.vertical)
+
+                Spacer()
+                // Ensure NavigationLink directs to the correct view
+                NavigationLink(destination: FoodClassifierApp()) {
+                    Text("Input with Camera")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                Spacer()
+                NavigationLink(destination: ChatWindow()) {
+                    Text("Input with ChatBot")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                Spacer()
+            }
+        }
+    }
+}
 
 // PhotoPicker to handle image selection or capturing
 struct PhotoPicker: UIViewControllerRepresentable {
@@ -408,6 +327,86 @@ struct FoodImageRecognitionApp: App {
     }
 }
 
+// ImageClassifier to handle image processing and classification
+class ImageClassifier: ObservableObject {
+    @Published var image: UIImage?
+    @Published var classificationResults: String = "No results"
+    @Published var highestConfidenceClassification: String?
+    @Published var showingClassificationOptions = false
+    @Published var classificationOptions: [String] = []
+    @Published var showAlertAfterLog = false
+    @Published var showNextStepOptions = false
+    @Published var loggedFoodItems: [String] = []
+    @Published var foodLog: [String] = []
+    func prepareForNextSteps() {
+        DispatchQueue.main.async {
+            self.showNextStepOptions = true
+        }
+    }
+    func classifyImage(_ image: UIImage) {
+        guard let ciImage = CIImage(image: image) else {
+            DispatchQueue.main.async {
+                self.classificationResults = "Could not create CIImage from UIImage"
+            }
+            return
+        }
+
+        guard let model = try? VNCoreMLModel(for: MobileNetV2().model) else {
+            DispatchQueue.main.async {
+                self.classificationResults = "Failed to load model"
+            }
+            return
+        }
+
+        let request = VNCoreMLRequest(model: model) { [weak self] request, error in
+            guard let self = self else {
+                return
+            }
+
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.classificationResults = "Classification failed: \(error.localizedDescription)"
+                }
+                return
+            }
+
+            guard let results = request.results as? [VNClassificationObservation] else {
+                DispatchQueue.main.async {
+                    self.classificationResults = "Could not process classification results"
+                }
+                return
+            }
+
+            let topResults = results.prefix(3)
+            self.classificationOptions = topResults.map { "\($0.identifier) (\(String(format: "%.2f", $0.confidence * 100))%)" }
+
+            if let highestResult = topResults.first {
+                DispatchQueue.main.async {
+                    self.highestConfidenceClassification = highestResult.identifier
+                    self.classificationResults = "Highest: \(highestResult.identifier) Confidence: \(Int(highestResult.confidence * 100))%"
+                    self.showingClassificationOptions = true
+                }
+            }
+        }
+
+        let handler = VNImageRequestHandler(ciImage: ciImage)
+        do {
+            try handler.perform([request])
+        } catch {
+            DispatchQueue.main.async {
+                self.classificationResults = "Failed to perform classification request: \(error.localizedDescription)"
+            }
+        }
+    }
+
+    func logFoodItem(_ foodItem: String) {
+        DispatchQueue.main.async {
+            self.loggedFoodItems.append(foodItem)
+            self.classificationResults = "\(foodItem) logged."
+        }
+    }
+}
+
 extension Binding where Value: ExpressibleByStringLiteral {
     static func orEmpty(_ binding: Binding<Value?>) -> Binding<Value> {
         Binding<Value>(
@@ -415,8 +414,4 @@ extension Binding where Value: ExpressibleByStringLiteral {
             set: { binding.wrappedValue = $0 }
         )
     }
-}
-
-#Preview {
-    ProteinTrackerOptions()
 }
