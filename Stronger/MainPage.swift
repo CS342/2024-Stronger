@@ -63,7 +63,10 @@ struct MainPage: View {
         }
         // .navigationBarTitle("Welcome, Mary")
         .onAppear {
+            DispatchQueue.main.async {
+                    // Call your function to fetch data and update state variables here
                 fetchDataFromFirestore()
+            }
         }
     }
     private func fetchDataFromFirestore() {
@@ -92,7 +95,7 @@ struct MainPage: View {
         } else {
             print("No user is currently signed in.")
         }
-        
+        currProtein = 0
         collectionRef.whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
                          .whereField(FieldPath.documentID(), isLessThan: endDateString)
                          .getDocuments { querySnapshot, error in

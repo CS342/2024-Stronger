@@ -218,6 +218,9 @@
     "Edit Saved Meal" : {
 
     },
+    "Enter Missed Workout" : {
+
+    },
     "Enter Workout Information\n for Week %lld Day %lld." : {
       "localizations" : {
         "en" : {
@@ -353,9 +356,6 @@
 
     },
     "Hello %@" : {
-
-    },
-    "Hello World" : {
 
     },
     "Hello, World!" : {
