@@ -21,7 +21,7 @@ class HomeTests: XCTestCase {
     }
     
     
-    func testApplicationLaunch() throws {
+    func testApplicationHome() throws {
         let app = XCUIApplication()
         XCTAssertEqual(app.state, .runningForeground)
         
@@ -32,5 +32,6 @@ class HomeTests: XCTestCase {
         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
         
         app.buttons["Weekly Stats"].tap()
+        XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
     }
 }

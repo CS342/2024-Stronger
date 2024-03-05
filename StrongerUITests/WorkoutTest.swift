@@ -21,7 +21,7 @@ class WorkoutTests: XCTestCase {
     }
     
     
-    func testApplicationLaunch() throws {
+    func testApplicationWorkout() throws {
         let app = XCUIApplication()
         XCTAssertEqual(app.state, .runningForeground)
         
@@ -29,10 +29,6 @@ class WorkoutTests: XCTestCase {
         app.tabBars["Tab Bar"].buttons["Workout"].tap()
         
         XCTAssertTrue(app.buttons["Enter Missed Workout"].waitForExistence(timeout: 2))
-//        XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
-//        
-//        app.buttons["Weekly Stats"].tap()
-       
         
     }
 }

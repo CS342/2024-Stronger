@@ -21,20 +21,23 @@ class TabTests: XCTestCase {
     }
     
     
-    func testApplicationLaunch() throws {
+    func testApplicationTabSwitching() throws {
         let app = XCUIApplication()
         XCTAssertEqual(app.state, .runningForeground)
         
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Home"].tap()
         
-        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
-        app.tabBars["Tab Bar"].buttons["Workout"].tap()
-        
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["ProBot"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["ProBot"].tap()
         
-        XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 2))
+        app.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+        
+        
 
 //        XCTAssertTrue(app.staticTexts["Contact: Leland Stanford"].waitForExistence(timeout: 2))
 //
