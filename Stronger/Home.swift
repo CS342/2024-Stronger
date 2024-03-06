@@ -42,7 +42,6 @@ struct HomeView: View {
     @State private var presentingAccount = false
     
     var body: some View {
-        Text("Hello")
         TabView(selection: $selectedTab) {
             Summary(presentingAccount: $presentingAccount)
                 .tag(Tabs.home)
@@ -51,7 +50,7 @@ struct HomeView: View {
                 .tabItem {
                     Label("HOME_TAB_TITLE", systemImage: "house.fill")
                 }
-                .id(UUID())
+//                .id(UUID())
 
             WorkoutSelection(presentingAccount: $presentingAccount)
                 .tag(Tabs.workout)

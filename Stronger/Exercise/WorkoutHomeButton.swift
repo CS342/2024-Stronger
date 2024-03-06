@@ -14,8 +14,8 @@ import SwiftUI
 
 struct WorkoutHomeButton: View {
     let viewModel = ExerciseViewModel()
-   // static var exerciseName = "Rows" // Specify name here
-   // let exercise = viewModel.exerciseByName(exerciseName)
+//    static var exerciseName = "Rows" // Specify name here
+    
     
     @Binding var presentingAccount: Bool
 
@@ -25,6 +25,22 @@ struct WorkoutHomeButton: View {
     private var selectedDay: Int
     
     var body: some View {
+        let navLink = NavigationLink(
+            destination: WorkoutInputForm(
+                workoutName: item,
+                presentingAccount: $presentingAccount,
+                selectedWeek: selectedWeek,
+                selectedDay: selectedDay
+            )
+        ) {
+            Text(item)
+                .foregroundColor(.primary)
+                .padding()
+                .frame(width: totalWidth)
+                .background(Color.blue)
+                .cornerRadius(8)
+        }
+        
         GeometryReader { geometry in
             HStack {
                 Spacer()
@@ -51,14 +67,7 @@ struct WorkoutHomeButton: View {
                 .frame(width: geometry.size.width * 0.3) // Set width as 30% of screen width
                 Spacer()
 
-                NavigationLink(destination: WorkoutInputForm(workoutName: item, presentingAccount: $presentingAccount)) {
-                    Text(item)
-                        .foregroundColor(.primary)
-                        .padding()
-                        .frame(width: totalWidth)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                }
+                navLink
             }
             .buttonStyle(PlainButtonStyle())
             .padding()

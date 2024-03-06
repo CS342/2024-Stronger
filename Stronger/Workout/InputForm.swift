@@ -100,6 +100,7 @@ struct WorkoutInputForm: View {
                 }
             }
         }
+//        .navigationBar BackButtonHidden(true)
     }
     
     private var submissionAlert: Alert {
@@ -116,6 +117,14 @@ struct WorkoutInputForm: View {
             }
         )
     }
+  
+     init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
+         self.workoutName = workoutName
+         _presentingAccount = presentingAccount
+         _selectedWeek = State(initialValue: selectedWeek)
+         _selectedDay = State(initialValue: selectedDay)
+     }
+
     
     private func setsDisplay() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -312,6 +321,6 @@ extension String {
 // Preview
 struct InputForm_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false))
+        WorkoutInputForm(workoutName: "Squats", presentingAccount: .constant(false), selectedWeek: 2, selectedDay: 1)
     }
 }

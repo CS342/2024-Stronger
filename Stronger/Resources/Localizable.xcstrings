@@ -33,9 +33,6 @@
     "%@." : {
 
     },
-    "%lld cm" : {
-
-    },
     "%lld g of your %lld g goal." : {
       "localizations" : {
         "en" : {
@@ -45,6 +42,9 @@
           }
         }
       }
+    },
+    "%lld inches" : {
+
     },
     "%lld kg" : {
 
@@ -227,6 +227,9 @@
     "Edit Saved Meal" : {
 
     },
+    "Enter Missed Workout" : {
+
+    },
     "Enter Workout Information\n for Week %lld Day %lld." : {
       "localizations" : {
         "en" : {
@@ -374,9 +377,6 @@
 
     },
     "Hello %@" : {
-
-    },
-    "Hello World" : {
 
     },
     "Hello, World!" : {

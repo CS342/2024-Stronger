@@ -24,10 +24,11 @@ struct ExerciseWeek: View {
     @State private var documents: [DocumentSnapshot] = []
     @Binding var presentingAccount: Bool
     var value: Int
+    var difficulty: String
     @State private var dayOne: String = "Hard"
     @State private var dayTwo: String = "Hard"
     @State private var dayThree: String = "Hard"
-    @State private var averageDifficulties: [Double] = [0, 0, 0]
+    @State private var averageDifficulties: [Double] = [-1, -1, -1]
     
     @State private var weeksSince: Int = 0
     private let defaultColor: Color = .green.opacity(0.3)
@@ -54,10 +55,12 @@ struct ExerciseWeek: View {
             }
         }
     }
+        
     
-    init(value: Int, presentingAccount: Binding<Bool>) {
+    init(value: Int, presentingAccount: Binding<Bool>, difficulty: String) {
         self._presentingAccount = presentingAccount
         self.value = value
+        self.difficulty = difficulty
     }
     
     @ViewBuilder
@@ -80,6 +83,7 @@ struct ExerciseWeek: View {
                     for day in 1...3 {
                         await queryDocumentsForWeekAndDay(week: week, day: day, currentUserID: currentUserID)
                     }
+                    updateDifficulty()
 //                    updateColor()
                 }
             } catch {
@@ -114,51 +118,51 @@ struct ExerciseWeek: View {
     }
     
     
-    // Function to retrieve start day field and calculate weeks elapsed
-    private func calculateWeeksElapsed() async throws -> Int? {
-        // Get current user ID
-        guard let userID = try await getCurrentUserID() else {
-            return nil
-        }
-
-        // Reference to Firestore database
-        let dbe = Firestore.firestore()
-
-        // Reference to document for current user
-        let userDocRef = dbe.collection("users").document(userID)
-
-        // Get snapshot of document
-        let userDocSnapshot = try await userDocRef.getDocument()
-
-        // Check if document exists and contains start day field
-        guard let userData = userDocSnapshot.data(),
-              let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
-            print("did not find start day key", userID)
-            return nil
-        }
-        
-        print("Found start date key", userID)
-        // Get start date from Timestamp
-        var startDayDate = startDayTimestamp.dateValue()
-
-        // Get current date
-        let currentDate = Date()
-
-        // Get Calendar instance
-        let calendar = Calendar.current
-        
-        // Move start day to closest Monday
-        let weekday = calendar.component(.weekday, from: startDayDate)
-        let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
-        startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-
-
-        // Calculate difference in weeks between start day and current date
-        let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
-        let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
-        
-        return weeksElapsed
-    }
+//    // Function to retrieve start day field and calculate weeks elapsed
+//    private func calculateWeeksElapsed() async throws -> Int? {
+//        // Get current user ID
+//        guard let userID = try await getCurrentUserID() else {
+//            return nil
+//        }
+//
+//        // Reference to Firestore database
+//        let dbe = Firestore.firestore()
+//
+//        // Reference to document for current user
+//        let userDocRef = dbe.collection("users").document(userID)
+//
+//        // Get snapshot of document
+//        let userDocSnapshot = try await userDocRef.getDocument()
+//
+//        // Check if document exists and contains start day field
+//        guard let userData = userDocSnapshot.data(),
+//              let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
+//            print("did not find start day key", userID)
+//            return nil
+//        }
+//        
+//        print("Found start date key", userID)
+//        // Get start date from Timestamp
+//        var startDayDate = startDayTimestamp.dateValue()
+//
+//        // Get current date
+//        let currentDate = Date()
+//
+//        // Get Calendar instance
+//        let calendar = Calendar.current
+//        
+//        // Move start day to closest Monday
+//        let weekday = calendar.component(.weekday, from: startDayDate)
+//        let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
+//        startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
+//
+//
+//        // Calculate difference in weeks between start day and current date
+//        let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
+//        let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
+//        
+//        return weeksElapsed
+//    }
 
     // Function to process queried documents and calculate average difficulty
     private func processDocuments(_ documents: [QueryDocumentSnapshot], forWeek week: Int, andDay day: Int) async throws {
@@ -169,11 +173,11 @@ struct ExerciseWeek: View {
             let data = document.data()
             if let difficulty = data["difficulty"] as? String {
                 switch difficulty {
-                case "easy":
+                case "Easy":
                     totalDifficulty += 1 // Assuming easy is represented as 1
-                case "medium":
+                case "Medium":
                     totalDifficulty += 2 // Assuming medium is represented as 2
-                case "hard":
+                case "Hard":
                     totalDifficulty += 3 // Assuming hard is represented as 3
                 default:
                     break
@@ -197,32 +201,33 @@ struct ExerciseWeek: View {
         averageDifficulties[day - 1] = averageDifficulty
     }
     
-//    private func updateColor() {
-//        for button in 1...3 {
-//            let averageDifficulty = averageDifficulties[button - 1]
-//            switch averageDifficulty {
-//            case 0..<1:
-//                colorOne = button == 1 ? .gray.opacity(0.5) : colorOne
-//                colorTwo = button == 2 ? .gray.opacity(0.5) : colorTwo
-//                colorThree = button == 3 ? .gray.opacity(0.5) : colorThree
-//            case 1..<2:
-//                colorOne = button == 1 ? .green.opacity(0.3) : colorOne
-//                colorTwo = button == 2 ? .green.opacity(0.3) : colorTwo
-//                colorThree = button == 3 ? .green.opacity(0.3) : colorThree
-//            case 2..<3:
-//                colorOne = button == 1 ? .green.opacity(0.75) : colorOne
-//                colorTwo = button == 2 ? .green.opacity(0.75) : colorTwo
-//                colorThree = button == 3 ? .green.opacity(0.75) : colorThree
-//            default:
-//                colorOne = button == 1 ? .green : colorOne
-//                colorTwo = button == 2 ? .green : colorTwo
-//                colorThree = button == 3 ? .green : colorThree
-//            }
-//        }
-//        print("We are updating color", colorOne, colorTwo, colorThree)
-//    }
+    private func updateDifficulty() {
+        for button in 1...3 {
+            let averageDifficulty = averageDifficulties[button - 1]
+            print("button: \(button), averageDifficulty: \(averageDifficulty)")
+            switch averageDifficulty {
+            case 0..<1:
+                dayOne = button == 1 ? "Easy" : dayOne
+                dayTwo = button == 2 ? "Easy" : dayTwo
+                dayThree = button == 3 ? "Easy" : dayThree
+            case 1..<2:
+                dayOne = button == 1 ? "Medium" : dayOne
+                dayTwo = button == 2 ? "Medium" : dayTwo
+                dayThree = button == 3 ? "Medium" : dayThree
+            case 2..<3:
+                dayOne = button == 1 ? "Hard" : dayOne
+                dayTwo = button == 2 ? "Hard" : dayTwo
+                dayThree = button == 3 ? "Hard" : dayThree
+            default:
+                dayOne = button == 1 ? "Incomplete" : dayOne
+                dayTwo = button == 2 ? "Incomplete" : dayTwo
+                dayThree = button == 3 ? "Incomplete" : dayThree
+            }
+        }
+        print("We are updating difficulty", dayOne, dayTwo, dayThree)
+    }
 }
 
 #Preview {
-                ExerciseWeek(value: 1, presentingAccount: .constant(false))
+    ExerciseWeek(value: 1, presentingAccount: .constant(false), difficulty: "Medium")
 }
