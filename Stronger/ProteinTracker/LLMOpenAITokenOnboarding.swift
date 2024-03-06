@@ -10,7 +10,6 @@ import SpeziLLMOpenAI
 import SpeziOnboarding
 import SwiftUI
 
-
 /// Onboarding view that gets the OpenAI token from the user.
 struct LLMOpenAITokenOnboarding: View {
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
@@ -21,7 +20,6 @@ struct LLMOpenAITokenOnboarding: View {
         }
     }
 }
-
 
 #Preview {
     OnboardingStack {
