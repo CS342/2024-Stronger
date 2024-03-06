@@ -10,25 +10,70 @@
 //
 
 
-import Firebase
 import FirebaseAuth
+import Firebase
 import FirebaseCore
 import FirebaseFirestore
+import PDFKit
 import SpeziAccount
 import SwiftUI
+import WebKit
 
+struct PDFViewer: View {
+    var body: some View {
+        if let path = Bundle.main.path(forResource: "measurements", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
+            PDFKitView(pdfDocument: pdfDocument)
+        } else {
+            Text("Unable to load the PDF file.")
+        }
+    }
+}
+// Create a PDFKitView to wrap the PDFKit's PDFView
+struct PDFKitView: UIViewRepresentable {
+    let pdfDocument: PDFDocument
+    func makeUIView(context: Context) -> PDFView {
+        let pdfView = PDFView()
+        pdfView.document = pdfDocument
+        pdfView.autoScales = true
+        return pdfView
+    }
+    func updateUIView(_ uiView: PDFView, context: Context) {
+        // Update the view if needed
+    }
+}
+
+struct EstimatePortionButton: View {
+    @Binding var showingPDF: Bool
+    var body: some View {
+        Button(action: {
+            showingPDF = true
+        }) {
+            Text("Estimate Portion Size?")
+                
+                .font(.system(size: 10))
+                .padding()
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+        }
+        .padding() // Adjust padding as needed
+        .sheet(isPresented: $showingPDF) {
+            PDFViewer()
+        }
+    }
+}
 
 struct MainPage: View {
     @State private var userID: String = "temp"
     @State private var currProtein: Double = 0.0
     @State private var targetProtein: Double = 0.0
-    
+    @State private var showingPDF = false
     @Environment(Account.self) var account
     
 //    private var targetProtein: Double = 0.0
         
     var body: some View {
-        @ScaledMetric var proteinVStackSpace = 10
+        @ScaledMetric var proteinVStackSpace = 0.0000000000000002
         NavigationView {
         VStack {
                 VStack {
@@ -64,9 +109,10 @@ struct MainPage: View {
                             NavigationLink(destination: ChatWindow()) {
                                 Text("Log more with ProBot!")
                             }
+                            EstimatePortionButton(showingPDF: $showingPDF)
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.45)
-                    }.padding()
+                    }
                     NavigationLink(destination: ProteinStats().id(UUID())) {
                         Text("Weekly Stats")
                             .padding()
