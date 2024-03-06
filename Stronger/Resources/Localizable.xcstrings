@@ -240,6 +240,9 @@
         }
       }
     },
+    "Estimate Portion Size?" : {
+
+    },
     "Exercise named %@ not found" : {
 
     },
@@ -645,10 +648,10 @@
     "Protein Content" : {
 
     },
-    "Protein Data" : {
+    "Protein intake (grams)" : {
 
     },
-    "Protein intake (grams)" : {
+    "Protein Intake Data" : {
 
     },
     "Protein intake in the last 7 days" : {
@@ -799,6 +802,9 @@
       }
     },
     "This Week's Fitness Progress\n" : {
+
+    },
+    "Unable to load the PDF file." : {
 
     },
     "Upload Exercise Log" : {
