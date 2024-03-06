@@ -34,7 +34,7 @@ struct ProteinStats: View {
 
     var body: some View {
         VStack {
-            Text("Protein Data")
+            Text("Protein Intake Data")
                 .font(.title)
             Spacer()
             Spacer()
