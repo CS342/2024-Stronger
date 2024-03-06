@@ -108,7 +108,16 @@
     "Change Protein Content" : {
 
     },
+    "Choose an option" : {
+
+    },
+    "Choose from Library" : {
+
+    },
     "Choose From Your Common foods" : {
+
+    },
+    "Classification" : {
 
     },
     "Click an item image to edit or next to continue" : {
@@ -209,6 +218,9 @@
     "Day %lld" : {
 
     },
+    "Edit Classification" : {
+
+    },
     "Edit Meal Content" : {
 
     },
@@ -246,13 +258,25 @@
     "Female" : {
 
     },
+    "Finish Logging" : {
+
+    },
     "Food" : {
 
     },
     "Food Change Options" : {
 
     },
+    "Food Image Classifier" : {
+
+    },
+    "Food Logged" : {
+
+    },
     "food name placeholder" : {
+
+    },
+    "Food Tracking" : {
 
     },
     "FOOD_TAB_TITLE" : {
@@ -375,10 +399,19 @@
     "How do you want to change your food option?" : {
 
     },
+    "image" : {
+
+    },
     "Incomplete" : {
 
     },
     "Input New Food to Chat" : {
+
+    },
+    "Input with Camera" : {
+
+    },
+    "Input with ChatBot" : {
 
     },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
@@ -514,6 +547,12 @@
     "Log %@" : {
 
     },
+    "Log Another Food" : {
+
+    },
+    "Log Food" : {
+
+    },
     "Log more with ProBot!" : {
 
     },
@@ -631,6 +670,9 @@
     "Save Changes" : {
 
     },
+    "Save Classification" : {
+
+    },
     "Saved Meal" : {
 
     },
@@ -648,6 +690,9 @@
 
     },
     "Select Difficulty" : {
+
+    },
+    "Select or Take Picture" : {
 
     },
     "Select Resistance" : {
@@ -692,6 +737,12 @@
 
     },
     "Submit" : {
+
+    },
+    "Take Photo" : {
+
+    },
+    "Tap below to select an image or take a picture" : {
 
     },
     "Target Protein Intake" : {
@@ -887,6 +938,9 @@
           }
         }
       }
+    },
+    "What would you like to do next?" : {
+
     },
     "Woman working out" : {
 

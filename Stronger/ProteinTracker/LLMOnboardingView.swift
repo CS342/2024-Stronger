@@ -15,7 +15,7 @@ import SwiftUI
 
 struct LLMOnboardingView: View {
     @Binding var showOnboarding: Bool
-    
+
     var body: some View {
         OnboardingStack(onboardingFlowComplete: !$showOnboarding) {
             LLMOpenAITokenOnboarding()

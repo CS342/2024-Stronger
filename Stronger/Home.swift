@@ -31,7 +31,7 @@ struct HomeView: View {
     enum Tabs: String {
         case home
         case workout
-        case chatWindow
+        case foodClassifierApp
     }
     
     static var accountEnabled: Bool {
@@ -58,10 +58,10 @@ struct HomeView: View {
                     Label("Workout", systemImage: "dumbbell.fill") // change icon later
                 }
             // TabViewChatWindow()
-            ChatWindow()
-                .tag(Tabs.chatWindow)
+            ProteinTrackerOptions()
+                .tag(Tabs.foodClassifierApp)
                 .tabItem {
-                    Label("ProBot", systemImage: "fork.knife")
+                    Label("Food Tracking", systemImage: "fork.knife")
                 }
         }
             .sheet(isPresented: $presentingAccount) {

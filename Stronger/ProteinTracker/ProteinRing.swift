@@ -11,7 +11,6 @@
 
 import SwiftUI
 
-
 struct ProteinRing: View {
     @State private var drawingStroke = false
 //    @State private var strawberry = Color(red: 1, green: 0.1857388616, blue: 0.5733950138, opacity: 1)
@@ -19,9 +18,9 @@ struct ProteinRing: View {
     @State private var animation = Animation
             .easeOut(duration: 5)
             .delay(1)
-    
+
     private var fractionComplete: Float
-    
+
     var body: some View {
         ZStack {
                 ring(for: strawberry)
@@ -34,12 +33,12 @@ struct ProteinRing: View {
                     }
         }
     }
-    
+
     init(fracComplete: Float = 0.0) {
         fractionComplete = fracComplete
         print("fractioncomplete is = \(fractionComplete)")
     }
-    
+
     private func ring(for color: Color) -> some View {
         // Background ring
         Circle()
