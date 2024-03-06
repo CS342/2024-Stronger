@@ -15,6 +15,7 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
 import PDFKit
+import SpeziAccount
 import SwiftUI
 import WebKit
 
@@ -66,10 +67,13 @@ struct EstimatePortionButton: View {
 }
 
 struct MainPage: View {
-    @State private var userID: String = "jtulika"
-    @State private var targetProtein: Float = 45.0
-    @State private var currProtein: Float = 0.0
+    @State private var userID: String = "temp"
+    @State private var currProtein: Double = 0.0
+    @State private var targetProtein: Double = 0.0
     @State private var showingPDF = false
+  
+    @Environment(Account.self) var account
+
     var body: some View {
         @ScaledMetric var proteinVStackSpace = 0.0000000000000002
         NavigationView {
@@ -77,12 +81,27 @@ struct MainPage: View {
                 VStack {
                     HStack {
                         ZStack {
-                            var fractionComplete: Float = currProtein / targetProtein
+//                            if let tarProtein = targetProtein {
+//                                let fractionComplete: Double = currProtein / tarProtein
+//                                ProteinRing(fracComplete: fractionComplete)
+//                                Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein!)) g")
+//                            } else {
+//                            }
+                            
+//                            if targetProtein != 0 {
+//                                let fractionComplete: Double = currProtein / targetProtein
+//                                ProteinRing(fracComplete: fractionComplete)
+//                                Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
+//                            } else {
+//
+//                            }
+                            
+                            let fractionComplete: Double = currProtein / targetProtein
                             ProteinRing(fracComplete: fractionComplete)
                             Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.45)
-                        Spacer()
+//                        Spacer()
                         VStack(spacing: proteinVStackSpace) {
                             Text("Daily Protein")
                                 .font(.title)
@@ -94,9 +113,10 @@ struct MainPage: View {
                             }
                             EstimatePortionButton(showingPDF: $showingPDF)
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                        .frame(width: UIScreen.main.bounds.width * 0.45) 
                     }
-                    NavigationLink(destination: ProteinStats()) {
+                    NavigationLink(destination: ProteinStats().id(UUID())) {
+
                         Text("Weekly Stats")
                             .padding()
                             .background(Color.green)
@@ -110,14 +130,31 @@ struct MainPage: View {
 //            Text("this is where the exercise buttons/stats will show")
         }
         }
-        // .navigationBarTitle("Welcome, Mary")
         .onAppear {
-            DispatchQueue.main.async {
-                    // Call your function to fetch data and update state variables here
-                fetchDataFromFirestore()
+            Task {
+                targetProtein = try await getdailyTargetProtein()
             }
+            fetchDataFromFirestore()
         }
     }
+    
+    init(target: Double = 0.0) {
+        targetProtein = target
+        print("targetProtein is = \(targetProtein)")
+    }
+    
+    private func getdailyTargetProtein() async throws -> Double {
+        guard let details = try await account.details else {
+            return 48.0
+        }
+        if let weight = details.weight {
+            targetProtein = Double(weight) * 0.8
+            return targetProtein
+        } else {
+            return 48.0
+        }
+    }
+    
     private func fetchDataFromFirestore() {
         let firestoreDB = Firestore.firestore()
         let dateFormatter = DateFormatter()
@@ -136,14 +173,15 @@ struct MainPage: View {
             endDateString = dateFormatter.string(from: startOfDay)
         }
         
-        let collectionRef = firestoreDB.collection("users").document(userID).collection("ProteinIntake")
-        
         if let currentUser = Auth.auth().currentUser {
             userID = currentUser.uid
             print("User ID: \(userID)")
         } else {
             print("No user is currently signed in.")
         }
+        
+        let collectionRef = firestoreDB.collection("users").document(userID).collection("ProteinIntake")
+        
         currProtein = 0
         collectionRef.whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
                          .whereField(FieldPath.documentID(), isLessThan: endDateString)
@@ -156,7 +194,7 @@ struct MainPage: View {
                              if let temp = querySnapshot {
                                  for document in temp.documents {
                                      if let proteinContentString = document.data()["protein content"] as? String {
-                                         if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Float.init) {
+                                         if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
                                              currProtein += numericValue
                                          }
                                      }
@@ -167,6 +205,7 @@ struct MainPage: View {
                          }
     }
 }
+
 
 #Preview {
     MainPage()

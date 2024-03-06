@@ -39,6 +39,7 @@ struct SummaryView: View {
     // @State private var dietValue: Double = 80
     // @State private var totalProtein: Double = 66
     @State private var selectedWeek: Int?
+    @State private var targetProtein: Double?
 
     var body: some View {
         VStack {
@@ -56,27 +57,55 @@ struct SummaryView: View {
                 Text("Hello")
             }
             
-            MainPage()
+//            if let targetProtein {
+//                MainPage(targetProtein: 45.0)
+//            } else {
+//                
+//            }
 //                .id(UUID())
-  
+
+            if let target = targetProtein {
+                MainPage(target: target)
+            } else {
+                MainPage(target: 65.0)
+            }
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: selectedWeek ?? 3, presentingAccount: $presentingAccount, difficulty: "Hard")
                 .padding(.bottom, 20)
-            Spacer()
+//            Spacer()
             Spacer()
             Text("Last Week's Fitness Progress\n")
                 .padding(.top, 10)
             ExerciseWeek(value: (selectedWeek ?? 1) - 1, presentingAccount: $presentingAccount, difficulty: "Medium")
-            Spacer()
+//            Spacer()
         }
         .onAppear {
             Task {
                 selectedWeek = try? await calculateWeeksElapsed()
                 print("selected week in summaryView \(selectedWeek)")
+                targetProtein = try await getdailyTargetProtein()
+                print("Daily target protein intake is \(targetProtein)")
+            }
+            Task {
+                targetProtein = try await getdailyTargetProtein()
+                print("Daily target protein intake is \(targetProtein)")
             }
         }
         .padding()
     }
+    
+    private func getdailyTargetProtein() async throws -> Double {
+        guard let details = try await account.details else {
+            return 0.0
+        }
+        if let weight = details.weight {
+            let target = Double(weight) * 0.8
+            return target
+        } else {
+            return 0.0
+        }
+    }
+
     
     // Function to get the current user ID
    private func getCurrentUserID() async throws -> String? {
