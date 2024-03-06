@@ -22,16 +22,16 @@ struct ProteinRing: View {
     private var fractionComplete: Float
 
     var body: some View {
-        ZStack {
+//        ZStack {
                 ring(for: strawberry)
-                    .frame(width: 160)
+                    .frame(width: 120, height: 120)
 //                    .animation(animation, value: drawingStroke)
                     .onAppear {
                         drawingStroke.toggle()
                         drawingStroke = true
                         print("Inside the ring's onAppear. self.fractionComplete = \(fractionComplete)")
                     }
-        }
+//        }
     }
 
     init(fracComplete: Float = 0.0) {
@@ -42,7 +42,7 @@ struct ProteinRing: View {
     private func ring(for color: Color) -> some View {
         // Background ring
         Circle()
-            .stroke(style: StrokeStyle(lineWidth: 20))
+            .stroke(style: StrokeStyle(lineWidth: 10))
             .foregroundStyle(.tertiary)
             .overlay {
                 // Foreground ring

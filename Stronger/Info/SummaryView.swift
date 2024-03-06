@@ -48,7 +48,7 @@ struct SummaryView: View {
                     Text("Hello \(name.formatted(.name(style: .medium)))")
                         .font(.title)
                         .multilineTextAlignment(.center)
-//                        .padding(.bottom, 50)
+//                      .padding(.bottom, 50)
                 } else {
                     Text("Hello")
                 }
@@ -58,10 +58,7 @@ struct SummaryView: View {
             
             MainPage()
 //                .id(UUID())
-            Spacer()
-            Spacer()
-            Spacer()
-            Spacer()
+  
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: selectedWeek ?? 3, presentingAccount: $presentingAccount, difficulty: "Hard")
                 .padding(.bottom, 20)
