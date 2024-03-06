@@ -11,6 +11,7 @@
 
 import Charts
 import Firebase
+import SpeziAccount
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
@@ -23,16 +24,22 @@ struct ProteinDataDaily: Identifiable {
 }
 
 struct ProteinStats: View {
-    @State private var userID: String = "jtulika"
+    @State private var userID: String = "temp"
     @State private var dailyTargetProtein: Double = 45.0
     @State private var averageWeeklyProtein: Double = 0.0
     @State private var strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
     @State private var weeklyData: [ProteinDataDaily] = []
+    
+    @Environment(Account.self) var account
 
     var body: some View {
         VStack {
-            Text("Protein Intake Data")
+            Text("Protein Data")
                 .font(.title)
+            Spacer()
+            Spacer()
+            
+            
             Text("Protein intake in the last 7 days")
                 .font(.headline)
             Chart {
@@ -59,36 +66,84 @@ struct ProteinStats: View {
             .chartLegend(position: .bottom, spacing: 20)
             .chartForegroundStyleScale(["Daily target": Color.orange, "Weekly average": Color.pink])
             .frame(height: 300)
-            .onAppear {
-                fetchDataFromFirestore()
-            }
+            
+            Spacer()
+            
+            Text(getTextualSummary())
+            
+            Spacer()
+            
         }
         .padding()
-//        .chartXAxis(content: {
-//            AxisMarks { value in
-//                AxisValueLabel {
-//                    if let date = value.as(String.self) {
-//                        Text(date)
-//                            .rotationEffect(Angle(degrees: -45))
-//                            .padding()
-//                    }
-//                }
-//            }
-//        }
-//        )
+        .onAppear {
+                    fetchDataFromFirestore()
+                    weeklyData.sort { $0.date < $1.date }
+                    print(weeklyData)
+            Task {
+                dailyTargetProtein = try await getdailyTargetProtein()
+            }
+                }
+    }
+    
+    @MainActor private func getTextualSummary() -> String {
+        let target = (dailyTargetProtein * 10).rounded() / 10
+        let avg = (averageWeeklyProtein * 10).rounded() / 10
+        let message = """
+your daily protein target is \(target) g. You have consumed an average of \(avg) g \
+of protein per day this week.
+"""
+        if let details = account.details {
+            if let name = details.name {
+                if let givenName = name.givenName {
+                    return "Hello \(givenName), " + message
+                } else {
+                    return "Hello, " + message
+                }
+            } else {
+                return "Hello, " + message
+            }
+        } else {
+            return "Hello, " + message
+        }
     }
 
     private func getLastWeekDates() -> [Date] {
-        let calendar = Calendar.current
+        var calendar = Calendar(identifier: .gregorian)
+        if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
+            calendar.timeZone = tzPST
+        } else {
+        }
         var dates = [Date]()
         let today = Date()
+        print("today = \(today)")
         for index in 0...6 {
             if let date = calendar.date(byAdding: .day, value: -index, to: today) {
                 dates.append(date)
             }
         }
-        dates = dates.reversed()
-        return dates
+        return dates.reversed()
+    }
+    
+    private func getUserID() -> String {
+        if let currentUser = Auth.auth().currentUser {
+            userID = currentUser.uid
+            print("User ID: \(userID)")
+        } else {
+            print("No user is currently signed in.")
+        }
+        return userID
+    }
+    
+    private func getdailyTargetProtein() async throws -> Double {
+        guard let details = try await account.details else {
+            return dailyTargetProtein
+        }
+        if let weight = details.weight {
+            dailyTargetProtein = Double(weight) * 0.8
+            return dailyTargetProtein
+        } else {
+            return dailyTargetProtein
+        }
     }
 
     private func fetchDataFromFirestore() {
@@ -98,20 +153,16 @@ struct ProteinStats: View {
         dateFormatterXLabel.dateFormat = "MM-dd"
 
         let dates = getLastWeekDates()
-        let calendar = Calendar.current
-
-//        var dates = [Date]()
-//        let today = Date()
-//        
-//        for index in 0...6 {
-//            if let date = calendar.date(byAdding: .day, value: -index, to: today) {
-//                dates.append(date)
-//            }
-//        }
-//        dates = dates.reversed()
+        var calendar = Calendar(identifier: .gregorian)
+        if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
+            calendar.timeZone = tzPST
+        } else {
+        }
+        
+        userID = getUserID()
 
         let collectionRef = Firestore.firestore().collection("users").document(userID).collection("ProteinIntake")
-
+        print("Dates = \(dates)")
         for date in dates {
             let startOfDay = calendar.startOfDay(for: date)
             var endOfDay = calendar.startOfDay(for: date)
@@ -123,13 +174,6 @@ struct ProteinStats: View {
 //            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
             let startDateString = dateFormatter.string(from: startOfDay)
             let endDateString = dateFormatter.string(from: endOfDay)
-
-            if let currentUser = Auth.auth().currentUser {
-                userID = currentUser.uid
-                print("User ID: \(userID)")
-            } else {
-                print("No user is currently signed in.")
-            }
 
             let storeDateString = dateFormatterXLabel.string(from: startOfDay)
             var proteinContent = 0.0
@@ -152,18 +196,12 @@ struct ProteinStats: View {
                      } else {
                          print("There are no documents for startDate = \(startOfDay) and endDate = \(endOfDay)")
                      }
-//                    for document in querySnapshot!.documents {
-//                        if let proteinContentString = document.data()["protein content"] as? String {
-//                            if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
-//                                proteinContent += numericValue
-//                            }
-//                        }
-//                    }
                  print("Protein content value is \(proteinContent)")
                  averageWeeklyProtein += (proteinContent / 7)
                  weeklyData.append(.init(date: storeDateString, protein: proteinContent))
                              }
         }
+        weeklyData.sort { $0.date < $1.date }
     }
 }
 
