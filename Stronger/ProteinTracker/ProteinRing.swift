@@ -14,16 +14,16 @@ import SwiftUI
 struct ProteinRing: View {
     @State private var drawingStroke = false
 //    @State private var strawberry = Color(red: 1, green: 0.1857388616, blue: 0.5733950138, opacity: 1)
-    @State private var strawberry = Color(.orange)
     @State private var animation = Animation
             .easeOut(duration: 5)
             .delay(1)
 
-    private var fractionComplete: Float
+    private var fractionComplete: Double
+    private var color: Color
 
     var body: some View {
         ZStack {
-                ring(for: strawberry)
+                ring(for: color)
                     .frame(width: 160)
 //                    .animation(animation, value: drawingStroke)
                     .onAppear {
@@ -34,8 +34,15 @@ struct ProteinRing: View {
         }
     }
 
-    init(fracComplete: Float = 0.0) {
+    init(fracComplete: Double = 0.0) {
         fractionComplete = fracComplete
+        if fractionComplete >= 0.0 && fractionComplete < 0.66 {
+            color = Color(.red)
+        } else if fractionComplete >= 0.66 && fractionComplete < 0.98 {
+            color = Color(.orange)
+        } else {
+            color = Color(.green)
+        }
         print("fractioncomplete is = \(fractionComplete)")
     }
 
