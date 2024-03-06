@@ -11,10 +11,10 @@
 
 
 import Firebase
-import SpeziAccount
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
+import SpeziAccount
 import SwiftUI
 
 
@@ -26,11 +26,6 @@ struct MainPage: View {
     @Environment(Account.self) var account
     
 //    private var targetProtein: Double = 0.0
-    
-    init(target: Double = 0.0) {
-        targetProtein = target
-        print("targetProtein is = \(targetProtein)")
-    }
         
     var body: some View {
         @ScaledMetric var proteinVStackSpace = 10
@@ -92,6 +87,11 @@ struct MainPage: View {
             }
             fetchDataFromFirestore()
         }
+    }
+    
+    init(target: Double = 0.0) {
+        targetProtein = target
+        print("targetProtein is = \(targetProtein)")
     }
     
     private func getdailyTargetProtein() async throws -> Double {
@@ -156,8 +156,6 @@ struct MainPage: View {
                          }
     }
 }
-
-
 
 
 #Preview {

@@ -11,10 +11,10 @@
 
 import Charts
 import Firebase
-import SpeziAccount
 import FirebaseAuth
 import FirebaseCore
 import FirebaseFirestore
+import SpeziAccount
 import SwiftUI
 
 struct ProteinDataDaily: Identifiable {
@@ -72,7 +72,6 @@ struct ProteinStats: View {
             Text(getTextualSummary())
             
             Spacer()
-            
         }
         .padding()
         .onAppear {
@@ -82,10 +81,11 @@ struct ProteinStats: View {
             Task {
                 dailyTargetProtein = try await getdailyTargetProtein()
             }
-                }
+        }
     }
     
-    @MainActor private func getTextualSummary() -> String {
+    @MainActor
+    private func getTextualSummary() -> String {
         let target = (dailyTargetProtein * 10).rounded() / 10
         let avg = (averageWeeklyProtein * 10).rounded() / 10
         let message = """
