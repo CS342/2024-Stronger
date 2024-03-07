@@ -89,7 +89,7 @@ struct WorkoutInputForm: View {
             }
             .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToWorkoutSelection) {
-                WorkoutHome(presentingAccount: $presentingAccount)
+                WorkoutSelection(presentingAccount: $presentingAccount)
             }
             .onChange(of: populateWithPreviousData) {
                 handleToggleChange(to: populateWithPreviousData)

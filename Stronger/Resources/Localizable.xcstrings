@@ -49,6 +49,9 @@
     "%lld kg" : {
 
     },
+    "%lld lbs" : {
+
+    },
     "ACCOUNT_NEXT" : {
       "localizations" : {
         "en" : {

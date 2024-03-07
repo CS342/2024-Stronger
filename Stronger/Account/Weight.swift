@@ -47,7 +47,7 @@ extension WeightKey {
             HStack {
                 Text(WeightKey.name)
                 Spacer()
-                Text("\(weight) kg")
+                Text("\(weight) lbs")
                     .foregroundColor(.secondary)
             }
             .accessibilityElement(children: .combine)
