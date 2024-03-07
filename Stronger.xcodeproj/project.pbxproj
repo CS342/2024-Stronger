@@ -130,6 +130,7 @@
 		653A2551283387FE005D4D48 /* Stronger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* Stronger.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* StrongerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* StrongerTests.swift */; };
+		7DBE5D1F2B9A5AB7001C2E7C /* WorkoutSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE5D1E2B9A5AB7001C2E7C /* WorkoutSelections.swift */; };
 		7DE98D812B69D96300449C81 /* InputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE98D802B69D96300449C81 /* InputForm.swift */; };
 		9733CFC62A8066DE001B7ABC /* SpeziOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE5DC8029EDD91D004B9AB4 /* SpeziOnboarding */; };
 		9739A0C62AD7B5730084BEA5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9739A0C52AD7B5730084BEA5 /* FirebaseStorage */; };
@@ -259,6 +260,7 @@
 		653A256128338800005D4D48 /* StrongerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongerTests.swift; sourceTree = "<group>"; };
 		653A256728338800005D4D48 /* StrongerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrongerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DBE5D1E2B9A5AB7001C2E7C /* WorkoutSelections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelections.swift; sourceTree = "<group>"; };
 		7DE98D802B69D96300449C81 /* InputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputForm.swift; sourceTree = "<group>"; };
 		A9720E422ABB68CC00872D23 /* AccountSetupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupHeader.swift; sourceTree = "<group>"; };
 		A9DFE8A82ABE551400428242 /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				38C4563D2B96CF3B009D69AA /* WorkoutHomeButton.swift */,
 				4051334C2B8C8D5400ED62BA /* WorkoutHome.swift */,
 				4051334E2B8C9D8100ED62BA /* UploadDummyData.swift */,
+				7DBE5D1E2B9A5AB7001C2E7C /* WorkoutSelections.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				6325F3932B830B9C00A31314 /* ProteinRing.swift in Sources */,
 				4011141D2B83FCD1000083A2 /* SummaryView.swift in Sources */,
 				4011141A2B7EE59A000083A2 /* ProgressCircle.swift in Sources */,
+				7DBE5D1F2B9A5AB7001C2E7C /* WorkoutSelections.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* StrongerTestingSetup.swift in Sources */,
 				7DE98D812B69D96300449C81 /* InputForm.swift in Sources */,
 				2FE5DC5329EDD7FA004B9AB4 /* Bundle+Questionnaire.swift in Sources */,
