@@ -284,13 +284,13 @@ struct WorkoutSelection: View {
                 } else {
                     // Check if there are documents with selectedDay equal to 1
                     let selectedDay1Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 2 }.count ?? 0
-                    if selectedDay1Count > 0 {
+                    if selectedDay1Count > 3 {
                         print("Documents found with selectedDay equal to 2. Setting selectedDay to 3.")
                         self.selectedDay = 3
                     } else {
                         // Check if there are documents with selectedDay equal to 2
                         let selectedDay2Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 1 }.count ?? 0
-                        if selectedDay2Count > 0 {
+                        if selectedDay2Count > 3 {
                             print("Documents found with selectedDay equal to 1. Setting selectedDay to 2.")
                             self.selectedDay = 2
                         } else {
