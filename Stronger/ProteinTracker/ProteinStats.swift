@@ -144,7 +144,7 @@ of protein per day this week.
         }
     }
     
-    private func fetchDataFromFirestore() async throws {   // swiftlint:disable:this function_body_length
+    private func fetchDataFromFirestore() async throws {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateFormatterXLabel = DateFormatter()

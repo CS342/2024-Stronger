@@ -67,11 +67,9 @@ struct MainPage: View {
     @State private var currProtein: Double = 0.0
     @State private var showingPDF = false
     @Environment(Account.self) var account
-    
-//    private var targetProtein: Double = 0.0
-        
+            
     var body: some View {
-        @ScaledMetric var proteinVStackSpace = 0.0000000000000002
+        @ScaledMetric var proteinVStackSpace = 0.0
         NavigationView {
         VStack {
                 VStack {
@@ -119,7 +117,7 @@ struct MainPage: View {
             return 48.0
         }
         if let weight = details.weight {
-            return Double(weight) * 0.8
+            return Double(weight) * 0.8 / 2.2
         } else {
             return 48.0
         }
