@@ -241,7 +241,7 @@ struct WorkoutSelection: View {
             }
         }
     
-    private func populateUniqueValuesSet(from documents: [QueryDocumentSnapshot]) -> Set<String> {
+    private func populateUniqueValuesSet(from documents: [QueryDocumentSnapshot] = []) -> Set<String> {
         var uniqueValuesSet = Set<String>()
         
         // Iterate over documents to populate the set
@@ -271,8 +271,12 @@ struct WorkoutSelection: View {
             if let error = error {
                 print("Error fetching documents: \(error)")
             } else {
+                guard let querySnapshot = querySnapshot else {
+                    print("querySnapshot is nil")
+                    return
+                }
                 // Get the count of documents
-                let documentCount = querySnapshot?.documents.count ?? 0
+                let documentCount = querySnapshot.documents.count
 
                 print("Number of documents returned: \(documentCount)")
 
@@ -282,14 +286,14 @@ struct WorkoutSelection: View {
                     self.selectedDay = 1
                 } else {
                     // Check if there are documents with selectedDay equal to 1
-                    let selectedDay2Count = populateUniqueValuesSet(from: querySnapshot!.documents.filter { $0["exerciseDay"] as? Int == 2 }).count
+                    let selectedDay2Count = populateUniqueValuesSet(from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 2 }).count
                     if selectedDay2Count > 3 {
                         print("Documents found with selectedDay equal to 2. Setting selectedDay to 3.")
                         self.selectedDay = 3
                     } else {
                         // Check if there are documents with selectedDay equal to 2
                         let selectedDay1Count = populateUniqueValuesSet(
-                            from: querySnapshot!.documents.filter { $0["exerciseDay"] as? Int == 1 }
+                            from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 1 }
                         ).count
                         if selectedDay1Count > 3 {
                             print("Documents found with selectedDay equal to 1. Setting selectedDay to 2.")
