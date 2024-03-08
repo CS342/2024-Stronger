@@ -31,13 +31,6 @@ struct SummaryView: View {
     @Environment(Account.self) var account
     
     @State private var presentingAccount = false
-    
-    // var username: String
-    // @State private var firstName: String = ""
-    // @State private var lastName: String = ""
-    // @State private var exerciseValue: Double = 50
-    // @State private var dietValue: Double = 80
-    // @State private var totalProtein: Double = 66
     @State private var selectedWeek: Int?
     @State private var targetProtein: Double?
 
@@ -57,27 +50,15 @@ struct SummaryView: View {
                 Text("Hello")
             }
             
-//            if let targetProtein {
-//                MainPage(targetProtein: 45.0)
-//            } else {
-//                
-//            }
-//                .id(UUID())
-            if let target = targetProtein {
-                MainPage(target: target)
-            } else {
-                MainPage(target: 65.0)
-            }
+            MainPage()
 
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: selectedWeek ?? 3, presentingAccount: $presentingAccount, difficulty: "Hard")
                 .padding(.bottom, 20)
-//            Spacer()
             Spacer()
             Text("Last Week's Fitness Progress\n")
                 .padding(.top, 10)
             ExerciseWeek(value: (selectedWeek ?? 1) - 1, presentingAccount: $presentingAccount, difficulty: "Medium")
-//            Spacer()
         }
         .onAppear {
             Task {
