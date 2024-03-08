@@ -60,7 +60,7 @@ extension HeightKey {
         @Binding private var height: Int
         public var body: some View {
             HStack {
-                    Text(HeightKey.name)
+                    Text("\(HeightKey.name): inches")
                     Spacer()
                     TextField("Height", value: $height, formatter: NumberFormatter())
                          .frame(width: 120) // set frame width to enable more spaces.

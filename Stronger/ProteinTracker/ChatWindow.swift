@@ -19,7 +19,7 @@ import SpeziLLMOpenAI
 import SwiftUI
 
 func get_protein_content(for foodItem: String, defaultProtein: Double = 0.0) -> Double {
-    let apiKey = "jUBpE8JHsjp7aMjpvrauVMuLNdC3DR5pnvW18Lej"
+    let apiKey = "W03syDuGkdxiRoLFMPr9Yg==kg7WNYBWJUl9IBKt"
     let urlString = "https://api.api-ninjas.com/v1/nutrition?&query=\(foodItem)&x-api-key=\(apiKey)"
 
     guard let url = URL(string: urlString) else {

@@ -30,7 +30,10 @@ public struct StartDatePicker: DataEntryView {
     private var dateRange: ClosedRange<Date> {
         let calendar = Calendar.current
         let startDateComponents = DateComponents(year: 1800, month: 1, day: 1)
-        let endDate = Date.now
+        let curDate = Date.now
+        guard let endDate = Calendar.current.date(byAdding: .day, value: 1, to: curDate) else {
+            fatalError("Could not translate \(startDateComponents) to a valid date.")
+        }
 
         guard let startDate = calendar.date(from: startDateComponents) else {
             fatalError("Could not translate \(startDateComponents) to a valid date.")

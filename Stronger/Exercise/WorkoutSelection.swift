@@ -160,20 +160,6 @@ struct WorkoutSelection: View {
         // Ensure the width does not exceed the screen width
         return min(desiredWidth, geometry.size.width * 0.5) // Set width as 50% of screen width
     }
-//    private func adjustSelectedWeek(_ week: Int) -> Int {
-//        switch week {
-//        case 1...3:
-//            return 1
-//        case 4...6:
-//            return 4
-//        case 7...9:
-//            return 7
-//        case 10...12:
-//            return 10
-//        default:
-//            return week // Return the original value for any other cases
-//        }
-//    }
     
     private func parseExercises(week: Int, day: Int) -> Workout? {
         // Get the URL of the JSON file in the app bundle
@@ -255,6 +241,19 @@ struct WorkoutSelection: View {
             }
         }
     
+    private func populateUniqueValuesSet(from documents: [QueryDocumentSnapshot] = []) -> Set<String> {
+        var uniqueValuesSet = Set<String>()
+        
+        // Iterate over documents to populate the set
+        documents.forEach { document in
+            if let exercise = document["exercise"] as? String {
+                uniqueValuesSet.insert(exercise)
+            }
+        }
+        
+        return uniqueValuesSet
+    }
+    
     private func updateExerciseDate() async throws {
         // Get current user ID
         guard let userID = try await getCurrentUserID() else {
@@ -266,14 +265,18 @@ struct WorkoutSelection: View {
         let dbe = Firestore.firestore()
 
         let userDocRef = dbe.collection("users").document(userID).collection("exerciseLog")
-        let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek)
+        let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek ?? 1)
 
         query.getDocuments { querySnapshot, error in
             if let error = error {
                 print("Error fetching documents: \(error)")
             } else {
+                guard let querySnapshot = querySnapshot else {
+                    print("querySnapshot is nil")
+                    return
+                }
                 // Get the count of documents
-                let documentCount = querySnapshot?.documents.count ?? 0
+                let documentCount = querySnapshot.documents.count
 
                 print("Number of documents returned: \(documentCount)")
 
@@ -283,14 +286,16 @@ struct WorkoutSelection: View {
                     self.selectedDay = 1
                 } else {
                     // Check if there are documents with selectedDay equal to 1
-                    let selectedDay1Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 2 }.count ?? 0
-                    if selectedDay1Count > 3 {
+                    let selectedDay2Count = populateUniqueValuesSet(from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 2 }).count
+                    if selectedDay2Count > 3 {
                         print("Documents found with selectedDay equal to 2. Setting selectedDay to 3.")
                         self.selectedDay = 3
                     } else {
                         // Check if there are documents with selectedDay equal to 2
-                        let selectedDay2Count = querySnapshot?.documents.filter { $0["exerciseDay"] as? Int == 1 }.count ?? 0
-                        if selectedDay2Count > 3 {
+                        let selectedDay1Count = populateUniqueValuesSet(
+                            from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 1 }
+                        ).count
+                        if selectedDay1Count > 3 {
                             print("Documents found with selectedDay equal to 1. Setting selectedDay to 2.")
                             self.selectedDay = 2
                         } else {
@@ -313,54 +318,11 @@ struct WorkoutSelection: View {
         return details.accountId
     }
 
-//    private func calculateWeeksElapsed(completion: @escaping (Int) -> Void) {
-//        // Get current user ID
-//        guard let userID = try await getCurrentUserID() else {
-//            completion(1) // Return default value if user ID cannot be retrieved
-//            return
-//        }
-//
-//        // Reference to Firestore database
-//        let dbe = Firestore.firestore()
-//
-//        // Reference to document for current user
-//        let userDocRef = dbe.collection("users").document(userID)
-//
-//        // Get snapshot of document
-//        userDocRef.getDocument { userDocSnapshot, error in
-//            guard let userData = userDocSnapshot?.data(),
-//                  let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
-//                print("Error retrieving start day timestamp:", error?.localizedDescription ?? "Unknown error")
-//                completion(1) // Return default value if start day timestamp cannot be retrieved
-//                return
-//            }
-//
-//            // Get start date from Timestamp
-//            var startDayDate = startDayTimestamp.dateValue()
-//
-//            // Get current date
-//            let currentDate = Date()
-//
-//            // Get Calendar instance
-//            let calendar = Calendar.current
-//
-//            // Move start day to closest Monday
-//            let weekday = calendar.component(.weekday, from: startDayDate)
-//            let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
-//            startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-//
-//            // Calculate difference in weeks between start day and current date
-//            let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
-//            let roundedWeeksElapsed = max(weeksElapsed, 0) // Ensure weeksElapsed is non-negative
-//            completion(roundedWeeksElapsed)
-//        }
-//    }
-
     // Function to retrieve start day field and calculate weeks elapsed
-    private func calculateWeeksElapsed() async throws -> Int {
+    private func calculateWeeksElapsed() async throws -> Int? {
         // Get current user ID
         guard let userID = try await getCurrentUserID() else {
-            return 1
+            return nil
         }
 
         // Reference to Firestore database
@@ -375,13 +337,12 @@ struct WorkoutSelection: View {
         // Check if document exists and contains start day field
         guard let userData = userDocSnapshot.data(),
               let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
-            print("did not find start day key", userID)
-            return 1
-        }
-        
-        print("Found start date key", userID)
+                return nil
+            }
+            
         // Get start date from Timestamp
-        var startDayDate = startDayTimestamp.dateValue()
+        // Adjust time zones apparently
+        var startDayDate = startDayTimestamp.dateValue().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
 
         // Get current date
         let currentDate = Date()
@@ -390,37 +351,17 @@ struct WorkoutSelection: View {
         let calendar = Calendar.current
         
         // Move start day to closest Monday
-        let weekday = calendar.component(.weekday, from: startDayDate)
-        let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
-        print("daysTOMonday \(daysToMonday)")
-        startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-        print("startDayDate \(startDayDate)")
-
+        // If startDayDate is Monday, keep it as is, otherwise move it to the previous Monday
+        if calendar.component(.weekday, from: startDayDate) != 2 {
+            // Calculate days to Monday
+            let weekday = calendar.component(.weekday, from: startDayDate)
+            let daysToMonday = (weekday - 2) % 7
+            startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
+        }
         // Calculate difference in weeks between start day and current date
         let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
-        print("weeksElapsed \(weeksElapsed)")
         let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
-        print("rounded weeks elapsed \(roundedWeeksElapsed)")
-        return weeksElapsed
-    }
-    
-    private func uploadUserData() {
-        let dbe = Firestore.firestore()
-        
-        // Data to be uploaded
-        let userData: [String: Any] = [
-            "name": "Rohan Gondor",
-            "role": "admin"
-        ]
-        
-        // Upload data to Firestore
-        dbe.collection("users").document("admin").setData(userData) { error in
-            if let error = error {
-                print("Error uploading user data: \(error.localizedDescription)")
-            } else {
-                print("User data uploaded successfully!")
-            }
-        }
+        return weeksElapsed + 1 // as we are using 1 based for selected week.
     }
 }
   

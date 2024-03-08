@@ -30,6 +30,12 @@
         }
       }
     },
+    "%@: inches" : {
+
+    },
+    "%@: lbs" : {
+
+    },
     "%@." : {
 
     },
@@ -94,7 +100,14 @@
       }
     },
     "ADD_DATE" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please Add Date"
+          }
+        }
+      }
     },
     "Are you logging a new or saved meal?" : {
 
@@ -825,16 +838,24 @@
     "Weekly Stats" : {
 
     },
-    "Weight" : {
-
-    },
     "WEIGHT" : {
-
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weight"
+          }
+        }
+      }
     },
     "Weight Information" : {
 
     },
     "Weight is gathered to determine protein intake." : {
+
+    },
+    "Weight: lbs" : {
 
     },
     "WELCOME_AREA1_DESCRIPTION" : {
