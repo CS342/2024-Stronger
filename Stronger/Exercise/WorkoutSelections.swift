@@ -13,31 +13,7 @@ import Firebase
 import SpeziAccount
 import SwiftUI
 
-// Define the Swift structs to represent the JSON structure
-struct Workout: Codable {
-//    let workoutDay: String
-    let exercise1: String
-    let exercise2: String
-    let exercise3: String
-    let exercise4: String
-    let exercise1video: String
-    let exercise2video: String
-    let exercise3video: String
-    let exercise4video: String
-//    let sets: Int
-//    let reps: String
-//    let resistance: String
-}
-
-struct WorkoutPlan: Decodable {
-    let weeks1to3: [Workout]
-    let weeks4to6: [Workout]
-    let weeks7to9: [Workout]
-    let weeks10to12: [Workout]
-}
-
-
-struct WorkoutSelection: View {
+struct WorkoutSelections: View {
     // Struct to hold view and string data
     struct MenuItem {
         var view: WorkoutInputForm
@@ -46,11 +22,10 @@ struct WorkoutSelection: View {
     }
     @State private var menuItems: [MenuItem] = []
     @Binding var presentingAccount: Bool
+    @State var selectedWeek: Int
+    @State var selectedDay: Int
     @State private var geometry: CGSize = .zero
     @Environment(Account.self) var account
-    
-    @State private var selectedWeek: Int?
-    @State private var selectedDay: Int = 1
 
     private var menuItemsBackup: [MenuItem] = [
         MenuItem(
@@ -100,7 +75,7 @@ struct WorkoutSelection: View {
                             presentingAccount: $presentingAccount,
                             item: menuItem.title,
                             totalWidth: widthForMenuItems(in: geometry),
-                            selectedWeek: selectedWeek ?? 1,
+                            selectedWeek: selectedWeek,
                             selectedDay: selectedDay
                         )
                     }
@@ -126,23 +101,16 @@ struct WorkoutSelection: View {
         }
     }
     
-    init(presentingAccount: Binding<Bool>, selectedWeek: Int? = nil) {
+    init(presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
         self._presentingAccount = presentingAccount
-        // Call calculateWeeksElapsed with a completion handler
-//        calculateWeeksElapsed { weeksElapsed in
-//            self._selectedWeek = State(wrappedValue: weeksElapsed)
-//        }
+        self.selectedWeek = selectedWeek
+        self.selectedDay = selectedDay
     }
     
     private func onAppearFunc() async throws {
-        selectedWeek = try? await calculateWeeksElapsed()
-        print("Selected Week: \(selectedWeek)")
-        try await updateExerciseDate()
-        // fetchMenuItemsFromFirestore()
-        if let exercises = parseExercises(week: selectedWeek ?? 1, day: selectedDay) {
+        if let exercises = parseExercises(week: selectedWeek, day: selectedDay) {
             buildMenuItem(workoutInst: exercises)
         } else {
-            // Handle the case where exercises could not be parsed
             print("Error: Unable to parse exercises for the selected week and day.")
         }
     }
@@ -231,7 +199,7 @@ struct WorkoutSelection: View {
                 view: WorkoutInputForm(
                     workoutName: exercise,
                     presentingAccount: $presentingAccount,
-                    selectedWeek: selectedWeek ?? 1,
+                    selectedWeek: selectedWeek,
                     selectedDay: selectedDay
                 ),
                 title: exercise,
@@ -241,75 +209,6 @@ struct WorkoutSelection: View {
             }
         }
     
-    private func populateUniqueValuesSet(from documents: [QueryDocumentSnapshot] = []) -> Set<String> {
-        var uniqueValuesSet = Set<String>()
-        
-        // Iterate over documents to populate the set
-        documents.forEach { document in
-            if let exercise = document["exercise"] as? String {
-                uniqueValuesSet.insert(exercise)
-            }
-        }
-        
-        return uniqueValuesSet
-    }
-    
-    private func updateExerciseDate() async throws {
-        // Get current user ID
-        guard let userID = try await getCurrentUserID() else {
-            print("Error getting user id")
-            return
-        }
-
-        // Reference to Firestore database
-        let dbe = Firestore.firestore()
-
-        let userDocRef = dbe.collection("users").document(userID).collection("exerciseLog")
-        let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek ?? 1)
-
-        query.getDocuments { querySnapshot, error in
-            if let error = error {
-                print("Error fetching documents: \(error)")
-            } else {
-                guard let querySnapshot = querySnapshot else {
-                    print("querySnapshot is nil")
-                    return
-                }
-                // Get the count of documents
-                let documentCount = querySnapshot.documents.count
-
-                print("Number of documents returned: \(documentCount)")
-
-                // Check if there are no documents
-                if documentCount == 0 {
-                    print("No documents found. Setting selectedDay to 1.")
-                    self.selectedDay = 1
-                } else {
-                    // Check if there are documents with selectedDay equal to 1
-                    let selectedDay2Count = populateUniqueValuesSet(from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 2 }).count
-                    if selectedDay2Count > 3 {
-                        print("Documents found with selectedDay equal to 2. Setting selectedDay to 3.")
-                        self.selectedDay = 3
-                    } else {
-                        // Check if there are documents with selectedDay equal to 2
-                        let selectedDay1Count = populateUniqueValuesSet(
-                            from: querySnapshot.documents.filter { $0["exerciseDay"] as? Int == 1 }
-                        ).count
-                        if selectedDay1Count > 3 {
-                            print("Documents found with selectedDay equal to 1. Setting selectedDay to 2.")
-                            self.selectedDay = 2
-                        } else {
-                            // If no documents have selectedDay equal to 1 or 2, set selectedDay to 1
-                            print("No documents found with selectedDay equal to 1 or 2. Setting selectedDay to 1.")
-                            self.selectedDay = 1
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
      // Function to get the current user ID
     private func getCurrentUserID() async throws -> String? {
         guard let details = try? await account.details else {
@@ -317,72 +216,10 @@ struct WorkoutSelection: View {
         }
         return details.accountId
     }
-
-    // Function to retrieve start day field and calculate weeks elapsed
-    private func calculateWeeksElapsed() async throws -> Int? {
-        // Get current user ID
-        guard let userID = try await getCurrentUserID() else {
-            return nil
-        }
-
-        // Reference to Firestore database
-        let dbe = Firestore.firestore()
-
-        // Reference to document for current user
-        let userDocRef = dbe.collection("users").document(userID)
-
-        // Get snapshot of document
-        let userDocSnapshot = try await userDocRef.getDocument()
-
-        // Check if document exists and contains start day field
-        guard let userData = userDocSnapshot.data(),
-              let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
-                return nil
-            }
-            
-        // Get start date from Timestamp
-        // Adjust time zones apparently
-        var startDayDate = startDayTimestamp.dateValue().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
-
-        // Get current date
-        let currentDate = Date()
-
-        // Get Calendar instance
-        let calendar = Calendar.current
-        
-        // Move start day to closest Monday
-        // If startDayDate is Monday, keep it as is, otherwise move it to the previous Monday
-        if calendar.component(.weekday, from: startDayDate) != 2 {
-            // Calculate days to Monday
-            let weekday = calendar.component(.weekday, from: startDayDate)
-            let daysToMonday = (weekday - 2) % 7
-            startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-        }
-        // Calculate difference in weeks between start day and current date
-        let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
-        let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
-        return weeksElapsed + 1 // as we are using 1 based for selected week.
-    }
 }
   
-
-// Extension to calculate the width of a string
-extension String {
-    func widthOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSAttributedString.Key.font: font]
-        let size = self.size(withAttributes: fontAttributes)
-        return size.width
-    }
-}
-
-extension String {
-    func removingNonAlphabeticCharacters3() -> String {
-        self.filter { $0.isLetter }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct Preview: PreviewProvider {
     static var previews: some View {
-        WorkoutSelection(presentingAccount: .constant(false), selectedWeek: nil)
+        WorkoutSelections(presentingAccount: .constant(false), selectedWeek: 1, selectedDay: 2)
     }
 }

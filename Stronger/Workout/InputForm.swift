@@ -53,6 +53,7 @@ struct WorkoutInputForm: View {
         var band: String
         var difficulty: String
     }
+    let viewModel = ExerciseViewModel()
     
     @Environment(Account.self) var account
     var workoutName: String = "Squats"
@@ -209,7 +210,6 @@ struct WorkoutInputForm: View {
                 "band": band,
                 "difficulty": difficulty
             ])
-            print("Document added successfully")
         } catch {
             print("Error adding document: \(error)")
         }
@@ -274,11 +274,23 @@ struct WorkoutInputForm: View {
     }
 
     private func workoutThumbnail() -> some View {
-        Image(imageName, label: Text("Workout"))
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(height: 315)
-            .clipped()
+        Group {
+            if let safeExercise = viewModel.exerciseByName(workoutName) {
+                NavigationLink(destination: WorkoutVideoView(exercise: safeExercise)) {
+                    Image(imageName, label: Text("Workout"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 315)
+                        .clipped()
+                }
+            } else {
+                Image(imageName, label: Text("Workout"))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 315)
+                    .clipped()
+            }
+        }
     }
     
     private func saveWorkoutData() {

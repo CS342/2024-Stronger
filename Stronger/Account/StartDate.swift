@@ -23,8 +23,11 @@ public struct StartDateKey: AccountKey {
     public static let category: AccountKeyCategory = .personalDetails
     
     public static var initialValue: InitialValue<Value> {
-        .empty(Date())
+        .default(Date())
     }
+//    public static var initialValue: Date {
+//        Date()
+//    }
 }
 
 extension AccountKeys {

@@ -64,7 +64,7 @@ extension WeightKey {
 
         public var body: some View {
             HStack {
-                Text(WeightKey.name)
+                Text("\(WeightKey.name): lbs")
                 Spacer()
                 Button(action: {
                     showAlert.toggle() // Toggle alert visibility
@@ -81,7 +81,7 @@ extension WeightKey {
                     )
                 }
                 
-                TextField("Weight", value: $weight, formatter: NumberFormatter())
+                TextField("Weight: lbs", value: $weight, formatter: NumberFormatter())
                     .frame(width: 120) // set frame width to enable more spaces.
             }
         }

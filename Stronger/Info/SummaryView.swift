@@ -31,13 +31,6 @@ struct SummaryView: View {
     @Environment(Account.self) var account
     
     @State private var presentingAccount = false
-    
-    // var username: String
-    // @State private var firstName: String = ""
-    // @State private var lastName: String = ""
-    // @State private var exerciseValue: Double = 50
-    // @State private var dietValue: Double = 80
-    // @State private var totalProtein: Double = 66
     @State private var selectedWeek: Int?
     @State private var targetProtein: Double?
 
@@ -57,27 +50,17 @@ struct SummaryView: View {
                 Text("Hello")
             }
             
-//            if let targetProtein {
-//                MainPage(targetProtein: 45.0)
-//            } else {
-//                
-//            }
-//                .id(UUID())
-            if let target = targetProtein {
-                MainPage(target: target)
-            } else {
-                MainPage(target: 65.0)
-            }
+            MainPage()
 
             Text("This Week's Fitness Progress\n")
             ExerciseWeek(value: selectedWeek ?? 3, presentingAccount: $presentingAccount, difficulty: "Hard")
                 .padding(.bottom, 20)
-//            Spacer()
             Spacer()
-            Text("Last Week's Fitness Progress\n")
-                .padding(.top, 10)
-            ExerciseWeek(value: (selectedWeek ?? 1) - 1, presentingAccount: $presentingAccount, difficulty: "Medium")
-//            Spacer()
+            if selectedWeek != 1 {
+                Text("Last Week's Fitness Progress\n")
+                    .padding(.top, 10)
+                ExerciseWeek(value: (selectedWeek ?? 1) - 1, presentingAccount: $presentingAccount, difficulty: "Medium")
+            }
         }
         .onAppear {
             Task {
@@ -134,13 +117,12 @@ struct SummaryView: View {
         // Check if document exists and contains start day field
         guard let userData = userDocSnapshot.data(),
               let startDayTimestamp = userData["StartDateKey"] as? Timestamp else {
-            print("did not find start day key", userID)
-            return nil
-        }
-        
-        print("Found start date key", userID)
+                return nil
+            }
+            
         // Get start date from Timestamp
-        var startDayDate = startDayTimestamp.dateValue()
+        // Adjust time zones apparently
+        var startDayDate = startDayTimestamp.dateValue().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
 
         // Get current date
         let currentDate = Date()
@@ -149,18 +131,17 @@ struct SummaryView: View {
         let calendar = Calendar.current
         
         // Move start day to closest Monday
-        let weekday = calendar.component(.weekday, from: startDayDate)
-        let daysToMonday = (7 - weekday + 2) % 7 // +2 because Sunday is 1-based in `weekday` but we want Monday to be 0-based
-        print("daysTOMonday \(daysToMonday)")
-        startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
-        print("startDayDate \(startDayDate)")
-
+        // If startDayDate is Monday, keep it as is, otherwise move it to the previous Monday
+        if calendar.component(.weekday, from: startDayDate) != 2 {
+            // Calculate days to Monday
+            let weekday = calendar.component(.weekday, from: startDayDate)
+            let daysToMonday = (weekday - 2) % 7
+            startDayDate = calendar.date(byAdding: .day, value: -daysToMonday, to: startDayDate) ?? startDayDate
+        }
         // Calculate difference in weeks between start day and current date
         let weeksElapsed = calendar.dateComponents([.weekOfYear], from: startDayDate, to: currentDate).weekOfYear ?? 0
-        print("weeksElapsed \(weeksElapsed)")
         let roundedWeeksElapsed = weeksElapsed > 0 ? weeksElapsed : 0 // Ensure weeksElapsed is non-negative
-        print("rounded weeks elapsed \(roundedWeeksElapsed)")
-        return weeksElapsed
+        return weeksElapsed + 1 // as we are using 1 based for selected week.
     }
 }
 
