@@ -21,7 +21,7 @@ import WebKit
 struct PDFViewer: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        NavigationView {  // Embed in a NavigationView
+        NavigationView {  
             if let path = Bundle.main.path(forResource: "measure", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
                 PDFKitView(pdfDocument: pdfDocument)
                     .navigationBarItems(trailing: Button(action: {
