@@ -13,7 +13,6 @@ import SwiftUI
 
 struct ProteinRing: View {
     @State private var drawingStroke = false
-//    @State private var strawberry = Color(red: 1, green: 0.1857388616, blue: 0.5733950138, opacity: 1)
     @State private var animation = Animation
             .easeOut(duration: 5)
             .delay(1)

@@ -65,7 +65,6 @@ struct EstimatePortionButton: View {
 struct MainPage: View {
     @State private var userID: String = "temp"
     @State private var currProtein: Double = 0.0
-    @State private var targetProtein: Double = 0.0
     @State private var showingPDF = false
     @Environment(Account.self) var account
     
@@ -78,24 +77,9 @@ struct MainPage: View {
                 VStack {
                     HStack {
                         ZStack {
-//                            if let tarProtein = targetProtein {
-//                                let fractionComplete: Double = currProtein / tarProtein
-//                                ProteinRing(fracComplete: fractionComplete)
-//                                Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein!)) g")
-//                            } else {
-//                            }
-                            
-//                            if targetProtein != 0 {
-//                                let fractionComplete: Double = currProtein / targetProtein
-//                                ProteinRing(fracComplete: fractionComplete)
-//                                Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
-//                            } else {
-//
-//                            }
-                            
-                            let fractionComplete: Double = currProtein / targetProtein
+                            let fractionComplete: Double = currProtein / getdailyTargetProtein()
                             ProteinRing(fracComplete: fractionComplete)
-                            Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", targetProtein)) g")
+                            Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", getdailyTargetProtein())) g")
                         }
                         .frame(width: UIScreen.main.bounds.width * 0.45)
 //                        Spacer()
@@ -121,31 +105,21 @@ struct MainPage: View {
                     }
                 }
                 .padding()
-            
-            // Exercise View
-//            Text("this is where the exercise buttons/stats will show")
         }
         }
-        .onAppear {
-            Task {
-                targetProtein = try await getdailyTargetProtein()
-            }
+        .task {
             fetchDataFromFirestore()
         }
     }
     
-    init(target: Double = 0.0) {
-        targetProtein = target
-        print("targetProtein is = \(targetProtein)")
-    }
     
-    private func getdailyTargetProtein() async throws -> Double {
-        guard let details = try await account.details else {
+    @MainActor
+    private func getdailyTargetProtein() -> Double {
+        guard let details = account.details else {
             return 48.0
         }
         if let weight = details.weight {
-            targetProtein = Double(weight) * 0.8
-            return targetProtein
+            return Double(weight) * 0.8
         } else {
             return 48.0
         }
@@ -186,7 +160,6 @@ struct MainPage: View {
                     print("Error fetching documents: \(error)")
                     return
                 }
-                
                              if let temp = querySnapshot {
                                  for document in temp.documents {
                                      if let proteinContentString = document.data()["protein content"] as? String {

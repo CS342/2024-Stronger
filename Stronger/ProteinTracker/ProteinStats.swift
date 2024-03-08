@@ -31,7 +31,7 @@ struct ProteinStats: View {
     @State private var weeklyData: [ProteinDataDaily] = []
     
     @Environment(Account.self) var account
-
+    
     var body: some View {
         VStack {
             Text("Protein Intake Data")
@@ -57,11 +57,11 @@ struct ProteinStats: View {
                     }
                 }
                 RuleMark(y: .value("Target Protein Intake", dailyTargetProtein))
-                            .foregroundStyle(.orange)
-                            .lineStyle(strokeStyle)
+                    .foregroundStyle(.orange)
+                    .lineStyle(strokeStyle)
                 RuleMark(y: .value("Average Protein Intake", averageWeeklyProtein))
-                            .foregroundStyle(.pink)
-                            .lineStyle(strokeStyle)
+                    .foregroundStyle(.pink)
+                    .lineStyle(strokeStyle)
             }
             .chartLegend(position: .bottom, spacing: 20)
             .chartForegroundStyleScale(["Daily target": Color.orange, "Weekly average": Color.pink])
@@ -74,13 +74,11 @@ struct ProteinStats: View {
             Spacer()
         }
         .padding()
-        .onAppear {
-                    fetchDataFromFirestore()
-                    weeklyData.sort { $0.date < $1.date }
-                    print(weeklyData)
-            Task {
-                dailyTargetProtein = try await getdailyTargetProtein()
-            }
+        .task {
+            try? await fetchDataFromFirestore()
+            weeklyData.sort { $0.date < $1.date }
+            print(weeklyData)
+            dailyTargetProtein = (try? await getdailyTargetProtein()) ?? 48.0
         }
     }
     
@@ -106,7 +104,7 @@ of protein per day this week.
             return "Hello, " + message
         }
     }
-
+    
     private func getLastWeekDates() -> [Date] {
         var calendar = Calendar(identifier: .gregorian)
         if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
@@ -145,13 +143,13 @@ of protein per day this week.
             return dailyTargetProtein
         }
     }
-
-    private func fetchDataFromFirestore() {
+    
+    private func fetchDataFromFirestore() async throws {   // swiftlint:disable:this function_body_length
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateFormatterXLabel = DateFormatter()
         dateFormatterXLabel.dateFormat = "MM-dd"
-
+        
         let dates = getLastWeekDates()
         var calendar = Calendar(identifier: .gregorian)
         if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
@@ -160,7 +158,7 @@ of protein per day this week.
         }
         
         userID = getUserID()
-
+        
         let collectionRef = Firestore.firestore().collection("users").document(userID).collection("ProteinIntake")
         print("Dates = \(dates)")
         for date in dates {
@@ -171,36 +169,31 @@ of protein per day this week.
             } else {
                 endOfDay = calendar.startOfDay(for: date)
             }
-//            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+            //            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
             let startDateString = dateFormatter.string(from: startOfDay)
             let endDateString = dateFormatter.string(from: endOfDay)
-
+            
             let storeDateString = dateFormatterXLabel.string(from: startOfDay)
             var proteinContent = 0.0
-
-            collectionRef.whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
-                             .whereField(FieldPath.documentID(), isLessThan: endDateString)
-                             .getDocuments { querySnapshot, error in
-                    if let error = error {
-                        print("Error fetching documents: \(error)")
-                        return
+            
+            let result = try await collectionRef
+                .whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
+                .whereField(FieldPath.documentID(), isLessThan: endDateString)
+                .getDocuments()
+ 
+            for document in result.documents {
+                if let proteinContentString = document.data()["protein content"] as? String {
+                    if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
+                        proteinContent += numericValue
                     }
-                     if let temp = querySnapshot {
-                         for document in temp.documents {
-                             if let proteinContentString = document.data()["protein content"] as? String {
-                                 if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
-                                     proteinContent += numericValue
-                                 }
-                             }
-                         }
-                     } else {
-                         print("There are no documents for startDate = \(startOfDay) and endDate = \(endOfDay)")
-                     }
-                 print("Protein content value is \(proteinContent)")
-                 averageWeeklyProtein += (proteinContent / 7)
-                 weeklyData.append(.init(date: storeDateString, protein: proteinContent))
-                             }
+                }
+            }
+            
+            print("Protein content value is \(proteinContent)")
+            averageWeeklyProtein += (proteinContent / 7)
+            weeklyData.append(.init(date: storeDateString, protein: proteinContent))
         }
+        
         weeklyData.sort { $0.date < $1.date }
     }
 }
