@@ -56,7 +56,7 @@ struct SummaryView: View {
             ExerciseWeek(value: selectedWeek ?? 3, presentingAccount: $presentingAccount, difficulty: "Hard")
                 .padding(.bottom, 20)
             Spacer()
-            if (selectedWeek != 1) {
+            if selectedWeek != 1 {
                 Text("Last Week's Fitness Progress\n")
                     .padding(.top, 10)
                 ExerciseWeek(value: (selectedWeek ?? 1) - 1, presentingAccount: $presentingAccount, difficulty: "Medium")

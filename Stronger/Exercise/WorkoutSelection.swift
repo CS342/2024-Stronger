@@ -265,7 +265,7 @@ struct WorkoutSelection: View {
         let dbe = Firestore.firestore()
 
         let userDocRef = dbe.collection("users").document(userID).collection("exerciseLog")
-        let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek)
+        let query = userDocRef.whereField("week", isEqualTo: self.selectedWeek ?? 1)
 
         query.getDocuments { querySnapshot, error in
             if let error = error {
