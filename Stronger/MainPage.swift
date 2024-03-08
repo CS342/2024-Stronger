@@ -19,11 +19,19 @@ import SwiftUI
 import WebKit
 
 struct PDFViewer: View {
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        if let path = Bundle.main.path(forResource: "measurements", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
-            PDFKitView(pdfDocument: pdfDocument)
-        } else {
-            Text("Unable to load the PDF file.")
+        NavigationView {  // Embed in a NavigationView
+            if let ph = Bundle.main.path(forResource: "measurements", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: ph)) {
+                PDFKitView(pdfDocument: pdfDocument)
+                    .navigationBarItems(trailing: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                    })
+            } else {
+                Text("Unable to load the PDF file.")
+            }
         }
     }
 }
