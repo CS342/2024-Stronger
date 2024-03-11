@@ -16,6 +16,7 @@ import SpeziLLM
 import SpeziLLMLocal
 import SpeziLLMOpenAI
 import SwiftUI
+import Vision
 
 struct ChatWindowAfterCamera: View {
     private static let llmSchema: LLMOpenAISchema = .init(
