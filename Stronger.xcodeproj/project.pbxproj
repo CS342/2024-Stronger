@@ -85,6 +85,7 @@
 		38C4563E2B96CF3B009D69AA /* WorkoutHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4563D2B96CF3B009D69AA /* WorkoutHomeButton.swift */; };
 		38FE1D022B716A42008F8BE0 /* WorkoutVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */; };
 		4002F0AC2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002F0AB2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift */; };
+		4002F0AF2B9BAA2000AD3D47 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4002F0AE2B9BAA2000AD3D47 /* OnboardingTests.swift */; };
 		4011141A2B7EE59A000083A2 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114192B7EE59A000083A2 /* ProgressCircle.swift */; };
 		4011141D2B83FCD1000083A2 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4011141C2B83FCD1000083A2 /* SummaryView.swift */; };
 		401114232B8489D1000083A2 /* GoalResist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401114222B8489D1000083A2 /* GoalResist.swift */; };
@@ -220,6 +221,7 @@
 		38C4563D2B96CF3B009D69AA /* WorkoutHomeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHomeButton.swift; sourceTree = "<group>"; };
 		38FE1D012B7169DF008F8BE0 /* WorkoutVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVideoView.swift; sourceTree = "<group>"; };
 		4002F0AB2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedWorkoutTest.swift; sourceTree = "<group>"; };
+		4002F0AE2B9BAA2000AD3D47 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		401114192B7EE59A000083A2 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
 		4011141C2B83FCD1000083A2 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		401114222B8489D1000083A2 /* GoalResist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalResist.swift; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				40D4E4812B97CBB800261632 /* TapSwitchTest.swift */,
 				40D4E4832B97CD0A00261632 /* WorkoutTest.swift */,
 				4002F0AB2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift */,
+				4002F0AE2B9BAA2000AD3D47 /* OnboardingTests.swift */,
 			);
 			path = StrongerUITests;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4002F0AF2B9BAA2000AD3D47 /* OnboardingTests.swift in Sources */,
 				40D4E47F2B97CB9900261632 /* HomeTest.swift in Sources */,
 				2F4E237E2989A2FE0013F3D9 /* LaunchTests.swift in Sources */,
 				40D4E4822B97CBB800261632 /* TapSwitchTest.swift in Sources */,
