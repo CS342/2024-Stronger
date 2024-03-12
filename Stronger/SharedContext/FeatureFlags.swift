@@ -16,8 +16,8 @@ enum FeatureFlags {
     static let disableFirebase = CommandLine.arguments.contains("--disableFirebase")
     #if targetEnvironment(simulator)
     /// Defines if the application should connect to the local firebase emulator. Always set to true when using the iOS simulator.
-    static let useFirebaseEmulator = true
-    // static let useFirebaseEmulator = CommandLine.arguments.contains("--useFirebaseEmulator")
+//    static let useFirebaseEmulator = true
+     static let useFirebaseEmulator = CommandLine.arguments.contains("--useFirebaseEmulator")
     #else
     /// Defines if the application should connect to the local firebase emulator. Always set to true when using the iOS simulator.
     static let useFirebaseEmulator = CommandLine.arguments.contains("--useFirebaseEmulator")
