@@ -19,11 +19,20 @@ import SwiftUI
 import WebKit
 
 struct PDFViewer: View {
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        if let path = Bundle.main.path(forResource: "measurements", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
-            PDFKitView(pdfDocument: pdfDocument)
-        } else {
-            Text("Unable to load the PDF file.")
+        NavigationView {
+            if let path = Bundle.main.path(forResource: "measure", ofType: "pdf"), let pdfDocument = PDFDocument(url: URL(fileURLWithPath: path)) {
+                PDFKitView(pdfDocument: pdfDocument)
+                    .navigationBarItems(trailing: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .accessibilityLabel("Close")
+                    })
+            } else {
+                Text("Unable to load the PDF file.")
+            }
         }
     }
 }
@@ -47,9 +56,11 @@ struct EstimatePortionButton: View {
         Button(action: {
             showingPDF = true
         }) {
-            Text("Estimate Portion Size?")
-                
-                .font(.system(size: 10))
+            VStack {
+                Text("How to estimate").bold()
+                Text("portion size?").bold()
+            }
+                .font(.system(size: 11))
                 .padding()
                 .background(Color.green)
                 .foregroundColor(.white)
@@ -79,7 +90,7 @@ struct MainPage: View {
                             ProteinRing(fracComplete: fractionComplete)
                             Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", getdailyTargetProtein())) g")
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                        .frame(width: UIScreen.main.bounds.width * 0.40)
 //                        Spacer()
                         VStack(spacing: proteinVStackSpace) {
                             Text("Daily Protein")
