@@ -259,9 +259,6 @@
         }
       }
     },
-    "Estimate Portion Size?" : {
-
-    },
     "Exercise named %@ not found" : {
 
     },
@@ -419,6 +416,9 @@
       }
     },
     "How do you want to change your food option?" : {
+
+    },
+    "How to estimate" : {
 
     },
     "image" : {
@@ -646,6 +646,9 @@
 
     },
     "Populate with previous workout data" : {
+
+    },
+    "portion size?" : {
 
     },
     "Pro-Bot" : {

@@ -190,8 +190,6 @@ struct ChatWindow: View {
         GetProteinContent()
         LogProteinIntake()
     }
-    ////        [STEP 3]. Ask the user for the quantity of food in terms of fist size or palm size. \
-    //        Do not ask for the quantity in grams. Estimate the protein content of food based on this information.
 
 //    @State var model: LLMOpenAI = .init(
 //        parameters: .init(

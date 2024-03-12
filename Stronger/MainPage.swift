@@ -56,9 +56,11 @@ struct EstimatePortionButton: View {
         Button(action: {
             showingPDF = true
         }) {
-            Text("Estimate Portion Size?")
-                
-                .font(.system(size: 10))
+            VStack{
+                Text("How to estimate").bold()
+                Text("portion size?").bold()
+            }
+                .font(.system(size: 11))
                 .padding()
                 .background(Color.green)
                 .foregroundColor(.white)
