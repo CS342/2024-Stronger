@@ -88,7 +88,7 @@ struct MainPage: View {
                             ProteinRing(fracComplete: fractionComplete)
                             Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", getdailyTargetProtein())) g")
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                        .frame(width: UIScreen.main.bounds.width * 0.40)
 //                        Spacer()
                         VStack(spacing: proteinVStackSpace) {
                             Text("Daily Protein")
