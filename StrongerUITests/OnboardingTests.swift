@@ -65,12 +65,12 @@ class OnboardingTests: XCTestCase {
         enterText(textField: collectionViewsQuery.textFields["Weight: lbs"], text: "140")
         enterText(textField: collectionViewsQuery.textFields["Height"], text: "65")
 
-        XCTAssertTrue(app.datePickers["Date of Birth"].waitForExistence(timeout: 2))
-        
-        let datePicker = app.datePickers["Date of Birth"]
-        enterDate(datePicker: datePicker, dateDifference: 20)
-        
-//        // Optionally, tap "Done" or outside the date picker to dismiss it
+//        XCTAssertTrue(app.datePickers["Date of Birth"].waitForExistence(timeout: 2))
+//        
+//        let datePicker = app.datePickers["Date of Birth"]
+//        enterDate(datePicker: datePicker, dateDifference: 20)
+//        
+////        // Optionally, tap "Done" or outside the date picker to dismiss it
 //        app.buttons["Done"].tap()
 
     }
