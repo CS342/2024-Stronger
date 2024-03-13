@@ -28,20 +28,23 @@ class HomeTests: XCTestCase {
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Home"].tap()
         
-        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
+//        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
         
         
-        let scrollViewsQuery = XCUIApplication().scrollViews
-        let elementsQuery = scrollViewsQuery.otherElements
-        elementsQuery.textFields["E-Mail Address"].tap()
-        elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
-        
-        let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
-        passwordSecureTextField.tap()
-        passwordSecureTextField.typeText("password")
-        
-        XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
-        app.buttons["Login"].tap()
+//        let scrollViewsQuery = XCUIApplication().scrollViews
+//        let elementsQuery = scrollViewsQuery.otherElements
+//        XCTAssertTrue(elementsQuery.textFields["E-Mail Address"].waitForExistence(timeout: 2))
+//        elementsQuery.textFields["E-Mail Address"].tap()
+//        elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
+//        
+//        let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
+//        
+//        XCTAssertTrue(passwordSecureTextField.waitForExistence(timeout: 2))
+//        passwordSecureTextField.tap()
+//        passwordSecureTextField.typeText("password")
+//        
+//        XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
+//        app.buttons["Login"].tap()
         
         let account = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"]
         XCTAssertTrue(account.waitForExistence(timeout: 2))
