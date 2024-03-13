@@ -18,7 +18,6 @@ class OnboardingTests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["--showOnboarding", "--useFirebaseEmulatr"]
         app.launch()
-//        app.deleteAndLaunch(withSpringboardAppName: "Stronger")
     }
 
     
@@ -76,31 +75,33 @@ class OnboardingTests: XCTestCase {
 
     }
     
-    func enterDate(datePicker: XCUIElement, dateDifference: Int) {
-        datePicker.tap()
-        
-        let calendar = Calendar.current
-        // Scroll to select the desired date components (year, month, day, etc.)
-        guard let selectedDate = calendar.date(byAdding: .year, value: -dateDifference, to: Date()) else {
-            XCTFail("Failed to calculate the desired date")
-            return
-        }
-        
-        let components = calendar.dateComponents([.year, .month, .day], from: selectedDate)
-        
-        let yearComponent = components.year
-        let monthComponent = components.month
-        let dayComponent = components.day
-        
-        // Adjust the date picker wheels to select the desired date
-        datePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "\(yearComponent)")
-        datePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(monthComponent)")
-        datePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "\(dayComponent)")
-    }
+
+//    func enterDate(datePicker: XCUIElement, dateDifference: Int) {
+//        datePicker.tap()
+//        
+//        let calendar = Calendar.current
+//        // Scroll to select the desired date components (year, month, day, etc.)
+//        guard let selectedDate = calendar.date(byAdding: .year, value: -dateDifference, to: Date()) else {
+//            XCTFail("Failed to calculate the desired date")
+//            return
+//        }
+//        
+//        let components = calendar.dateComponents([.year, .month, .day], from: selectedDate)
+//        
+//        let yearComponent = components.year
+//        let monthComponent = components.month
+//        let dayComponent = components.day
+//        
+//        // Adjust the date picker wheels to select the desired date
+//        datePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "\(yearComponent)")
+//        datePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "\(monthComponent)")
+//        datePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "\(dayComponent)")
+//    }
     
     func enterText(textField: XCUIElement, text: String) {
         // Tap on the text field to focus on it
-        textField.tap()
+       textField.tap()
+
         
         // Type the text into the text field
         textField.typeText(text)
