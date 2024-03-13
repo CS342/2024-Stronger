@@ -72,7 +72,7 @@ class LoggedInTests: XCTestCase {
         XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
         
-        app.buttons["Weekly Stats"].tap()
+        app.buttons["Workout 1"].tap()
         XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
     }
 }
