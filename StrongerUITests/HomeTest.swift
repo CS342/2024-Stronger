@@ -51,6 +51,7 @@ class HomeTests: XCTestCase {
                 
         account.tap()
 //        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
+        XCTAssertTrue(app.collectionViews.buttons["Name,E-Mail Address"].waitForExistence(timeout: 2))
         app.collectionViews.buttons["Name, E-Mail Address"].tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
 //        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Name, E-Mail Address"]/*[[".cells.buttons[\"Name, E-Mail Address\"]",".buttons[\"Name, E-Mail Address\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
