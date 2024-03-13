@@ -33,16 +33,17 @@ struct PickersSection: View {
 
     var body: some View {
         Section {
-            Picker("Select Resistance", selection: $selectedBand) {
+            Picker("Select Resistance", selection: $selectedBand)
+            {
                 ForEach(bands, id: \.self) { band in
                     Text(band).tag(band)
                 }
-            }
+            }.accessibilityIdentifier("Select Resistance")
             Picker("Select Difficulty", selection: $selectedDifficulty) {
                 ForEach(difficulties, id: \.self) { difficulty in
                     Text(difficulty).tag(difficulty)
                 }
-            }
+            }.accessibilityIdentifier("Select Difficulty")
         }
     }
 }
@@ -267,6 +268,7 @@ struct WorkoutInputForm: View {
                 Button("Submit") {
                     submitForm(forSet: setNumber)
                 }
+                .accessibilityIdentifier("Submit")
                 .disabled(numReps.isEmpty) // Disable the button if numReps is empty
                 Spacer()
             }
