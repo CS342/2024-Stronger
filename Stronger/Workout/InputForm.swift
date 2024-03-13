@@ -20,6 +20,7 @@ struct RepsInputSection: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numberPad)
                 .multilineTextAlignment(.center)
+                .accessibilityIdentifier("Reps")
         }
     }
 }
