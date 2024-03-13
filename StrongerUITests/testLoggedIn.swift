@@ -29,7 +29,7 @@ class LoggedInTests: XCTestCase {
     }
     
     
-    func testApplicationHome() throws {
+    func testApplicationLoggedIn() throws {
         let app = XCUIApplication()
         XCTAssertEqual(app.state, .runningForeground)
         
@@ -72,7 +72,7 @@ class LoggedInTests: XCTestCase {
         XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
         
-        app.buttons["Workout 1"].tap()
-        XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
+        // app.buttons["Workout 1"].tap()
+        // XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
     }
 }

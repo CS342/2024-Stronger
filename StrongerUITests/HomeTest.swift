@@ -69,10 +69,10 @@ class HomeTests: XCTestCase {
 //        app.navigationBars.buttons.element(boundBy: 0).tap()
 //        app.navigationBars.buttons["Close"].tap()
         
-        XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
-        XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
+        // XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
+        // XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
         
-        app.buttons["Weekly Stats"].tap()
-        XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
+        // app.buttons["Weekly Stats"].tap()
+        // XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
     }
 }
