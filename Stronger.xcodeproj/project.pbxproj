@@ -18,6 +18,7 @@
 		1E9330CD2B968BF900BC620A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330CC2B968BF900BC620A /* MobileNetV2.mlmodel */; };
 		1E9330CF2B968C0700BC620A /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330CE2B968C0700BC620A /* MobileNet.mlmodel */; };
 		1E9330D22B968FA800BC620A /* ChatWindowAfterCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330D12B968FA800BC620A /* ChatWindowAfterCamera.swift */; };
+		1EE815C52BA21E920035B81F /* SeeFood.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1EE815C42BA21E910035B81F /* SeeFood.mlmodel */; };
 		27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA298F2A388E9B009CAC45 /* ModalView.swift */; };
 		2F1AC9DF2B4E840E00C24973 /* Stronger.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2F1AC9DE2B4E840E00C24973 /* Stronger.docc */; };
 		2F3D4ABC2A4E7C290068FB2F /* SpeziScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3D4ABB2A4E7C290068FB2F /* SpeziScheduler */; };
@@ -171,6 +172,7 @@
 		1E9330CC2B968BF900BC620A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		1E9330CE2B968C0700BC620A /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		1E9330D12B968FA800BC620A /* ChatWindowAfterCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWindowAfterCamera.swift; sourceTree = "<group>"; };
+		1EE815C42BA21E910035B81F /* SeeFood.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SeeFood.mlmodel; sourceTree = "<group>"; };
 		27FA298F2A388E9B009CAC45 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		2F1AC9DE2B4E840E00C24973 /* Stronger.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Stronger.docc; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* LaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTests.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				63935E9A2B8C21C500ADB7D1 /* ProteinStats.swift */,
 				1E9330CA2B968B1800BC620A /* FoodClassifierApp.swift */,
 				1E9330CC2B968BF900BC620A /* MobileNetV2.mlmodel */,
+				1EE815C42BA21E910035B81F /* SeeFood.mlmodel */,
 				1E9330CE2B968C0700BC620A /* MobileNet.mlmodel */,
 			);
 			path = ProteinTracker;
@@ -831,6 +834,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE815C52BA21E920035B81F /* SeeFood.mlmodel in Sources */,
 				2FE5DC4129EDD7EE004B9AB4 /* StorageKeys.swift in Sources */,
 				2FE5DCB129EE6107004B9AB4 /* AccountOnboarding.swift in Sources */,
 				2F4FC8D729EE69D300BFFE26 /* MockUpload.swift in Sources */,
