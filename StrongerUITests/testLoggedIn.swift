@@ -37,6 +37,22 @@ class LoggedInTests: XCTestCase {
         app.tabBars["Tab Bar"].buttons["Home"].tap()
         
         app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
+        
+        let scrollViewsQuery = XCUIApplication().scrollViews
+        let elementsQuery = scrollViewsQuery.otherElements
+        XCTAssertTrue(elementsQuery.textFields["E-Mail Address"].waitForExistence(timeout: 2))
+        elementsQuery.textFields["E-Mail Address"].tap()
+        elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
+
+        let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
+
+        XCTAssertTrue(passwordSecureTextField.waitForExistence(timeout: 2))
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("password")
+
+        XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
+        
+        app.buttons["Login"].tap()
 //        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"]/*@START_MENU_TOKEN@*/.buttons["Your Account"]/*[[".otherElements[\"Your Account\"].buttons[\"Your Account\"]",".buttons[\"Your Account\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app.collectionViews.buttons["Name, E-Mail Address"].tap()
 //        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Name, E-Mail Address"]/*[[".cells.buttons[\"Name, E-Mail Address\"]",".buttons[\"Name, E-Mail Address\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
