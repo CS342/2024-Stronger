@@ -34,23 +34,23 @@ struct Welcome: View {
                     },
                     title: "WELCOME_AREA2_TITLE",
                     description: "WELCOME_AREA2_DESCRIPTION"
-                ),
-                OnboardingInformationView.Content(
-                    icon: {
-                        Image(systemName: "figure.run")
-                            .accessibilityHidden(true)
-                    },
-                    title: "WELCOME_AREA3_TITLE",
-                    description: "WELCOME_AREA3_DESCRIPTION"
-                ),
-                OnboardingInformationView.Content(
-                    icon: {
-                        Image(systemName: "list.bullet.clipboard.fill")
-                            .accessibilityHidden(true)
-                    },
-                    title: "WELCOME_AREA4_TITLE",
-                    description: "WELCOME_AREA4_DESCRIPTION"
                 )
+//                OnboardingInformationView.Content(
+//                    icon: {
+//                        Image(systemName: "figure.run")
+//                            .accessibilityHidden(true)
+//                    },
+//                    title: "WELCOME_AREA3_TITLE",
+//                    description: "WELCOME_AREA3_DESCRIPTION"
+//                ),
+//                OnboardingInformationView.Content(
+//                    icon: {
+//                        Image(systemName: "list.bullet.clipboard.fill")
+//                            .accessibilityHidden(true)
+//                    },
+//                    title: "WELCOME_AREA4_TITLE",
+//                    description: "WELCOME_AREA4_DESCRIPTION"
+//                )
             ],
             actionText: "WELCOME_BUTTON",
             action: {
