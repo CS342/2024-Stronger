@@ -46,7 +46,7 @@ class LoggedInTests: XCTestCase {
         let collectionViewsQuery = app.collectionViews
         collectionViewsQuery.staticTexts["Sign-In & Security"].tap()
 //        collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Sign-In & Security"]/*[[".cells",".buttons[\"Sign-In & Security\"].staticTexts[\"Sign-In & Security\"]",".staticTexts[\"Sign-In & Security\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-        //app.navigationBars["Sign-In & Security"].buttons["Account Overview"].tap()
+        // app.navigationBars["Sign-In & Security"].buttons["Account Overview"].tap()
         app.navigationBars["Sign-In & Security"].buttons["Account Overview"].tap()
         collectionViewsQuery.staticTexts["Date of Birth"].tap()
 //        collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Date of Birth"]/*[[".cells",".staticTexts[\"Date of Birth, Mar 3, 1994\"].staticTexts[\"Date of Birth\"]",".staticTexts[\"Date of Birth\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
