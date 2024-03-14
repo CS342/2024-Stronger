@@ -62,7 +62,7 @@ To determine the exercise it queries the firestore to see what exercises are the
 For example, if Day 1 consists of Squats, Pushups, Lunge Left and Lunge Right, there must be all 4 exercises for the workout to move onto the next date. 
 
 #### Workout Input
-
+The user can navigate to the Workout Input Form from the Workout Selection page. For whichever specific exercise they selected, they can input the reps, resistance, and difficulty for 3 Sets. They can also see which sets they might have already completed, and edit the information if necessary. The workout input form also has a thumbnail of the selected workout, which the user can click and be directed to the workout video for that exercise. The user can also pre-populate form with saved data from the last time they completed the current exercise.
 
 #### Workout Makeup Selection.
 If the user wants to submit a workout for a particular week or exercise day, They can navigate here and select the exact week and day. 
@@ -74,8 +74,9 @@ ProBot is a gpt-powered chatbot that logs in the user's protein intake. It perfo
 1. It asks the user what they had for their last meal and extracts the protein content for each food item based on its quantity. To do this, it utilizes an external nutrition API to get the protein content for each food item per 100 grams.
 2. It adds the total protein content from all the food items and logs in the total protein content for the meal. For this too, it makes use of function calling to store protein data for the meal into firestore.
 
-#### Protein intake via image recognition
 
+#### Protein intake via image recognition
+The protein intake via image recognition allows the user to click a picture of their meal to log in their protein intake. The app recognizes the food item, pre-populates the chatbot with the recognized food item and allows the user to log in their protein intake in a more hands-free manner. The user also has the option to edit the recognized food item in case the model misclassifies.
 
 ## Account details
 Account has been augmented to include a startdate, weight, and height. 
@@ -93,7 +94,14 @@ Logic for determining current week and curreent exercise day.
 Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
 Logic for storing and retrieving protein data from Firestore.
 
+Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
+Logic for storing and retrieving protein data from Firestore.
 
+Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
+
+Kevin: Food tracking via image recognition
+
+Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf
 
 ## License
 
