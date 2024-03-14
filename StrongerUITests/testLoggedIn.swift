@@ -1,4 +1,12 @@
 //
+//  testLoggedIn.swift
+//  StrongerUITests
+//
+//  Created by Theodore Kanell on 3/12/24.
+//
+
+import Foundation
+//
 // This source file is part of the Stronger based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
@@ -9,7 +17,7 @@
 import XCTest
 
 
-class HomeTests: XCTestCase {
+class LoggedInTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -21,7 +29,7 @@ class HomeTests: XCTestCase {
     }
     
     
-    func testApplicationHome() throws {
+    func testApplicationLoggedIn() throws {
         let app = XCUIApplication()
         XCTAssertEqual(app.state, .runningForeground)
         
@@ -37,6 +45,7 @@ class HomeTests: XCTestCase {
             XCTAssertTrue(elementsQuery.textFields["E-Mail Address"].waitForExistence(timeout: 2))
             elementsQuery.textFields["E-Mail Address"].tap()
             elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
+    //
             let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
 
             XCTAssertTrue(passwordSecureTextField.waitForExistence(timeout: 2))
@@ -44,36 +53,36 @@ class HomeTests: XCTestCase {
             UIPasteboard.general.string = "password"
             elementsQuery.secureTextFields["Password"].tap(withNumberOfTaps: 2, numberOfTouches: 1)
             passwordSecureTextField.typeText("password")
+//            app.menuItems["Paste"].tap()
+        //
             XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
+        //        
             app.buttons["Login"].tap()
-            let canClose = app.navigationBars.buttons["Close"].exists
-            if canClose {
-                app.navigationBars.buttons["Close"].tap()
-            }
         } else {
             app.navigationBars.buttons["Close"].tap()
         }
-
         
-        let account = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"]
-        XCTAssertTrue(account.waitForExistence(timeout: 2))
-                
-        account.tap()
-
-        XCTAssertTrue(app.collectionViews.staticTexts["Name, E-Mail Address"].waitForExistence(timeout: 2))
-        app.collectionViews.staticTexts["Name, E-Mail Address"].tap()
-
-        app.navigationBars.buttons.element(boundBy: 0).tap()
-
-        app.collectionViews.staticTexts["License Information"].tap()
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+       
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Home"].tap()
+        
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+       
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Home"].tap()
+        
+        XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
+        app.buttons["Weekly Stats"].tap()
+        XCTAssertTrue(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
         app.navigationBars.buttons.element(boundBy: 0).tap()
         
-        app.collectionViews.staticTexts["License Information"].tap()
-        app.navigationBars.buttons.element(boundBy: 0).tap()
-
-        app.navigationBars.buttons["Close"].tap()
-        
-         XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
-         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
+        let firstWorkout = app.buttons["Workout 1"].firstMatch
+        firstWorkout.tap()
+        // app.buttons["Workout 1"].tap()
+        // XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
     }
 }

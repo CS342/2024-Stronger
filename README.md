@@ -25,13 +25,54 @@ The CS342 2024 Stronger application is using the [Spezi](https://github.com/Stan
 
 *Provide a comprehensive description of your application, including figures showing the application. You can learn more on how to structure a README in the [Stanford Spezi Documentation Guide](https://swiftpackageindex.com/stanfordspezi/spezi/documentation/spezi/documentation-guide)*
 
+
+The Stronger App consists of three main screens. 
+
+
+
+Home, Workout, and Food Tracking. 
+
+### Home 
+#### Daily Protein
+#### Weekly Fitness Progress 
+The bottom half of the *Home* page is the weekly fitness progress. 
+It shows the current week and last week's progress.  If it is the first week for the participant, only one week will be shown. 
+THe three buttons will navigate to workout selection. 
+Each button has a text below that will show if the exercise day was on average "Easy", "Medium", "Hard" or of it is incomplete. 
+
+
+
+### Workout
+
+#### Workout selection
+For week selection We use the account information. See Account info for more details.
+To determine the exercise it queries the firestore to see what exercises are there. THere must be exercises for all workouts of a day for it to move onto the next exercise. 
+For example, if Day 1 consists of Squats, Pushups, Lunge Left and Lunge Right, there must be all 4 exercises for the workout to move onto the next date. 
+
+#### Workout Input
+
+
+#### Workout Makeup Selection.
+If the user wants to submit a workout for a particular week or exercise day, They can navigate here and select the exact week and day. 
+
+
+### Foodtracking
+
+
+## Account details
+Account has been augmented to include a startdate, weight, and height. 
+
+THe current week is determined by the amount of weeks from the Monday of the startdate selected. i.e. Monday is considered the start of a week. 
+
 > [!NOTE]  
 > Do you want to learn more about the Stanford Spezi Template Application and how to use, extend, and modify this application? Check out the [Stanford Spezi Template Application documentation](https://stanfordspezi.github.io/SpeziTemplateApplication)
 
 
 ## Contributing
 
-*Ensure that you add an adequate contribution section to this README.*
+Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
+Logic for determining current week and curreent exercise day. 
+
 
 
 ## License

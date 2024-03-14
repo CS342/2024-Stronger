@@ -56,7 +56,7 @@ class StrongerDelegate: SpeziAppDelegate {
                 healthKit
             }
             
-            StrongerScheduler()
+//            StrongerScheduler()
             OnboardingDataSource()
             
             LLMRunner {
