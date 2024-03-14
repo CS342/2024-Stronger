@@ -19,31 +19,34 @@ import SwiftUI
 import Vision
 
 struct ChatWindowAfterCamera: View {
-    private static let llmSchema: LLMOpenAISchema = .init(
+    private static let llmSchemaCamera: LLMOpenAISchema = .init(
         parameters: .init(
             modelType: .gpt3_5Turbo,
             systemPrompt: """
-            You are Pro-Chatbot. Your task is to confirm the food items logged by the user using a camera \
-            and proceed with logging their total protein intake.
+            You are Pro-bot. Your task is to estimate the protein content of the meal the user just \
+            recorded with images, and log in the user's total protein intake. \
+                    
+            You will approach this task in a step-by-step manner.\
+            
+            [STEP 1]. Process the [logged foods] list, if there are "_" in any strings or food, remove them and replace it with a space.
+            
+            [STEP 2]. Your first prompt should say: "These are the foods you logged with your camera: [logged foods]. Is this correct?"
 
-            [STEP 1]. Your first prompt should say: "These are the foods you logged with your camera: [logged foods]. Is this correct?"
-
-
-            [STEP 2]. Now for each food item in the list, call the "GetProteinContent" \
-            function to get its protein content.
-
-            [STEP 3]. Ask the user if the protein content for each food item is correct. Then, ask if \
-            the quantity of each item is correct. If not, prompt them to alter the number of each item, and \
-            for that quantity, multiply that individual item's protein content by the quantity.
-
-            [STEP 3]. Add the protein content of all the food items to get the total protein intake \
-            for the user. Ask the user if this total protein content seems correct (show the user the \
-            calculation breakdown. Ask the user if they want to add more food items.
-
-            [STEP 4]. If the user adds more food items, repeat the steps to compute the protein content\
+            [STEP 3]. Your next prompt will say "The protein content for the food is: [logged food]: [x] grams. \
+            Repeat for each food. To get the protein content, or each food item in the list, call the "get_protein_content" \
+            function to get its protein content. Do NOT ask the user for protein information. \
+            Estimate it yourself using information from the "get_protein_content" function. \
+            
+            [STEP 4]. You can ask the user for the quantity of food in terms of fist size or palm size. \
+            Do not ask the user for quantity in terms of grams. Estimate the protein content to the best of your ability. \
+            
+            [STEP 5]. Add the protein content of all the food items to get the total protein intake \
+            for the user. Ask the user if they want to add more food items.
+                    
+            [STEP 6]. If the user adds more food items, repeat the steps to compute the protein content\
             for every new food item and update the total protein intake.
-
-            [STEP 5]. If the user does not add new food items, call the "LogProteinIntake" function \
+            
+            [STEP 7]. If the user does not add new food items, call the "log_protein_content" function \
             to log in the total protein intake for the user. Once you have logged in the total protein \
             intake for the user, inform the user that their protein intake has been logged in \
             and end the conversation.
@@ -54,7 +57,7 @@ struct ChatWindowAfterCamera: View {
         LogProteinIntake()
     }
 
-    @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
+    @LLMSessionProvider(schema: Self.llmSchemaCamera) var session: LLMOpenAISession
     @State var showOnboarding = true
 
     var loggedFoodItems: [String]
@@ -67,7 +70,7 @@ struct ChatWindowAfterCamera: View {
             )
                 .navigationTitle("Pro-Bot")
                 .sheet(isPresented: $showOnboarding) {
-                    LLMOnboardingView(showOnboarding: $showOnboarding)
+                    LLMOnboardingViewCamera(showOnboarding: $showOnboarding)
                 }
                 .task {
                     session.context.removeAll()
