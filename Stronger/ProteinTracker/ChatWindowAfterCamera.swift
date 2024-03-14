@@ -55,7 +55,7 @@ struct ChatWindowAfterCamera: View {
     }
 
     @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
-    @State var showOnboarding = false
+    @State var showOnboarding = true
     
     var loggedFoodItems: [String]
     var body: some View {
