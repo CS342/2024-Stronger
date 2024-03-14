@@ -31,7 +31,10 @@ class OnboardingTests: XCTestCase {
             XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 2))
             app.buttons["Next"].tap()
         }
-        
+        let loggedIn = app.buttons["Logout"].exists
+        if loggedIn {
+            app.buttons["Logout"].tap()
+        }
 //        try app.buttons["Log out"].tap()
         
         XCTAssertTrue(app.buttons["Signup"].waitForExistence(timeout: 2))

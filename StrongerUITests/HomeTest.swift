@@ -61,10 +61,10 @@ class HomeTests: XCTestCase {
 
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
-        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["License Information"]/*[[".cells",".buttons[\"License Information\"].staticTexts[\"License Information\"]",".staticTexts[\"License Information\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.collectionViews.staticTexts["License Information"].tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
         
-        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["License Information"]/*[[".cells",".buttons[\"License Information\"].staticTexts[\"License Information\"]",".staticTexts[\"License Information\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.collectionViews.staticTexts["License Information"].tap()
         app.navigationBars.buttons.element(boundBy: 0).tap()
 
         app.navigationBars.buttons["Close"].tap()
