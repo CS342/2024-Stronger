@@ -103,6 +103,7 @@ ProBot is a gpt-powered chatbot that logs in the user's protein intake. It perfo
 ![image](https://github.com/CS342/2024-Stronger/assets/121056442/22372efa-0fe9-4f1e-8b18-aa213a8efbe7)
 
 #### Protein intake via image recognition
+The protein intake via image recognition allows the user to click a picture of their meal to log in their protein intake. The app recognizes the food item, pre-populates the chatbot with the recognized food item and allows the user to log in their protein intake in a more hands-free manner. The user also has the option to edit the recognized food item in case the model misclassifies.
 
 ## Account details
 
@@ -117,6 +118,10 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 ## Contributing
 Contributions to this project are welcome. Please make sure to read the contribution guidelines and the contributor covenant code of conduct first. You can find a list of contributors in the Contributors.md. 
+
+Kevin: Food tracking via image recognition
+
+Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf
 
 ## License
 
