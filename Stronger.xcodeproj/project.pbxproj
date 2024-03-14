@@ -112,6 +112,7 @@
 		653A2551283387FE005D4D48 /* Stronger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* Stronger.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* StrongerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* StrongerTests.swift */; };
+		7DB088162BA12ED40006A3AA /* InputFormTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB088152BA12ED40006A3AA /* InputFormTest.swift */; };
 		7DBE5D1F2B9A5AB7001C2E7C /* WorkoutSelections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBE5D1E2B9A5AB7001C2E7C /* WorkoutSelections.swift */; };
 		7DE98D812B69D96300449C81 /* InputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE98D802B69D96300449C81 /* InputForm.swift */; };
 		9733CFC62A8066DE001B7ABC /* SpeziOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE5DC8029EDD91D004B9AB4 /* SpeziOnboarding */; };
@@ -224,6 +225,7 @@
 		653A256128338800005D4D48 /* StrongerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongerTests.swift; sourceTree = "<group>"; };
 		653A256728338800005D4D48 /* StrongerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrongerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DB088152BA12ED40006A3AA /* InputFormTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormTest.swift; sourceTree = "<group>"; };
 		7DBE5D1E2B9A5AB7001C2E7C /* WorkoutSelections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelections.swift; sourceTree = "<group>"; };
 		7DE98D802B69D96300449C81 /* InputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputForm.swift; sourceTree = "<group>"; };
 		A9720E422ABB68CC00872D23 /* AccountSetupHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupHeader.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				40D4E4812B97CBB800261632 /* TapSwitchTest.swift */,
 				40D4E4832B97CD0A00261632 /* WorkoutTest.swift */,
 				4002F0AB2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift */,
+				7DB088152BA12ED40006A3AA /* InputFormTest.swift */,
 				4002F0AE2B9BAA2000AD3D47 /* OnboardingTests.swift */,
 				4089E9412BA14EC700DB051B /* testLoggedIn.swift */,
 				4084C2A82BA27FF200A6B8C3 /* LLMTests.swift */,
@@ -808,6 +811,7 @@
 				40D4E4822B97CBB800261632 /* TapSwitchTest.swift in Sources */,
 				4002F0AC2B9AFC4D00AD3D47 /* MissedWorkoutTest.swift in Sources */,
 				4089E9422BA14EC700DB051B /* testLoggedIn.swift in Sources */,
+				7DB088162BA12ED40006A3AA /* InputFormTest.swift in Sources */,
 				40D4E4842B97CD0A00261632 /* WorkoutTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
