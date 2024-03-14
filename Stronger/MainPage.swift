@@ -56,9 +56,11 @@ struct EstimatePortionButton: View {
         Button(action: {
             showingPDF = true
         }) {
-            Text("Estimate Portion Size?")
-                
-                .font(.system(size: 10))
+            VStack {
+                Text("How to estimate").bold()
+                Text("portion size?").bold()
+            }
+                .font(.system(size: 11))
                 .padding()
                 .background(Color.green)
                 .foregroundColor(.white)
@@ -88,7 +90,7 @@ struct MainPage: View {
                             ProteinRing(fracComplete: fractionComplete)
                             Text("\(String(format: "%.1f", currProtein)) g/ \(String(format: "%.1f", getdailyTargetProtein())) g")
                         }
-                        .frame(width: UIScreen.main.bounds.width * 0.45)
+                        .frame(width: UIScreen.main.bounds.width * 0.40)
 //                        Spacer()
                         VStack(spacing: proteinVStackSpace) {
                             Text("Daily Protein")

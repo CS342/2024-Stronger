@@ -20,6 +20,7 @@ struct RepsInputSection: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.numberPad)
                 .multilineTextAlignment(.center)
+                .accessibilityIdentifier("Reps")
         }
     }
 }
@@ -36,16 +37,57 @@ struct PickersSection: View {
                 ForEach(bands, id: \.self) { band in
                     Text(band).tag(band)
                 }
-            }
+            }.accessibilityIdentifier("Select Resistance")
             Picker("Select Difficulty", selection: $selectedDifficulty) {
                 ForEach(difficulties, id: \.self) { difficulty in
                     Text(difficulty).tag(difficulty)
                 }
-            }
+            }.accessibilityIdentifier("Select Difficulty")
         }
     }
 }
 
+struct SetsDisplayView: View {
+    let totalSets: Int
+    var completedSets: Set<Int>
+    var loggedSets: Set<Int>
+    @Binding var currentSet: Int
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                Spacer()
+                HStack(spacing: 20) {
+                    ForEach(1...totalSets, id: \.self) { idx in
+                        setCapsule(forSet: idx)
+                    }
+                }
+                Spacer()
+            }
+        }
+        .padding(.bottom)
+    }
+    
+    @ViewBuilder
+    private func setCapsule(forSet setNumber: Int) -> some View {
+        VStack {
+            HStack {
+                Text("Set \(setNumber)")
+                Image(systemName: completedSets.contains(setNumber) || loggedSets.contains(setNumber) ? "checkmark.circle.fill" : "xmark.circle")
+                    .accessibilityLabel(Text(completedSets.contains(setNumber) || loggedSets.contains(setNumber) ? "Complete" : "Incomplete"))
+                    .foregroundColor(completedSets.contains(setNumber) || loggedSets.contains(setNumber) ? .green : .red)
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .background(currentSet == setNumber ? Color.blue : Color.gray)
+            .foregroundColor(Color.white)
+            .clipShape(Capsule())
+            .onTapGesture {
+                self.currentSet = setNumber
+            }
+        }
+    }
+}
 
 struct WorkoutInputForm: View {
     struct WorkoutData: Codable {
@@ -71,7 +113,6 @@ struct WorkoutInputForm: View {
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
-    @State private var showAlert = false
     @State private var navigateToWorkoutSelection = false
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
@@ -85,10 +126,9 @@ struct WorkoutInputForm: View {
                 Text("Log \(workoutName)")
                     .font(.title)
                     .padding()
-                setsDisplay()
+                SetsDisplayView(totalSets: totalSets, completedSets: completedSets, loggedSets: loggedSets, currentSet: $currentSet)
                 formView(forSet: currentSet)
             }
-            .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToWorkoutSelection) {
                 WorkoutSelection(presentingAccount: $presentingAccount)
             }
@@ -101,22 +141,6 @@ struct WorkoutInputForm: View {
                 }
             }
         }
-//        .navigationBar BackButtonHidden(true)
-    }
-    
-    private var submissionAlert: Alert {
-        Alert(
-            title: Text("Great Job!"),
-            message: Text("Is this your last set for this exercise?"),
-            primaryButton: .destructive(Text("Yes")) {
-                navigateToWorkoutSelection = true
-            },
-            secondaryButton: .cancel(Text("No")) {
-                if currentSet < totalSets {
-                    currentSet += 1
-                }
-            }
-        )
     }
   
      init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
@@ -126,37 +150,6 @@ struct WorkoutInputForm: View {
          _selectedDay = State(initialValue: selectedDay)
      }
 
-    
-    private func setsDisplay() -> some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                Spacer()
-                Spacer()
-                HStack(spacing: 20) {
-                    ForEach(1...totalSets, id: \.self) { idx in
-                        VStack {
-                            HStack {
-                                Text("Set \(idx)")
-                                Image(systemName: completedSets.contains(idx) || loggedSets.contains(idx) ? "checkmark.circle.fill" : "xmark.circle")
-                                    .accessibilityLabel(Text("Incomplete"))
-                                    .foregroundColor(completedSets.contains(idx) || loggedSets.contains(idx) ? .green : .red)
-                            }
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(currentSet == idx ? Color.blue : Color.gray)
-                            .foregroundColor(Color.white)
-                            .clipShape(Capsule())
-                            .onTapGesture {
-                                self.currentSet = idx
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .padding(.bottom)
-    }
-    
     private func handleToggleChange(to newValue: Bool) {
         if newValue {
             loadPreviousWorkoutData()
@@ -188,6 +181,7 @@ struct WorkoutInputForm: View {
             print("User ID not available")
             return
         }
+        
         let currentUserID = details.accountId
         let date = Date()
         let exercise = workoutName
@@ -266,6 +260,7 @@ struct WorkoutInputForm: View {
                 Button("Submit") {
                     submitForm(forSet: setNumber)
                 }
+                .accessibilityIdentifier("Submit")
                 .disabled(numReps.isEmpty) // Disable the button if numReps is empty
                 Spacer()
             }
@@ -313,14 +308,14 @@ struct WorkoutInputForm: View {
     private func submitForm(forSet setNumber: Int) {
         Task {
             await uploadExerciseLog()
+            completedSets.insert(setNumber)
+            if setNumber >= totalSets {
+                navigateToWorkoutSelection = true
+            } else {
+                currentSet += 1
+            }
+            saveWorkoutData()
         }
-        completedSets.insert(setNumber)
-        if setNumber == 3 {
-            navigateToWorkoutSelection = true
-        } else {
-            showAlert = true
-        }
-        saveWorkoutData()
     }
 }
 

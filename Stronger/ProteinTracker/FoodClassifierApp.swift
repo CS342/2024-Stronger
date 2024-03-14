@@ -39,7 +39,7 @@ class ImageClassifier: ObservableObject {
             return
         }
 
-        guard let model = try? VNCoreMLModel(for: MobileNetV2().model) else {
+        guard let model = try? VNCoreMLModel(for: SeeFood().model) else {
             DispatchQueue.main.async {
                 self.classificationResults = "Failed to load model"
             }

@@ -45,7 +45,6 @@ struct WorkoutHome: View {
                 Text("Your current week is \(currentWeek ?? 1)")
                     .font(.headline)
                     .padding()
-                // ExerciseLogUploaderView()
                 Text("Please select week.")
                 firstSixWeeks
                 secondSixWeeks

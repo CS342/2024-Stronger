@@ -39,16 +39,6 @@
     "%@." : {
 
     },
-    "%lld g of your %lld g goal." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld g of your %2$lld g goal."
-          }
-        }
-      }
-    },
     "%lld inches" : {
 
     },
@@ -156,6 +146,9 @@
     "Commonly Saved Items" : {
 
     },
+    "Complete" : {
+
+    },
     "COMPLETED_TASK_LABEL %@" : {
       "localizations" : {
         "en" : {
@@ -259,9 +252,6 @@
         }
       }
     },
-    "Estimate Portion Size?" : {
-
-    },
     "Exercise named %@ not found" : {
 
     },
@@ -336,9 +326,6 @@
           }
         }
       }
-    },
-    "Great Job!" : {
-
     },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
@@ -421,6 +408,9 @@
     "How do you want to change your food option?" : {
 
     },
+    "How to estimate" : {
+
+    },
     "image" : {
 
     },
@@ -451,7 +441,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pro-ChatBot"
+            "value" : "Pro-Bot"
           }
         }
       }
@@ -477,6 +467,7 @@
       }
     },
     "INTERESTING_MODULES_AREA3_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -487,6 +478,7 @@
       }
     },
     "INTERESTING_MODULES_AREA3_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -497,6 +489,7 @@
       }
     },
     "INTERESTING_MODULES_AREA4_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -507,6 +500,7 @@
       }
     },
     "INTERESTING_MODULES_AREA4_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -546,9 +540,6 @@
           }
         }
       }
-    },
-    "Is this your last set for this exercise?" : {
-
     },
     "Large portion" : {
 
@@ -621,9 +612,6 @@
     "Next" : {
 
     },
-    "No" : {
-
-    },
     "No workout available" : {
 
     },
@@ -646,6 +634,9 @@
 
     },
     "Populate with previous workout data" : {
+
+    },
+    "portion size?" : {
 
     },
     "Pro-Bot" : {
@@ -826,9 +817,6 @@
     "Unable to load the PDF file." : {
 
     },
-    "Upload Exercise Log" : {
-
-    },
     "VALUE_ADD %@" : {
 
     },
@@ -902,6 +890,7 @@
       }
     },
     "WELCOME_AREA3_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -912,6 +901,7 @@
       }
     },
     "WELCOME_AREA3_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -922,6 +912,7 @@
       }
     },
     "WELCOME_AREA4_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -932,6 +923,7 @@
       }
     },
     "WELCOME_AREA4_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -985,9 +977,6 @@
 
     },
     "Workout Selection" : {
-
-    },
-    "Yes" : {
 
     },
     "You indicated: %@" : {
