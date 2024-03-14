@@ -34,13 +34,26 @@ Home, Workout, and Food Tracking.
 
 ### Home 
 #### Daily Protein
+The top half of the page features a ring to help the user track her protein intake for the day. 
+The ring fills up as protein gets logged in for the user and changes colour from red to orange to green corresponding to 3 levels of protein intake - 0-67%, 67%-99%, 100% of daily protein target met. 
+
+##### Weekly Stats 
+The Weekly Stats button takes the user to the Weekly Protein Intake Data page, allowing the user to take a look at their protein consumption over the last week. 
+It depicts data in the form of a bar graph with each bar showing the protein intake for a given day. 
+It also shows the 'average' daily protein intake for the week and the 'target' daily protein intake, helping the user understand how well they have been meeting their goals over the last 7 days. 
+
+##### Estimating portion size
+The "estimating portion size" button opens up a pdf with suggested ways in which the user can estimate the quantity of their meal while logging in their protein intake via the chatbot.
+
+##### Log more with ProBot
+This link is a shortcut to ProBot, the LLM-powered chatbot that logs in protein intake for the user.
+
+
 #### Weekly Fitness Progress 
 The bottom half of the *Home* page is the weekly fitness progress. 
 It shows the current week and last week's progress.  If it is the first week for the participant, only one week will be shown. 
 THe three buttons will navigate to workout selection. 
 Each button has a text below that will show if the exercise day was on average "Easy", "Medium", "Hard" or of it is incomplete. 
-
-
 
 ### Workout
 
@@ -57,7 +70,12 @@ If the user wants to submit a workout for a particular week or exercise day, The
 
 
 ### Foodtracking
+#### ProBot
+ProBot is a gpt-powered chatbot that logs in the user's protein intake. It performs two main tasks:
+1. It asks the user what they had for their last meal and extracts the protein content for each food item based on its quantity. To do this, it utilizes an external nutrition API to get the protein content for each food item per 100 grams.
+2. It adds the total protein content from all the food items and logs in the total protein content for the meal. For this too, it makes use of function calling to store protein data for the meal into firestore.
 
+#### Protein intake via image recognition
 
 ## Account details
 Account has been augmented to include a startdate, weight, and height. 
@@ -72,7 +90,11 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
 Logic for determining current week and curreent exercise day. 
-Mena: Creating Input Form, reading and writing data from Firestore
+
+Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
+Logic for storing and retrieving protein data from Firestore.
+
+Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
 
 ## License
 
