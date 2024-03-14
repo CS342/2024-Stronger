@@ -50,7 +50,7 @@ To determine the exercise it queries the firestore to see what exercises are the
 For example, if Day 1 consists of Squats, Pushups, Lunge Left and Lunge Right, there must be all 4 exercises for the workout to move onto the next date. 
 
 #### Workout Input
-
+The user can navigate to the Workout Input Form from the Workout Selection page. For whichever specific exercise they selected, they can input the reps, resistance, and difficulty for 3 Sets. They can also see which sets they might have already completed, and edit the information if necessary. The workout input form also has a thumbnail of the selected workout, which the user can click and be directed to the workout video for that exercise. The user can also pre-populate form with saved data from the last time they completed the current exercise.
 
 #### Workout Makeup Selection.
 If the user wants to submit a workout for a particular week or exercise day, They can navigate here and select the exact week and day. 
@@ -72,8 +72,7 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
 Logic for determining current week and curreent exercise day. 
-
-
+Mena: Creating Input Form, reading and writing data from Firestore
 
 ## License
 
