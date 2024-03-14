@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0F29852BA394ED008CC7D3 /* LLMOnboardingViewCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0F29842BA394ED008CC7D3 /* LLMOnboardingViewCamera.swift */; };
+		1E0F29872BA394FD008CC7D3 /* LLMOpenAITokenOnboardingCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0F29862BA394FD008CC7D3 /* LLMOpenAITokenOnboardingCamera.swift */; };
 		1E9330CB2B968B1800BC620A /* FoodClassifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330CA2B968B1800BC620A /* FoodClassifierApp.swift */; };
 		1E9330CD2B968BF900BC620A /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330CC2B968BF900BC620A /* MobileNetV2.mlmodel */; };
 		1E9330CF2B968C0700BC620A /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E9330CE2B968C0700BC620A /* MobileNet.mlmodel */; };
@@ -142,6 +144,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E0F29842BA394ED008CC7D3 /* LLMOnboardingViewCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOnboardingViewCamera.swift; sourceTree = "<group>"; };
+		1E0F29862BA394FD008CC7D3 /* LLMOpenAITokenOnboardingCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMOpenAITokenOnboardingCamera.swift; sourceTree = "<group>"; };
 		1E9330CA2B968B1800BC620A /* FoodClassifierApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodClassifierApp.swift; sourceTree = "<group>"; };
 		1E9330CC2B968BF900BC620A /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		1E9330CE2B968C0700BC620A /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 				1E9330D12B968FA800BC620A /* ChatWindowAfterCamera.swift */,
 				63A3157D2B6C760C00B6B9E4 /* LLMOnboardingView.swift */,
 				63A315802B6C7A3F00B6B9E4 /* LLMOpenAITokenOnboarding.swift */,
+				1E0F29842BA394ED008CC7D3 /* LLMOnboardingViewCamera.swift */,
+				1E0F29862BA394FD008CC7D3 /* LLMOpenAITokenOnboardingCamera.swift */,
 				6325F3922B830B9C00A31314 /* ProteinRing.swift */,
 				63935E9A2B8C21C500ADB7D1 /* ProteinStats.swift */,
 				1E9330CA2B968B1800BC620A /* FoodClassifierApp.swift */,
@@ -742,6 +748,7 @@
 				2FE5DCB129EE6107004B9AB4 /* AccountOnboarding.swift in Sources */,
 				38C4563E2B96CF3B009D69AA /* WorkoutHomeButton.swift in Sources */,
 				2FE5DC3A29EDD7CA004B9AB4 /* Welcome.swift in Sources */,
+				1E0F29852BA394ED008CC7D3 /* LLMOnboardingViewCamera.swift in Sources */,
 				4051334D2B8C8D5400ED62BA /* WorkoutHome.swift in Sources */,
 				2FE5DC3829EDD7CA004B9AB4 /* InterestingModules.swift in Sources */,
 				40EFC2A62B87DAD2006B3B59 /* Height.swift in Sources */,
@@ -777,6 +784,7 @@
 				566155292AB8447C00209B80 /* Package+LicenseType.swift in Sources */,
 				5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* StrongerDelegate.swift in Sources */,
+				1E0F29872BA394FD008CC7D3 /* LLMOpenAITokenOnboardingCamera.swift in Sources */,
 				405133482B8C808E00ED62BA /* WorkoutSelection.swift in Sources */,
 				405133572B8F332100ED62BA /* StartDate.swift in Sources */,
 				63935E9B2B8C21C500ADB7D1 /* ProteinStats.swift in Sources */,
