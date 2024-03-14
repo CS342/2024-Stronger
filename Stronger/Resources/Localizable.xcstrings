@@ -278,9 +278,6 @@
         }
       }
     },
-    "Great Job!" : {
-
-    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -486,6 +483,9 @@
     "Is this your last set for this exercise?" : {
 
     },
+    "Large portion" : {
+
+    },
     "Last Week's Fitness Progress\n" : {
 
     },
@@ -536,7 +536,10 @@
         }
       }
     },
-    "No" : {
+    "New Meal" : {
+
+    },
+    "Next" : {
 
     },
     "No workout available" : {
@@ -891,7 +894,7 @@
     "Workout Selection" : {
 
     },
-    "Yes" : {
+    "You indicated: %@" : {
 
     },
     "Your current week is %lld" : {
