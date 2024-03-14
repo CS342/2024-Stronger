@@ -38,7 +38,6 @@ class ProteinTests: XCTestCase {
         
         XCTAssert(app.staticTexts["OpenAI API Key"].waitForExistence(timeout: 2))
         XCTAssert(app.staticTexts["Pro-Bot"].waitForExistence(timeout: 2))
-        
     }
     
     func testImageRecognition() throws {
@@ -55,7 +54,5 @@ class ProteinTests: XCTestCase {
         
         app.buttons["Select or Take Picture"].waitForExistence(timeout: 2)
         app.buttons["Select or Take Picture"].tap()
-        
     }
-
 }
