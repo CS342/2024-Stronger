@@ -29,17 +29,16 @@ struct ProteinStats: View {
     @State private var averageWeeklyProtein: Double = 0.0
     @State private var strokeStyle = StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [4])
     @State private var weeklyData: [ProteinDataDaily] = []
-    
+
     @Environment(Account.self) var account
-    
+
     var body: some View {
         VStack {
             Text("Protein Intake Data")
                 .font(.title)
             Spacer()
             Spacer()
-            
-            
+
             Text("Protein intake in the last 7 days")
                 .font(.headline)
             Chart {
@@ -66,11 +65,11 @@ struct ProteinStats: View {
             .chartLegend(position: .bottom, spacing: 20)
             .chartForegroundStyleScale(["Daily target": Color.orange, "Weekly average": Color.pink])
             .frame(height: 300)
-            
+
             Spacer()
-            
+
             Text(getTextualSummary())
-            
+
             Spacer()
         }
         .padding()
@@ -81,7 +80,7 @@ struct ProteinStats: View {
             dailyTargetProtein = (try? await getdailyTargetProtein()) ?? 48.0
         }
     }
-    
+
     @MainActor
     private func getTextualSummary() -> String {
         let target = (dailyTargetProtein * 10).rounded() / 10
@@ -104,7 +103,7 @@ of protein per day this week.
             return "Hello, " + message
         }
     }
-    
+
     private func getLastWeekDates() -> [Date] {
         var calendar = Calendar(identifier: .gregorian)
         if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
@@ -121,7 +120,7 @@ of protein per day this week.
         }
         return dates.reversed()
     }
-    
+
     private func getUserID() -> String {
         if let currentUser = Auth.auth().currentUser {
             userID = currentUser.uid
@@ -131,7 +130,7 @@ of protein per day this week.
         }
         return userID
     }
-    
+
     private func getdailyTargetProtein() async throws -> Double {
         guard let details = try await account.details else {
             return dailyTargetProtein
@@ -143,22 +142,22 @@ of protein per day this week.
             return dailyTargetProtein
         }
     }
-    
+
     private func fetchDataFromFirestore() async throws {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateFormatterXLabel = DateFormatter()
         dateFormatterXLabel.dateFormat = "MM-dd"
-        
+
         let dates = getLastWeekDates()
         var calendar = Calendar(identifier: .gregorian)
         if let tzPST = TimeZone(identifier: "America/Los_Angeles") {
             calendar.timeZone = tzPST
         } else {
         }
-        
+
         userID = getUserID()
-        
+
         let collectionRef = Firestore.firestore().collection("users").document(userID).collection("ProteinIntake")
         print("Dates = \(dates)")
         for date in dates {
@@ -172,15 +171,15 @@ of protein per day this week.
             //            let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
             let startDateString = dateFormatter.string(from: startOfDay)
             let endDateString = dateFormatter.string(from: endOfDay)
-            
+
             let storeDateString = dateFormatterXLabel.string(from: startOfDay)
             var proteinContent = 0.0
-            
+
             let result = try await collectionRef
                 .whereField(FieldPath.documentID(), isGreaterThanOrEqualTo: startDateString)
                 .whereField(FieldPath.documentID(), isLessThan: endDateString)
                 .getDocuments()
- 
+
             for document in result.documents {
                 if let proteinContentString = document.data()["protein content"] as? String {
                     if let numericValue = proteinContentString.components(separatedBy: " ").first.flatMap(Double.init) {
@@ -188,12 +187,12 @@ of protein per day this week.
                     }
                 }
             }
-            
+
             print("Protein content value is \(proteinContent)")
             averageWeeklyProtein += (proteinContent / 7)
             weeklyData.append(.init(date: storeDateString, protein: proteinContent))
         }
-        
+
         weeklyData.sort { $0.date < $1.date }
     }
 }
