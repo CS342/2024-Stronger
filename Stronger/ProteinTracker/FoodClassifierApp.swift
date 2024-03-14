@@ -231,7 +231,7 @@ struct FoodClassifierApp: View {
     @State private var navigateToChatAfterCamera = false
 
     var body: some View {
-        NavigationStack {
+        // NavigationStack {
             VStack {
                 Spacer()
                 imageDisplay
@@ -259,7 +259,7 @@ struct FoodClassifierApp: View {
             }
             .alert(isPresented: $imageClassifier.showAlertAfterLog, content: logFoodAlert)
             .navigationTitle("Food Image Classifier")
-        }
+        // }
     }
     private var selectOrTakePictureButton: some View {
         Button("Select or Take Picture") {

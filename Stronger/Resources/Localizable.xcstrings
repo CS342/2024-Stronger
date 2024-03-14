@@ -109,9 +109,6 @@
         }
       }
     },
-    "Commonly Saved Items" : {
-
-    },
     "Complete" : {
 
     },
@@ -480,12 +477,6 @@
         }
       }
     },
-    "Is this your last set for this exercise?" : {
-
-    },
-    "Large portion" : {
-
-    },
     "Last Week's Fitness Progress\n" : {
 
     },
@@ -535,12 +526,6 @@
           }
         }
       }
-    },
-    "New Meal" : {
-
-    },
-    "Next" : {
-
     },
     "No workout available" : {
 
@@ -892,9 +877,6 @@
 
     },
     "Workout Selection" : {
-
-    },
-    "You indicated: %@" : {
 
     },
     "Your current week is %lld" : {
