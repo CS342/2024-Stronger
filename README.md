@@ -94,7 +94,7 @@ Logic for determining current week and curreent exercise day.
 Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
 Logic for storing and retrieving protein data from Firestore.
 
-Mena: Creating Input Form, reading and writing data from Firestore
+Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
 
 ## License
 
