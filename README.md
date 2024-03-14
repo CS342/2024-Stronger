@@ -64,7 +64,6 @@ This link is a shortcut to ProBot, the LLM-powered chatbot that logs in protein 
 
 ![A462DA9E-572A-4208-A5F7-267ABC2E0B68](https://github.com/CS342/2024-Stronger/assets/121056442/934f5334-2c74-49b0-bb44-0e6fd08eec1b)
 
-
 #### Weekly Fitness Progress 
 
 The bottom half of the *Home* page is the weekly fitness progress. 
@@ -100,7 +99,9 @@ ProBot is a gpt-powered chatbot that logs in the user's protein intake. It perfo
 1. It asks the user what they had for their last meal and extracts the protein content for each food item based on its quantity. To do this, it utilizes an external nutrition API to get the protein content for each food item per 100 grams.
 2. It adds the total protein content from all the food items and logs in the total protein content for the meal. For this too, it makes use of function calling to store protein data for the meal into firestore.
 
+
 ![image](https://github.com/CS342/2024-Stronger/assets/121056442/22372efa-0fe9-4f1e-8b18-aa213a8efbe7)
+
 
 #### Protein intake via image recognition
 The protein intake via image recognition allows the user to click a picture of their meal to log in their protein intake. The app recognizes the food item, pre-populates the chatbot with the recognized food item and allows the user to log in their protein intake in a more hands-free manner. The user also has the option to edit the recognized food item in case the model misclassifies.
@@ -109,7 +110,7 @@ The protein intake via image recognition allows the user to click a picture of t
 
 Account has been augmented to include a startdate, weight, and height. 
 
-THe current week is determined by the amount of weeks from the Monday of the startdate selected. i.e. Monday is considered the start of a week. 
+The current week is determined by the amount of weeks from the Monday of the startdate selected. i.e. Monday is considered the start of a week. 
 ![image](https://github.com/CS342/2024-Stronger/assets/121056442/c62e4e74-6446-4972-abd9-fce3f19b7975)
 
 > [!NOTE]  
@@ -117,11 +118,21 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 
 ## Contributing
-Contributions to this project are welcome. Please make sure to read the contribution guidelines and the contributor covenant code of conduct first. You can find a list of contributors in the Contributors.md. 
+
+Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
+Logic for determining current week and curreent exercise day. 
+
+Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
+Logic for storing and retrieving protein data from Firestore.
+
+Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
+Logic for storing and retrieving protein data from Firestore.
+
+Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
 
 Kevin: Food tracking via image recognition
 
-Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf
+Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf, image recognition
 
 ## License
 
