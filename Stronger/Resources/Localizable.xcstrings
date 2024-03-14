@@ -29,9 +29,6 @@
     "%lld inches" : {
 
     },
-    "%lld kg" : {
-
-    },
     "%lld lbs" : {
 
     },
@@ -253,10 +250,8 @@
         }
       }
     },
-    "Goal Resistance" : {
-
-    },
     "GOAL_RESISTANCE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

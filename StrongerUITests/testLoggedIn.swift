@@ -61,7 +61,18 @@ class LoggedInTests: XCTestCase {
         } else {
             app.navigationBars.buttons["Close"].tap()
         }
+        
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
        
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Home"].tap()
+        
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Workout"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+       
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
+        app.tabBars["Tab Bar"].buttons["Home"].tap()
         
         XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
         app.buttons["Weekly Stats"].tap()
