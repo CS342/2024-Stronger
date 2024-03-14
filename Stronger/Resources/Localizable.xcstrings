@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "[%lld] grams of protein" : {
-
-    },
     "%@" : {
 
     },
@@ -16,16 +13,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ g/ %2$@ g"
-          }
-        }
-      }
-    },
-    "%@, [%lld] g of protein" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@, [%2$lld] g of protein"
           }
         }
       }
@@ -40,9 +27,6 @@
 
     },
     "%lld inches" : {
-
-    },
-    "%lld kg" : {
 
     },
     "%lld lbs" : {
@@ -99,19 +83,7 @@
         }
       }
     },
-    "Are you logging a new or saved meal?" : {
-
-    },
     "Average Protein Intake" : {
-
-    },
-    "Change Food" : {
-
-    },
-    "Change Portion Size" : {
-
-    },
-    "Change Protein Content" : {
 
     },
     "Choose an option" : {
@@ -120,13 +92,7 @@
     "Choose from Library" : {
 
     },
-    "Choose From Your Common foods" : {
-
-    },
     "Classification" : {
-
-    },
-    "Click an item image to edit or next to continue" : {
 
     },
     "Close" : {
@@ -150,6 +116,7 @@
 
     },
     "COMPLETED_TASK_LABEL %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -170,6 +137,7 @@
       }
     },
     "CONTACTS_NAVIGATION_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -233,12 +201,6 @@
     "Edit Classification" : {
 
     },
-    "Edit Meal Content" : {
-
-    },
-    "Edit Saved Meal" : {
-
-    },
     "Enter Missed Workout" : {
 
     },
@@ -273,19 +235,10 @@
     "Finish Logging" : {
 
     },
-    "Food" : {
-
-    },
-    "Food Change Options" : {
-
-    },
     "Food Image Classifier" : {
 
     },
     "Food Logged" : {
-
-    },
-    "food name placeholder" : {
 
     },
     "Food Tracking" : {
@@ -303,10 +256,8 @@
         }
       }
     },
-    "Goal Resistance" : {
-
-    },
     "GOAL_RESISTANCE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -388,12 +339,6 @@
     "Hello %@" : {
 
     },
-    "Hello, World!" : {
-
-    },
-    "Home" : {
-
-    },
     "HOME_TAB_TITLE" : {
       "comment" : "MARK: - Home",
       "localizations" : {
@@ -405,9 +350,6 @@
         }
       }
     },
-    "How do you want to change your food option?" : {
-
-    },
     "How to estimate" : {
 
     },
@@ -415,9 +357,6 @@
 
     },
     "Incomplete" : {
-
-    },
-    "Input New Food to Chat" : {
 
     },
     "Input with Camera" : {
@@ -541,6 +480,9 @@
         }
       }
     },
+    "Is this your last set for this exercise?" : {
+
+    },
     "Large portion" : {
 
     },
@@ -569,9 +511,6 @@
     "Log more with ProBot!" : {
 
     },
-    "Lunch 02/05/2024" : {
-
-    },
     "Male" : {
 
     },
@@ -585,15 +524,6 @@
           }
         }
       }
-    },
-    "meal picture" : {
-
-    },
-    "Meal Report Placeholder" : {
-
-    },
-    "Medium portion" : {
-
     },
     "MICHAEL_BAIOCCHI_BIO" : {
       "extractionState" : "manual",
@@ -615,9 +545,6 @@
     "No workout available" : {
 
     },
-    "Nutrition" : {
-
-    },
     "OK" : {
 
     },
@@ -625,9 +552,6 @@
 
     },
     "Please select week." : {
-
-    },
-    "Please select which saved meal to log" : {
 
     },
     "Please sign-in to continue your Stronger journey" : {
@@ -655,9 +579,6 @@
         }
       }
     },
-    "Protein Content" : {
-
-    },
     "Protein intake (grams)" : {
 
     },
@@ -680,16 +601,11 @@
     "Reps" : {
 
     },
-    "Save Changes" : {
-
-    },
     "Save Classification" : {
 
     },
-    "Saved Meal" : {
-
-    },
     "SCHEDULE_LIST_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -711,9 +627,6 @@
     "Select Resistance" : {
 
     },
-    "Select Saved Meal" : {
-
-    },
     "Select Week to input results" : {
 
     },
@@ -732,9 +645,6 @@
           }
         }
       }
-    },
-    "Small portion" : {
-
     },
     "START_DATE_TITLE" : {
       "localizations" : {
@@ -762,6 +672,7 @@
 
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -772,6 +683,7 @@
       }
     },
     "TASK_CONTEXT_ACTION_TEST" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -782,6 +694,7 @@
       }
     },
     "TASK_LABEL %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -792,6 +705,7 @@
       }
     },
     "TASK_NEW_QUESTIONNAIRE_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -802,6 +716,7 @@
       }
     },
     "TASK_NEW_QUESTIONNAIRE_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

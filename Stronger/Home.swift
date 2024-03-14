@@ -83,8 +83,8 @@ struct HomeView: View {
     
     return HomeView()
         .previewWith(standard: StrongerStandard()) {
-            StrongerScheduler()
-            MockWebService()
+//            StrongerScheduler()
+//            MockWebService()
             AccountConfiguration(building: details, active: MockUserIdPasswordAccountService())
         }
 }
@@ -93,8 +93,8 @@ struct HomeView: View {
     CommandLine.arguments.append("--disableFirebase") // make sure the MockWebService is displayed
     return HomeView()
         .previewWith(standard: StrongerStandard()) {
-            StrongerScheduler()
-            MockWebService()
+//            StrongerScheduler()
+//            MockWebService()
             AccountConfiguration {
                 MockUserIdPasswordAccountService()
             }

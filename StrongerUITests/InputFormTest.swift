@@ -43,6 +43,7 @@ class InputFormTest: XCTestCase {
         XCTAssertTrue(repsTextField.exists, "The reps text field does not exist.")
         repsTextField.tap()
         repsTextField.typeText("10")
+        XCTAssertTrue(repsTextField.waitForExistence(timeout: 2), "The 'reps' button does not exist.")
         XCTAssertEqual(repsTextField.value as? String, "10", "The reps text field does not contain the expected text '10'.")
         
         let submitButton = app.buttons["Submit"]

@@ -16,7 +16,7 @@ import SwiftUI
 /// Displays an multi-step onboarding flow for the Stronger.
 struct OnboardingFlow: View {
     @Environment(HealthKit.self) private var healthKitDataSource
-    @Environment(StrongerScheduler.self) private var scheduler
+//    @Environment(StrongerScheduler.self) private var scheduler
 
     @AppStorage(StorageKeys.onboardingFlowComplete) private var completedOnboardingFlow = false
         
@@ -62,7 +62,7 @@ struct OnboardingFlow: View {
                 MockUserIdPasswordAccountService()
             }
 
-            StrongerScheduler()
+//            StrongerScheduler()
         }
 }
 #endif

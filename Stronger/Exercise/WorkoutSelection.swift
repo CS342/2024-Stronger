@@ -375,12 +375,6 @@ extension String {
     }
 }
 
-extension String {
-    func removingNonAlphabeticCharacters3() -> String {
-        self.filter { $0.isLetter }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutSelection(presentingAccount: .constant(false), selectedWeek: nil)
