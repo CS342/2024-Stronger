@@ -58,6 +58,5 @@ class InputFormTest: XCTestCase {
         
         let tipsView = app.staticTexts["Play the video to see how to do Squats!"] // Use the actual identifier or part of the tips text
         XCTAssertTrue(tipsView.waitForExistence(timeout: 2), "The tips view does not exist.")
-        //XCTAssertTrue(tipsViewExists, "Tips are not displayed.")
     }
 }
