@@ -28,51 +28,48 @@ class HomeTests: XCTestCase {
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Home"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Home"].tap()
         
-//        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
+        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
         
-        
-//        let scrollViewsQuery = XCUIApplication().scrollViews
-//        let elementsQuery = scrollViewsQuery.otherElements
-//        XCTAssertTrue(elementsQuery.textFields["E-Mail Address"].waitForExistence(timeout: 2))
-//        elementsQuery.textFields["E-Mail Address"].tap()
-//        elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
-//        
-//        let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
-//        
-//        XCTAssertTrue(passwordSecureTextField.waitForExistence(timeout: 2))
-//        passwordSecureTextField.tap()
-//        passwordSecureTextField.typeText("password")
-//        
-//        XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
-//        app.buttons["Login"].tap()
+        let notLoggedIn = app.staticTexts["Please sign-in to continue your Stronger journey"].exists
+        if notLoggedIn {
+            let scrollViewsQuery = XCUIApplication().scrollViews
+            let elementsQuery = scrollViewsQuery.otherElements
+            XCTAssertTrue(elementsQuery.textFields["E-Mail Address"].waitForExistence(timeout: 2))
+            elementsQuery.textFields["E-Mail Address"].tap()
+            elementsQuery.textFields["E-Mail Address"].typeText("tak@g.com")
+            let passwordSecureTextField = elementsQuery.secureTextFields["Password"]
+
+            XCTAssertTrue(passwordSecureTextField.waitForExistence(timeout: 2))
+            passwordSecureTextField.tap()
+            UIPasteboard.general.string = "password"
+            elementsQuery.secureTextFields["Password"].tap(withNumberOfTaps: 2, numberOfTouches: 1)
+            passwordSecureTextField.typeText("password")
+            XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
+            app.buttons["Login"].tap()
+        } else {
+            app.navigationBars.buttons["Close"].tap()
+        }
+
         
         let account = app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"]
         XCTAssertTrue(account.waitForExistence(timeout: 2))
                 
         account.tap()
-//        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"].buttons["Your Account"].tap()
-//        XCTAssertTrue(app.collectionViews.buttons["Name,E-Mail Address"].waitForExistence(timeout: 2))
-//        app.collectionViews.buttons["Name, E-Mail Address"].tap()
-//        app.navigationBars.buttons.element(boundBy: 0).tap()
-////        app.collectionViews/*@START_MENU_TOKEN@*/.buttons["Name, E-Mail Address"]/*[[".cells.buttons[\"Name, E-Mail Address\"]",".buttons[\"Name, E-Mail Address\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        
-////        app.navigationBars["Name, E-Mail Address"].buttons["Account Overview"].tap()
-//        
-//        let collectionViewsQuery = app.collectionViews
-//        collectionViewsQuery.staticTexts["Sign-In & Security"].tap()
-//        app.navigationBars.buttons.element(boundBy: 0).tap()
-//
-//        collectionViewsQuery.staticTexts["Date of Birth"].tap()
-////        app.navigationBars.buttons.element(boundBy: 0).tap()
-//        
-//        collectionViewsQuery.staticTexts["License Information"].tap()
-//        app.navigationBars.buttons.element(boundBy: 0).tap()
-//        app.navigationBars.buttons["Close"].tap()
+
+        XCTAssertTrue(app.collectionViews.staticTexts["Name, E-Mail Address"].waitForExistence(timeout: 2))
+        app.collectionViews.staticTexts["Name, E-Mail Address"].tap()
+
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+
+        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["License Information"]/*[[".cells",".buttons[\"License Information\"].staticTexts[\"License Information\"]",".staticTexts[\"License Information\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars.buttons.element(boundBy: 0).tap()
         
-        // XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
-        // XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
+        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["License Information"]/*[[".cells",".buttons[\"License Information\"].staticTexts[\"License Information\"]",".staticTexts[\"License Information\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.navigationBars.buttons.element(boundBy: 0).tap()
+
+        app.navigationBars.buttons["Close"].tap()
         
-        // app.buttons["Weekly Stats"].tap()
-        // XCTAssert(app.staticTexts["Protein Intake Data"].waitForExistence(timeout: 2))
+         XCTAssertTrue(app.buttons["Weekly Stats"].waitForExistence(timeout: 2))
+         XCTAssertTrue(app.buttons["Workout 1"].waitForExistence(timeout: 2))
     }
 }
