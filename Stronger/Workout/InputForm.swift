@@ -277,6 +277,7 @@ struct WorkoutInputForm: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 315)
                         .clipped()
+                        .accessibilityIdentifier("WorkoutThumbnail")
                 }
             } else {
                 Image(imageName, label: Text("Workout"))
@@ -284,6 +285,7 @@ struct WorkoutInputForm: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 315)
                     .clipped()
+                    .accessibilityIdentifier("WorkoutThumbnail")
             }
         }
     }
