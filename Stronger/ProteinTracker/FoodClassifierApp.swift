@@ -7,7 +7,7 @@
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
 // SPDX-License-Identifier: MIT
-//s
+// s
 
 import Combine
 import CoreML
@@ -168,7 +168,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
     var imageClassifier: ImageClassifier
     var sourceType: UIImagePickerController.SourceType
     @Environment(\.presentationMode) var presentationMode
-    
+
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
@@ -244,7 +244,7 @@ struct FoodClassifierApp: View {
                     nextStepOptions
                 }
                 Spacer()
-                
+
                 NavigationLink(
                     destination: ChatWindowAfterCamera(
                         loggedFoodItems: imageClassifier.loggedFoodItems

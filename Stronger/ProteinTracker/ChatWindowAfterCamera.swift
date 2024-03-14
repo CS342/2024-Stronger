@@ -56,7 +56,7 @@ struct ChatWindowAfterCamera: View {
 
     @LLMSessionProvider(schema: Self.llmSchema) var session: LLMOpenAISession
     @State var showOnboarding = true
-    
+
     var loggedFoodItems: [String]
     var body: some View {
         let greetingMessage: String = "These are the foods you logged with your camera: \(loggedFoodItems.joined(separator: ", ")). Is this correct?"
