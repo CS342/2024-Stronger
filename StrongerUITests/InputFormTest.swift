@@ -49,5 +49,11 @@ class InputFormTest: XCTestCase {
         let submitButton = app.buttons["Submit"]
         XCTAssertTrue(submitButton.isEnabled)
         submitButton.tap()
+        
+        let thumbnailImage = app.images["WorkoutThumbnail"]
+        XCTAssertTrue(thumbnailImage.waitForExistence(timeout: 2), "The thumbnail does not exist.")
+        
+        // Simulate a tap on the thumbnail image
+        thumbnailImage.tap()
     }
 }
