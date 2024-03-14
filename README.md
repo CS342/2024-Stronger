@@ -49,7 +49,7 @@ For week selection We use the account information. See Account info for more det
 To determine the exercise it queries the firestore to see what exercises are there. THere must be exercises for all workouts of a day for it to move onto the next exercise. 
 For example, if Day 1 consists of Squats, Pushups, Lunge Left and Lunge Right, there must be all 4 exercises for the workout to move onto the next date. 
 
-#### Workout INput
+#### Workout Input
 
 
 #### Workout Makeup Selection.
@@ -70,7 +70,9 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 ## Contributing
 
-*Ensure that you add an adequate contribution section to this README.*
+Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
+Logic for determining current week and curreent exercise day. 
+
 
 
 ## License
