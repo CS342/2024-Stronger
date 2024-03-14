@@ -138,7 +138,6 @@ struct WorkoutVideoView: View {
             
             TipsView(tips: exercise.tips)
                 .frame(maxWidth: .infinity)
-                .accessibilityIdentifier("Tips View")
         }
         .padding()
     }
