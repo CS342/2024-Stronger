@@ -113,7 +113,6 @@ struct WorkoutInputForm: View {
     @State private var selectedDifficulty: String = "Easy"
     let difficulties = ["Easy", "Medium", "Hard"]
     @State private var currentSet: Int = 1
-    @State private var showAlert = false
     @State private var navigateToWorkoutSelection = false
     @State private var totalSets: Int = 3
     @State private var completedSets = Set<Int>()
@@ -130,7 +129,6 @@ struct WorkoutInputForm: View {
                 SetsDisplayView(totalSets: totalSets, completedSets: completedSets, loggedSets: loggedSets, currentSet: $currentSet)
                 formView(forSet: currentSet)
             }
-            .alert(isPresented: $showAlert) { submissionAlert }
             .navigationDestination(isPresented: $navigateToWorkoutSelection) {
                 WorkoutSelection(presentingAccount: $presentingAccount)
             }
@@ -143,22 +141,6 @@ struct WorkoutInputForm: View {
                 }
             }
         }
-//        .navigationBar BackButtonHidden(true)
-    }
-    
-    private var submissionAlert: Alert {
-        Alert(
-            title: Text("Great Job!"),
-            message: Text("Is this your last set for this exercise?"),
-            primaryButton: .destructive(Text("Yes")) {
-                navigateToWorkoutSelection = true
-            },
-            secondaryButton: .cancel(Text("No")) {
-                if currentSet < totalSets {
-                    currentSet += 1
-                }
-            }
-        )
     }
   
      init(workoutName: String, presentingAccount: Binding<Bool>, selectedWeek: Int, selectedDay: Int) {
@@ -199,6 +181,7 @@ struct WorkoutInputForm: View {
             print("User ID not available")
             return
         }
+        
         let currentUserID = details.accountId
         let date = Date()
         let exercise = workoutName
@@ -325,14 +308,14 @@ struct WorkoutInputForm: View {
     private func submitForm(forSet setNumber: Int) {
         Task {
             await uploadExerciseLog()
+            completedSets.insert(setNumber)
+            if setNumber >= totalSets {
+                navigateToWorkoutSelection = true
+            } else {
+                currentSet += 1
+            }
+            saveWorkoutData()
         }
-        completedSets.insert(setNumber)
-        if setNumber == 3 {
-            navigateToWorkoutSelection = true
-        } else {
-            showAlert = true
-        }
-        saveWorkoutData()
     }
 }
 

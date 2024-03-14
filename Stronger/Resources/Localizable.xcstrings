@@ -327,9 +327,6 @@
         }
       }
     },
-    "Great Job!" : {
-
-    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
         "en" : {
@@ -544,9 +541,6 @@
         }
       }
     },
-    "Is this your last set for this exercise?" : {
-
-    },
     "Large portion" : {
 
     },
@@ -616,9 +610,6 @@
 
     },
     "Next" : {
-
-    },
-    "No" : {
 
     },
     "No workout available" : {
@@ -986,9 +977,6 @@
 
     },
     "Workout Selection" : {
-
-    },
-    "Yes" : {
 
     },
     "You indicated: %@" : {
