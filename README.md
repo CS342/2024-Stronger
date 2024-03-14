@@ -48,7 +48,6 @@ The "estimating portion size" button opens up a pdf with suggested ways in which
 ##### Log more with ProBot
 This link is a shortcut to ProBot, the LLM-powered chatbot that logs in protein intake for the user.
 
-
 #### Weekly Fitness Progress 
 The bottom half of the *Home* page is the weekly fitness progress. 
 It shows the current week and last week's progress.  If it is the first week for the participant, only one week will be shown. 
@@ -75,6 +74,7 @@ ProBot is a gpt-powered chatbot that logs in the user's protein intake. It perfo
 1. It asks the user what they had for their last meal and extracts the protein content for each food item based on its quantity. To do this, it utilizes an external nutrition API to get the protein content for each food item per 100 grams.
 2. It adds the total protein content from all the food items and logs in the total protein content for the meal. For this too, it makes use of function calling to store protein data for the meal into firestore.
 
+
 #### Protein intake via image recognition
 The protein intake via image recognition allows the user to click a picture of their meal to log in their protein intake. The app recognizes the food item, pre-populates the chatbot with the recognized food item and allows the user to log in their protein intake in a more hands-free manner. The user also has the option to edit the recognized food item in case the model misclassifies.
 
@@ -91,6 +91,8 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
 Logic for determining current week and curreent exercise day. 
+Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
+Logic for storing and retrieving protein data from Firestore.
 
 Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
 Logic for storing and retrieving protein data from Firestore.
