@@ -16,7 +16,7 @@ class OnboardingTests: XCTestCase {
         continueAfterFailure = false
         
         let app = XCUIApplication()
-        app.launchArguments = ["--showOnboarding", "--useFirebaseEmulatr"]
+        app.launchArguments = ["--showOnboarding", "--useFirebaseEmulator"]
         app.launch()
     }
 
