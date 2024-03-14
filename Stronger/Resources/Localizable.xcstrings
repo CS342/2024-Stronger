@@ -39,16 +39,6 @@
     "%@." : {
 
     },
-    "%lld g of your %lld g goal." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld g of your %2$lld g goal."
-          }
-        }
-      }
-    },
     "%lld inches" : {
 
     },
@@ -154,6 +144,9 @@
       }
     },
     "Commonly Saved Items" : {
+
+    },
+    "Complete" : {
 
     },
     "COMPLETED_TASK_LABEL %@" : {
@@ -831,9 +824,6 @@
 
     },
     "Unable to load the PDF file." : {
-
-    },
-    "Upload Exercise Log" : {
 
     },
     "VALUE_ADD %@" : {
