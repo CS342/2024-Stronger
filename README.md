@@ -76,6 +76,7 @@ ProBot is a gpt-powered chatbot that logs in the user's protein intake. It perfo
 2. It adds the total protein content from all the food items and logs in the total protein content for the meal. For this too, it makes use of function calling to store protein data for the meal into firestore.
 
 #### Protein intake via image recognition
+The protein intake via image recognition allows the user to click a picture of their meal to log in their protein intake. The app recognizes the food item, pre-populates the chatbot with the recognized food item and allows the user to log in their protein intake in a more hands-free manner. The user also has the option to edit the recognized food item in case the model misclassifies.
 
 ## Account details
 Account has been augmented to include a startdate, weight, and height. 
@@ -95,6 +96,10 @@ Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Pag
 Logic for storing and retrieving protein data from Firestore.
 
 Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
+
+Kevin: Food tracking via image recognition
+
+Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf
 
 ## License
 
