@@ -46,6 +46,10 @@ class HomeTests: XCTestCase {
             passwordSecureTextField.typeText("password")
             XCTAssertTrue(app.buttons["Login"].waitForExistence(timeout: 2))
             app.buttons["Login"].tap()
+            let canClose = app.navigationBars.buttons["Close"].exists
+            if canClose {
+                app.navigationBars.buttons["Close"].tap()
+            }
         } else {
             app.navigationBars.buttons["Close"].tap()
         }
