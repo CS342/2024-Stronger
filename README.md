@@ -91,15 +91,14 @@ THe current week is determined by the amount of weeks from the Monday of the sta
 
 Theo: Augmenting Account. Weekly summary on Home Page. Workout Selection, Workout day and week selection.
 Logic for determining current week and curreent exercise day. 
-Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
-Logic for storing and retrieving protein data from Firestore.
 
 Tulika: ProBot (chatbot for logging in protein intake). Protein ring on Home Page. Weekly Stats view for weekly protein intake.
 Logic for storing and retrieving protein data from Firestore.
 
 Mena: Creating Input Form for user to submit workout information, reading and writing data from Firestore
 
-Kevin: Food tracking via image recognition
+Kevin: Food tracking via image recognition, includes creating CoreML Image Recognition model from scratch, Chatbot version to fetch
+and store protein data following image recognition. Also created SavedMeals workflow (scrapped)
 
 Yanav: Worked on the Workout Video view, thumbnails for different workouts, added the button for the portion size pdf
 
