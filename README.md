@@ -1,4 +1,4 @@
-![image](https://github.com/CS342/2024-Stronger/assets/121056442/901a7d82-9c32-448a-8f5e-088d535356bf)<!--
+<!--
 
 This source file is part of the Stronger based on the Stanford Spezi Template Application project
 
@@ -19,6 +19,8 @@ The CS342 2024 Stronger application is using the [Spezi](https://github.com/Stan
 
 > [!NOTE]  
 > Do you want to try out the CS342 2024 Stronger application? You can download it to your iOS device using [TestFlight](https://testflight.apple.com/join/7jyDe6Hm)!
+## Overview
+The CS342 Stronger Application provides a way to track protein intake and resistance exercise training in postmenopausal Stanford research participants. Participants can use Stronger to track these two critical behaviors by: Inputting progressive resistance training metrics, inputting their food intake, and viewing their progress compared to their custom workout and protein goals.
 
 
 ## CS342 2024 Stronger Features
