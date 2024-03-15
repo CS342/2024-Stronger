@@ -1,5 +1,3 @@
-![image](https://github.com/CS342/2024-Stronger/assets/121056442/901a7d82-9c32-448a-8f5e-088d535356bf)<!--
-
 This source file is part of the Stronger based on the Stanford Spezi Template Application project
 
 SPDX-FileCopyrightText: 2023 Stanford University
